@@ -12,7 +12,42 @@
   const toggle = qs('.menu-toggle');
   const nav = qs('.nav');
   if (toggle && nav) {
-    toggle.addEventListener('click', () => nav.classList.toggle('show'));
+    // Create backdrop for mobile menu
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    const setExpanded = (open) => {
+      if (open) {
+        nav.classList.add('show');
+        backdrop.classList.add('show');
+        document.body.classList.add('no-scroll');
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        nav.classList.remove('show');
+        backdrop.classList.remove('show');
+        document.body.classList.remove('no-scroll');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    toggle.addEventListener('click', () => {
+      const open = !nav.classList.contains('show');
+      setExpanded(open);
+    });
+
+    // Close when clicking a nav link (useful on small screens)
+    nav.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (!a) return;
+      setExpanded(false);
+    });
+    // Close when tapping backdrop
+    backdrop.addEventListener('click', () => setExpanded(false));
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setExpanded(false);
+    });
   }
 
   // Highlight active nav link based on current path

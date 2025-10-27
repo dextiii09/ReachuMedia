@@ -99,9 +99,15 @@ img, video { max-width: 100%; display: block; }
 .menu-toggle { display:none; background:none; border:0; font-size:26px; }
 @media (max-width: 860px) {
   .nav { position: fixed; inset: 68px 0 auto 0; background:#ffffff; border-bottom:1px solid var(--line); padding:14px 20px; display:none; flex-direction:column; gap:8px; }
+  /* Larger tap targets and clearer items on mobile */
+  .nav a { padding: 12px 12px; font-size: 16px; }
   .nav.show { display:flex; }
   .menu-toggle { display:block; }
 }
+
+/* Backdrop for mobile nav (shown only when menu is open) */
+.nav-backdrop { position: fixed; inset: 68px 0 0 0; background: rgba(0,0,0,.32); z-index: 999; display:none; }
+.nav-backdrop.show { display:block; }
 
 /* Buttons */
 .btn {
@@ -278,3 +284,19 @@ body.loaded .hero h1::after { transform: scaleX(1); }
 .chatbot-footer { display:flex; gap:8px; padding:10px; border-top:1px solid var(--line); background:#fff; }
 .chatbot-input { flex:1; padding:10px 12px; border:1px solid var(--line); border-radius: 10px; font: inherit; }
 .chatbot-send { padding:10px 12px; border:0; border-radius: 10px; background: var(--accent); color:#fff; cursor:pointer; }
+
+/* Prevent body scroll when mobile nav is open */
+body.no-scroll { overflow: hidden; }
+
+/* Mobile fine-tuning */
+@media (max-width: 600px) {
+  .section { padding: 56px 0; }
+  .hero { padding: 72px 0 40px; }
+  .grid { gap: 20px; }
+  .header .inner { height: 60px; }
+  /* Align mobile fixed nav to updated header height */
+  .nav { inset: 60px 0 auto 0; }
+  /* When header shrinks on very small screens, adjust backdrop and nav start */
+  .nav-backdrop { inset: 60px 0 0 0; }
+  .brand .name { font-size: 16px; }
+}
