@@ -192,6 +192,8 @@ img, video { max-width: 100%; display: block; }
 .footer a:hover { color: var(--accent); }
 /* Keep both emails on a single line in footer */
 .footer .footer-email { white-space: nowrap; }
+/* But allow wrapping on the Contact page list to avoid overflow on mobile */
+.contact-item .footer-email { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
 
 /* Contact page enhancements */
 .contact-items { display:grid; gap:8px; margin: 8px 0 12px; }
