@@ -55,6 +55,64 @@ img, video { max-width: 100%; display: block; }
 @media (max-width: 900px) {
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
 }
+.insta-follow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  color: #fff !important;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.02em;
+  text-decoration: none !important;
+  position: relative;
+  transition: box-shadow .18s ease, transform .18s ease, opacity .12s ease;
+  background: linear-gradient(90deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.insta-follow-link:focus, .insta-follow-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.17);
+}
+.insta-svg { flex: 0 0 22px; border-radius: 6px; }
+.insta-text { display:inline-block; white-space:nowrap; }
+.insta-arrow { font-size:1.05em; transition: transform .16s ease; }
+.insta-follow-link:hover .insta-arrow { transform: translateX(6px); }
+.insta-follow-link { transition: box-shadow .18s ease, transform .18s ease, opacity .12s ease; }
+.insta-follow-link .insta-arrow { transition: transform .16s ease; }
+
+/* Animated gradient border and hover ripple for the follow box */
+.insta-follow-box { position: relative; display:flex; justify-content:center; align-items:center; padding:18px 12px; max-width:520px; margin: 0 auto 28px; border-radius:22px; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.04); }
+.insta-follow-box::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; border-radius: 22px;
+  padding: 2px; /* creates space for inner content */
+  background: linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  opacity: .18;
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+.insta-follow-box:hover::before { opacity: .28; transform: scale(1.02); }
+.insta-follow-box .insta-follow-link { position: relative; z-index: 2; }
+
+/* pulse on the icon to draw attention */
+@keyframes pulseIcon { 0% { transform: scale(1); opacity:1 } 50% { transform: scale(1.08); opacity:.95 } 100% { transform: scale(1); opacity:1 } }
+.insta-svg { animation: pulseIcon 3s ease-in-out infinite; }
+
+/* subtle entrance for embed cards (works with .reveal.show) */
+.artist-embed-card { transform-origin: center; will-change: transform, box-shadow, opacity; }
+.artist-embed-card { transform: translateY(12px) scale(.995); opacity: 0; }
+.reveal.show.artist-embed-card { transition: transform .6s cubic-bezier(.2,.9,.2,1), opacity .6s ease, box-shadow .4s ease; transform: translateY(0) scale(1); opacity:1; }
+
+/* add soft overlay glow on hover to embeds */
+.artist-embed-card:hover .artist-embed-frame { box-shadow: 0 18px 40px rgba(37,99,235,0.18); transform: translateY(-6px); }
+.artist-embed-frame { transition: box-shadow .28s ease, transform .28s ease; }
+
+/* make the follow box CTA slightly larger on mobile for easier tap */
+@media (max-width: 600px) {
+  .insta-follow-link { padding: 12px 20px; font-size: 1.06em; }
+  .insta-follow-box { padding: 18px 0 14px 0; }
+}
 
 /* Header / Nav */
 .header {

@@ -282,3 +282,6 @@
     document.body.appendChild(panel);
   } catch(e) { /* noop */ }
 })();
+
+// Follow CTA: no animation — let the anchor behave normally
+// (Removed slide-to-open interception so the link opens instantly.)
