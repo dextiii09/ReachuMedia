@@ -95,6 +95,18 @@ img, video { max-width: 100%; display: block; }
 .insta-follow-box:hover::before { opacity: .28; transform: scale(1.02); }
 .insta-follow-box .insta-follow-link { position: relative; z-index: 2; }
 
+/* Brand Spotlight CTA override: white card-style button for dark background */
+.insta-follow-box .btn {
+  background: #ffffff;
+  color: #0b1220;
+  border: 0;
+  box-shadow: 0 8px 22px rgba(2,6,23,0.12);
+  padding: 10px 18px;
+  font-weight: 700;
+  border-radius: 12px;
+}
+.insta-follow-box .btn:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(2,6,23,0.18); }
+
 /* pulse on the icon to draw attention */
 @keyframes pulseIcon { 0% { transform: scale(1); opacity:1 } 50% { transform: scale(1.08); opacity:.95 } 100% { transform: scale(1); opacity:1 } }
 .insta-svg { animation: pulseIcon 3s ease-in-out infinite; }
