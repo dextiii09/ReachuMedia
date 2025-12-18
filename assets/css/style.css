@@ -97,15 +97,15 @@ img, video { max-width: 100%; display: block; }
 
 /* Brand Spotlight CTA override: white card-style button for dark background */
 .insta-follow-box .btn {
-  background: #ffffff;
-  color: #0b1220;
+  background: linear-gradient(90deg, #ff7ab6 0%, #ff4da6 100%);
+  color: #ffffff;
   border: 0;
-  box-shadow: 0 8px 22px rgba(2,6,23,0.12);
+  box-shadow: 0 10px 30px rgba(255,77,166,0.14);
   padding: 10px 18px;
   font-weight: 700;
   border-radius: 12px;
 }
-.insta-follow-box .btn:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(2,6,23,0.18); }
+.insta-follow-box .btn:hover { transform: translateY(-3px); box-shadow: 0 22px 56px rgba(255,77,166,0.18); }
 
 /* pulse on the icon to draw attention */
 @keyframes pulseIcon { 0% { transform: scale(1); opacity:1 } 50% { transform: scale(1.08); opacity:.95 } 100% { transform: scale(1); opacity:1 } }
