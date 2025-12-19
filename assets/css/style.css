@@ -1,3 +1,18 @@
+/* Unique button style for Minimalist Case Study in portfolio */
+.btn-minimalist-case {
+  background: #ff9800 !important; /* orange */
+  color: #fff !important;
+  border: 2px solid #ff9800;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+  padding: 12px 18px;
+  border-radius: 12px;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-minimalist-case:hover {
+  background: #fb8c00 !important;
+  border-color: #fb8c00;
+}
 /* ReachUp Media - Global Styles */
 /* Fonts: Poppins (headings), Inter (body) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
