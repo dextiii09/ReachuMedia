@@ -197,9 +197,9 @@ img, video { max-width: 100%; display: block; }
 /* Ensure .btn-primary is visible on dark backgrounds */
 .section.dark .btn-primary,
 .section.dark .btn-primary:visited {
-  background: #fff !important;
-  color: var(--accent) !important;
-  border: 2px solid var(--accent);
+  background: #ff4da6 !important; /* dark pink */
+  color: #fff !important;
+  border: 2px solid #ff4da6;
 }
 
 /* Hero */
