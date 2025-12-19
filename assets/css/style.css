@@ -270,7 +270,7 @@ img, video { max-width: 100%; display: block; }
 .media-thumb img[src*="dheer-official-3"] { object-position: 50% 25%; }
 
 /* Footer */
-.footer { border-top:1px solid var(--line); padding: 26px 0; color:#fff; background: var(--accent); }
+.footer { border-top:1px solid var(--line); padding: 26px 0; color:#6b7280; background: #fff; }
 .footer .grid { align-items:center; }
 /* Keep both emails on a single line in footer */
 .footer .footer-email { white-space: nowrap; }
