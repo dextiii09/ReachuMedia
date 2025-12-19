@@ -1,3 +1,9 @@
+.footer a[href^="tel:"],
+.footer a[href*="instagram"],
+.footer a[href*="linkedin"] {
+  color: #111 !important;
+  font-weight: bold !important;
+}
 .footer .footer-email a,
 .footer a[href^="mailto:"],
 .footer a[href^="tel:"],
