@@ -1,8 +1,8 @@
 /* Unique button style for Minimalist Case Study in portfolio */
 .btn-minimalist-case {
-  background: #ff9800 !important; /* orange */
+  background: linear-gradient(90deg, var(--accent), #3b82f6) !important;
   color: #fff !important;
-  border: 2px solid #ff9800;
+  border: none;
   font-weight: 700;
   box-shadow: var(--shadow-md);
   padding: 12px 18px;
@@ -10,8 +10,7 @@
   transition: background 0.2s, color 0.2s;
 }
 .btn-minimalist-case:hover {
-  background: #fb8c00 !important;
-  border-color: #fb8c00;
+  background: linear-gradient(90deg, #3b82f6, var(--accent)) !important;
 }
 /* ReachUp Media - Global Styles */
 /* Fonts: Poppins (headings), Inter (body) */
