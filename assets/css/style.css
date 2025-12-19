@@ -194,6 +194,14 @@ img, video { max-width: 100%; display: block; }
 .nav a.btn-primary:visited { color: #ffffff !important; }
 .btn-ghost { background: #eef2ff; color:#1e40af; }
 
+/* Ensure .btn-primary is visible on dark backgrounds */
+.section.dark .btn-primary,
+.section.dark .btn-primary:visited {
+  background: #fff !important;
+  color: var(--accent) !important;
+  border: 2px solid var(--accent);
+}
+
 /* Hero */
 .hero { padding: 100px 0 60px; }
 .hero h1 { font-family:Poppins, Inter, sans-serif; font-size: clamp(34px, 5vw, 54px); line-height:1.1; margin: 8px 0 14px; }
