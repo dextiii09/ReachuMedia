@@ -81,7 +81,7 @@ img, video { max-width: 100%; display: block; }
   text-decoration: none !important;
   position: relative;
   transition: box-shadow .18s ease, transform .18s ease, opacity .12s ease;
-  background: linear-gradient(90deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  background: var(--accent);
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 .insta-follow-link:focus, .insta-follow-link:hover {
