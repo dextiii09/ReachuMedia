@@ -1,3 +1,18 @@
+.footer .footer-email a,
+.footer a[href^="mailto:"],
+.footer a[href^="tel:"],
+.footer a[href*="instagram"],
+.footer a[href*="linkedin"] {
+  transition: color 0.2s, transform 0.18s cubic-bezier(.4,1.3,.6,1.0);
+}
+.footer .footer-email a:hover,
+.footer a[href^="mailto:"]:hover,
+.footer a[href^="tel:"]:hover,
+.footer a[href*="instagram"]:hover,
+.footer a[href*="linkedin"]:hover {
+  color: var(--accent) !important;
+  transform: scale(1.08);
+}
 /* Unique button style for Minimalist Case Study in portfolio */
 .btn-minimalist-case {
   background: linear-gradient(90deg, var(--accent), #3b82f6) !important;
