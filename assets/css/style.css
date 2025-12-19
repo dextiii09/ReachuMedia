@@ -274,6 +274,10 @@ img, video { max-width: 100%; display: block; }
 .footer .grid { align-items:center; }
 /* Keep both emails on a single line in footer */
 .footer .footer-email { white-space: nowrap; }
+.footer .footer-email, .footer .footer-email a, .footer a[href^="mailto:"], .footer a[href^="tel:"], .footer a[href*="instagram"], .footer a[href*="linkedin"] {
+  color: #111 !important;
+  font-weight: bold !important;
+}
 /* But allow wrapping on the Contact page list to avoid overflow on mobile */
 .contact-item .footer-email { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
 
