@@ -96,17 +96,9 @@ img, video { max-width: 100%; display: block; }
 .insta-follow-link .insta-arrow { transition: transform .16s ease; }
 
 /* Animated gradient border and hover ripple for the follow box */
-.insta-follow-box { position: relative; display:flex; justify-content:center; align-items:center; padding:18px 12px; max-width:520px; margin: 0 auto 28px; border-radius:22px; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.04); }
-.insta-follow-box::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 0; border-radius: 22px;
-  padding: 2px; /* creates space for inner content */
-  background: linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
-  opacity: .18;
-  transition: opacity .25s ease, transform .25s ease;
-  pointer-events: none;
-}
-.insta-follow-box:hover::before { opacity: .28; transform: scale(1.02); }
+.insta-follow-box { position: relative; display:flex; justify-content:center; align-items:center; padding:18px 12px; max-width:520px; margin: 0 auto 28px; border-radius:22px; background: #fff; border: 1px solid rgba(0,0,0,0.04); }
+.insta-follow-box::before { display: none !important; }
+.insta-follow-box:hover::before { display: none !important; }
 .insta-follow-box .insta-follow-link { position: relative; z-index: 2; }
 
 /* Brand Spotlight CTA override: white card-style button for dark background */
