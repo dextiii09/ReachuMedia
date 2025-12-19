@@ -223,8 +223,8 @@
       if (!t) return "Could you share a bit more? For example: services, pricing, or how to contact us.";
       const hit = kb.find(item => item.q.some(re => re.test(t)));
       if (hit) return hit.a;
-      // fallback: soft guidance
-      return "I’m a simple helper bot. Try asking about services, pricing, contact, or Dheer Official. Or email us at suraj@reachupmedia.in.";
+      // fallback: more helpful
+      return "I'm your ReachUp Assistant! Try asking about services, pricing, contact, or Dheer Official. For anything else, email us at suraj@reachupmedia.in or use the contact form. 😊";
     };
 
     // UI
@@ -259,19 +259,33 @@
       body.scrollTop = body.scrollHeight;
     };
 
+    // Typing indicator
+    const showTyping = () => {
+      const typing = document.createElement('div');
+      typing.className = 'chatbot-msg bot typing';
+      typing.textContent = 'Typing...';
+      body.appendChild(typing);
+      body.scrollTop = body.scrollHeight;
+      return typing;
+    };
+
     const onSend = () => {
       const val = (input.value||'').trim();
       if (!val) return;
       addMsg(val, 'user');
       input.value = '';
-      setTimeout(() => addMsg(ask(val), 'bot'), 200);
+      const typing = showTyping();
+      setTimeout(() => {
+        typing.remove();
+        addMsg(ask(val), 'bot');
+      }, 600);
     };
 
     toggle.addEventListener('click', () => {
       panel.classList.toggle('show');
       if (panel.classList.contains('show') && !panel.dataset.greeted) {
         panel.dataset.greeted = '1';
-        addMsg("Hi! I can answer quick questions about services, pricing, and contact. Type your question below.");
+        addMsg("👋 Hi! I'm your ReachUp Assistant. Ask me about services, pricing, or how to contact us. Type your question below!");
       }
     });
     closeBtn.addEventListener('click', () => panel.classList.remove('show'));
