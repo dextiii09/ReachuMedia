@@ -1,3 +1,15 @@
+@media (max-width: 600px) {
+  .card h3,
+  #services .card h3,
+  #services .card h3 *,
+  .section.dark .grid .card.reveal h3 {
+    font-size: 1.15em;
+    font-weight: 900 !important;
+    letter-spacing: 0.01em;
+    line-height: 1.18;
+    margin-bottom: 8px;
+  }
+}
 /* Force white background for Minimalist Skincare Approach and KPI cards */
 .section.dark .grid .card.reveal {
   background: #fff !important;
