@@ -1,3 +1,10 @@
+/* Force white background for Minimalist Skincare Approach and KPI cards */
+.section.dark .grid .card.reveal {
+  background: #fff !important;
+  color: #0b1220 !important;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 6px 32px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
+}
 /* Force white background for Minimalist Skincare case study cards */
 #pdf-viewer-section.section.dark .card,
 .section.dark .grid .card {
