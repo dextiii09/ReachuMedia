@@ -442,7 +442,12 @@ img, video { max-width: 100%; display: block; }
 
 /* Home: What We Do section specific override */
 #services .card h3 { color: #000000 !important; }
-#services .card { color: #0b1220; background:#ffffff; }
+#services .card {
+  color: #0b1220;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 6px 32px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
+}
 #services .card h3 {
   -webkit-text-fill-color: #000000;
   mix-blend-mode: normal;
