@@ -1,3 +1,8 @@
+/* Force white background for Minimalist Skincare case study cards */
+#pdf-viewer-section.section.dark .card,
+.section.dark .grid .card {
+  background: #fff !important;
+}
 /* --- PDF Viewer Section Animation --- */
 .pdf-viewer-section {
   position: fixed;
