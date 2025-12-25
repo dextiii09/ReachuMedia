@@ -1,3 +1,40 @@
+  // --- PDF Viewer Modal Logic ---
+  function setupPDFViewer() {
+    const pdfSection = document.getElementById('pdf-viewer-section');
+    const pdfIframe = document.getElementById('pdf-iframe');
+    const closeBtn = document.getElementById('close-pdf-viewer');
+    if (!pdfSection || !pdfIframe || !closeBtn) return;
+    // Open PDF
+    document.querySelectorAll('.btn-case-study').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const pdf = btn.getAttribute('data-pdf');
+        if (!pdf) return;
+        pdfIframe.src = pdf;
+        pdfSection.style.display = 'flex';
+        setTimeout(() => pdfSection.classList.add('show'), 10);
+        document.body.classList.add('no-scroll');
+      });
+    });
+    // Close PDF
+    closeBtn.addEventListener('click', function() {
+      pdfSection.classList.remove('show');
+      setTimeout(() => {
+        pdfSection.style.display = 'none';
+        pdfIframe.src = '';
+        document.body.classList.remove('no-scroll');
+      }, 350);
+    });
+    // Close on overlay click (outside container)
+    pdfSection.addEventListener('click', function(e) {
+      if (e.target === pdfSection) closeBtn.click();
+    });
+    // Close on Escape key
+    window.addEventListener('keydown', function(e) {
+      if (pdfSection.style.display === 'flex' && (e.key === 'Escape' || e.keyCode === 27)) closeBtn.click();
+    });
+  }
+  window.addEventListener('DOMContentLoaded', setupPDFViewer);
 // ReachUp Media - Interactions
 (function() {
   const qs = (s, el=document) => el.querySelector(s);
@@ -165,7 +202,7 @@
         const message = qs('[name="message"]', form)?.value ?? '';
         const subject = encodeURIComponent(`New enquiry from ${name}`);
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-  const recipients = 'suraj@reachupmedia.in,dhruv@reachupmedia.in';
+  const recipients = 'suraj@reachupmedia.in,let's_talk@reachupmedia.in';
   const mail = `mailto:${recipients}?subject=${subject}&body=${body}`;
         window.location.href = mail;
       }
@@ -211,7 +248,7 @@
   try {
     const kb = [
       { q: [/service|offer|what.*do.*you.*do|work.*with/i], a: "We help with Influencer Campaigns, Brand Collaborations, Artist & Band Management, Content/UGC, and Social Media Marketing. Check Services for details." },
-      { q: [/contact|email|mail/i], a: "You can email us at suraj@reachupmedia.in or dhruv@reachupmedia.in. We usually reply within 24 hours." },
+      { q: [/contact|email|mail/i], a: "You can email us at suraj@reachupmedia.in or let's_talk@reachupmedia.in. We usually reply within 24 hours." },
       { q: [/phone|call|number|whatsapp/i], a: "Call/WhatsApp: +91 7973043372. We’re available during business hours IST." },
       { q: [/dheer|artist|band/i], a: "Dheer Official — a contemporary artist for college fests, corporate events, and concerts. See highlights in Portfolio or Instagram @dheerofficial_." },
       { q: [/price|pricing|cost|rate/i], a: "Pricing depends on scope, creators, and deliverables. Share your brief via Contact — we’ll send a tailored proposal." },

@@ -43,7 +43,7 @@ Or use VS Code's Live Server extension (recommended on Windows).
 - Netlify/Vercel: drag-and-drop or connect the repo; build command not required (static).
 
 ## Contact
-- Email: suraj@reachupmedia.in / dhruv@reachupmedia.in
+- Email: suraj@reachupmedia.in / let's_talk@reachupmedia.in
 - Phone: +91 7973043372
 - Instagram: @reachup__media
 - Location: India (Pan-India operations)
