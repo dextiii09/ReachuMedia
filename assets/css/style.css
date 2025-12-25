@@ -451,7 +451,13 @@ img, video { max-width: 100%; display: block; }
 /* Cards */
 .card { background: var(--card); border:1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); transition: transform .2s ease, box-shadow .2s ease; }
 .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.card h3 { margin: 4px 0 8px; font-family:Poppins, Inter, sans-serif; color:#000000 !important; font-weight:700; }
+.card h3 {
+  margin: 4px 0 8px;
+  font-family: Poppins, Inter, sans-serif;
+  color: #000000 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.01em;
+}
 .card p { color: var(--muted); margin:0; }
 
 /* Ensure headings inside cards are readable on dark sections */
@@ -476,6 +482,7 @@ img, video { max-width: 100%; display: block; }
   color: #000000 !important;
   -webkit-text-fill-color: #000000 !important;
   filter: none !important;
+  font-weight: 900 !important;
 }
 .section.dark .card { color: var(--text); }
 
