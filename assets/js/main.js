@@ -202,7 +202,7 @@
         const message = qs('[name="message"]', form)?.value ?? '';
         const subject = encodeURIComponent(`New enquiry from ${name}`);
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-  const recipients = 'suraj@reachupmedia.in,let's_talk@reachupmedia.in';
+  const recipients = 'suraj@reachupmedia.in,letstalk@reachupmedia.in';
   const mail = `mailto:${recipients}?subject=${subject}&body=${body}`;
         window.location.href = mail;
       }
@@ -248,7 +248,7 @@
   try {
     const kb = [
       { q: [/service|offer|what.*do.*you.*do|work.*with/i], a: "We help with Influencer Campaigns, Brand Collaborations, Artist & Band Management, Content/UGC, and Social Media Marketing. Check Services for details." },
-      { q: [/contact|email|mail/i], a: "You can email us at suraj@reachupmedia.in or let's_talk@reachupmedia.in. We usually reply within 24 hours." },
+      { q: [/contact|email|mail/i], a: "You can email us at suraj@reachupmedia.in or letstalk@reachupmedia.in. We usually reply within 24 hours." },
       { q: [/phone|call|number|whatsapp/i], a: "Call/WhatsApp: +91 7973043372. We’re available during business hours IST." },
       { q: [/dheer|artist|band/i], a: "Dheer Official — a contemporary artist for college fests, corporate events, and concerts. See highlights in Portfolio or Instagram @dheerofficial_." },
       { q: [/price|pricing|cost|rate/i], a: "Pricing depends on scope, creators, and deliverables. Share your brief via Contact — we’ll send a tailored proposal." },
