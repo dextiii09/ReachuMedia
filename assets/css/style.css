@@ -157,6 +157,11 @@ main.main-glass, .main-glass, .card {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
+
+/* Force white background for What We Do cards */
+#services.section.dark .card {
+  background: #fff !important;
+}
 .container {
   background: none;
   border-radius: 0;
