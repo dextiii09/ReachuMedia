@@ -398,9 +398,19 @@ img, video { max-width: 100%; display: block; }
   font-weight: 700;
 }
 .btn-case-study {
-  background: linear-gradient(90deg, #f59e42, #f43f5e);
+  background: #ff4da6 !important;
   color: #fff !important;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 1.18em;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(255,77,166,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
+  padding: 16px 36px;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.15s;
+}
+.btn-case-study:hover, .btn-case-study:focus {
+  background: #ff3399 !important;
+  box-shadow: 0 8px 40px 0 rgba(255,77,166,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+  transform: translateY(-2px) scale(1.03);
 }
 .btn-email-both {
   background: linear-gradient(90deg, #6366f1, #1A73E8);
