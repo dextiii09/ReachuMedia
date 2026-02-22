@@ -1,44 +1,44 @@
-  // --- PDF Viewer Modal Logic ---
-  function setupPDFViewer() {
-    const pdfSection = document.getElementById('pdf-viewer-section');
-    const pdfIframe = document.getElementById('pdf-iframe');
-    const closeBtn = document.getElementById('close-pdf-viewer');
-    if (!pdfSection || !pdfIframe || !closeBtn) return;
-    // Open PDF
-    document.querySelectorAll('.btn-case-study').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const pdf = btn.getAttribute('data-pdf');
-        if (!pdf) return;
-        pdfIframe.src = pdf;
-        pdfSection.style.display = 'flex';
-        setTimeout(() => pdfSection.classList.add('show'), 10);
-        document.body.classList.add('no-scroll');
-      });
+// --- PDF Viewer Modal Logic ---
+function setupPDFViewer() {
+  const pdfSection = document.getElementById('pdf-viewer-section');
+  const pdfIframe = document.getElementById('pdf-iframe');
+  const closeBtn = document.getElementById('close-pdf-viewer');
+  if (!pdfSection || !pdfIframe || !closeBtn) return;
+  // Open PDF
+  document.querySelectorAll('.btn-case-study').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const pdf = btn.getAttribute('data-pdf');
+      if (!pdf) return;
+      pdfIframe.src = pdf;
+      pdfSection.style.display = 'flex';
+      setTimeout(() => pdfSection.classList.add('show'), 10);
+      document.body.classList.add('no-scroll');
     });
-    // Close PDF
-    closeBtn.addEventListener('click', function() {
-      pdfSection.classList.remove('show');
-      setTimeout(() => {
-        pdfSection.style.display = 'none';
-        pdfIframe.src = '';
-        document.body.classList.remove('no-scroll');
-      }, 350);
-    });
-    // Close on overlay click (outside container)
-    pdfSection.addEventListener('click', function(e) {
-      if (e.target === pdfSection) closeBtn.click();
-    });
-    // Close on Escape key
-    window.addEventListener('keydown', function(e) {
-      if (pdfSection.style.display === 'flex' && (e.key === 'Escape' || e.keyCode === 27)) closeBtn.click();
-    });
-  }
-  window.addEventListener('DOMContentLoaded', setupPDFViewer);
+  });
+  // Close PDF
+  closeBtn.addEventListener('click', function () {
+    pdfSection.classList.remove('show');
+    setTimeout(() => {
+      pdfSection.style.display = 'none';
+      pdfIframe.src = '';
+      document.body.classList.remove('no-scroll');
+    }, 350);
+  });
+  // Close on overlay click (outside container)
+  pdfSection.addEventListener('click', function (e) {
+    if (e.target === pdfSection) closeBtn.click();
+  });
+  // Close on Escape key
+  window.addEventListener('keydown', function (e) {
+    if (pdfSection.style.display === 'flex' && (e.key === 'Escape' || e.keyCode === 27)) closeBtn.click();
+  });
+}
+window.addEventListener('DOMContentLoaded', setupPDFViewer);
 // ReachUp Media - Interactions
-(function() {
-  const qs = (s, el=document) => el.querySelector(s);
-  const qsa = (s, el=document) => [...el.querySelectorAll(s)];
+(function () {
+  const qs = (s, el = document) => el.querySelector(s);
+  const qsa = (s, el = document) => [...el.querySelectorAll(s)];
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Toggle to enable/disable enhanced animations site-wide (easy revert)
   const enableEnhancedAnimations = true;
@@ -60,11 +60,13 @@
         backdrop.classList.add('show');
         document.body.classList.add('no-scroll');
         toggle.setAttribute('aria-expanded', 'true');
+        toggle.innerHTML = '✕';
       } else {
         nav.classList.remove('show');
         backdrop.classList.remove('show');
         document.body.classList.remove('no-scroll');
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '☰';
       }
     };
 
@@ -121,7 +123,7 @@
         // Defer a tick to let the browser try to load, then verify
         setTimeout(check, 0);
       });
-    } catch(e) { /* noop */ }
+    } catch (e) { /* noop */ }
     if (!prefersReduced && enableEnhancedAnimations) {
       document.body.classList.add('enhanced-anim');
       // Assign directional effects and staggered delays to reveal elements
@@ -145,7 +147,7 @@
   });
 
   // Scroll progress bar and header shadow
-  (function setupScrollUI(){
+  (function setupScrollUI() {
     const progress = document.createElement('div');
     progress.className = 'progress';
     document.body.appendChild(progress);
@@ -202,8 +204,8 @@
         const message = qs('[name="message"]', form)?.value ?? '';
         const subject = encodeURIComponent(`New enquiry from ${name}`);
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-  const recipients = 'suraj@reachupmedia.in,letstalk@reachupmedia.in';
-  const mail = `mailto:${recipients}?subject=${subject}&body=${body}`;
+        const recipients = 'suraj@reachupmedia.in,letstalk@reachupmedia.in';
+        const mail = `mailto:${recipients}?subject=${subject}&body=${body}`;
         window.location.href = mail;
       }
     });
@@ -243,7 +245,7 @@
 })();
 
 // --- Lightweight local chatbot (no backend, simple Q&A) ---
-(function(){
+(function () {
   if (typeof enableLocalChatbot === 'undefined' || !enableLocalChatbot) return;
   try {
     const kb = [
@@ -256,7 +258,7 @@
     ];
 
     const ask = (text) => {
-      const t = (text||'').trim();
+      const t = (text || '').trim();
       if (!t) return "Could you share a bit more? For example: services, pricing, or how to contact us.";
       const hit = kb.find(item => item.q.some(re => re.test(t)));
       if (hit) return hit.a;
@@ -288,7 +290,7 @@
     const sendBtn = panel.querySelector('.chatbot-send');
     const closeBtn = panel.querySelector('.chatbot-header .btn');
 
-    const addMsg = (text, who='bot') => {
+    const addMsg = (text, who = 'bot') => {
       const div = document.createElement('div');
       div.className = `chatbot-msg ${who}`;
       div.textContent = text;
@@ -307,7 +309,7 @@
     };
 
     const onSend = () => {
-      const val = (input.value||'').trim();
+      const val = (input.value || '').trim();
       if (!val) return;
       addMsg(val, 'user');
       input.value = '';
@@ -331,7 +333,7 @@
 
     document.body.appendChild(toggle);
     document.body.appendChild(panel);
-  } catch(e) { /* noop */ }
+  } catch (e) { /* noop */ }
 })();
 
 // Follow CTA: no animation — let the anchor behave normally
