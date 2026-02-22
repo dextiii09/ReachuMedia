@@ -938,3 +938,64 @@ ul {
 .chatbot-send:hover {
   background: var(--accent-magenta);
 }
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem !important;
+  }
+
+  .section h2 {
+    font-size: 2.2rem !important;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+
+  .hero .split {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  .footer {
+    padding: 40px 0 30px;
+  }
+
+  .insta-follow-link {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .contact-box {
+    padding: 16px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-box div {
+    font-size: 0.9rem !important;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
