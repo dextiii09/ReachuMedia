@@ -940,62 +940,132 @@ ul {
 }
 
 /* Mobile Optimization */
+@media (max-width: 900px) {
+
+  .header.scrolled~.nav,
+  .header.scrolled .nav {
+    top: 77px !important;
+  }
+}
+
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.8rem !important;
+
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
-  .section h2 {
+  .hero h1 {
     font-size: 2.2rem !important;
   }
 
+  .section h2 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero p,
+  .section p,
+  .subtitle,
+  .card p {
+    font-size: 1.05rem !important;
+    line-height: 1.5;
+  }
+
+  .brand .name {
+    font-size: 1.1rem;
+  }
+
   .section {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
   .hero {
-    padding-top: 100px;
+    padding-top: 110px;
     padding-bottom: 40px;
   }
 
   .hero .split {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
   }
 
   .card {
-    padding: 24px;
+    padding: 20px;
+  }
+
+  .icon-box {
+    height: 50px;
+    width: 50px;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
   .badge {
     font-size: 0.75rem;
     padding: 6px 12px;
+    margin-bottom: 20px;
+  }
+
+  .inline-kpis {
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .inline-kpis .kpi {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    display: inline-block;
+    width: fit-content;
+    text-align: center;
   }
 
   .footer {
     padding: 40px 0 30px;
   }
 
-  .insta-follow-link {
-    padding: 12px 20px;
-    font-size: 0.9rem;
+  /* Buttons and Actions */
+  .hero .actions,
+  .contact-actions {
+    justify-content: stretch;
+    width: 100%;
+    flex-direction: column;
   }
 
+  .insta-follow-link,
+  .btn {
+    padding: 12px 16px;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Contacts */
   .contact-box {
     padding: 16px;
     flex-direction: column;
     text-align: center;
+    gap: 12px;
   }
 
   .contact-box div {
-    font-size: 0.9rem !important;
+    font-size: 0.95rem !important;
   }
 
-  .btn {
-    padding: 12px 20px;
-    font-size: 1rem;
-    width: 100%;
-    justify-content: center;
+  /* Ensure grids stack strictly vertically */
+  .grid {
+    gap: 24px;
+  }
+
+  .footer .grid-3 {
+    gap: 32px;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .footer .contact-boxes {
+    text-align: left;
   }
 }
