@@ -1490,3 +1490,44 @@ ul {
     flex-wrap: wrap;
   }
 }
+
+/* Creator Performance Dashboards Showcase */
+.dashboard-section {
+  position: relative;
+  overflow: hidden;
+  border-top: var(--border-thick);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.dashboard-card {
+  height: 100%;
+  transition: var(--transition);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-8px) rotate(1.5deg);
+  box-shadow: 20px 20px 0 var(--accent-cyan);
+}
+
+.dashboard-card:nth-child(even):hover {
+  transform: translateY(-8px) rotate(-1.5deg);
+  box-shadow: 20px 20px 0 var(--accent-magenta);
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .dashboard-card:hover {
+    transform: none;
+    box-shadow: 12px 12px 0 var(--accent-cyan);
+  }
+}
+
