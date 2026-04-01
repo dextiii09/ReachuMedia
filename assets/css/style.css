@@ -1196,3 +1196,297 @@ ul {
     height: 480px;
   }
 }
+
+/* Digital Impact Gallery — Premium Rebuild */
+.dig-gallery {
+  background: #060606;
+  padding: 0;
+  border-top: 4px solid #000;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Top ticker stripe */
+.dig-stripe {
+  background: var(--accent-cyan);
+  border-bottom: 3px solid #000;
+  overflow: hidden;
+  padding: 12px 0;
+  white-space: nowrap;
+}
+
+.dig-stripe-text {
+  display: inline-flex;
+  gap: 0;
+  animation: dig-stripe-scroll 20s linear infinite;
+}
+
+.dig-stripe-text span {
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+  padding: 0 32px;
+}
+
+@keyframes dig-stripe-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Header */
+.dig-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 70px 80px 50px;
+  align-items: end;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dig-title {
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.dig-title-accent {
+  color: var(--accent-yellow);
+  display: block;
+  -webkit-text-stroke: 2px var(--accent-yellow);
+}
+
+.dig-subtitle {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+  font-weight: 600;
+  max-width: 480px;
+}
+
+.dig-count-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+.dig-count-item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 28px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-right: none;
+}
+
+.dig-count-item:last-child {
+  border-right: 2px solid rgba(255,255,255,0.15);
+}
+
+.dig-count-num {
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-cyan);
+  line-height: 1;
+}
+
+.dig-count-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.dig-hint {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Scroll zone */
+.dig-scroll-zone {
+  position: relative;
+  padding: 20px 0 40px;
+}
+
+.dig-fade-left,
+.dig-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.dig-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #060606, transparent);
+}
+
+.dig-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #060606, transparent);
+}
+
+.dig-scroll-track {
+  display: flex;
+  gap: 28px;
+  padding: 20px 80px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  scroll-snap-type: x mandatory;
+}
+
+.dig-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+.dig-scroll-track:active {
+  cursor: grabbing;
+}
+
+/* Each reel card */
+.dig-reel-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.dig-reel-card:hover {
+  transform: translateY(-8px);
+  z-index: 5;
+}
+
+.dig-reel-inner {
+  border: 3px solid;
+  box-shadow: 8px 8px 0 rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+  height: 560px;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+}
+
+.dig-label {
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  padding: 8px 14px;
+  flex-shrink: 0;
+}
+
+.dig-reel-inner .artist-embed-frame {
+  flex: 1;
+  overflow: hidden;
+}
+
+.dig-reel-inner .artist-embed-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Controls */
+.dig-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 80px 60px;
+}
+
+.dig-btn {
+  background: #fff;
+  color: #000;
+  border: 3px solid #fff;
+  font-size: 1.4rem;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 900;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0 var(--accent-cyan);
+}
+
+.dig-btn:hover {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #fff;
+}
+
+.dig-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dig-dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dig-dot.active {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  transform: scale(1.3);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .dig-header {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 24px 32px;
+  }
+
+  .dig-scroll-track {
+    padding: 20px 24px;
+  }
+
+  .dig-fade-left,
+  .dig-fade-right {
+    width: 48px;
+  }
+
+  .dig-controls {
+    padding: 0 24px 48px;
+  }
+
+  .dig-reel-card {
+    flex: 0 0 260px;
+  }
+
+  .dig-reel-inner {
+    height: 460px;
+  }
+
+  .dig-count-row {
+    flex-wrap: wrap;
+  }
+}
