@@ -1347,7 +1347,7 @@ ul {
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
-  scroll-snap-type: x mandatory;
+
 }
 
 .dig-scroll-track::-webkit-scrollbar {

@@ -220,6 +220,7 @@
 
   <script>
     (function() {
+      var section = document.getElementById('digital-impact-gallery');
       var track = document.getElementById('dig-track');
       var prevBtn = document.getElementById('dig-prev');
       var nextBtn = document.getElementById('dig-next');
@@ -227,108 +228,113 @@
       if (!track) return;
 
       var cards = track.querySelectorAll('.dig-reel-card');
-      var cardCount = cards.length;
-      var autoScrollInterval = null;
-      var isDragging = false;
-      var startX = 0;
-      var scrollLeft = 0;
-      var autoScrollPaused = false;
+      var timer = null;
+      var speed = 1.5;
+      var isHovered = false;
 
-      // Create dots
+      // Build dots
       cards.forEach(function(_, i) {
         var dot = document.createElement('div');
         dot.className = 'dig-dot' + (i === 0 ? ' active' : '');
-        dot.addEventListener('click', function() { scrollToCard(i); });
+        dot.addEventListener('click', function() {
+          stopAuto();
+          track.scrollLeft = i * (track.querySelector('.dig-reel-card').offsetWidth + 28);
+          setTimeout(startAuto, 1500);
+        });
         dotsContainer.appendChild(dot);
       });
 
-      function updateDots() {
-        var dots = dotsContainer.querySelectorAll('.dig-dot');
-        var cardWidth = cards[0] ? cards[0].offsetWidth + 32 : 320;
-        var activeIdx = Math.round(track.scrollLeft / cardWidth);
-        dots.forEach(function(d, i) { d.classList.toggle('active', i === activeIdx); });
+      track.addEventListener('scroll', function() {
+        var cw = cards[0] ? cards[0].offsetWidth + 28 : 348;
+        var idx = Math.round(track.scrollLeft / cw);
+        dotsContainer.querySelectorAll('.dig-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === idx);
+        });
+      });
+
+      // Auto scroll with simple interval
+      function startAuto() {
+        if (timer || isHovered) return;
+        timer = setInterval(function() {
+          var max = track.scrollWidth - track.clientWidth;
+          if (track.scrollLeft >= max - 2) {
+            track.scrollLeft = 0;
+          } else {
+            track.scrollLeft += speed;
+          }
+        }, 16);
       }
 
-      function scrollToCard(idx) {
-        var cardWidth = cards[0] ? cards[0].offsetWidth + 32 : 320;
-        track.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+      function stopAuto() {
+        clearInterval(timer);
+        timer = null;
       }
 
+      // Pause on hover over section
+      section.addEventListener('mouseenter', function() {
+        isHovered = true;
+        stopAuto();
+      });
+      section.addEventListener('mouseleave', function() {
+        isHovered = false;
+        startAuto();
+      });
+
+      // Buttons
       prevBtn.addEventListener('click', function() {
-        track.scrollBy({ left: -400, behavior: 'smooth' });
+        stopAuto();
+        track.scrollLeft -= 380;
+        setTimeout(function() { if (!isHovered) startAuto(); }, 1500);
       });
-
       nextBtn.addEventListener('click', function() {
-        track.scrollBy({ left: 400, behavior: 'smooth' });
+        stopAuto();
+        track.scrollLeft += 380;
+        setTimeout(function() { if (!isHovered) startAuto(); }, 1500);
       });
 
-      track.addEventListener('scroll', function() { updateDots(); });
+      // Mouse wheel scroll on track
+      track.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        stopAuto();
+        track.scrollLeft += e.deltaY * 2;
+        setTimeout(function() { if (!isHovered) startAuto(); }, 1500);
+      }, { passive: false });
 
       // Drag to scroll
+      var dragging = false, startX = 0, startScroll = 0;
       track.addEventListener('mousedown', function(e) {
-        isDragging = true;
-        startX = e.pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
+        dragging = true;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
         track.style.cursor = 'grabbing';
-        stopAutoScroll();
+        stopAuto();
       });
-      track.addEventListener('mousemove', function(e) {
-        if (!isDragging) return;
-        e.preventDefault();
-        var x = e.pageX - track.offsetLeft;
-        track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      window.addEventListener('mousemove', function(e) {
+        if (!dragging) return;
+        track.scrollLeft = startScroll - (e.clientX - startX) * 1.5;
       });
-      track.addEventListener('mouseup', function() {
-        isDragging = false;
+      window.addEventListener('mouseup', function() {
+        if (!dragging) return;
+        dragging = false;
         track.style.cursor = 'grab';
-        startAutoScroll();
-      });
-      track.addEventListener('mouseleave', function() {
-        isDragging = false;
-        track.style.cursor = 'grab';
+        setTimeout(function() { if (!isHovered) startAuto(); }, 1500);
       });
 
-      // Touch events
+      // Touch
+      var touchStartX = 0, touchStartScroll = 0;
       track.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].pageX;
-        scrollLeft = track.scrollLeft;
-        stopAutoScroll();
+        touchStartX = e.touches[0].clientX;
+        touchStartScroll = track.scrollLeft;
+        stopAuto();
       }, { passive: true });
       track.addEventListener('touchmove', function(e) {
-        var x = e.touches[0].pageX;
-        track.scrollLeft = scrollLeft - (x - startX);
+        track.scrollLeft = touchStartScroll - (e.touches[0].clientX - touchStartX);
       }, { passive: true });
-      track.addEventListener('touchend', function() { startAutoScroll(); });
+      track.addEventListener('touchend', function() {
+        setTimeout(function() { if (!isHovered) startAuto(); }, 1500);
+      });
 
-      // Auto scroll
-      var raf = null;
-      var autoSpeed = 1.2;
-      function autoStep() {
-        if (!autoScrollInterval) return;
-        var maxScroll = track.scrollWidth - track.clientWidth;
-        if (track.scrollLeft >= maxScroll - 2) {
-          track.scrollLeft = 0;
-        } else {
-          track.scrollLeft += autoSpeed;
-        }
-        raf = requestAnimationFrame(autoStep);
-      }
-      function startAutoScroll() {
-        if (autoScrollInterval) return;
-        autoScrollInterval = true;
-        raf = requestAnimationFrame(autoStep);
-      }
-
-      function stopAutoScroll() {
-        clearInterval(autoScrollInterval);
-        autoScrollInterval = null;
-      }
-
-      track.addEventListener('mouseenter', stopAutoScroll);
-      track.addEventListener('mouseleave', startAutoScroll);
-
-      startAutoScroll();
-      updateDots();
+      startAuto();
     })();
   </script>
 
