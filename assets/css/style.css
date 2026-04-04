@@ -122,6 +122,16 @@ a {
   gap: 40px;
 }
 
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+
 .grid-4 {
   grid-template-columns: repeat(4, 1fr);
   align-items: stretch;
@@ -143,10 +153,9 @@ a {
 }
 
 .team-grid {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
+  display: grid;
   grid-auto-flow: row;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
