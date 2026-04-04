@@ -62,7 +62,13 @@
         <div class="card" style="background: #fff; padding: 40px; border: var(--border-thick); box-shadow: 12px 12px 0 #000;">
           <h2 style="font-size: 2.2rem; margin-bottom: 32px; color: #000;">Ready to talk?</h2>
           
-          <form id="contact-form" action="#" method="POST" style="display: flex; flex-direction: column; gap: 24px;">
+          <form id="contact-form" action="https://formsubmit.co/suraj@reachupmedia.in" method="POST" style="display: flex; flex-direction: column; gap: 24px;">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="New Strategist Inquiry [ReachUp Media]">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_next" value="https://reachupmedia.in/thanks.html">
+            
             <div class="form-group">
               <label style="display: block; font-weight: 900; margin-bottom: 8px; font-size: 0.9rem;">WHAT SHOULD WE CALL YOU?</label>
               <input type="text" name="name" placeholder="E.g. Elon from Mars" required 
