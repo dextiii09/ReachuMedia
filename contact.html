@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — ReachUp Media</title>
   <meta name="description"
-    content="Start your legacy with ReachUp Media. Milestone-based marketing and strategic partnerships.">
+    content="Start a conversation with ReachUp Media. Milestone-based marketing and strategic partnerships.">
   <meta property="og:title" content="Contact — ReachUp Media" />
   <meta property="og:description"
     content="Influencer marketing • Artist & Band Management • Content & UGC • Social Media Marketing" />
@@ -42,129 +42,158 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero" style="min-height: 80vh; padding-bottom: 40px; border-bottom: none; display: flex; align-items: center;">
+  <section class="hero" style="min-height: 50vh; padding-top: 160px; padding-bottom: 20px; border-bottom: none;">
     <div class="container text-center reveal">
-      <span class="badge badge-accent">Human-Centric Branding</span>
-      <h1 style="font-size: clamp(3.2rem, 7vw, 6rem); line-height: 1.1;">We Don’t Just Market.<br><span class="highlight"
-          style="background: var(--accent-magenta); color: #fff; transform: rotate(-1.5deg);">We Build Your Legacy.</span></h1>
-      <p class="subtitle" style="margin: 32px auto 40px; background: var(--accent-cyan); color: #000; max-width: 900px; font-weight: 700; line-height: 1.5;">
-        Generic "Services" pages list tasks. We list milestones. Whether you are a startup finding your voice or an established brand scaling new heights, we provide the strategy and soul your business needs to thrive in a digital world.
+      <span class="badge badge-accent">Human-First Connection</span>
+      <h1 style="font-size: clamp(3.2rem, 7vw, 6rem); line-height: 1.1; margin-bottom: 24px;">Let’s Start a <br><span class="highlight"
+          style="background: var(--accent-magenta); color: #fff; transform: rotate(-1.5deg);">Conversation</span>, Not a Ticket.</h1>
+      <p class="subtitle" style="margin: 0 auto; background: var(--accent-cyan); color: #000; max-width: 900px; font-weight: 700;">
+        You have a vision; we have the tools to bring it to life. Whether you have a specific project in mind or just want to explore what’s possible, we’re here to listen.
       </p>
-      <div style="max-width: 800px; margin: 0 auto; filter: drop-shadow(15px 15px 0 #000); border: var(--border-thick); border-radius: 4px; overflow: hidden; background: #fff;">
-        <img src="./reachup_strategic_team.png" alt="ReachUp Strategic Team" style="width: 100%; display: block;" />
-      </div>
     </div>
   </section>
 
-  <!-- Contact Bento Grid -->
-  <section class="section alt-bg" style="padding: 80px 0; border-top: var(--border-thick);">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: 60px; font-size: 3.5rem;">How can we help you grow?</h2>
-      <div class="bento-grid">
-        
-        <!-- 1. Brand Identity -->
-        <div class="bento-item col-span-2 row-span-2 reveal fx-left">
-          <div class="card" style="background: var(--accent-yellow); padding: 40px; border: var(--border-thick); box-shadow: 12px 12px 0 #000; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-            <div>
-              <span class="badge" style="background: #000; color: #fff; margin-bottom: 24px;">THE HEARTBEAT</span>
-              <h3 style="font-size: 2.2rem; margin-bottom: 16px;">Brand Identity & Strategy</h3>
-              <p style="font-weight: 900; color: #000; text-transform: uppercase; margin-bottom: 12px;">Milestone #1: The Soul</p>
-              <p style="font-weight: 600; margin-bottom: 24px;">"We help you stop being 'another option' and start being the 'only choice' for your customers."</p>
-              
-              <ul style="margin-bottom: 24px; font-size: 0.95rem; list-style: '→ '; padding-left: 1.2rem; font-weight: 700;">
-                <li>Logo Design & Brand Voice</li>
-                <li>Strategic Messaging</li>
-              </ul>
+  <!-- Main Contact Content -->
+  <section class="section alt-bg" style="padding-top: 80px; border-top: var(--border-thick);">
+    <div class="container grid grid-2" style="gap: 60px;">
+      
+      <!-- 1. The Human-First Contact Form -->
+      <div class="reveal fx-left">
+        <div class="card" style="background: #fff; padding: 40px; border: var(--border-thick); box-shadow: 12px 12px 0 #000;">
+          <h2 style="font-size: 2.2rem; margin-bottom: 32px; color: #000;">Ready to talk?</h2>
+          
+          <form id="contact-form" action="#" method="POST" style="display: flex; flex-direction: column; gap: 24px;">
+            <div class="form-group">
+              <label style="display: block; font-weight: 900; margin-bottom: 8px; font-size: 0.9rem;">WHAT SHOULD WE CALL YOU?</label>
+              <input type="text" name="name" placeholder="E.g. Elon from Mars" required 
+                style="width: 100%; padding: 16px; border: var(--border-thick); font-family: inherit; font-weight: 600; font-size: 1.1rem; border-radius: 0;">
             </div>
-            <a class="btn btn-primary" href="mailto:suraj@reachupmedia.in?subject=Branding%20Inquiry" style="width: fit-content; background: #000;">Build My Identity</a>
+            
+            <div class="form-group">
+              <label style="display: block; font-weight: 900; margin-bottom: 8px; font-size: 0.9rem;">WHERE CAN WE SEND OUR REPLY?</label>
+              <input type="email" name="email" placeholder="E.g. elon@spacex.com" required 
+                style="width: 100%; padding: 16px; border: var(--border-thick); font-family: inherit; font-weight: 600; font-size: 1.1rem; border-radius: 0;">
+            </div>
+
+            <div class="form-group">
+              <label style="display: block; font-weight: 900; margin-bottom: 8px; font-size: 0.9rem;">HOW DID YOU HEAR ABOUT OUR WORK?</label>
+              <select name="source" style="width: 100%; padding: 16px; border: var(--border-thick); font-family: inherit; font-weight: 600; font-size: 1.1rem; background: #fff; border-radius: 0;">
+                <option value="Instagram">Instagram</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Referral">Word of Mouth</option>
+                <option value="Search">Search Engine</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label style="display: block; font-weight: 900; margin-bottom: 8px; font-size: 0.9rem;">TELL US ABOUT YOUR DREAM PROJECT...</label>
+              <textarea name="message" placeholder="We’re all ears. Be as bold or as brief as you like." required 
+                style="width: 100%; min-height: 150px; padding: 16px; border: var(--border-thick); font-family: inherit; font-weight: 600; font-size: 1.1rem; resize: vertical; border-radius: 0;"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start; padding: 20px 40px; font-size: 1.3rem;">Let’s Make It Happen</button>
+          </form>
+
+          <!-- Social Proof integration -->
+          <div style="margin-top: 40px; padding-top: 32px; border-top: 2px dashed #000; font-style: italic; font-weight: 700; font-size: 1.1rem; color: #333;">
+            "The best part of working with ReachUp wasn't just the results, but how easy they were to talk to."
+            <div style="font-size: 0.9rem; font-style: normal; margin-top: 8px; color: var(--accent-magenta);">— D2C Fashion Partner</div>
           </div>
         </div>
-
-        <!-- 2. Digital Marketing -->
-        <div class="bento-item col-span-2 row-span-2 reveal fx-right">
-          <div class="card" style="background: var(--accent-green); padding: 40px; border: var(--border-thick); box-shadow: 12px 12px 0 #000; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-            <div>
-              <span class="badge" style="background: #000; color: #fff; margin-bottom: 24px;">THE ACTION</span>
-              <h3 style="font-size: 2.2rem; margin-bottom: 16px;">Full-Scale Digital Marketing</h3>
-              <p style="font-weight: 900; color: #000; text-transform: uppercase; margin-bottom: 12px;">Milestone #2: Turning Attention into Action</p>
-              <p style="font-weight: 600; margin-bottom: 24px;">"Clear objectives and transparent reporting. You’ll never have to guess where your investment is going."</p>
-              
-              <ul style="margin-bottom: 24px; font-size: 0.95rem; list-style: '→ '; padding-left: 1.2rem; font-weight: 700;">
-                <li>Social Media & Performance</li>
-                <li>Strategic Content Production</li>
-              </ul>
-            </div>
-            <a class="btn btn-primary" href="https://wa.me/917973043372?text=Hi%20ReachUp%20Media%2C%20I%27m%20interested%20in%20Digital%20Marketing" style="width: fit-content; background: #000;">Scale My Message</a>
-          </div>
-        </div>
-
-        <!-- 3. Web & App -->
-        <div class="bento-item col-span-2 reveal fx-up">
-          <div class="card" style="background: var(--accent-cyan); padding: 32px; border: var(--border-thick); box-shadow: 10px 10px 0 #000; display: flex; gap: 24px; align-items: center;">
-            <div style="flex: 1;">
-              <span class="badge" style="background: #000; color: #fff; margin-bottom: 12px;">THE SHOPFRONT</span>
-              <h3 style="font-size: 1.8rem; margin-bottom: 8px;">Web & App Design</h3>
-              <p style="font-size: 0.95rem; font-weight: 700;">Your hardest-working employee. We build experiences that guide visitors from "browsing" to "buying."</p>
-              <a class="btn btn-primary" href="mailto:letstalk@reachupmedia.in?subject=Web%20Design%20Inquiry" style="margin-top: 16px; font-size: 0.9rem;">Modernize My Shopfront</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Media & PR -->
-        <div class="bento-item col-span-2 reveal fx-up" style="transition-delay: 100ms;">
-          <div class="card" style="background: var(--accent-magenta); color: #fff; padding: 32px; border: var(--border-thick); box-shadow: 10px 10px 0 #000; display: flex; gap: 24px; align-items: center;">
-            <div style="flex: 1;">
-              <span class="badge" style="background: #fff; color: #000; margin-bottom: 12px;">AUTHORITY</span>
-              <h3 style="font-size: 1.8rem; margin-bottom: 8px; color: #fff;">Media Placements & PR</h3>
-              <p style="font-size: 0.95rem; font-weight: 700; color: #fff;">Third-party validation is the ultimate trust signal. We help you earn the "As Seen On" badge.</p>
-              <a class="btn btn-primary" href="https://wa.me/917973043372?text=Hi%20ReachUp%20Media%2C%20I%27d%20like%20to%20discuss%20Media%20Placements" style="margin-top: 16px; font-size: 0.9rem; background: var(--accent-yellow); color: #000 !important;">Get Me Featured</a>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- 2. Reach Out Directly -->
+      <div class="reveal fx-right">
+        <div style="display: flex; flex-direction: column; gap: 40px;">
+          
+          <div>
+            <span class="badge" style="background: #000; color: #fff; margin-bottom: 24px;">NO BOTS HERE</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 16px;">Reach Out Directly</h2>
+            <p style="font-weight: 700; font-size: 1.1rem;">We aim to respond to every inquiry within 24 hours. Just real people, ready to strategize.</p>
+          </div>
+
+          <div class="grid grid-1" style="gap: 24px;">
+            <!-- Email -->
+            <div class="card" style="padding: 24px; display: flex; align-items: center; gap: 20px; box-shadow: 6px 6px 0 #000;">
+              <div style="font-size: 2.2rem; background: var(--accent-cyan); width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border: var(--border-thick);">📧</div>
+              <div>
+                <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Email Us</h4>
+                <a href="mailto:hello@reachupmedia.in" style="font-weight: 900; font-size: 1.2rem; text-decoration: underline;">hello@reachupmedia.in</a>
+              </div>
+            </div>
+
+            <!-- Call/WhatsApp -->
+            <div class="card" style="padding: 24px; display: flex; align-items: center; gap: 20px; box-shadow: 6px 6px 0 #000;">
+              <div style="font-size: 2.2rem; background: var(--accent-green); width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border: var(--border-thick);">💬</div>
+              <div>
+                <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Call or WhatsApp</h4>
+                <a href="https://wa.me/917973043372" style="font-weight: 900; font-size: 1.2rem; text-decoration: underline;">+91 7973043372</a>
+              </div>
+            </div>
+
+            <!-- Physical Hub -->
+            <div class="card" style="padding: 24px; display: flex; align-items: center; gap: 20px; box-shadow: 6px 6px 0 #000;">
+              <div style="font-size: 2.2rem; background: var(--accent-yellow); width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border: var(--border-thick);">☕</div>
+              <div>
+                <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Our Creative Hub</h4>
+                <p style="font-weight: 700;">Operating Pan-India. The coffee is on us — drop by if you’re in the neighborhood!</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Why People Choose Us -->
-  <section class="section" style="padding: 100px 0; border-top: var(--border-thick);">
+  <!-- 3. Why You’ll Love Talking to Us -->
+  <section class="section" style="padding: 120px 0; border-top: var(--border-thick);">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: 60px;">Why ReachUp Media?</h2>
+      <h2 style="text-align: center; margin-bottom: 60px;">Why You’ll Love Talking to Us</h2>
       <div class="grid grid-3">
         <div class="reveal fx-up" style="text-align: center;">
-          <div style="font-size: 3rem; margin-bottom: 20px;">🎯</div>
-          <h4 style="font-size: 1.5rem; margin-bottom: 12px;">Creativity with Accuracy</h4>
-          <p style="font-weight: 700;">We love bold ideas, but we back them up with precise analysis.</p>
+          <div style="font-size: 3rem; margin-bottom: 24px;">🚫</div>
+          <h4 style="font-size: 1.4rem; margin-bottom: 16px;">No High-Pressure Sales</h4>
+          <p style="font-weight: 600;">We’re here to consult, not to "close." If we aren’t the right fit for your needs, we’ll tell you.</p>
         </div>
         <div class="reveal fx-up" style="text-align: center; transition-delay: 100ms;">
-          <div style="font-size: 3rem; margin-bottom: 20px;">🤝</div>
-          <h4 style="font-size: 1.5rem; margin-bottom: 12px;">A True Partnership</h4>
-          <p style="font-weight: 700;">We don't work for you; we work WITH you. Your growth is our metric.</p>
+          <div style="font-size: 3rem; margin-bottom: 24px;">👂</div>
+          <h4 style="font-size: 1.4rem; margin-bottom: 16px;">Expert Ears</h4>
+          <p style="font-weight: 600;">You’ll speak with a strategist, not just a representative. We focus on your long-term goals.</p>
         </div>
         <div class="reveal fx-up" style="text-align: center; transition-delay: 200ms;">
-          <div style="font-size: 3rem; margin-bottom: 20px;">👩‍💻</div>
-          <h4 style="font-size: 1.5rem; margin-bottom: 12px;">24/7 Human Support</h4>
-          <p style="font-weight: 700;">No bots. Real people who care about your business are a message away.</p>
+          <div style="font-size: 3rem; margin-bottom: 24px;">🗺️</div>
+          <h4 style="font-size: 1.4rem; margin-bottom: 16px;">Custom Roadmap</h4>
+          <p style="font-weight: 600;">Every conversation ends with a clear idea of your next steps, whether you work with us or not.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA banner -->
-  <section class="section" style="background: var(--text-main); color: #fff; border-top: var(--border-thick);">
-    <div class="container">
-      <div class="card reveal text-center"
-        style="padding: 80px 40px; background: transparent; border: none; box-shadow: none;">
-        <h2 style="font-size: clamp(2.5rem, 6vw, 4.5rem); text-shadow: 4px 4px 0 var(--accent-magenta); color: #fff;">Ready to take the next step?</h2>
-        <p class="subtitle" style="margin: 0 auto 40px auto; background: var(--accent-cyan); color: #000; font-weight: 900;">Let’s talk about your vision.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-          <a class="btn btn-accent"
-            href="https://wa.me/917973043372?text=Hi%20ReachUp%20Media%2C%20I%27d%20like%20to%20book%20a%20strategy%20call"
-            style="padding: 24px 60px; font-size: 1.25rem;">Book a Strategy Call</a>
-          <a class="btn btn-ghost" href="tel:+917973043372" style="background: #fff; color: #000 !important;">Call
-            Directly</a>
+  <!-- 4. FAQ: Quick Answers -->
+  <section class="section alt-bg" style="padding: 100px 0; border-top: var(--border-thick);">
+    <div class="container" style="max-width: 800px;">
+      <h2 style="text-align: center; margin-bottom: 60px; font-size: 3rem;">Common Questions</h2>
+      
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <div class="reveal fx-up" style="background: #fff; border: var(--border-thick); padding: 32px; box-shadow: 8px 8px 0 #000;">
+          <h4 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--accent-magenta);">“How soon will I hear back?”</h4>
+          <p style="font-weight: 700; font-size: 1.1rem; line-height: 1.5;">Usually within a business day. We value your time as much as our own.</p>
+        </div>
+
+        <div class="reveal fx-up" style="background: #fff; border: var(--border-thick); padding: 32px; box-shadow: 8px 8px 0 #000; transition-delay: 100ms;">
+          <h4 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--accent-purple);">“Is my information safe?”</h4>
+          <p style="font-weight: 700; font-size: 1.1rem; line-height: 1.5;">Always. Your ideas and data stay with us. We hate spam as much as you do.</p>
+        </div>
+
+        <div class="reveal fx-up" style="background: #fff; border: var(--border-thick); padding: 32px; box-shadow: 8px 8px 0 #000; transition-delay: 200ms;">
+          <h4 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--accent-green);">“Do you work with startups?”</h4>
+          <p style="font-weight: 700; font-size: 1.1rem; line-height: 1.5;">Absolutely. We love helping new brands find their footing and scale fast.</p>
         </div>
       </div>
+
     </div>
   </section>
 
