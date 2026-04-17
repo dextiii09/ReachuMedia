@@ -210,7 +210,6 @@ a {
   display: flex;
   align-items: center;
   gap: 16px;
-  max-height: 100%;
 }
 
 .brand .logo {
@@ -220,24 +219,18 @@ a {
   border: var(--border-thick);
   padding: 4px;
   box-shadow: 4px 4px 0 #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
 }
 
 .brand .logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: contrast(110%);
+  filter: grayscale(100%) contrast(150%);
 }
 
 .brand .name {
   font-size: 1.4rem;
   letter-spacing: -0.05em;
-  white-space: nowrap;
 }
 
 .nav {
@@ -1736,51 +1729,4 @@ ul {
   }
   .col-span-2, .col-span-3, .col-span-4 { grid-column: span 1; }
   .row-span-2, .row-span-3 { grid-row: auto; }
-}
-
-/* --- Infinite Logo Scroller --- */
-.logo-scroller {
-  padding: 40px 0;
-  overflow: hidden;
-  background: #fff;
-  border-top: var(--border-thick);
-  border-bottom: var(--border-thick);
-  position: relative;
-  display: flex;
-}
-
-.logo-scroller-inner {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  animation: logo-scroll 40s linear infinite;
-  white-space: nowrap;
-}
-
-.logo-scroller-inner img {
-  height: 40px;
-  width: auto;
-  filter: grayscale(100%);
-  opacity: 0.6;
-  transition: var(--transition);
-}
-
-.logo-scroller-inner img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-.logo-scroller-text {
-  font-family: 'Lexend Zetta', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #000;
-  margin-right: 40px;
-  flex-shrink: 0;
-}
-
-@keyframes logo-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
