@@ -688,8 +688,9 @@ a {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
 }
 
 @media (max-width: 900px) {
@@ -728,7 +729,7 @@ a {
 }
 
 .footer-cta-box {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.18);
   border: var(--border-thick);
   padding: 32px 28px;
   box-shadow: var(--shadow-hard);
@@ -745,7 +746,7 @@ a {
 .footer-cta-box p {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .btn-footer {
@@ -754,15 +755,19 @@ a {
 }
 
 .footer-bottom {
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  margin-top: 48px;
+  padding: 20px 0 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.12);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* Lists and KPIs */
