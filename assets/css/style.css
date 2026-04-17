@@ -1146,13 +1146,11 @@ body.enhanced-anim .reveal.show {
 
   /* Fluid Typography for ultra-small screens like iPhone SE (375px) */
   .hero h1 {
-    font-size: min(10vw, 2.2rem) !important;
-    text-shadow: 2px 2px 0 var(--accent-cyan);
+    font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
   }
 
   .section h2 {
-    font-size: min(8vw, 1.8rem) !important;
-    text-shadow: 2px 2px 0 #fff;
+    font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
   }
 
   .card h3 {
