@@ -209,6 +209,7 @@ a {
 .brand {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -691,12 +692,19 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   align-items: start;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-brand .name {
@@ -729,6 +737,7 @@ a {
 }
 
 .footer-cta-box {
+  align-items: center;
   background: rgba(255, 255, 255, 0.18);
   border: var(--border-thick);
   padding: 32px 28px;
