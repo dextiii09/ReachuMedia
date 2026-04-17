@@ -1730,3 +1730,101 @@ ul {
   .col-span-2, .col-span-3, .col-span-4 { grid-column: span 1; }
   .row-span-2, .row-span-3 { grid-row: auto; }
 }
+
+/* Page Sweep Transition */
+.page-sweep {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--accent-magenta);
+  z-index: 999999;
+  pointer-events: none;
+  border-right: 20px solid #000;
+}
+
+/* Custom Accordion Details / Summary */
+details.neo-accordion {
+  border: var(--border-thick);
+  background: var(--bg-main);
+  box-shadow: 8px 8px 0 #000;
+  margin-bottom: 40px;
+}
+body.dark-mode details.neo-accordion {
+  box-shadow: 8px 8px 0 #fff;
+}
+
+details.neo-accordion summary {
+  list-style: none; /* Hide default arrow */
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border-bottom: var(--border-thick);
+}
+
+details.neo-accordion summary::-webkit-details-marker {
+  display: none; /* Safari */
+}
+
+details.neo-accordion .accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 30px;
+  background: #fff;
+  transition: background 0.3s ease;
+}
+
+details.neo-accordion[open] .accordion-header {
+  background: var(--accent-magenta);
+}
+
+body.dark-mode details.neo-accordion .accordion-header {
+  background: #000;
+}
+body.dark-mode details.neo-accordion[open] .accordion-header {
+  background: var(--accent-cyan);
+}
+
+details.neo-accordion .accordion-icon {
+  font-size: 3rem;
+  font-weight: 900;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-thick);
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background 0.3s ease;
+  box-shadow: 4px 4px 0 #000;
+}
+body.dark-mode details.neo-accordion .accordion-icon {
+  box-shadow: 4px 4px 0 #fff;
+}
+
+details.neo-accordion[open] .accordion-icon {
+  transform: rotate(45deg);
+  background: var(--accent-yellow);
+  color: #000;
+}
+
+details.neo-accordion .accordion-content {
+  padding: 40px;
+  background: var(--bg-main);
+}
+details.neo-accordion[open] .accordion-content {
+  animation: sweepdown 0.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes sweepdown {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}

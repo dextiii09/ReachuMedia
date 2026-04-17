@@ -12,10 +12,51 @@
     content="Influencer marketing • Artist & Band Management • Content & UGC • Social Media Marketing" />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://reachupmedia.in/about" />
-  <meta property="og:image" content="./Reachup%20Media.png" />
+  <meta property="og:image" content="./assets/img/assets/img/Reachup%20Media.png" />
   <meta name="theme-color" content="#f4f4f0" />
-  <link rel="icon" type="image/png" href="./Reachup%20Media.png" />
+  <link rel="icon" type="image/png" href="./assets/img/assets/img/Reachup%20Media.png" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <style>
+    /* Scratch & Reveal Team Photos Effect */
+    .team-photo {
+      position: relative;
+      overflow: hidden;
+    }
+    .team-photo img {
+      filter: grayscale(100%) contrast(1.2) brightness(0.9);
+      transition: filter 0.6s cubic-bezier(0.19, 1, 0.22, 1), transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      transform: scale(1.05);
+    }
+    .card:hover .team-photo img {
+      filter: grayscale(0%) contrast(1.1) brightness(1.1);
+      transform: scale(1);
+    }
+    .team-photo::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.4) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      mix-blend-mode: overlay;
+      opacity: 1;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .card:hover .team-photo::after {
+      opacity: 0;
+    }
+    .card:hover {
+      box-shadow: 15px 20px 0 var(--accent-magenta);
+    }
+    .card:nth-child(even):hover {
+      box-shadow: 15px 20px 0 var(--accent-cyan);
+    }
+  </style>
 </head>
 
 <body>
@@ -23,7 +64,7 @@
   <header class="header">
     <div class="container inner">
       <a class="brand" href="./">
-        <div class="logo"><img src="./Reachup%20Media.png" alt="ReachUp Media logo"
+        <div class="logo"><img src="./assets/img/assets/img/Reachup%20Media.png" alt="ReachUp Media logo"
             onerror="this.style.display='none'" /></div>
         <div class="name">ReachUp Media</div>
       </a>
@@ -49,6 +90,59 @@
       <p class="subtitle" style="margin: 0 auto; background: var(--accent-magenta); margin-top: 24px;">We don’t just find influencers; we find the people your customers actually trust. From the bustling streets of Chandigarh to the vibrant markets of Chennai, we help brands belong.</p>
     </div>
   </section>
+
+  <style>
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      background: var(--accent-yellow);
+      border-top: var(--border-thick);
+      border-bottom: var(--border-thick);
+      padding: 16px 0;
+      white-space: nowrap;
+      position: relative;
+      display: flex;
+    }
+    body.dark-mode .marquee-wrapper {
+      border-color: #fff;
+    }
+    .marquee-content {
+      display: inline-flex;
+      animation: marquee 15s linear infinite;
+      font-family: 'Lexend Zetta', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: #000;
+      white-space: nowrap;
+    }
+    .marquee-content span {
+      margin: 0 40px;
+    }
+    .marquee-content span.star {
+      color: var(--accent-magenta);
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      <span>Authentic</span> <span class="star">✦</span> 
+      <span>Creative</span> <span class="star">✦</span> 
+      <span>Disruptive</span> <span class="star">✦</span> 
+      <span>Loud</span> <span class="star">✦</span> 
+      <span>Authentic</span> <span class="star">✦</span> 
+      <span>Creative</span> <span class="star">✦</span> 
+      <span>Disruptive</span> <span class="star">✦</span> 
+      <span>Loud</span> <span class="star">✦</span> 
+      <span>Authentic</span> <span class="star">✦</span> 
+      <span>Creative</span> <span class="star">✦</span> 
+      <span>Disruptive</span> <span class="star">✦</span> 
+      <span>Loud</span> <span class="star">✦</span> 
+    </div>
+  </div>
 
   <!-- Our Vision Section -->
   <section class="section alt-bg" style="padding-top: 100px; padding-bottom: 100px; border-top: var(--border-thick);">
@@ -193,7 +287,7 @@
       <div class="footer-brand">
         <div class="brand" style="margin-bottom: 24px;">
           <div class="logo" style="background: var(--accent-cyan);">
-            <img src="./Reachup%20Media.png" alt="ReachUp Media logo" onerror="this.style.display='none'" />
+            <img src="./assets/img/assets/img/Reachup%20Media.png" alt="ReachUp Media logo" onerror="this.style.display='none'" />
           </div>
           <div class="name">ReachUp Media</div>
         </div>

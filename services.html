@@ -12,9 +12,9 @@
     content="Influencer marketing • Artist & Band Management • Content & UGC • Social Media Marketing" />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://reachupmedia.in/services" />
-  <meta property="og:image" content="/Reachup%20Media.png" />
+  <meta property="og:image" content="/assets/img/Reachup%20Media.png" />
   <meta name="theme-color" content="#f4f4f0" />
-  <link rel="icon" type="image/png" href="/Reachup%20Media.png" />
+  <link rel="icon" type="image/png" href="/assets/img/Reachup%20Media.png" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
@@ -23,7 +23,7 @@
   <header class="header">
     <div class="container inner">
       <a class="brand" href="./">
-        <div class="logo"><img src="/Reachup%20Media.png" alt="ReachUp Media logo"
+        <div class="logo"><img src="/assets/img/Reachup%20Media.png" alt="ReachUp Media logo"
             onerror="this.style.display='none'" /></div>
         <div class="name">ReachUp Media</div>
       </a>
@@ -51,7 +51,60 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top: 80px; border-top: var(--border-thick);">
+  <style>
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      background: var(--accent-yellow);
+      border-top: var(--border-thick);
+      border-bottom: var(--border-thick);
+      padding: 16px 0;
+      white-space: nowrap;
+      position: relative;
+      display: flex;
+    }
+    body.dark-mode .marquee-wrapper {
+      border-color: #fff;
+    }
+    .marquee-content {
+      display: inline-flex;
+      animation: marquee 15s linear infinite;
+      font-family: 'Lexend Zetta', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: #000;
+      white-space: nowrap;
+    }
+    .marquee-content span {
+      margin: 0 40px;
+    }
+    .marquee-content span.star {
+      color: var(--accent-magenta);
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      <span>Influence</span> <span class="star">✦</span> 
+      <span>Convert</span> <span class="star">✦</span> 
+      <span>Scale</span> <span class="star">✦</span> 
+      <span>Dominate</span> <span class="star">✦</span> 
+      <span>Influence</span> <span class="star">✦</span> 
+      <span>Convert</span> <span class="star">✦</span> 
+      <span>Scale</span> <span class="star">✦</span> 
+      <span>Dominate</span> <span class="star">✦</span> 
+      <span>Influence</span> <span class="star">✦</span> 
+      <span>Convert</span> <span class="star">✦</span> 
+      <span>Scale</span> <span class="star">✦</span> 
+      <span>Dominate</span> <span class="star">✦</span> 
+    </div>
+  </div>
+
+  <section class="section" style="padding-top: 80px;">
     <div class="container grid grid-2" style="gap: 40px;">
       <!-- Influencer Marketing -->
       <div class="card reveal" style="background: var(--accent-cyan);">
@@ -182,7 +235,7 @@
       <div class="footer-brand">
         <div class="brand" style="margin-bottom: 24px;">
           <div class="logo" style="background: var(--accent-cyan);">
-            <img src="/Reachup%20Media.png" alt="ReachUp Media logo" onerror="this.style.display='none'" />
+            <img src="/assets/img/Reachup%20Media.png" alt="ReachUp Media logo" onerror="this.style.display='none'" />
           </div>
           <div class="name">ReachUp Media</div>
         </div>

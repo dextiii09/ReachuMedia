@@ -338,3 +338,148 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
 
 // Follow CTA: no animation — let the anchor behave normally
 // (Removed slide-to-open interception so the link opens instantly.)
+
+// --- App-Like Page Transitions ---
+(function() {
+  const isInternalLink = (url) => {
+    return url.origin === window.location.origin && (url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname === '/index.html');
+  };
+
+  const sweepEl = document.createElement('div');
+  sweepEl.className = 'page-sweep';
+  sweepEl.style.transform = 'translateX(0)'; // Start covering the screen
+  document.body.appendChild(sweepEl);
+
+  // Reveal the page immediately after load
+  window.requestAnimationFrame(() => {
+    sweepEl.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+    sweepEl.style.transform = 'translateX(100%)';
+  });
+
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a || !a.href) return;
+    const url = new URL(a.href, window.location.href);
+    
+    // Ignore external, blank targets, or hash scrolls
+    if (a.target === '_blank' || url.hash) return;
+    
+    if (isInternalLink(url)) {
+      e.preventDefault();
+      
+      // Sweep in to cover
+      sweepEl.style.transition = 'none';
+      sweepEl.style.transform = 'translateX(-100%)';
+      
+      // Force reflow
+      sweepEl.offsetHeight;
+
+      sweepEl.style.transition = 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)';
+      sweepEl.style.transform = 'translateX(0)';
+
+      setTimeout(() => {
+        window.location.href = a.href;
+      }, 500);
+    }
+  });
+})();
+
+// --- Dynamic Dark Mode Toggle ---
+(function() {
+  // Inject Dark Mode CSS dynamically
+  const darkStyle = document.createElement('style');
+  darkStyle.innerHTML = \`
+    body.dark-mode {
+      --bg-main: #0b0b0b;
+      --bg-alt: #1a1a1a;
+      --text-main: #ffffff;
+      --border-thick: 3px solid #fff;
+      --border-thin: 2px solid #fff;
+      --shadow-hard: 6px 6px 0px #fff;
+      --shadow-hard-hover: 10px 10px 0px #fff;
+      background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px);
+    }
+    body.dark-mode .card,
+    body.dark-mode .nav a {
+      background: var(--bg-alt);
+      color: #fff;
+      border-color: #fff;
+      box-shadow: var(--shadow-hard);
+    }
+    body.dark-mode .nav {
+      background: rgba(11,11,11,0.9);
+    }
+    body.dark-mode .btn,
+    body.dark-mode .nav a:hover,
+    body.dark-mode .nav a.active {
+      box-shadow: 4px 4px 0 #fff;
+    }
+    body.dark-mode .btn-primary { 
+      color: #000 !important; 
+    }
+    body.dark-mode .icon-box,
+    body.dark-mode .badge {
+      border-color: #fff;
+      box-shadow: 4px 4px 0 #fff;
+    }
+    body.dark-mode .header {
+      background: rgba(11, 11, 11, 0.7);
+      border-bottom-color: #fff;
+    }
+    body.dark-mode .header.scrolled {
+      background: rgba(11, 11, 11, 0.85);
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    }
+    body.dark-mode .team-photo { 
+      border-color: #fff; 
+      box-shadow: 4px 4px 0 #fff; 
+    }
+    body.dark-mode .footer {
+      box-shadow: inset 0 6px 0 rgba(255, 255, 255, 0.1);
+      border-top-color: #fff;
+    }
+  \`;
+  document.head.appendChild(darkStyle);
+
+  // Load saved preference or check OS preference
+  const savedDarkMode = localStorage.getItem('reachup_dark_mode');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedDarkMode === 'true' || (savedDarkMode === null && prefersDark)) {
+    document.body.classList.add('dark-mode');
+  }
+
+  // Inject Toggle Button into Header
+  window.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('.header .nav');
+    if (!nav) return;
+
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'btn btn-ghost dark-mode-toggle';
+    toggleBtn.style.padding = '8px';
+    toggleBtn.style.borderRadius = '50%';
+    toggleBtn.style.width = '44px';
+    toggleBtn.style.height = '44px';
+    toggleBtn.style.fontSize = '1.2rem';
+    toggleBtn.style.display = 'flex';
+    toggleBtn.style.alignItems = 'center';
+    toggleBtn.style.justifyContent = 'center';
+    toggleBtn.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🕶️';
+    
+    // Insert before "Work With Us" button
+    const workBtn = nav.querySelector('a.btn-primary');
+    if (workBtn) {
+      nav.insertBefore(toggleBtn, workBtn);
+    } else {
+      nav.appendChild(toggleBtn);
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleBtn.innerHTML = isDark ? '☀️' : '🕶️';
+      localStorage.setItem('reachup_dark_mode', isDark);
+    });
+  });
+})();
