@@ -748,8 +748,8 @@ a {
 }
 
 .footer-cta-box {
-  align-items: flex-end;
-  text-align: right;
+  align-items: flex-start;
+  text-align: left;
   background: rgba(255, 255, 255, 0.18);
   border: var(--border-thick);
   padding: 32px 28px;
@@ -768,7 +768,6 @@ a {
   font-size: 1.05rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.95);
-  text-align: justify;
 }
 
 .btn-footer {
