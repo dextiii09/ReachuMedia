@@ -52,7 +52,6 @@ body {
   background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
-  text-align: justify;
   overflow-x: hidden;
   position: relative;
   /* subtle dot grid background */
@@ -72,6 +71,11 @@ h6,
   line-height: 1.1;
   text-transform: uppercase;
   color: var(--text-main);
+  text-align: left;
+}
+
+p {
+  text-align: justify;
 }
 
 img,
