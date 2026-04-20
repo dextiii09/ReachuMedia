@@ -11,5 +11,11 @@ const instagramReels = [
   { label: "Minimalist", url: "https://www.instagram.com/reel/DT7K3ERCOjM/embed" },
   { label: "Dheer Official", url: "https://www.instagram.com/reel/DR2Rhqrk3g9/embed" },
   { label: "Dheer Official", url: "https://www.instagram.com/reel/DQ6pxxtkwIS/embed" },
-  { label: "Dheer Official", url: "https://www.instagram.com/reel/DQmCxI4k-nT/embed" }
+  { label: "Dheer Official", url: "https://www.instagram.com/reel/DQmCxI4k-nT/embed" },
+  { label: "CabBazar", url: "https://www.instagram.com/reel/DXJ310-SmiX/embed" },
+  { label: "CabBazar", url: "https://www.instagram.com/p/DXJ38kgkW1_/embed" },
+  { label: "CabBazar", url: "https://www.instagram.com/p/DXMg0LXlFfs/embed" },
+  { label: "CabBazar", url: "https://www.instagram.com/reel/DXMcKLej-iA/embed" }
+
+
 ];
