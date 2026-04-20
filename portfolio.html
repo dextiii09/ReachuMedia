@@ -1147,9 +1147,43 @@
       </div>
     </section>
 
+    <script src="./assets/js/gallery-links.js"></script>
     <script>
       (function () {
         var track = document.getElementById("dig-track");
+        
+        // Dynamically load Instagram reels
+        if (track && typeof instagramReels !== 'undefined') {
+          track.innerHTML = ''; // Clear hardcoded reels
+          var colors = ['var(--accent-magenta)', 'var(--accent-yellow)', 'var(--accent-cyan)', '#00ff66'];
+          
+          instagramReels.forEach(function(item, i) {
+            var color = colors[i % colors.length];
+            var card = document.createElement("div");
+            card.className = "dig-reel-card";
+            card.setAttribute("data-label", item.label);
+            
+            var inner = document.createElement("div");
+            inner.className = "dig-reel-inner";
+            inner.style.borderColor = color;
+            
+            var frame = document.createElement("div");
+            frame.className = "artist-embed-frame";
+            
+            var iframe = document.createElement("iframe");
+            iframe.src = item.url;
+            iframe.frameBorder = "0";
+            iframe.scrolling = "no";
+            iframe.allowTransparency = "true";
+            iframe.allowFullscreen = true;
+            
+            frame.appendChild(iframe);
+            inner.appendChild(frame);
+            card.appendChild(inner);
+            track.appendChild(card);
+          });
+        }
+
         var prevBtn = document.getElementById("dig-prev");
         var nextBtn = document.getElementById("dig-next");
         var dotsContainer = document.getElementById("dig-dots");
