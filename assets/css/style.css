@@ -1944,4 +1944,23 @@ details.neo-accordion[open] .accordion-content {
   .footer-cta-box h3 {
     font-size: 1.6rem !important;
   }
+
+  /* Portfolio Brands Section Mobile Overrides */
+  .accordion-header > div > div:first-child {
+    flex-wrap: wrap;
+    gap: 12px !important;
+  }
+  .accordion-header > div > div:first-child h2 {
+    width: 100%;
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    margin-top: 4px !important;
+  }
+  .accordion-header {
+    align-items: flex-start !important;
+  }
+  
+  /* Ensure structural grids cleanly stack to 1 column */
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
 }
