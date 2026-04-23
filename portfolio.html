@@ -46,6 +46,26 @@
         0%, 100% { opacity: 1; transform: scale(1); }
         50% { opacity: 0.5; transform: scale(0.8); }
       }
+
+      /* Work badge flip container */
+      .work-badge-wrap {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: middle;
+        line-height: 1;
+      }
+      #work-badge {
+        display: inline-block;
+      }
+      @keyframes slideUp {
+        0%   { transform: translateY(0%);    opacity: 1; }
+        40%  { transform: translateY(-120%); opacity: 0; }
+        41%  { transform: translateY(120%);  opacity: 0; }
+        100% { transform: translateY(0%);    opacity: 1; }
+      }
+      #work-badge.flip {
+        animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
     </style>
   </head>
 
@@ -91,17 +111,18 @@
       style="min-height: 35vh; padding-bottom: 0px; border-bottom: none"
     >
       <div class="container text-center reveal">
-        <span
-          id="work-badge"
-          class="badge"
-          style="
-            background: var(--accent-cyan);
-            color: #000;
-            box-shadow: 4px 4px 0 #000;
-            transition: opacity 0.4s ease;
-          "
-          >THE WORK</span
-        >
+        <span class="work-badge-wrap">
+          <span
+            id="work-badge"
+            class="badge"
+            style="
+              background: var(--accent-cyan);
+              color: #000;
+              box-shadow: 4px 4px 0 #000;
+            "
+            >THE WORK</span
+          >
+        </span>
         <h1 style="font-size: clamp(3rem, 7vw, 6rem); text-align: center;">
           Results that <br /><span
             class="highlight"
@@ -1541,7 +1562,7 @@
     <script src="./assets/js/premium-cursor.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
     <script>
-      // Multilingual cycling badge
+      // Multilingual cycling badge — slide-up flip
       const workLabels = [
         'THE WORK',        // English
         'काम देखो',        // Hindi
@@ -1555,15 +1576,16 @@
         'ਸਾਡਾ ਕੰਮ',        // Punjabi
       ];
       const badge = document.getElementById('work-badge');
-      let i = 0;
+      let idx = 0;
       setInterval(() => {
-        badge.style.opacity = '0';
-        setTimeout(() => {
-          i = (i + 1) % workLabels.length;
-          badge.textContent = workLabels[i];
-          badge.style.opacity = '1';
-        }, 400);
-      }, 2200);
+        idx = (idx + 1) % workLabels.length;
+        badge.classList.remove('flip');
+        // force reflow to restart animation
+        void badge.offsetWidth;
+        badge.classList.add('flip');
+        // swap text at mid-point of animation
+        setTimeout(() => { badge.textContent = workLabels[idx]; }, 220);
+      }, 2400);
     </script>
   </body>
 </html>
