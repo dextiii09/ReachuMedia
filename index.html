@@ -72,9 +72,13 @@
     <section class="hero">
       <div class="container split">
         <div class="reveal">
-          <span class="badge badge-accent"
-            >Influencer Marketing • Artist Management</span
-          >
+          <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;">
+            <span class="badge badge-accent" style="margin-bottom: 0;">Influencer Marketing • Artist Management</span>
+            <a href="./portfolio.html" class="pill-live">
+              <span class="live-dot"></span>
+              2 Campaigns <span class="text-red">Live Now</span>
+            </a>
+          </div>
           <h1>
             Elevate Your Reach. <br /><span class="highlight"
               >Amplify Impact.</span
@@ -446,47 +450,13 @@
     </footer>
 
 
-    <!-- Fixed Right-Side Live Campaign Widget -->
-    <a href="./portfolio.html" id="live-tab" style="
-      position: fixed;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%) rotate(90deg);
-      transform-origin: right center;
-      background: #ff2020;
-      color: #fff;
-      border: 3px solid #000;
-      border-right: none;
-      box-shadow: -4px 0 0 #000;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-family: 'Lexend Zetta', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      z-index: 9999;
-      transition: padding 0.2s ease, background 0.2s ease;
-      white-space: nowrap;
-    " onmouseover="this.style.background='#000';this.style.padding='14px 24px'" onmouseout="this.style.background='#ff2020';this.style.padding='10px 20px'">
-      <span style="
-        width: 10px;
-        height: 10px;
-        background: #fff;
-        border-radius: 50%;
-        display: inline-block;
-        flex-shrink: 0;
-        animation: live-pulse 1.4s ease-in-out infinite;
-      "></span>
-      2 Campaigns Live
-    </a>
+    
 
     <script src="./assets/js/particles.js"></script>
     <script src="./assets/js/premium-cursor.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
   </body>
 </html>
+
+
 

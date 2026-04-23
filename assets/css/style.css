@@ -36,6 +36,40 @@
   50%       { opacity: 0.35; transform: scale(0.7); }
 }
 
+/* Inline Live Pill Widget */
+.pill-live {
+  display: inline-flex; 
+  align-items: center; 
+  gap: 8px; 
+  background: #000; 
+  color: #fff; 
+  border: 2px solid #ff2020; 
+  border-radius: 50px; 
+  padding: 6px 16px 6px 12px; 
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(255, 32, 32, 0.4);
+  transition: all 0.2s ease;
+}
+.pill-live:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 32, 32, 0.6);
+  background: #111;
+}
+.pill-live .live-dot {
+  width: 10px; 
+  height: 10px; 
+  background: #ff2020; 
+  border-radius: 50%; 
+  animation: live-pulse 1.4s ease-in-out infinite;
+  box-shadow: 0 0 8px #ff2020;
+}
+.pill-live .text-red {
+  color: #ff2020;
+}
+
 :root {
   /* Stark Backgrounds */
   --bg-main: #f4f4f0;
