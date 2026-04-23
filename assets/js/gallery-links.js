@@ -18,6 +18,7 @@ const instagramReels = [
   { label: "CabBazar", url: "https://www.instagram.com/reel/DXMcKLej-iA/embed" },
   { label: "CabBazar", url: "https://www.instagram.com/reel/DXN5urqjHzX/embed" },
   { label: "CabBazar", url: "https://www.instagram.com/reel/DXQ--F2CHwZ/embed" }
+  { label: "CabBazar", url: "https://www.instagram.com/reel/DXWLa8GTPsp/?igsh=MWxqeG1wZXJqZTcyMg==/embed" }
 
 
 ];
