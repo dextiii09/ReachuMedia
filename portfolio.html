@@ -92,11 +92,13 @@
     >
       <div class="container text-center reveal">
         <span
+          id="work-badge"
           class="badge"
           style="
             background: var(--accent-cyan);
             color: #000;
             box-shadow: 4px 4px 0 #000;
+            transition: opacity 0.4s ease;
           "
           >THE WORK</span
         >
@@ -1538,6 +1540,31 @@
     <script src="./assets/js/particles.js"></script>
     <script src="./assets/js/premium-cursor.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
+    <script>
+      // Multilingual cycling badge
+      const workLabels = [
+        'THE WORK',       // English
+        'काम देखो',       // Hindi
+        'EL TRABAJO',     // Spanish
+        'LE TRAVAIL',     // French
+        'DIE ARBEIT',     // German
+        'O TRABALHO',     // Portuguese
+        '仕事',           // Japanese
+        '작업',           // Korean
+        'IL LAVORO',      // Italian
+        'العمل',          // Arabic
+      ];
+      const badge = document.getElementById('work-badge');
+      let i = 0;
+      setInterval(() => {
+        badge.style.opacity = '0';
+        setTimeout(() => {
+          i = (i + 1) % workLabels.length;
+          badge.textContent = workLabels[i];
+          badge.style.opacity = '1';
+        }, 400);
+      }, 2200);
+    </script>
   </body>
 </html>
 
