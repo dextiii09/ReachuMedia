@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ReachUp Media — Elevate Your Reach, Amplify Your Impact</title>
+    <title>ReachUp Media � Elevate Your Reach, Amplify Your Impact</title>
     <meta
       name="description"
       content="ReachUp Media is an influencer marketing and artist management agency connecting brands with regional and niche audiences across India."
@@ -11,7 +11,7 @@
     <meta property="og:title" content="ReachUp Media" />
     <meta
       property="og:description"
-      content="Influencer marketing • Artist & Band Management • Content & UGC • Social Media Marketing"
+      content="Influencer marketing � Artist & Band Management � Content & UGC � Social Media Marketing"
     />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://reachupmedia.in/" />
@@ -20,6 +20,13 @@
     <link rel="icon" type="image/png" href="./assets/img/brand/Reachup%20Media.png" />
     <link rel="stylesheet" href="./assets/css/style.css?v=2" />
     <style>
+      /* Live Ticker Tape */
+      .live-ticker{display:block;width:100%;background:#ff2020;border-bottom:3px solid #000;overflow:hidden;text-decoration:none;cursor:pointer;position:relative;z-index:99;}
+      .live-ticker:hover .live-ticker-track{animation-play-state:paused;}
+      .live-ticker-track{display:flex;align-items:center;gap:48px;white-space:nowrap;animation:ticker-scroll 18s linear infinite;padding:10px 0;}
+      .live-ticker-track span{font-family:'Lexend Zetta',sans-serif;font-size:0.72rem;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#fff;flex-shrink:0;}
+      .live-ticker-track .ticker-separator{color:rgba(255,255,255,0.5);font-size:0.65rem;}
+      @keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
       /* Live Pulse */
       @keyframes live-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
     </style>
@@ -68,16 +75,34 @@
             >Work With Us</a
           >
         </nav>
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <button class="menu-toggle" aria-label="Toggle menu">?</button>
       </div>
     </header>
+
+    <!-- Live Campaigns Ticker -->
+    <a href="./portfolio.html" class="live-ticker">
+      <div class="live-ticker-track">
+        <span>?? LIVE NOW: SPACE SEVEN FITNESS</span>
+        <span class="ticker-separator">?</span>
+        <span>?? LIVE NOW: CABBAZAR</span>
+        <span class="ticker-separator">?</span>
+        <span>?? LIVE NOW: SPACE SEVEN FITNESS</span>
+        <span class="ticker-separator">?</span>
+        <span>?? LIVE NOW: CABBAZAR</span>
+        <span class="ticker-separator">?</span>
+        <span>?? LIVE NOW: SPACE SEVEN FITNESS</span>
+        <span class="ticker-separator">?</span>
+        <span>?? LIVE NOW: CABBAZAR</span>
+        <span class="ticker-separator">?</span>
+      </div>
+    </a>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="container split">
         <div class="reveal">
           <span class="badge badge-accent"
-            >Influencer Marketing • Artist Management</span
+            >Influencer Marketing � Artist Management</span
           >
           <h1>
             Elevate Your Reach. <br /><span class="highlight"
@@ -94,7 +119,7 @@
               href="https://wa.me/917973043372?text=Hi%20ReachUp%20Media%2C%20let%27s%20collaborate"
               target="_blank"
               rel="noopener"
-              >Let’s Collaborate</a
+              >Let�s Collaborate</a
             >
             <a class="btn btn-ghost" href="#services">Explore Services</a>
           </div>
@@ -159,11 +184,11 @@
             style="background: var(--accent-magenta); color: #fff"
           >
             <div class="icon-box" style="background: #fff; margin-bottom: 20px">
-              🌍
+              ??
             </div>
             <h3 style="color: #fff">Regional Focus</h3>
             <p>
-              North, East, West, South—vernacular content that aligns with
+              North, East, West, South�vernacular content that aligns with
               culture and formats.
             </p>
           </div>
@@ -172,7 +197,7 @@
               class="icon-box"
               style="background: var(--accent-cyan); margin-bottom: 20px"
             >
-              ✨
+              ?
             </div>
             <h3>Creator-first</h3>
             <p>
@@ -195,7 +220,7 @@
         </div>
         <div class="grid grid-3">
           <div class="card reveal" style="background: var(--accent-cyan)">
-            <div class="icon-box" style="background: #fff">📱</div>
+            <div class="icon-box" style="background: #fff">??</div>
             <h3>Creator Cults</h3>
             <p>
               Micro, Macro & Regional creators weaponized to seed viral narratives.
@@ -203,25 +228,25 @@
           </div>
           <div class="card reveal">
             <div class="icon-box" style="background: var(--accent-magenta)">
-              🤝
+              ??
             </div>
             <h3>Brand Collisions</h3>
             <p>Aggressive campaign strategy, bold narrative building, and creator matchmaking.</p>
           </div>
           <div class="card reveal" style="background: var(--accent-yellow)">
-            <div class="icon-box" style="background: #fff">🎸</div>
+            <div class="icon-box" style="background: #fff">??</div>
             <h3>Artist Management</h3>
             <p>Representation, bookings, tours, and end-to-end show ops.</p>
           </div>
           <div class="card reveal">
-            <div class="icon-box" style="background: #00ff66">🎬</div>
+            <div class="icon-box" style="background: #00ff66">??</div>
             <h3>Viral Content & UGC</h3>
             <p>
               Raw on-location shoots, UGC at scale, and internet-breaking asset direction.
             </p>
           </div>
           <div class="card reveal" style="background: #9d00ff; color: #fff">
-            <div class="icon-box" style="background: #fff; color: #000">📣</div>
+            <div class="icon-box" style="background: #fff; color: #000">??</div>
             <h3 style="color: #fff">Social Media</h3>
             <p>
               Always-on calendars, community management, and paid amplification.
@@ -248,28 +273,28 @@
       <div class="container text-center">
         <span class="badge" style="background: var(--accent-magenta); color: #fff; box-shadow: 4px 4px 0 var(--accent-yellow);">Our Impact So Far</span>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; margin-top: 48px;">
-          <!-- Total Reach — Minimalist (840,000) + Monginis (763,548) = 1,603,548 confirmed -->
+          <!-- Total Reach � Minimalist (840,000) + Monginis (763,548) = 1,603,548 confirmed -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-cyan);">
               <span class="reach-counter" data-target="1653548" data-suffix="M+" data-divisor="1000000">0</span>
             </div>
             <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Total Reach Delivered</div>
           </div>
-          <!-- Creators Activated — Minimalist (12+) + Monginis (12+) + Space Seven (8) = 32+ confirmed -->
+          <!-- Creators Activated � Minimalist (12+) + Monginis (12+) + Space Seven (8) = 32+ confirmed -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-yellow);">
               <span class="reach-counter" data-target="47" data-suffix="+">0</span>
             </div>
             <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Creators Activated</div>
           </div>
-          <!-- Campaigns Run — 4 confirmed brands -->
+          <!-- Campaigns Run � 4 confirmed brands -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-magenta);">
               <span class="reach-counter" data-target="4" data-suffix="+">0</span>
             </div>
             <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Brand Campaigns</div>
           </div>
-          <!-- Avg ER — (3.2% + 3.19%) / 2 = 3.2% avg -->
+          <!-- Avg ER � (3.2% + 3.19%) / 2 = 3.2% avg -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: #00ff66;">
               <span class="reach-counter" data-target="32" data-suffix="%" data-divisor="10">0</span>
@@ -328,7 +353,7 @@
               <img src="./assets/img/clients/spacesevenfitness.jpg" alt="Space Seven Fitness" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <span style="font-weight: 900; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2; flex-grow: 1; display: flex; align-items: center; justify-content: center;">Space Seven Fitness</span>
-            <a href="./portfolio.html#case-spaceseven" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study →</a>
+            <a href="./portfolio.html#case-spaceseven" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study ?</a>
           </div>
           <!-- CabBazar -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; width: 180px;">
@@ -336,7 +361,7 @@
               <img src="./assets/img/clients/cabbazar-logo.png" alt="CabBazar" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <span style="font-weight: 900; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2; flex-grow: 1; display: flex; align-items: center; justify-content: center;">CabBazar</span>
-            <a href="./portfolio.html#case-cabbazar" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study →</a>
+            <a href="./portfolio.html#case-cabbazar" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study ?</a>
           </div>
           <!-- Minimalist Skincare -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; width: 180px;">
@@ -344,7 +369,7 @@
               <img src="./assets/img/clients/beminimalist_logo.jpg" alt="Be Minimalist Skincare" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
             <span style="font-weight: 900; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2; flex-grow: 1; display: flex; align-items: center; justify-content: center;">Be Minimalist</span>
-            <a href="./portfolio.html#case-minimalist" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study →</a>
+            <a href="./portfolio.html#case-minimalist" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study ?</a>
           </div>
           <!-- Monginis -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; width: 180px;">
@@ -352,7 +377,7 @@
               <img src="./assets/img/clients/monginis-logo-1.png" alt="Monginis" style="width: 100%; height: 100%; object-fit: contain; padding: 8px;" />
             </div>
             <span style="font-weight: 900; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2; flex-grow: 1; display: flex; align-items: center; justify-content: center;">Monginis</span>
-            <a href="./portfolio.html#case-monginis" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study →</a>
+            <a href="./portfolio.html#case-monginis" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study ?</a>
           </div>
         </div>
       </div>
@@ -450,29 +475,14 @@
     </footer>
 
 
-    <!-- Floating Right Side Live Campaign Button -->
-    <a href="./portfolio.html" style="
-      position: fixed; right: -4px; bottom: 40px;
-      background: #fff000; color: #000; padding: 14px 20px 14px 24px;
-      border: 3px solid #000; box-shadow: -6px 6px 0 #000;
-      display: flex; align-items: center; gap: 12px; text-decoration: none;
-      font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700;
-      text-transform: uppercase; z-index: 9999; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: pointer; overflow: hidden;
-    " onmouseover="this.querySelector('.hover-text').style.maxWidth='250px'; this.querySelector('.hover-text').style.opacity='1'; this.querySelector('.hover-text').style.paddingLeft='12px'; this.style.right='0'; this.style.boxShadow='-8px 8px 0 #000'; this.style.background='#00f0ff';" onmouseout="this.querySelector('.hover-text').style.maxWidth='0'; this.querySelector('.hover-text').style.opacity='0'; this.querySelector('.hover-text').style.paddingLeft='0'; this.style.right='-4px'; this.style.boxShadow='-6px 6px 0 #000'; this.style.background='#fff000';">
-      <div style="position:relative; width:14px; height:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
-        <span style="position:absolute; width:100%; height:100%; background:#ff0055; border-radius:50%; animation:live-pulse 1.4s ease-in-out infinite;"></span>
-        <span style="position:relative; width:8px; height:8px; background:#ff0055; border-radius:50%;"></span>
-      </div>
-      <span style="white-space:nowrap; z-index: 2; font-family:'Lexend Zetta', sans-serif; font-size:0.8rem; letter-spacing:0.1em;">Live</span>
-      <span class="hover-text" style="display:inline-block; max-width:0; opacity:0; overflow:hidden; white-space:nowrap; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); color:#000; z-index: 2; border-left:2px solid #000; padding-left:0;">2 Brand Campaigns</span>
-    </a>
+    
 
     <script src="./assets/js/particles.js"></script>
     <script src="./assets/js/premium-cursor.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
   </body>
 </html>
+
 
 
 
