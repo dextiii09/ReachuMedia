@@ -19,6 +19,17 @@
     <meta name="theme-color" content="#f4f4f0" />
     <link rel="icon" type="image/png" href="./assets/img/brand/Reachup%20Media.png" />
     <link rel="stylesheet" href="./assets/css/style.css?v=2" />
+    <style>
+      /* Live Ticker Tape */
+      .live-ticker{display:block;width:100%;background:#ff2020;border-bottom:3px solid #000;overflow:hidden;text-decoration:none;cursor:pointer;position:relative;z-index:99;}
+      .live-ticker:hover .live-ticker-track{animation-play-state:paused;}
+      .live-ticker-track{display:flex;align-items:center;gap:48px;white-space:nowrap;animation:ticker-scroll 18s linear infinite;padding:10px 0;}
+      .live-ticker-track span{font-family:'Lexend Zetta',sans-serif;font-size:0.72rem;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#fff;flex-shrink:0;}
+      .live-ticker-track .ticker-separator{color:rgba(255,255,255,0.5);font-size:0.65rem;}
+      @keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+      /* Live Pulse */
+      @keyframes live-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+    </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
