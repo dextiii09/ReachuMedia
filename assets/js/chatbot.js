@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Chatbot Toggle Button -->
     <button id="reachbot-toggle" class="reachbot-toggle" aria-label="Toggle Chat">
       <span class="reachbot-icon">💬</span>
-      <span class="reachbot-text">ASK REACHBOT</span>
     </button>
 
     <!-- Chatbot Window -->
