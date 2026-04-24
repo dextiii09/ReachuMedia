@@ -20,13 +20,6 @@
     <link rel="icon" type="image/png" href="./assets/img/brand/Reachup%20Media.png" />
     <link rel="stylesheet" href="./assets/css/style.css?v=2" />
     <style>
-      /* Live Ticker Tape */
-      .live-ticker{display:block;position:absolute;top:101px;left:0;right:0;background:#ff2020;border-bottom:3px solid #000;overflow:hidden;text-decoration:none;cursor:pointer;z-index:99;}
-      .live-ticker:hover .live-ticker-track{animation-play-state:paused;}
-      .live-ticker-track{display:flex;align-items:center;gap:48px;white-space:nowrap;animation:ticker-scroll 18s linear infinite;padding:10px 0;}
-      .live-ticker-track span{font-family:'Lexend Zetta',sans-serif;font-size:0.72rem;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#fff;flex-shrink:0;}
-      .live-ticker-track .ticker-separator{color:rgba(255,255,255,0.5);font-size:0.65rem;}
-      @keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
       /* Live Pulse */
       @keyframes live-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
     </style>
@@ -78,24 +71,6 @@
         <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       </div>
     </header>
-
-    <!-- Live Campaigns Ticker -->
-    <a href="./portfolio.html" class="live-ticker">
-      <div class="live-ticker-track">
-        <span>🔴 LIVE NOW: SPACE SEVEN FITNESS</span>
-        <span class="ticker-separator">✦</span>
-        <span>🔴 LIVE NOW: CABBAZAR</span>
-        <span class="ticker-separator">✦</span>
-        <span>🔴 LIVE NOW: SPACE SEVEN FITNESS</span>
-        <span class="ticker-separator">✦</span>
-        <span>🔴 LIVE NOW: CABBAZAR</span>
-        <span class="ticker-separator">✦</span>
-        <span>🔴 LIVE NOW: SPACE SEVEN FITNESS</span>
-        <span class="ticker-separator">✦</span>
-        <span>🔴 LIVE NOW: CABBAZAR</span>
-        <span class="ticker-separator">✦</span>
-      </div>
-    </a>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -475,7 +450,22 @@
     </footer>
 
 
-    
+    <!-- Floating Right Side Live Campaign Button -->
+    <a href="./portfolio.html" style="
+      position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+      background: #ff2020; color: #fff; padding: 12px 16px;
+      border: 3px solid #000; border-right: none; box-shadow: -4px 4px 0 #000;
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      font-family: 'Lexend Zetta', sans-serif; font-size: 0.75rem; font-weight: 900;
+      text-transform: uppercase; z-index: 9999; transition: all 0.3s ease;
+      cursor: pointer; overflow: hidden;
+    " onmouseover="this.querySelector('.hover-text').style.maxWidth='200px'; this.querySelector('.hover-text').style.opacity='1'; this.querySelector('.hover-text').style.marginLeft='10px'; this.style.padding='16px 20px'; this.style.background='#000'; this.style.color='#fff';" onmouseout="this.querySelector('.hover-text').style.maxWidth='0'; this.querySelector('.hover-text').style.opacity='0'; this.querySelector('.hover-text').style.marginLeft='0'; this.style.padding='12px 16px'; this.style.background='#ff2020';">
+      <div style="position:relative; width:12px; height:12px; flex-shrink:0;">
+        <span style="position:absolute; width:100%; height:100%; background:#fff; border-radius:50%; animation:live-pulse 1.4s ease-in-out infinite;"></span>
+      </div>
+      <span style="white-space:nowrap; z-index: 2;">Live</span>
+      <span class="hover-text" style="display:inline-block; max-width:0; opacity:0; overflow:hidden; white-space:nowrap; transition:all 0.3s ease; color:#fff; z-index: 2;">2 Campaigns</span>
+    </a>
 
     <script src="./assets/js/particles.js"></script>
     <script src="./assets/js/premium-cursor.js" defer></script>
