@@ -152,6 +152,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     progress.className = 'progress';
     document.body.appendChild(progress);
     const header = qs('.header');
+    let lastScrollTop = 0;
 
     const onScroll = () => {
       const h = document.documentElement;
@@ -160,6 +161,23 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       const ratio = height > 0 ? Math.min(1, Math.max(0, scrollTop / height)) : 0;
       progress.style.setProperty('--scroll', String(ratio));
       if (header) header.classList.toggle('scrolled', scrollTop > 6);
+
+      // Mobile Floating Widget Optimization
+      if (window.innerWidth <= 768) {
+        const liveBtn = document.getElementById('live-campaign-btn');
+        const chatToggle = document.querySelector('.reachbot-toggle');
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down
+          if (liveBtn) liveBtn.classList.add('hide-on-mobile-scroll');
+          if (chatToggle) chatToggle.classList.add('hide-on-mobile-scroll');
+        } else {
+          // Scrolling up
+          if (liveBtn) liveBtn.classList.remove('hide-on-mobile-scroll');
+          if (chatToggle) chatToggle.classList.remove('hide-on-mobile-scroll');
+        }
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();

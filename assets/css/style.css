@@ -2284,3 +2284,10 @@ details.neo-accordion[open] .accordion-content {
   }
 }
 
+/* Mobile Scroll Optimization Helper */
+.hide-on-mobile-scroll {
+  transform: translateY(150px) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
