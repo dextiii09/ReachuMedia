@@ -2070,3 +2070,218 @@ details.neo-accordion[open] .accordion-content {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* =========================================================================
+   REACHBOT CUSTOM CHAT UI 
+   ========================================================================= */
+
+.reachbot-toggle {
+  position: fixed;
+  bottom: 40px;
+  left: 40px; /* Opposite side of LIVE button */
+  z-index: 9999;
+  background: var(--accent-cyan);
+  color: #000;
+  border: var(--border-thick);
+  box-shadow: -6px 6px 0 #000;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-family: 'Lexend Zetta', sans-serif;
+  font-weight: 900;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.reachbot-toggle:hover {
+  transform: translate(4px, -4px);
+  box-shadow: -10px 10px 0 #000;
+  background: var(--accent-yellow);
+}
+
+.reachbot-icon {
+  font-size: 1.5rem;
+}
+
+/* Chat Window */
+.reachbot-window {
+  position: fixed;
+  bottom: 110px;
+  left: 40px;
+  width: 360px;
+  height: 500px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 120px);
+  background: #fff;
+  border: var(--border-thick);
+  box-shadow: -10px 10px 0 var(--accent-magenta), -10px 10px 0 3px #000;
+  display: flex;
+  flex-direction: column;
+  z-index: 10000;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: bottom left;
+}
+
+.reachbot-window.hidden {
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  pointer-events: none;
+}
+
+/* Header */
+.reachbot-header {
+  background: #000;
+  color: #fff;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--border-thick);
+}
+
+.reachbot-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  animation: live-pulse 1.5s infinite;
+}
+
+.reachbot-close {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.reachbot-close:hover {
+  transform: scale(1.2) rotate(90deg);
+  color: var(--accent-magenta);
+}
+
+/* Messages Area */
+.reachbot-messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg-main);
+}
+
+.bot-msg, .user-msg {
+  display: flex;
+  max-width: 85%;
+}
+
+.bot-msg {
+  align-self: flex-start;
+}
+
+.user-msg {
+  align-self: flex-end;
+}
+
+.msg-bubble {
+  padding: 12px 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border: var(--border-thin);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.bot-msg .msg-bubble {
+  background: #fff;
+  color: #000;
+  border-bottom-left-radius: 0;
+}
+
+.user-msg .msg-bubble {
+  background: var(--accent-cyan);
+  color: #000;
+  border-bottom-right-radius: 0;
+}
+
+/* Form / Input Area */
+.reachbot-form {
+  display: flex;
+  border-top: var(--border-thick);
+  background: #fff;
+}
+
+.reachbot-form input {
+  flex-grow: 1;
+  padding: 16px;
+  border: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  outline: none;
+}
+
+.reachbot-send {
+  background: var(--accent-magenta);
+  color: #fff;
+  border: none;
+  border-left: var(--border-thick);
+  padding: 0 24px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reachbot-send:hover {
+  background: #000;
+}
+
+/* Typing Indicator */
+.typing-indicator .msg-bubble {
+  display: flex;
+  gap: 4px;
+  padding: 16px;
+}
+
+.typing-indicator .dot {
+  width: 6px;
+  height: 6px;
+  background: #000;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator .dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator .dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .reachbot-toggle {
+    bottom: 20px;
+    left: 20px;
+    padding: 12px 16px;
+  }
+  .reachbot-window {
+    bottom: 80px;
+    left: 20px;
+    width: calc(100vw - 40px);
+  }
+}
+
