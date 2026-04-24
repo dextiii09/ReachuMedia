@@ -75,32 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollToBottom();
   };
 
-  // Bot Logic Engine
-  const getBotResponse = (input) => {
-    const lowerInput = input.toLowerCase();
-    
-    if (lowerInput.match(/(service|what do you do|offer|help|marketing|manage)/)) {
-      return "We specialize in <strong>Influencer Marketing</strong>, <strong>Artist & Band Management</strong>, <strong>Content & UGC</strong>, and overall Social Media strategy. Want to see some of our work?";
-    }
-    else if (lowerInput.match(/(work|campaign|portfolio|client|brand)/)) {
-      return "We've run massive creator-led campaigns for brands like <strong>CabBazar</strong> (1.6M+ reach!), <strong>Be Minimalist</strong>, <strong>Monginis</strong>, and <strong>Space Seven Fitness</strong>. Check out our <a href='./portfolio.html' style='text-decoration:underline; font-weight:900; color:#000;'>Portfolio Page</a>!";
-    }
-    else if (lowerInput.match(/(contact|email|phone|whatsapp|reach|talk|call)/)) {
-      return "Ready to break the algorithm? 🚀 Email us at <a href='mailto:suraj@reachupmedia.in'>suraj@reachupmedia.in</a>, or WhatsApp us at <a href='https://wa.me/917973043372' target='_blank'>+91 7973043372</a>.";
-    }
-    else if (lowerInput.match(/(hi|hello|hey|sup)/)) {
-      return "Hey! How can I help you today? You can ask me about our services or our past campaigns.";
-    }
-    else if (lowerInput.match(/(price|cost|charge)/)) {
-      return "Every campaign is uniquely crafted to fit your brand's specific needs and scale. It's best to chat with our founder! Shoot an email to <strong>suraj@reachupmedia.in</strong>.";
-    }
-    else {
-      return "I'm still learning the ropes! 😅 For the best answer to that, you should probably just reach out directly at <strong>suraj@reachupmedia.in</strong> or WhatsApp <strong>+91 7973043372</strong>.";
-    }
-  };
-
-  // Handle Form Submission
-  chatForm.addEventListener('submit', (e) => {
+  // Form Submission & API Call
+  chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const userText = chatInput.value.trim();
     if (!userText) return;
@@ -118,16 +94,33 @@ document.addEventListener('DOMContentLoaded', () => {
     messagesContainer.appendChild(typingDiv);
     scrollToBottom();
 
-    // 3. Generate and Delay Bot Response
-    const botResponse = getBotResponse(userText);
-    
-    setTimeout(() => {
+    // 3. Call Gemini Serverless Function
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText })
+      });
+      
+      const data = await response.json();
+      
+      // Remove typing indicator
+      const typingEl = document.getElementById(typingId);
+      if (typingEl) typingEl.remove();
+
+      if (!response.ok) {
+        addMessage("Oops, my brain is taking a break. 😅 Try emailing suraj@reachupmedia.in instead!", 'bot');
+        console.error("Chat Error:", data);
+      } else {
+        addMessage(data.reply, 'bot');
+      }
+    } catch (err) {
       // Remove typing indicator
       const typingEl = document.getElementById(typingId);
       if (typingEl) typingEl.remove();
       
-      // Add real response
-      addMessage(botResponse, 'bot');
-    }, 800 + Math.random() * 600); // 0.8s to 1.4s delay for realism
+      addMessage("Connection error! 😱 Please contact us on WhatsApp instead.", 'bot');
+      console.error(err);
+    }
   });
 });
