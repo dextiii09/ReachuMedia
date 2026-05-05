@@ -410,16 +410,18 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       pointer-events: none;
       transform: translateX(-100%) skewX(-15deg);
       transform-origin: bottom left;
+      /* Default state is hidden to the left */
     }
   `;
   document.head.appendChild(style);
 
-  // Create 3 layered sweeps (Cyan -> Magenta -> Dark)
-  const colors = ['var(--accent-cyan)', 'var(--accent-magenta)', '#0b0b0b'];
+  // Create 3 layered sweeps with HEX colors (safest for JS inline styles)
+  // Cyan -> Magenta -> Dark
+  const colors = ['#00f0ff', '#ff0055', '#0b0b0b'];
   const sweeps = colors.map((color, i) => {
     const el = document.createElement('div');
     el.className = 'page-sweep';
-    el.style.background = color;
+    el.style.backgroundColor = color; // Use backgroundColor explicitly
     el.style.zIndex = 999999 + i;
     el.style.transform = 'translateX(0) skewX(-15deg)'; // Start covering the screen
     document.body.appendChild(el);
@@ -452,8 +454,8 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     if (!a || !a.href) return;
     const url = new URL(a.href, window.location.href);
     
-    // Ignore external, blank targets, or hash scrolls
-    if (a.target === '_blank' || url.hash) return;
+    // Ignore external, blank targets, hash scrolls, mailto, tel
+    if (a.target === '_blank' || url.hash || a.href.startsWith('mailto:') || a.href.startsWith('tel:')) return;
     
     if (isInternalLink(url)) {
       e.preventDefault();
