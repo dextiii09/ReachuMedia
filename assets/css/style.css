@@ -2323,7 +2323,6 @@ details.neo-accordion[open] .accordion-content {
   pointer-events: none !important;
 }
 
-
 /* --- MOBILE FIXES EXTENSION --- */
 @media (max-width: 768px) {
   /* Prevent Text Bleed correctly without messy hyphenation */
@@ -2332,7 +2331,7 @@ details.neo-accordion[open] .accordion-content {
     overflow-wrap: normal !important;
     hyphens: none !important;
   }
-  
+
   p {
     text-align: left !important;
     hyphens: none !important;
@@ -2351,14 +2350,15 @@ details.neo-accordion[open] .accordion-content {
     font-size: 1.2rem !important;
   }
 
-  /* Fix floating buttons overlapping */
+  /* Fix floating buttons overlapping content */
   .reachbot-toggle {
     width: 48px !important;
     height: 48px !important;
     bottom: 12px !important;
     left: 12px !important;
+    padding: 0 !important;
   }
-  
+
   .chatbot-toggle {
     width: 48px !important;
     height: 48px !important;
@@ -2374,4 +2374,18 @@ details.neo-accordion[open] .accordion-content {
     width: 100%;
     box-sizing: border-box;
   }
+
+  /* Dark mode compatibility — ensure overrides don't break dark mode text */
+  body.dark-mode p {
+    color: var(--text-main, #fff);
+  }
+
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3 {
+    color: var(--text-main, #fff);
+  }
 }
+
+
+
