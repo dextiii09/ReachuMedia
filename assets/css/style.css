@@ -381,6 +381,15 @@ a {
 }
 
 @media (max-width: 900px) {
+  .header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--bg-main);
+  }
+  .header.scrolled {
+    background: var(--bg-alt);
+  }
+
   .nav {
     position: fixed;
     top: 93px;
@@ -395,6 +404,7 @@ a {
     opacity: 0;
     pointer-events: none;
     transition: var(--transition);
+    z-index: 999;
   }
 
   .nav.show {
@@ -407,6 +417,28 @@ a {
   .menu-toggle {
     display: block;
   }
+}
+
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 990;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-backdrop.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 
 /* Brutalist Buttons */
