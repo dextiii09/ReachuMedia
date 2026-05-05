@@ -417,13 +417,39 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       --shadow-hard-hover: 10px 10px 0px #fff;
       background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px);
     }
-    body.dark-mode .card,
-    body.dark-mode .nav a {
+    
+    /* Only apply dark background and white text to cards WITHOUT inline backgrounds */
+    body.dark-mode .card:not([style*="background"]) {
       background: var(--bg-alt);
       color: #fff;
+    }
+    
+    /* Ensure cards with inline light backgrounds force black text in dark mode */
+    body.dark-mode .card[style*="var(--accent-cyan)"],
+    body.dark-mode .card[style*="var(--accent-yellow)"],
+    body.dark-mode .card[style*="#fff"] {
+      color: #000 !important;
+    }
+    body.dark-mode .card[style*="var(--accent-cyan)"] h3,
+    body.dark-mode .card[style*="var(--accent-yellow)"] h3,
+    body.dark-mode .card[style*="#fff"] h3,
+    body.dark-mode .card[style*="var(--accent-cyan)"] p,
+    body.dark-mode .card[style*="var(--accent-yellow)"] p,
+    body.dark-mode .card[style*="#fff"] p {
+      color: #000 !important;
+    }
+
+    body.dark-mode .card,
+    body.dark-mode .nav a {
       border-color: #fff;
       box-shadow: var(--shadow-hard);
     }
+    
+    body.dark-mode .nav a {
+      background: var(--bg-alt);
+      color: #fff;
+    }
+
     body.dark-mode .nav {
       background: rgba(11,11,11,0.9);
     }

@@ -2326,28 +2326,29 @@ details.neo-accordion[open] .accordion-content {
 /* --- MOBILE FIXES EXTENSION --- */
 @media (max-width: 768px) {
   /* Prevent Text Bleed correctly without messy hyphenation */
-  h1, h2, h3 {
+  h1, h2, h3, p {
     word-wrap: normal !important;
-    overflow-wrap: normal !important;
-    hyphens: none !important;
-  }
-
-  p {
-    text-align: left !important;
+    overflow-wrap: break-word !important;
     hyphens: none !important;
   }
 
   /* Support ultra-narrow screens (320px) */
   .hero h1 {
-    font-size: clamp(1.8rem, 10vw, 3.5rem) !important;
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
+    line-height: 1.1 !important;
   }
 
   .section h2 {
-    font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
+    font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+    line-height: 1.2 !important;
   }
 
   .card h3 {
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .card {
+    padding: 24px !important; /* Give cards more breathing room on mobile */
   }
 
   /* Fix floating buttons overlapping content */
@@ -2373,17 +2374,18 @@ details.neo-accordion[open] .accordion-content {
   .contact-box {
     width: 100%;
     box-sizing: border-box;
+    padding: 20px !important; /* Ensure the contact form doesn't touch the screen edges */
   }
 
-  /* Dark mode compatibility — ensure overrides don't break dark mode text */
-  body.dark-mode p {
-    color: var(--text-main, #fff);
+  /* Ensure text in the hero stays centered if it was meant to be */
+  .hero .split, .text-center {
+    text-align: center !important;
+    align-items: center !important;
   }
 
-  body.dark-mode h1,
-  body.dark-mode h2,
-  body.dark-mode h3 {
-    color: var(--text-main, #fff);
+  /* Fix Accordion alignment on mobile */
+  .accordion-header {
+    padding: 20px !important;
   }
 }
 
