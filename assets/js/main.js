@@ -35,11 +35,13 @@ function setupPDFViewer() {
   });
 }
 window.addEventListener('DOMContentLoaded', setupPDFViewer);
+
 // ReachUp Media - Interactions
 (function () {
   const qs = (s, el = document) => el.querySelector(s);
   const qsa = (s, el = document) => [...el.querySelectorAll(s)];
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
   // Toggle to enable/disable enhanced animations site-wide (easy revert)
   const enableEnhancedAnimations = true;
   // Toggle to enable a local, no-backend chatbot widget (expose globally so the widget initializer can see it)
@@ -70,7 +72,8 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       }
     };
 
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
       const open = !nav.classList.contains('show');
       setExpanded(open);
     });
@@ -124,6 +127,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         setTimeout(check, 0);
       });
     } catch (e) { /* noop */ }
+    
     if (!prefersReduced && enableEnhancedAnimations) {
       document.body.classList.add('enhanced-anim');
       // Assign directional effects and staggered delays to reveal elements
@@ -345,47 +349,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         addMsg("👋 Hi! I'm your ReachUp Assistant. Ask me about services, pricing, or how to contact us. Type your question below!");
       }
     });
-    closeBtn.addEventListener('click', () => panel.classList.remove('show'));
-    sendBtn.addEventListener('click', onSend);
-    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onSend(); });
-
-    document.body.appendChild(toggle);
-      const div = document.createElement('div');
-      div.className = `chatbot-msg ${who}`;
-      div.textContent = text;
-      body.appendChild(div);
-      body.scrollTop = body.scrollHeight;
-    };
-
-    // Typing indicator
-    const showTyping = () => {
-      const typing = document.createElement('div');
-      typing.className = 'chatbot-msg bot typing';
-      typing.textContent = 'Typing...';
-      body.appendChild(typing);
-      body.scrollTop = body.scrollHeight;
-      return typing;
-    };
-
-    const onSend = () => {
-      const val = (input.value || '').trim();
-      if (!val) return;
-      addMsg(val, 'user');
-      input.value = '';
-      const typing = showTyping();
-      setTimeout(() => {
-        typing.remove();
-        addMsg(ask(val), 'bot');
-      }, 600);
-    };
-
-    toggle.addEventListener('click', () => {
-      panel.classList.toggle('show');
-      if (panel.classList.contains('show') && !panel.dataset.greeted) {
-        panel.dataset.greeted = '1';
-        addMsg("👋 Hi! I'm your ReachUp Assistant. Ask me about services, pricing, or how to contact us. Type your question below!");
-      }
-    });
+    
     closeBtn.addEventListener('click', () => panel.classList.remove('show'));
     sendBtn.addEventListener('click', onSend);
     input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onSend(); });
