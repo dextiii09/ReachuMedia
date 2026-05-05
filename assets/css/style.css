@@ -1925,6 +1925,15 @@ details.neo-accordion summary {
   margin: 0;
   outline: none;
   border-bottom: var(--border-thick);
+  position: relative; /* Safari fix */
+}
+
+/* Safari fix: invisible overlay catches clicks directly on summary instead of flex children */
+details.neo-accordion summary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
 }
 
 details.neo-accordion summary::-webkit-details-marker {

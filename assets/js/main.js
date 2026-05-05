@@ -415,7 +415,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       pointer-events: none;
       transform: translateX(-100%) skewX(-15deg);
       transform-origin: bottom left;
-      /* Default state is hidden to the left */
+      visibility: hidden; /* Hide entirely to prevent Safari touch blocking */
     }
   `;
   document.head.appendChild(style);
@@ -429,6 +429,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     el.style.backgroundColor = color; // Use backgroundColor explicitly
     el.style.zIndex = 999999 + i;
     el.style.transform = 'translateX(0) skewX(-15deg)'; // Start covering the screen
+    el.style.visibility = 'visible'; // Make visible for initial slide out
     document.body.appendChild(el);
     // FORCE REFLOW: Ensures the browser paints the "covered" state before requestAnimationFrame changes it!
     void el.offsetHeight; 
@@ -442,6 +443,11 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       setTimeout(() => {
         el.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
         el.style.transform = 'translateX(100%) skewX(-15deg)';
+        
+        // Hide after animation finishes
+        setTimeout(() => {
+          el.style.visibility = 'hidden';
+        }, 650);
       }, i * 150);
     });
   });
@@ -452,6 +458,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       sweeps.forEach((el) => {
         el.style.transition = 'none';
         el.style.transform = 'translateX(100%) skewX(-15deg)';
+        el.style.visibility = 'hidden';
       });
     }
   });
@@ -472,6 +479,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       sweeps.forEach((el, i) => {
         el.style.transition = 'none';
         el.style.transform = 'translateX(-100%) skewX(-15deg)';
+        el.style.visibility = 'visible'; // Make visible for animation
         
         // Force reflow
         void el.offsetHeight;
