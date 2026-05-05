@@ -377,9 +377,9 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       position: fixed;
       top: 0; left: -20%; width: 140%; bottom: 0;
       pointer-events: none;
-      transform: translateX(-100%) skewX(-15deg);
+      transform: translateX(-200%) skewX(-15deg);
       transform-origin: bottom left;
-      visibility: hidden; /* Hide entirely to prevent Safari touch blocking */
+      display: none; /* Hide completely from render tree to prevent Safari blocking */
     }
   `;
   document.head.appendChild(style);
@@ -393,7 +393,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     el.style.backgroundColor = color; // Use backgroundColor explicitly
     el.style.zIndex = 999999 + i;
     el.style.transform = 'translateX(0) skewX(-15deg)'; // Start covering the screen
-    el.style.visibility = 'visible'; // Make visible for initial slide out
+    el.style.display = 'block'; // Make visible for initial slide out
     document.body.appendChild(el);
     // FORCE REFLOW: Ensures the browser paints the "covered" state before requestAnimationFrame changes it!
     void el.offsetHeight; 
@@ -406,11 +406,11 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     [...sweeps].reverse().forEach((el, i) => {
       setTimeout(() => {
         el.style.transition = 'transform 0.4s cubic-bezier(0.77, 0, 0.175, 1)';
-        el.style.transform = 'translateX(100%) skewX(-15deg)';
+        el.style.transform = 'translateX(200%) skewX(-15deg)';
         
         // Hide after animation finishes
         setTimeout(() => {
-          el.style.visibility = 'hidden';
+          el.style.display = 'none';
         }, 450);
       }, i * 75);
     });
@@ -421,8 +421,8 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     if (event.persisted) {
       sweeps.forEach((el) => {
         el.style.transition = 'none';
-        el.style.transform = 'translateX(100%) skewX(-15deg)';
-        el.style.visibility = 'hidden';
+        el.style.transform = 'translateX(200%) skewX(-15deg)';
+        el.style.display = 'none';
       });
     }
   });
@@ -442,8 +442,8 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       // Normal order on the way in: Cyan slides in, then Magenta covers it, then Dark covers it!
       sweeps.forEach((el, i) => {
         el.style.transition = 'none';
-        el.style.transform = 'translateX(-100%) skewX(-15deg)';
-        el.style.visibility = 'visible'; // Make visible for animation
+        el.style.transform = 'translateX(-200%) skewX(-15deg)';
+        el.style.display = 'block'; // Make visible for animation
         
         // Force reflow
         void el.offsetHeight;
