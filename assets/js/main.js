@@ -405,14 +405,14 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     // Reverse order on the way out: Top layer (Dark) slides away first to reveal Magenta, then Cyan!
     [...sweeps].reverse().forEach((el, i) => {
       setTimeout(() => {
-        el.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+        el.style.transition = 'transform 0.4s cubic-bezier(0.77, 0, 0.175, 1)';
         el.style.transform = 'translateX(100%) skewX(-15deg)';
         
         // Hide after animation finishes
         setTimeout(() => {
           el.style.visibility = 'hidden';
-        }, 650);
-      }, i * 150);
+        }, 450);
+      }, i * 75);
     });
   });
 
@@ -449,15 +449,15 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         void el.offsetHeight;
 
         setTimeout(() => {
-          el.style.transition = 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)';
+          el.style.transition = 'transform 0.35s cubic-bezier(0.77, 0, 0.175, 1)';
           el.style.transform = 'translateX(0) skewX(-15deg)';
-        }, i * 150);
+        }, i * 75);
       });
 
       // Redirect after animations complete
       setTimeout(() => {
         window.location.href = a.href;
-      }, (sweeps.length * 150) + 400);
+      }, (sweeps.length * 75) + 300);
     }
   });
 })();
