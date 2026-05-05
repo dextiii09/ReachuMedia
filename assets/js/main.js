@@ -406,7 +406,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
 (function() {
   // Inject Dark Mode CSS dynamically
   const darkStyle = document.createElement('style');
-  darkStyle.innerHTML = \`
+  darkStyle.innerHTML = `
     body.dark-mode {
       --bg-main: #0b0b0b;
       --bg-alt: #1a1a1a;
@@ -456,7 +456,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       box-shadow: inset 0 6px 0 rgba(255, 255, 255, 0.1);
       border-top-color: #fff;
     }
-  \`;
+  `;
   document.head.appendChild(darkStyle);
 
   // Load saved preference or check OS preference
