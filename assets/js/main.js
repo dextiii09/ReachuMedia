@@ -423,34 +423,20 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       background: var(--bg-alt);
       color: #fff;
     }
-    
-    /* Ensure colored sections (like alt-bg) keep black text */
+    /* Protect elements that always have a light background by forcing local variables */
     body.dark-mode .alt-bg,
-    body.dark-mode .alt-bg h1,
-    body.dark-mode .alt-bg h2,
-    body.dark-mode .alt-bg h3,
-    body.dark-mode .alt-bg p,
-    body.dark-mode .alt-bg .subtitle {
-      color: #000 !important;
-    }
-
-    /* Target specific light cards without accidentally breaking the magenta card */
     body.dark-mode .card[style*="--accent-cyan"],
     body.dark-mode .card[style*="--accent-yellow"],
     body.dark-mode .card[style*="background: #fff"],
     body.dark-mode .card[style*="background:#fff"] {
-      color: #000 !important;
+      --text-main: #000 !important;
+      color: #000;
     }
-    
-    body.dark-mode .card[style*="--accent-cyan"] h3,
-    body.dark-mode .card[style*="--accent-yellow"] h3,
-    body.dark-mode .card[style*="background: #fff"] h3,
-    body.dark-mode .card[style*="background:#fff"] h3,
-    body.dark-mode .card[style*="--accent-cyan"] p,
-    body.dark-mode .card[style*="--accent-yellow"] p,
-    body.dark-mode .card[style*="background: #fff"] p,
-    body.dark-mode .card[style*="background:#fff"] p {
-      color: #000 !important;
+
+    /* Except if a paragraph inside alt-bg explicitly asks for white text on a black background */
+    body.dark-mode .alt-bg p[style*="color: #fff"],
+    body.dark-mode .alt-bg p[style*="color:#fff"] {
+      color: #fff !important;
     }
 
     body.dark-mode .card,
