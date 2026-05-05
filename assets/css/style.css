@@ -2323,3 +2323,55 @@ details.neo-accordion[open] .accordion-content {
   pointer-events: none !important;
 }
 
+
+/* --- MOBILE FIXES EXTENSION --- */
+@media (max-width: 768px) {
+  /* Prevent Text Bleed correctly without messy hyphenation */
+  h1, h2, h3 {
+    word-wrap: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+  
+  p {
+    text-align: left !important;
+    hyphens: none !important;
+  }
+
+  /* Support ultra-narrow screens (320px) */
+  .hero h1 {
+    font-size: clamp(1.8rem, 10vw, 3.5rem) !important;
+  }
+
+  .section h2 {
+    font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
+  }
+
+  .card h3 {
+    font-size: 1.2rem !important;
+  }
+
+  /* Fix floating buttons overlapping */
+  .reachbot-toggle {
+    width: 48px !important;
+    height: 48px !important;
+    bottom: 12px !important;
+    left: 12px !important;
+  }
+  
+  .chatbot-toggle {
+    width: 48px !important;
+    height: 48px !important;
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+
+  .footer {
+    padding-bottom: 80px !important;
+  }
+
+  .contact-box {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
