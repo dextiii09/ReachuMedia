@@ -406,9 +406,10 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
   style.innerHTML = `
     .page-sweep {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0; left: -20%; width: 140%; bottom: 0;
       pointer-events: none;
-      transform: translateX(-100%);
+      transform: translateX(-100%) skewX(-15deg);
+      transform-origin: bottom left;
     }
   `;
   document.head.appendChild(style);
@@ -420,18 +421,19 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     el.className = 'page-sweep';
     el.style.background = color;
     el.style.zIndex = 999999 + i;
-    el.style.transform = 'translateX(0)'; // Start covering the screen
+    el.style.transform = 'translateX(0) skewX(-15deg)'; // Start covering the screen
     document.body.appendChild(el);
     return el;
   });
 
   // Reveal the page immediately after load (slide out to right)
   window.requestAnimationFrame(() => {
-    sweeps.forEach((el, i) => {
+    // Reverse order on the way out: Top layer (Dark) slides away first to reveal Magenta, then Cyan!
+    [...sweeps].reverse().forEach((el, i) => {
       setTimeout(() => {
         el.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
-        el.style.transform = 'translateX(100%)';
-      }, i * 120);
+        el.style.transform = 'translateX(100%) skewX(-15deg)';
+      }, i * 150);
     });
   });
 
@@ -440,7 +442,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     if (event.persisted) {
       sweeps.forEach((el) => {
         el.style.transition = 'none';
-        el.style.transform = 'translateX(100%)';
+        el.style.transform = 'translateX(100%) skewX(-15deg)';
       });
     }
   });
@@ -457,23 +459,24 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       e.preventDefault();
       
       // Sweep in to cover from the left
+      // Normal order on the way in: Cyan slides in, then Magenta covers it, then Dark covers it!
       sweeps.forEach((el, i) => {
         el.style.transition = 'none';
-        el.style.transform = 'translateX(-100%)';
+        el.style.transform = 'translateX(-100%) skewX(-15deg)';
         
         // Force reflow
         el.offsetHeight;
 
         setTimeout(() => {
           el.style.transition = 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)';
-          el.style.transform = 'translateX(0)';
-        }, i * 100);
+          el.style.transform = 'translateX(0) skewX(-15deg)';
+        }, i * 150);
       });
 
       // Redirect after animations complete
       setTimeout(() => {
         window.location.href = a.href;
-      }, (sweeps.length * 100) + 400);
+      }, (sweeps.length * 150) + 400);
     }
   });
 })();
