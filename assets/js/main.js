@@ -485,11 +485,10 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
   `;
   document.head.appendChild(darkStyle);
 
-  // Load saved preference or check OS preference
+  // Load saved preference. Default to light mode unless explicitly saved as dark mode.
   const savedDarkMode = localStorage.getItem('reachup_dark_mode');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  if (savedDarkMode === 'true' || (savedDarkMode === null && prefersDark)) {
+  if (savedDarkMode === 'true') {
     document.body.classList.add('dark-mode');
   }
 

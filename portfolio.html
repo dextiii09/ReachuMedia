@@ -1290,9 +1290,10 @@
           var dot = document.createElement("div");
           dot.className = "dig-dot" + (i === 0 ? " active" : "");
           dot.onclick = function () {
-            interact();
+            pauseScroll();
             track.scrollLeft =
               i * (track.querySelector(".dig-reel-card").offsetWidth + 28);
+            resumeScroll();
           };
           dotsContainer.appendChild(dot);
         });
@@ -1328,12 +1329,36 @@
           }, 3000);
         }
 
-        track.addEventListener("mousedown", pauseScroll);
+        // Add mouse drag scrolling
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        track.addEventListener("mousedown", function(e) {
+          isDown = true;
+          pauseScroll();
+          startX = e.pageX - track.offsetLeft;
+          scrollLeft = track.scrollLeft;
+        });
+        track.addEventListener("mouseleave", function() {
+          if(isDown) resumeScroll();
+          isDown = false;
+        });
+        track.addEventListener("mouseup", function() {
+          if(isDown) resumeScroll();
+          isDown = false;
+        });
+        track.addEventListener("mousemove", function(e) {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - track.offsetLeft;
+          const walk = (x - startX) * 2;
+          track.scrollLeft = scrollLeft - walk;
+        });
+
         track.addEventListener("touchstart", pauseScroll);
         track.addEventListener("wheel", pauseScroll);
 
-        track.addEventListener("mouseup", resumeScroll);
-        track.addEventListener("mouseleave", resumeScroll);
         track.addEventListener("touchend", resumeScroll);
 
         prevBtn.onclick = function () {
@@ -1484,9 +1509,10 @@
           var dot = document.createElement("div");
           dot.className = "dig-dot" + (i === 0 ? " active" : "");
           dot.onclick = function () {
-            interact();
+            pauseScroll();
             track.scrollLeft =
               i * (track.querySelector(".dig-reel-card").offsetWidth + 28);
+            resumeScroll();
           };
           dots.appendChild(dot);
         });
@@ -1519,15 +1545,39 @@
           if (resumeTimeout) clearTimeout(resumeTimeout);
           resumeTimeout = setTimeout(function () {
             isInteracting = false;
-          }, 0);
+          }, 3000);
         }
 
-        track.addEventListener("mousedown", pauseScroll);
+        // Add mouse drag scrolling
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        track.addEventListener("mousedown", function(e) {
+          isDown = true;
+          pauseScroll();
+          startX = e.pageX - track.offsetLeft;
+          scrollLeft = track.scrollLeft;
+        });
+        track.addEventListener("mouseleave", function() {
+          if(isDown) resumeScroll();
+          isDown = false;
+        });
+        track.addEventListener("mouseup", function() {
+          if(isDown) resumeScroll();
+          isDown = false;
+        });
+        track.addEventListener("mousemove", function(e) {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - track.offsetLeft;
+          const walk = (x - startX) * 2;
+          track.scrollLeft = scrollLeft - walk;
+        });
+
         track.addEventListener("touchstart", pauseScroll);
         track.addEventListener("wheel", pauseScroll);
 
-        track.addEventListener("mouseup", resumeScroll);
-        track.addEventListener("mouseleave", resumeScroll);
         track.addEventListener("touchend", resumeScroll);
 
         prev.onclick = function () {
