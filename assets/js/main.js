@@ -398,7 +398,12 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
 // --- App-Like Page Transitions ---
 (function() {
   const isInternalLink = (url) => {
-    return url.origin === window.location.origin && (url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname === '/index.html');
+    // Check if it's the same origin
+    if (url.origin !== window.location.origin) return false;
+    // Check if it's a file download or media link (has extension other than .html)
+    const hasExtension = /\.[a-zA-Z0-9]+$/.test(url.pathname);
+    if (hasExtension && !url.pathname.endsWith('.html')) return false;
+    return true; // Supports Vercel clean URLs (e.g. /portfolio instead of /portfolio.html)
   };
 
   // Inject required CSS for sweeps
@@ -425,6 +430,8 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     el.style.zIndex = 999999 + i;
     el.style.transform = 'translateX(0) skewX(-15deg)'; // Start covering the screen
     document.body.appendChild(el);
+    // FORCE REFLOW: Ensures the browser paints the "covered" state before requestAnimationFrame changes it!
+    void el.offsetHeight; 
     return el;
   });
 
@@ -454,8 +461,8 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     if (!a || !a.href) return;
     const url = new URL(a.href, window.location.href);
     
-    // Ignore external, blank targets, hash scrolls, mailto, tel
-    if (a.target === '_blank' || url.hash || a.href.startsWith('mailto:') || a.href.startsWith('tel:')) return;
+    // Ignore external, blank targets, hash scrolls, mailto, tel, or download attributes
+    if (a.target === '_blank' || url.hash || a.href.startsWith('mailto:') || a.href.startsWith('tel:') || a.hasAttribute('download')) return;
     
     if (isInternalLink(url)) {
       e.preventDefault();
@@ -467,7 +474,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         el.style.transform = 'translateX(-100%) skewX(-15deg)';
         
         // Force reflow
-        el.offsetHeight;
+        void el.offsetHeight;
 
         setTimeout(() => {
           el.style.transition = 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)';
