@@ -350,12 +350,50 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onSend(); });
 
     document.body.appendChild(toggle);
+      const div = document.createElement('div');
+      div.className = `chatbot-msg ${who}`;
+      div.textContent = text;
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    };
+
+    // Typing indicator
+    const showTyping = () => {
+      const typing = document.createElement('div');
+      typing.className = 'chatbot-msg bot typing';
+      typing.textContent = 'Typing...';
+      body.appendChild(typing);
+      body.scrollTop = body.scrollHeight;
+      return typing;
+    };
+
+    const onSend = () => {
+      const val = (input.value || '').trim();
+      if (!val) return;
+      addMsg(val, 'user');
+      input.value = '';
+      const typing = showTyping();
+      setTimeout(() => {
+        typing.remove();
+        addMsg(ask(val), 'bot');
+      }, 600);
+    };
+
+    toggle.addEventListener('click', () => {
+      panel.classList.toggle('show');
+      if (panel.classList.contains('show') && !panel.dataset.greeted) {
+        panel.dataset.greeted = '1';
+        addMsg("👋 Hi! I'm your ReachUp Assistant. Ask me about services, pricing, or how to contact us. Type your question below!");
+      }
+    });
+    closeBtn.addEventListener('click', () => panel.classList.remove('show'));
+    sendBtn.addEventListener('click', onSend);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onSend(); });
+
+    document.body.appendChild(toggle);
     document.body.appendChild(panel);
   } catch (e) { /* noop */ }
 })();
-
-// Follow CTA: no animation — let the anchor behave normally
-// (Removed slide-to-open interception so the link opens instantly.)
 
 // --- App-Like Page Transitions ---
 (function() {
@@ -363,15 +401,48 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     return url.origin === window.location.origin && (url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname === '/index.html');
   };
 
-  const sweepEl = document.createElement('div');
-  sweepEl.className = 'page-sweep';
-  sweepEl.style.transform = 'translateX(0)'; // Start covering the screen
-  document.body.appendChild(sweepEl);
+  // Inject required CSS for sweeps
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .page-sweep {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      transform: translateX(-100%);
+    }
+  `;
+  document.head.appendChild(style);
 
-  // Reveal the page immediately after load
+  // Create 3 layered sweeps (Cyan -> Magenta -> Dark)
+  const colors = ['var(--accent-cyan)', 'var(--accent-magenta)', '#0b0b0b'];
+  const sweeps = colors.map((color, i) => {
+    const el = document.createElement('div');
+    el.className = 'page-sweep';
+    el.style.background = color;
+    el.style.zIndex = 999999 + i;
+    el.style.transform = 'translateX(0)'; // Start covering the screen
+    document.body.appendChild(el);
+    return el;
+  });
+
+  // Reveal the page immediately after load (slide out to right)
   window.requestAnimationFrame(() => {
-    sweepEl.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
-    sweepEl.style.transform = 'translateX(100%)';
+    sweeps.forEach((el, i) => {
+      setTimeout(() => {
+        el.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+        el.style.transform = 'translateX(100%)';
+      }, i * 120);
+    });
+  });
+
+  // Fix for browser back button (bfcache)
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      sweeps.forEach((el) => {
+        el.style.transition = 'none';
+        el.style.transform = 'translateX(100%)';
+      });
+    }
   });
 
   document.addEventListener('click', (e) => {
@@ -385,19 +456,24 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     if (isInternalLink(url)) {
       e.preventDefault();
       
-      // Sweep in to cover
-      sweepEl.style.transition = 'none';
-      sweepEl.style.transform = 'translateX(-100%)';
-      
-      // Force reflow
-      sweepEl.offsetHeight;
+      // Sweep in to cover from the left
+      sweeps.forEach((el, i) => {
+        el.style.transition = 'none';
+        el.style.transform = 'translateX(-100%)';
+        
+        // Force reflow
+        el.offsetHeight;
 
-      sweepEl.style.transition = 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)';
-      sweepEl.style.transform = 'translateX(0)';
+        setTimeout(() => {
+          el.style.transition = 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)';
+          el.style.transform = 'translateX(0)';
+        }, i * 100);
+      });
 
+      // Redirect after animations complete
       setTimeout(() => {
         window.location.href = a.href;
-      }, 500);
+      }, (sweeps.length * 100) + 400);
     }
   });
 })();

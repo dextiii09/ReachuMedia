@@ -18,7 +18,17 @@ const instagramReels = [
   { label: "CabBazar", url: "https://www.instagram.com/reel/DXMcKLej-iA/embed" },
   { label: "CabBazar", url: "https://www.instagram.com/reel/DXN5urqjHzX/embed" },
   { label: "CabBazar", url: "https://www.instagram.com/reel/DXQ--F2CHwZ/embed" },
-  { label: "CabBazar", url: "https://www.instagram.com/reel/DXWLa8GTPsp/?igsh=MWxqeG1wZXJqZTcyMg==/embed" }
+  { label: "CabBazar", url: "https://www.instagram.com/reel/DXWLa8GTPsp/?igsh=MWxqeG1wZXJqZTcyMg==/embed" },
+
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/reel/DXhcClRyA3G/" },
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/p/DXWxD2Qj3R1/" },
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/p/DXozdE9EfVQ/" },
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/reel/DXN5urqjHzX/embed" },
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/p/DXekEYekjtw/" },
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/reel/DXomzDEklZD/" },
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/reel/DXja38xkrlf/" },
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/reel/DXjHep4EruN/" },
+  { label: "Spacesevenfitness", url: "https://www.instagram.com/reel/DXiqUfsErs_/" }
 
 
 ];
