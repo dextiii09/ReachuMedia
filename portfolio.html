@@ -968,6 +968,72 @@
       </div>
     </section>
 
+    <!-- Case Study: CabBazar Phase 2 -->
+    <section id="case-cabbazar" class="section alt-bg" style="padding-top: 10px; padding-bottom: 10px;">
+      <div class="container">
+        <div style="padding: 0; border: none; box-shadow: none">
+          <details class="neo-accordion">
+            <summary>
+              <div class="accordion-header">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div style="width: 70px; height: 70px; border-radius: 50%; background: #000; border: 2px solid var(--accent-cyan); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                      <span style="font-size: 2rem; color: #fff;">🚕</span>
+                    </div>
+                    <span class="badge" style="background: #000; color: var(--accent-cyan); margin-bottom: 0;">Brand Case Study</span>
+                    <h2 style="font-size: clamp(1.5rem, 5vw, 3.5rem); margin-bottom: 0; word-break: break-word;">CabBazar Phase 2</h2>
+                  </div>
+                  <p class="subtitle" style="margin-bottom: 0; background: #fff; color: #000">
+                    Scaling regional mobility: driving local app installs and ride bookings in Tier 2 cities.
+                  </p>
+                </div>
+                <div class="accordion-icon">+</div>
+              </div>
+            </summary>
+            <div class="accordion-content">
+              <div class="grid grid-2">
+                <div class="card" style="background: var(--accent-cyan); border: var(--border-thick); padding: 40px; box-shadow: var(--shadow-hard);">
+                  <h3 style="color: #000; font-size: 2rem">The Challenge</h3>
+                  <p style="margin-bottom: 32px; background: #fff; padding: 16px; border: var(--border-thin);">
+                    Breaking the monopoly of established ride-hailing giants by positioning CabBazar as the reliable, transparent, and affordable local choice for outstation and local travel.
+                  </p>
+
+                  <h3 style="color: #000; font-size: 2rem">The Approach</h3>
+                  <ul style="margin-bottom: 0; color: #000">
+                    <li>Targeted nano/micro-creators sharing genuine travel vlogs.</li>
+                    <li>Highlighted 'Zero Surge Pricing' during peak regional travel seasons.</li>
+                    <li>Hyper-local comedic sketches comparing local travel struggles vs CabBazar convenience.</li>
+                    <li>Aggressive promo-code integration for direct app-install attribution.</li>
+                  </ul>
+                </div>
+
+                <div class="card" style="background: #000; color: #fff; padding: 40px; border: var(--border-thick);">
+                  <h3 style="color: var(--accent-yellow); font-size: 2rem; text-shadow: 3px 3px 0 var(--accent-magenta);">
+                    Campaign Impact
+                  </h3>
+                  <div class="inline-kpis" style="margin-bottom: 32px; gap: 12px; display: flex; flex-wrap: wrap;">
+                    <div class="kpi" style="background: var(--accent-magenta); color: #fff; transform: rotate(1deg); padding: 12px 20px; font-weight: bold; border: 2px solid #fff;">
+                      High Intent
+                    </div>
+                    <div class="kpi" style="background: var(--accent-green); color: #000; transform: rotate(-2deg); padding: 12px 20px; font-weight: bold; border: 2px solid #000;">
+                      Cost-Efficient
+                    </div>
+                  </div>
+
+                  <p style="font-size: 1.1rem; font-weight: 600; background: #fff; color: #000; padding: 16px; border: var(--border-thick); box-shadow: 4px 4px 0 var(--accent-cyan);">
+                    Total Organic Reach:<br /><span style="font-family: 'Lexend Zetta', sans-serif; font-size: 1.8rem; color: var(--accent-magenta);">150,000+</span>
+                  </p>
+                  <p style="margin-top: 24px; font-size: 0.9rem; color: #ccc;">
+                    Direct conversion metrics outperformed industry averages, resulting in a significantly lower Cost Per Acquisition (CPA) for new riders.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- Artist highlight -->
     <section
       class="section"
@@ -1288,8 +1354,25 @@
             iframe.allowFullscreen = true;
             iframe.loading = "lazy";
             
+            var fallback = document.createElement("a");
+            fallback.href = item.url.replace('/embed/', '/');
+            fallback.target = "_blank";
+            fallback.textContent = "Watch on Instagram";
+            fallback.style.display = "block";
+            fallback.style.textAlign = "center";
+            fallback.style.padding = "10px";
+            fallback.style.color = "#fff";
+            fallback.style.background = "#000";
+            fallback.style.fontSize = "0.8rem";
+            fallback.style.textDecoration = "none";
+            fallback.style.borderTop = "2px solid " + color;
+            fallback.style.fontFamily = "'Space Grotesk', sans-serif";
+            fallback.style.fontWeight = "bold";
+            fallback.style.textTransform = "uppercase";
+            
             frame.appendChild(iframe);
             inner.appendChild(frame);
+            inner.appendChild(fallback);
             card.appendChild(inner);
             track.appendChild(card);
             
@@ -1686,7 +1769,7 @@
         <span style="position:relative; width:8px; height:8px; background:#ff0055; border-radius:50%;"></span>
       </div>
       <span style="white-space:nowrap; z-index: 2; font-family:'Lexend Zetta', sans-serif; font-size:0.8rem; letter-spacing:0.1em;">Live</span>
-      <span class="hover-text" style="display:inline-block; max-width:0; opacity:0; overflow:hidden; white-space:nowrap; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); color:#000; z-index: 2; border-left:2px solid #000; padding-left:0;">2 Brand Campaigns</span>
+      <span class="hover-text" style="display:inline-block; max-width:0; opacity:0; overflow:hidden; white-space:nowrap; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); color:#000; z-index: 2; border-left:2px solid #000; padding-left:0;">4 Brand Campaigns</span>
     </a>
 
     <script src="./assets/js/particles.js"></script>
