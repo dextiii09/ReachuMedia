@@ -1671,6 +1671,24 @@
       </div>
     </footer>
 
+    <!-- Floating Right Side Live Campaign Button -->
+    <a href="./portfolio.html" id="live-campaign-btn" style="
+      position: fixed; right: -4px; bottom: 40px;
+      background: #fff000; color: #000; padding: 14px 20px 14px 24px;
+      border: 3px solid #000; box-shadow: -6px 6px 0 #000;
+      display: flex; align-items: center; gap: 12px; text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; z-index: 9999; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer; overflow: hidden;
+    " onmouseover="this.querySelector('.hover-text').style.maxWidth='250px'; this.querySelector('.hover-text').style.opacity='1'; this.querySelector('.hover-text').style.paddingLeft='12px'; this.style.right='0'; this.style.boxShadow='-8px 8px 0 #000'; this.style.background='#00f0ff';" onmouseout="this.querySelector('.hover-text').style.maxWidth='0'; this.querySelector('.hover-text').style.opacity='0'; this.querySelector('.hover-text').style.paddingLeft='0'; this.style.right='-4px'; this.style.boxShadow='-6px 6px 0 #000'; this.style.background='#fff000';">
+      <div style="position:relative; width:14px; height:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+        <span style="position:absolute; width:100%; height:100%; background:#ff0055; border-radius:50%; animation:live-pulse 1.4s ease-in-out infinite;"></span>
+        <span style="position:relative; width:8px; height:8px; background:#ff0055; border-radius:50%;"></span>
+      </div>
+      <span style="white-space:nowrap; z-index: 2; font-family:'Lexend Zetta', sans-serif; font-size:0.8rem; letter-spacing:0.1em;">Live</span>
+      <span class="hover-text" style="display:inline-block; max-width:0; opacity:0; overflow:hidden; white-space:nowrap; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); color:#000; z-index: 2; border-left:2px solid #000; padding-left:0;">2 Brand Campaigns</span>
+    </a>
+
     <script src="./assets/js/particles.js"></script>
     <script src="./assets/js/premium-cursor.js" defer></script>
     <script src="./assets/js/main.js?v=3" defer></script>
