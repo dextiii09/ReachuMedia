@@ -1248,11 +1248,24 @@
       (function () {
         var track = document.getElementById("dig-track");
         
-        // Dynamically load Instagram reels
+        // Dynamically load Instagram reels with Lazy Loading
         if (track && typeof instagramReels !== 'undefined') {
           track.innerHTML = ''; // Clear hardcoded reels
           var colors = ['var(--accent-magenta)', 'var(--accent-yellow)', 'var(--accent-cyan)', '#00ff66'];
           
+          // Setup Intersection Observer to load iframes only when visible
+          var observer = new IntersectionObserver(function(entries, obs) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                var iframe = entry.target.querySelector('iframe');
+                if (iframe && !iframe.src) {
+                  iframe.src = iframe.getAttribute('data-src');
+                }
+                obs.unobserve(entry.target);
+              }
+            });
+          }, { root: track, threshold: 0.1 });
+
           instagramReels.forEach(function(item, i) {
             var color = colors[i % colors.length];
             var card = document.createElement("div");
@@ -1267,16 +1280,21 @@
             frame.className = "artist-embed-frame";
             
             var iframe = document.createElement("iframe");
-            iframe.src = item.url;
+            // Use data-src for lazy loading
+            iframe.setAttribute("data-src", item.url);
             iframe.frameBorder = "0";
             iframe.scrolling = "no";
             iframe.allowTransparency = "true";
             iframe.allowFullscreen = true;
+            iframe.loading = "lazy";
             
             frame.appendChild(iframe);
             inner.appendChild(frame);
             card.appendChild(inner);
             track.appendChild(card);
+            
+            // Observe this card
+            observer.observe(card);
           });
         }
 
