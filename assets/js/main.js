@@ -495,3 +495,28 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     });
   });
 })();
+
+// --- Dynamic Campaign Stats ---
+(function() {
+  async function fetchCampaignStats() {
+    try {
+      const res = await fetch('/api/stats');
+      if (!res.ok) return;
+      const json = await res.json();
+      if (json.success && json.data) {
+        const liveCount = json.data.liveCount;
+        
+        // Update floating button
+        const liveBtnText = document.querySelector('#live-campaign-btn .hover-text');
+        if (liveBtnText) {
+          liveBtnText.textContent = `${liveCount} Brand Campaign${liveCount === 1 ? '' : 's'}`;
+        }
+      }
+    } catch (err) {
+      console.error('Failed to fetch campaign stats:', err);
+    }
+  }
+  
+  // Fetch stats on load
+  window.addEventListener('DOMContentLoaded', fetchCampaignStats);
+})();
