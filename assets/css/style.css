@@ -181,7 +181,7 @@ h6,
 }
 
 p {
-  text-align: justify;
+  text-align: left;
 }
 
 img,
@@ -2099,7 +2099,7 @@ details.neo-accordion[open] .accordion-content {
   }
   .accordion-header > div > div:first-child h2 {
     width: 100%;
-    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    font-size: clamp(1.4rem, 6vw, 2.2rem) !important;
     margin-top: 4px !important;
   }
   .accordion-header {
