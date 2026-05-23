@@ -1,1 +1,1 @@
-// Premium custom cursor disabled per user feedback.
+// Custom cursor disabled per user request. Standard browser cursor is used.
