@@ -353,7 +353,9 @@ a {
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--bg-alt);
+  background: rgba(255, 255, 255, 0.75); /* Semi-transparent white for glassmorphism */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: var(--border-thick);
   padding: 32px 20px;
   transform: translateY(-100%);
