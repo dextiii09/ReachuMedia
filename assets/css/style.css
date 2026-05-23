@@ -2398,5 +2398,28 @@ details.neo-accordion[open] .accordion-content {
   }
 }
 
+/* Portfolio Mobile KPI Overrides */
+@media (max-width: 900px) {
+  .grid-stats-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-stats-mobile {
+    gap: 12px !important;
+  }
+  .grid-stats-mobile .card {
+    padding: 16px 8px !important;
+  }
+  .grid-stats-mobile .stat-number {
+    font-size: 1.6rem !important;
+  }
+  .grid-stats-mobile p {
+    font-size: 0.85rem !important;
+  }
+}
+
 
 
