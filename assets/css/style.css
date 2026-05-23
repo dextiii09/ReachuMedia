@@ -346,8 +346,28 @@ a {
 
 .nav {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-alt);
+  border-bottom: var(--border-thick);
+  padding: 32px 20px;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.nav.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+  box-shadow: 0 10px 0px #000;
 }
 
 .nav a {
@@ -359,6 +379,10 @@ a {
   border: var(--border-thin);
   background: #fff;
   box-shadow: 3px 3px 0 #000;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  transition: var(--transition);
 }
 
 .nav a:hover,
@@ -369,7 +393,9 @@ a {
 }
 
 .menu-toggle {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--accent-yellow);
   border: var(--border-thick);
   box-shadow: 4px 4px 0 #000;
@@ -388,34 +414,6 @@ a {
   }
   .header.scrolled {
     background: var(--bg-alt);
-  }
-
-  .nav {
-    position: fixed;
-    top: 93px;
-    left: 0;
-    right: 0;
-    background: var(--bg-alt);
-    border-bottom: var(--border-thick);
-    flex-direction: column;
-    padding: 32px 20px;
-    gap: 16px;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: var(--transition);
-    z-index: 999;
-  }
-
-  .nav.show {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
-    box-shadow: 0 10px 0px #000;
-  }
-
-  .menu-toggle {
-    display: block;
   }
 }
 

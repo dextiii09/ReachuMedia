@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         backdrop.classList.remove('show');
         document.body.classList.remove('no-scroll');
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.innerHTML = '☰';
+        toggle.innerHTML = '⋮';
       }
     };
 
@@ -463,8 +463,8 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
 
   // Inject Toggle Button into Header
   window.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('.header .nav');
-    if (!nav) return;
+    const headerInner = document.querySelector('.header .inner');
+    if (!headerInner) return;
 
     const toggleBtn = document.createElement('button');
     toggleBtn.className = 'btn btn-ghost dark-mode-toggle';
@@ -476,14 +476,16 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     toggleBtn.style.display = 'flex';
     toggleBtn.style.alignItems = 'center';
     toggleBtn.style.justifyContent = 'center';
+    toggleBtn.style.marginLeft = 'auto';
+    toggleBtn.style.marginRight = '16px';
     toggleBtn.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🕶️';
     
-    // Insert before "Work With Us" button
-    const workBtn = nav.querySelector('a.btn-primary');
-    if (workBtn) {
-      nav.insertBefore(toggleBtn, workBtn);
+    // Insert before "menu-toggle" button
+    const menuToggle = headerInner.querySelector('.menu-toggle');
+    if (menuToggle) {
+      headerInner.insertBefore(toggleBtn, menuToggle);
     } else {
-      nav.appendChild(toggleBtn);
+      headerInner.appendChild(toggleBtn);
     }
 
     toggleBtn.addEventListener('click', (e) => {
