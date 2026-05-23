@@ -26,8 +26,8 @@ export default async function handler(req, res) {
     const liveMatches = htmlContent.match(/class="[^"]*badge-live[^"]*"\s*>Live<\/span>/gi) || [];
     const liveCount = liveMatches.length;
 
-    // Assuming Case Study badge is: >Case Study</span>
-    const caseStudyMatches = htmlContent.match(/>Case Study<\/span>/gi) || [];
+    // Assuming Case Study badge is: >Case Study</span> or >Brand Case Study</span>
+    const caseStudyMatches = htmlContent.match(/>(?:Brand\s+)?Case\s+Study<\/span>/gi) || [];
     const completedCount = caseStudyMatches.length;
 
     res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate'); // cache for 1 minute

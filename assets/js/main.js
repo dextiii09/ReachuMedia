@@ -519,4 +519,271 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
   
   // Fetch stats on load
   window.addEventListener('DOMContentLoaded', fetchCampaignStats);
+
+  // --- Campaign Estimator Widget Logic ---
+  function initCampaignEstimator() {
+    const budgetInput = document.getElementById('est-budget');
+    const budgetVal = document.getElementById('est-budget-val');
+    const nicheInput = document.getElementById('est-niche');
+    const mixInput = document.getElementById('est-mix');
+    
+    const viewsOutput = document.getElementById('est-views');
+    const creatorsOutput = document.getElementById('est-creators');
+    const erOutput = document.getElementById('est-er');
+    const pitchBtn = document.getElementById('est-pitch-btn');
+    
+    if (!budgetInput || !nicheInput || !mixInput) return;
+
+    function updateEstimates() {
+      const budget = parseInt(budgetInput.value);
+      
+      // Update budget label
+      budgetVal.textContent = `₹${budget.toLocaleString('en-IN')}`;
+      
+      // CPM baseline values for Indian regional markets (increased to reduce estimated views slightly)
+      const cpms = {
+        mobility: 320,
+        fitness: 450,
+        skincare: 520,
+        fmcg: 360,
+        tech: 580
+      };
+      
+      // Creator baseline cost factors based on mix (increased to reduce estimated creators count slightly)
+      const creatorCosts = {
+        nano: 10000,
+        balanced: 20000,
+        macro: 60000
+      };
+      
+      const engagementRates = {
+        nano: '5.5%',
+        balanced: '3.8%',
+        macro: '2.1%'
+      };
+      
+      const viewMultipliers = {
+        nano: 1.2,
+        balanced: 1.0,
+        macro: 0.85
+      };
+
+      const selectedNiche = nicheInput.value;
+      const selectedMix = mixInput.value;
+      
+      // 1. Calculate Estimated Creators
+      let creatorCount = Math.round(budget / creatorCosts[selectedMix]);
+      if (creatorCount < 1) creatorCount = 1;
+      
+      // 2. Calculate Estimated Views (Budget / CPM * 1000 * multiplier)
+      const cpm = cpms[selectedNiche];
+      const viewMultiplier = viewMultipliers[selectedMix];
+      let estimatedViews = Math.round((budget / cpm) * 1000 * viewMultiplier);
+      
+      // Format views nicely
+      let formattedViews = '';
+      if (estimatedViews >= 100000) {
+        formattedViews = `${(estimatedViews / 100000).toFixed(1)} Lakh+`;
+      } else {
+        formattedViews = `${estimatedViews.toLocaleString('en-IN')}+`;
+      }
+      
+      // 3. Expected Engagement
+      const expectedER = engagementRates[selectedMix];
+      
+      // Update UI elements
+      viewsOutput.textContent = formattedViews;
+      creatorsOutput.textContent = `${creatorCount} Creator${creatorCount === 1 ? '' : 's'}`;
+      erOutput.textContent = expectedER;
+      
+      // 4. Update WhatsApp pitch link
+      const nicheLabel = nicheInput.options[nicheInput.selectedIndex].text;
+      const mixLabel = mixInput.options[mixInput.selectedIndex].text;
+      const pitchMsg = encodeURIComponent(
+        `Hi ReachUp Media, let's collaborate! I want to pitch a campaign:\n\n` +
+        `- Budget: ₹${budget.toLocaleString('en-IN')}\n` +
+        `- Focus/Niche: ${nicheLabel}\n` +
+        `- Creator Mix: ${mixLabel}\n` +
+        `- Target Views: ${formattedViews}\n` +
+        `- Target Creators: ${creatorCount}\n\n` +
+        `Let's discuss this strategy!`
+      );
+      pitchBtn.href = `https://wa.me/917973043372?text=${pitchMsg}`;
+    }
+
+    budgetInput.addEventListener('input', updateEstimates);
+    nicheInput.addEventListener('change', updateEstimates);
+    mixInput.addEventListener('change', updateEstimates);
+    
+    // Initial run
+    updateEstimates();
+  }
+
+  // --- Portfolio Filter Logic ---
+  function initPortfolioFilters() {
+    const filterButtons = document.querySelectorAll('#portfolio-filters-sec .filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    if (filterButtons.length === 0 || portfolioItems.length === 0) return;
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle active button background colors (Neo-brutalist custom styling overrides)
+        filterButtons.forEach(b => {
+          b.classList.remove('active');
+          b.style.background = '#fff';
+        });
+        btn.classList.add('active');
+        btn.style.background = 'var(--accent-yellow)';
+        
+        const filterVal = btn.getAttribute('data-filter');
+        
+        portfolioItems.forEach(item => {
+          if (filterVal === 'all') {
+            item.style.display = 'block';
+            // Fade-in effect
+            item.style.opacity = '1';
+          } else {
+            const itemCat = item.getAttribute('data-category');
+            if (itemCat === filterVal) {
+              item.style.display = 'block';
+              item.style.opacity = '1';
+            } else {
+              item.style.display = 'none';
+              item.style.opacity = '0';
+            }
+          }
+        });
+      });
+    });
+  }
+
+  // --- Creator Intake Form Handler ---
+  function initCreatorIntakeForm() {
+    const creatorForm = document.getElementById('creator-form');
+    if (!creatorForm) return;
+    
+    creatorForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = creatorForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting Details...';
+      submitBtn.disabled = true;
+      
+      try {
+        const formData = new FormData(creatorForm);
+        // AJAX POST to FormSubmit
+        const response = await fetch(creatorForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Show success modal
+          const modal = document.getElementById('creator-success-modal');
+          if (modal) {
+            modal.style.display = 'flex';
+          }
+          creatorForm.reset();
+        } else {
+          showToast('Failed to submit application. Please try again.');
+        }
+      } catch (err) {
+        console.error('Error submitting creator form:', err);
+        showToast('Submission error. Please check your connection.');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+    
+    const closeModalBtn = document.getElementById('close-creator-modal');
+    const successModal = document.getElementById('creator-success-modal');
+    if (closeModalBtn && successModal) {
+      closeModalBtn.addEventListener('click', () => {
+        successModal.style.display = 'none';
+      });
+      // Close modal on click outside
+      successModal.addEventListener('click', (e) => {
+        if (e.target === successModal) {
+          successModal.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  // --- Custom Clipboard Toast Logic ---
+  function showToast(message) {
+    const existingToast = document.querySelector('.custom-toast');
+    if (existingToast) existingToast.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'custom-toast';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 40px;
+      left: 40px;
+      background: #fff;
+      color: #000;
+      border: 3px solid #000;
+      box-shadow: 6px 6px 0 #000;
+      padding: 16px 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    `;
+    toast.innerHTML = `<span>📋</span> <span>${message}</span>`;
+    document.body.appendChild(toast);
+    
+    // Force reflow
+    void toast.offsetHeight;
+    
+    toast.style.transform = 'translateY(0)';
+    toast.style.opacity = '1';
+    
+    setTimeout(() => {
+      toast.style.transform = 'translateY(100px)';
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 350);
+    }, 3000);
+  }
+
+  function setupClipboardCopy() {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      
+      const href = link.getAttribute('href') || '';
+      
+      if (href.startsWith('mailto:') || href.startsWith('tel:')) {
+        // Strip out tel: and mailto: links and URL parameters
+        const cleanText = href.replace(/^(mailto:|tel:)/, '').split('?')[0];
+        
+        // Copy to clipboard
+        navigator.clipboard.writeText(cleanText).then(() => {
+          showToast(`Copied to Clipboard: ${cleanText}`);
+        }).catch(err => {
+          console.error('Failed to copy to clipboard:', err);
+        });
+      }
+    });
+  }
+
+  // Initialize all features on load
+  window.addEventListener('DOMContentLoaded', () => {
+    initCampaignEstimator();
+    initPortfolioFilters();
+    initCreatorIntakeForm();
+    setupClipboardCopy();
+  });
 })();

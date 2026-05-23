@@ -23,7 +23,7 @@
     <meta name="twitter:description" content="Influencer marketing case studies & Artist highlights">
     <meta name="twitter:image" content="https://reachupmedia.in/assets/img/brand/Reachup%20Media.png">
     <link rel="icon" type="image/png" href="./assets/img/brand/Reachup%20Media.png" />
-    <link rel="stylesheet" href="./assets/css/style.css?v=2" />
+    <link rel="stylesheet" href="./assets/css/style.css?v=3" />
     <style>
       .badge-live {
         background: #ff3333;
@@ -150,8 +150,18 @@
       </div>
     </section>
 
+    <!-- Portfolio Filters Section -->
+    <section id="portfolio-filters-sec" style="padding: 20px 0; background: var(--bg-main); border-bottom: var(--border-thick);">
+      <div class="container text-center" style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <button class="btn btn-primary filter-btn active" data-filter="all" style="font-size: 0.9rem; padding: 10px 24px; background: var(--accent-yellow); color: #000;">All Work</button>
+        <button class="btn btn-primary filter-btn" data-filter="vernacular" style="font-size: 0.9rem; padding: 10px 24px; background: #fff; color: #000;">Vernacular Campaigns</button>
+        <button class="btn btn-primary filter-btn" data-filter="local" style="font-size: 0.9rem; padding: 10px 24px; background: #fff; color: #000;">Local Walk-Ins</button>
+        <button class="btn btn-primary filter-btn" data-filter="artist" style="font-size: 0.9rem; padding: 10px 24px; background: #fff; color: #000;">Artist Spotlight</button>
+      </div>
+    </section>
+
     <!-- Case Study: CabBazar Phase 2 -->
-    <section id="case-cabbazar" class="section alt-bg" style="padding-top: 20px; padding-bottom: 0;">
+    <section id="case-cabbazar-p2" class="section alt-bg portfolio-item" data-category="vernacular" style="padding-top: 20px; padding-bottom: 0;">
       <div class="container">
         <div style="padding: 0; border: none; box-shadow: none">
           <details class="neo-accordion" open>
@@ -217,7 +227,7 @@
     </section>
 
     <!-- Case study: Space Seven Fitness -->
-    <section id="case-spaceseven" class="section" style="padding-top: 20px; padding-bottom: 0;">
+    <section id="case-spaceseven" class="section portfolio-item" data-category="local" style="padding-top: 20px; padding-bottom: 0;">
       <div class="container">
         <div style="padding: 0; border: none; box-shadow: none">
           <details class="neo-accordion">
@@ -326,7 +336,7 @@
     </section>
 
     <!-- Case study: CabBazar -->
-    <section id="case-cabbazar" class="section" style="padding-top: 10px; padding-bottom: 10px;">
+    <section id="case-cabbazar" class="section portfolio-item" data-category="vernacular" style="padding-top: 10px; padding-bottom: 10px;">
       <div class="container">
         <div style="padding: 0; border: none; box-shadow: none">
           <details class="neo-accordion">
@@ -541,7 +551,7 @@
     </section>
 
     <!-- Case study: Minimalist Skincare -->
-    <section id="case-minimalist" class="section alt-bg" style="padding-top: 10px; padding-bottom: 10px;">
+    <section id="case-minimalist" class="section alt-bg portfolio-item" data-category="vernacular" style="padding-top: 10px; padding-bottom: 10px;">
       <div class="container">
         <div style="padding: 0; border: none; box-shadow: none">
           <details class="neo-accordion">
@@ -1038,7 +1048,8 @@
 
     <!-- Artist highlight -->
     <section
-      class="section"
+      class="section portfolio-item"
+      data-category="artist"
       style="background: #4a0080; color: #fff; border-bottom: none; padding-top: 10px; padding-bottom: 10px;"
     >
       <div class="container">
@@ -1775,7 +1786,7 @@
         <span style="position:relative; width:8px; height:8px; background:#ff0055; border-radius:50%;"></span>
       </div>
       <span style="white-space:nowrap; z-index: 2; font-family:'Lexend Zetta', sans-serif; font-size:0.8rem; letter-spacing:0.1em;">Live</span>
-      <span class="hover-text" style="display:inline-block; max-width:0; opacity:0; overflow:hidden; white-space:nowrap; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); color:#000; z-index: 2; border-left:2px solid #000; padding-left:0;">1 Brand Campaign</span>
+      <span class="hover-text" style="display:inline-block; max-width:0; opacity:0; overflow:hidden; white-space:nowrap; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); color:#000; z-index: 2; border-left:2px solid #000; padding-left:0;">2 Brand Campaigns</span>
     </a>
 
     <script src="./assets/js/particles.js"></script>
@@ -1809,6 +1820,7 @@
     </script>
   <script src="./assets/js/chatbot.js" defer></script><script defer src="/_vercel/insights/script.js"></script></body>
 </html>
+
 
 
 

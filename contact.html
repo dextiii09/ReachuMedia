@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Start a conversation with ReachUp Media. Milestone-based marketing.">
   <meta name="twitter:image" content="https://reachupmedia.in/assets/img/brand/Reachup%20Media.png">
   <link rel="icon" type="image/png" href="/assets/img/brand/Reachup%20Media.png" />
-  <link rel="stylesheet" href="./assets/css/style.css?v=2" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=3" />
 </head>
 
 <body>
@@ -432,7 +432,103 @@
       </div>
 
     </div>
-  </section>    <!-- Footer -->
+  </section>
+
+  <!-- Creator Intake Form Section -->
+  <section id="creator-intake" class="section" style="border-top: var(--border-thick); padding-top: 80px; padding-bottom: 80px; background: var(--accent-magenta); color: #fff;">
+    <div class="container" style="max-width: 800px;">
+      <div class="reveal text-center mb-8">
+        <span class="badge" style="background: var(--accent-yellow); color: #000; box-shadow: 4px 4px 0 #000; text-transform: uppercase;">Creators Wanted</span>
+        <h2 style="margin-top: 24px; margin-bottom: 16px; color: #fff; text-shadow: 4px 4px 0 #000; font-size: clamp(2.5rem, 5vw, 4rem);">Join the ReachUp Cult</h2>
+        <p class="subtitle" style="margin: 0 auto 40px auto; background: #fff; color: #000; font-weight: 700;">
+          Are you a creator doing vernacular content? Let's get you brand deals that value your real regional impact.
+        </p>
+      </div>
+
+      <div class="card" style="background: #fff; color: #000; border: var(--border-thick); padding: 40px; box-shadow: var(--shadow-hard);">
+        <form id="creator-form" action="https://formsubmit.co/suraj@reachupmedia.in" method="POST" style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- FormSubmit Configuration -->
+          <input type="hidden" name="_subject" value="New Creator Application [ReachUp Media]">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          
+          <div class="grid grid-2" style="gap: 24px;">
+            <div>
+              <label for="c-name" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Your Name *</label>
+              <input type="text" id="c-name" name="name" required placeholder="E.g. Suraj Rajput" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+            </div>
+            <div>
+              <label for="c-handle" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Instagram/YT Link or Handle *</label>
+              <input type="text" id="c-handle" name="handle" required placeholder="E.g. @suraj_rajput0610" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="gap: 24px;">
+            <div>
+              <label for="c-niche" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Primary Niche *</label>
+              <select id="c-niche" name="niche" required style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; background: #fff; color: #000; border-radius: 0;">
+                <option value="" disabled selected>Select Niche...</option>
+                <option value="fashion">Fashion & Lifestyle</option>
+                <option value="travel">Travel & Vlogging</option>
+                <option value="food">Food & Cooking</option>
+                <option value="tech">Tech & Unboxing</option>
+                <option value="fitness">Fitness & Health</option>
+                <option value="comedy">Comedy & Acting</option>
+                <option value="art">Art & Design</option>
+                <option value="other">Other Niche</option>
+              </select>
+            </div>
+            <div>
+              <label for="c-lang" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Primary Content Language *</label>
+              <input type="text" id="c-lang" name="language" required placeholder="E.g. Punjabi / Hindi" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="gap: 24px;">
+            <div>
+              <label for="c-followers" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Followers/Subscribers *</label>
+              <select id="c-followers" name="followers" required style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; background: #fff; color: #000; border-radius: 0;">
+                <option value="" disabled selected>Select Range...</option>
+                <option value="under_10k">Under 10K</option>
+                <option value="10k_50k">10K - 50K</option>
+                <option value="50k_100k">50K - 100K</option>
+                <option value="100k_plus">100K+</option>
+              </select>
+            </div>
+            <div>
+              <label for="c-city" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">City / Base State *</label>
+              <input type="text" id="c-city" name="city" required placeholder="E.g. Chandigarh, Punjab" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+            </div>
+          </div>
+
+          <div>
+            <label for="c-contact" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">WhatsApp / Contact Number *</label>
+            <input type="tel" id="c-contact" name="contact" required placeholder="E.g. +91 7973043372" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+          </div>
+
+          <div style="margin-top: 16px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.2rem; text-transform: uppercase; padding: 16px; text-align: center; border: var(--border-thick); background: var(--accent-magenta); color: #fff; font-weight: 800; cursor: pointer; box-shadow: 4px 4px 0 #000;">
+              Submit Creator Profile
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creator Form Success Modal -->
+  <div id="creator-success-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
+    <div class="card" style="background: #fff; border: var(--border-thick); padding: 40px; box-shadow: 12px 12px 0 var(--accent-magenta); max-width: 500px; text-align: center; color: #000;">
+      <div style="font-size: 4rem; margin-bottom: 20px;">🔥</div>
+      <h3 style="font-size: 2rem; margin-bottom: 16px; text-transform: uppercase; color: #000;">You're in the Loop!</h3>
+      <p style="font-weight: 700; margin-bottom: 24px; line-height: 1.6; color: #333;">
+        We've received your creator details. Welcome to the ReachUp family—our team will reach out once we have a brand campaign matching your niche and region!
+      </p>
+      <button id="close-creator-modal" class="btn btn-primary" style="padding: 12px 32px; font-size: 1rem; text-transform: uppercase; border: var(--border-thick); background: var(--accent-yellow); color: #000; font-weight: 800; cursor: pointer; box-shadow: 4px 4px 0 #000;">Awesome</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
     <footer class="footer">
       <div class="container footer-grid">
         <!-- Col 1: Brand -->
@@ -488,10 +584,13 @@
       </div>
     </footer>
 
+  <script src="./assets/js/particles.js"></script>
+  <script src="./assets/js/premium-cursor.js" defer></script>
   <script src="./assets/js/main.js?v=3" defer></script>
-<script src="./assets/js/chatbot.js" defer></script><script defer src="/_vercel/insights/script.js"></script></body>
+  <script src="./assets/js/chatbot.js" defer></script><script defer src="/_vercel/insights/script.js"></script></body>
 
 </html>
+
 
 
 
