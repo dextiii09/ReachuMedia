@@ -2396,6 +2396,44 @@ details.neo-accordion[open] .accordion-content {
   .accordion-header {
     padding: 20px !important;
   }
+
+  details.neo-accordion {
+    box-shadow: 4px 4px 0 #000 !important;
+    margin-bottom: 24px !important;
+  }
+
+  body.dark-mode details.neo-accordion {
+    box-shadow: 4px 4px 0 #fff !important;
+  }
+
+  details.neo-accordion .accordion-content {
+    padding: clamp(12px, 3.5vw, 20px) !important;
+  }
+
+  details.neo-accordion .accordion-content .card {
+    padding: clamp(16px, 4vw, 20px) !important;
+    min-width: 0 !important; /* Allow card grid item to shrink below content size */
+  }
+
+  details.neo-accordion .accordion-content .card > div {
+    padding: clamp(12px, 3vw, 16px) !important;
+  }
+
+  /* Optimize grid spacing inside accordions on mobile */
+  details.neo-accordion .accordion-content .grid {
+    gap: 20px !important;
+  }
+
+  /* Override large margins on mobile */
+  details.neo-accordion .accordion-content .grid[style*="margin-bottom: 100px"],
+  details.neo-accordion .accordion-content .grid[style*="margin-bottom:100px"] {
+    margin-bottom: 32px !important;
+  }
+
+  details.neo-accordion .accordion-content .grid[style*="margin-bottom: 40px"],
+  details.neo-accordion .accordion-content .grid[style*="margin-bottom:40px"] {
+    margin-bottom: 24px !important;
+  }
 }
 
 /* Portfolio Mobile KPI Overrides */
