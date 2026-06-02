@@ -1534,8 +1534,45 @@
       <div class="map-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto;">
         
         <!-- Left: SVG Map -->
-        <div class="map-wrapper" style="background: #111; border: var(--border-thick); border-color: #333; padding: 24px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 6px 6px 0 #222;">
-          <svg viewBox="0 0 450 500" style="width: 100%; height: auto; max-height: 420px;" id="india-svg">
+        <div class="map-wrapper" style="background: #111; border: var(--border-thick); border-color: #333; padding: 24px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 6px 6px 0 #222; overflow: hidden;">
+          <!-- High-tech corner brackets & tracking HUD indicators -->
+          <div style="position: absolute; top: -3px; left: -3px; width: 16px; height: 16px; border-top: 3px solid var(--accent-magenta); border-left: 3px solid var(--accent-magenta); pointer-events: none; z-index: 10;"></div>
+          <div style="position: absolute; top: -3px; right: -3px; width: 16px; height: 16px; border-top: 3px solid var(--accent-cyan); border-right: 3px solid var(--accent-cyan); pointer-events: none; z-index: 10;"></div>
+          <div style="position: absolute; bottom: -3px; left: -3px; width: 16px; height: 16px; border-bottom: 3px solid var(--accent-cyan); border-left: 3px solid var(--accent-cyan); pointer-events: none; z-index: 10;"></div>
+          <div style="position: absolute; bottom: -3px; right: -3px; width: 16px; height: 16px; border-bottom: 3px solid var(--accent-yellow); border-right: 3px solid var(--accent-yellow); pointer-events: none; z-index: 10;"></div>
+          <div style="position: absolute; top: 12px; left: 16px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 9px; color: #555; pointer-events: none; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10;">TRACKING_LOC // 20.5937° N, 78.9629° E</div>
+          <div style="position: absolute; bottom: 12px; left: 16px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 9px; color: #555; pointer-events: none; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10;">STATUS // ENGAGED_NET_V2</div>
+          
+          <svg viewBox="0 0 450 500" style="width: 100%; height: auto; max-height: 420px; position: relative; z-index: 2;" id="india-svg">
+            <defs>
+              <pattern id="grid-pattern" width="22" height="22" patternUnits="userSpaceOnUse">
+                <path d="M 22 0 L 0 0 0 22" fill="none" stroke="#222" stroke-width="1.2"/>
+              </pattern>
+              <linearGradient id="grad-north" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" />
+                <stop offset="100%" stop-color="#0055bb" />
+              </linearGradient>
+              <linearGradient id="grad-central" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff0055" />
+                <stop offset="100%" stop-color="#880033" />
+              </linearGradient>
+              <linearGradient id="grad-east" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00ff66" />
+                <stop offset="100%" stop-color="#007722" />
+              </linearGradient>
+              <linearGradient id="grad-west" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#252525" />
+                <stop offset="100%" stop-color="#141414" />
+              </linearGradient>
+              <linearGradient id="grad-south" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#252525" />
+                <stop offset="100%" stop-color="#141414" />
+              </linearGradient>
+            </defs>
+            
+            <!-- Grid Background Overlay -->
+            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+            
             <style>
               .map-region {
                 stroke: #000;
@@ -1546,26 +1583,60 @@
               }
               .map-region:hover {
                 transform: translateY(-5px);
-                filter: drop-shadow(0px 8px 0px #000);
               }
               .map-region.active {
                 stroke-width: 4;
               }
-              /* Specific neon fills per region */
-              #reg-north { fill: #333; }
-              #reg-north:hover, #reg-north.active { fill: var(--accent-cyan) !important; }
               
-              #reg-central { fill: #2a2a2a; }
-              #reg-central:hover, #reg-central.active { fill: var(--accent-magenta) !important; }
+              /* Region coloring and hybrid Brutalist flat shadow + glowing aura */
+              #reg-north { fill: #2e2e2e; }
+              #reg-north:hover, #reg-north.active { 
+                fill: url(#grad-north) !important; 
+                filter: drop-shadow(0px 8px 0px #000) drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
+              }
               
-              #reg-west { fill: #1a1a1a; opacity: 0.5; }
-              #reg-west:hover, #reg-west.active { fill: #222 !important; opacity: 0.8; }
+              #reg-central { fill: #262626; }
+              #reg-central:hover, #reg-central.active { 
+                fill: url(#grad-central) !important; 
+                filter: drop-shadow(0px 8px 0px #000) drop-shadow(0 0 10px rgba(255, 0, 85, 0.6));
+              }
               
-              #reg-east { fill: #222; }
-              #reg-east:hover, #reg-east.active { fill: var(--accent-green) !important; }
+              #reg-west { fill: url(#grad-west); stroke-dasharray: 6,4; stroke: #444; opacity: 0.55; }
+              #reg-west:hover, #reg-west.active { 
+                fill: #222 !important; 
+                opacity: 0.85; 
+                stroke: #666; 
+                stroke-dasharray: none;
+                filter: drop-shadow(0px 8px 0px #000);
+              }
               
-              #reg-south { fill: #1a1a1a; opacity: 0.5; }
-              #reg-south:hover, #reg-south.active { fill: #222 !important; opacity: 0.8; }
+              #reg-east { fill: #1e1e1e; }
+              #reg-east:hover, #reg-east.active { 
+                fill: url(#grad-east) !important; 
+                filter: drop-shadow(0px 8px 0px #000) drop-shadow(0 0 10px rgba(0, 255, 102, 0.6));
+              }
+              
+              #reg-south { fill: url(#grad-south); stroke-dasharray: 6,4; stroke: #444; opacity: 0.55; }
+              #reg-south:hover, #reg-south.active { 
+                fill: #222 !important; 
+                opacity: 0.85; 
+                stroke: #666; 
+                stroke-dasharray: none;
+                filter: drop-shadow(0px 8px 0px #000);
+              }
+
+              /* HUD Marker pings */
+              @keyframes map-ping {
+                0% { r: 4px; opacity: 1; stroke-width: 1.5; }
+                100% { r: 15px; opacity: 0; stroke-width: 0.5; }
+              }
+              .ping-circle {
+                animation: map-ping 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+                transform-origin: center;
+              }
+              .map-marker {
+                pointer-events: none;
+              }
             </style>
             
             <!-- North Region -->
@@ -1588,19 +1659,47 @@
             <path id="reg-south" class="map-region" data-region="south"
               d="M 180,210 L 285,210 L 320,230 L 290,300 L 250,380 L 220,460 L 180,380 L 150,300 Z" />
               
+            <!-- Pulsing Markers for Active Campaign Hubs -->
+            <g class="map-marker" data-region="north">
+              <circle cx="200" cy="80" r="3.5" fill="var(--accent-cyan)" />
+              <circle cx="200" cy="80" r="3.5" fill="none" stroke="var(--accent-cyan)" class="ping-circle" />
+            </g>
+            <g class="map-marker" data-region="central">
+              <circle cx="225" cy="172" r="3.5" fill="var(--accent-magenta)" />
+              <circle cx="225" cy="172" r="3.5" fill="none" stroke="var(--accent-magenta)" class="ping-circle" />
+            </g>
+            <g class="map-marker" data-region="east">
+              <circle cx="335" cy="198" r="3.5" fill="var(--accent-green)" />
+              <circle cx="335" cy="198" r="3.5" fill="none" stroke="var(--accent-green)" class="ping-circle" />
+            </g>
+
             <!-- Text Labels on Map -->
-            <g style="font-family:'Lexend Zetta', sans-serif; font-weight:900; font-size:12px; fill:#fff; pointer-events:none; text-shadow:2px 2px 0 #000;">
-              <text x="180" y="65">NORTH</text>
-              <text x="200" y="165">CENTRAL</text>
-              <text x="100" y="195">WEST</text>
-              <text x="325" y="185">EAST</text>
-              <text x="210" y="310">SOUTH</text>
+            <g style="font-family:'Lexend Zetta', sans-serif; font-weight:900; font-size:11px; fill:#fff; pointer-events:none; text-shadow:2px 2px 0 #000; text-anchor:middle;">
+              <!-- North -->
+              <text x="200" y="56">NORTH</text>
+              <text x="200" y="66" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-cyan); font-weight:700; letter-spacing:1px;">ACTIVE</text>
+              
+              <!-- Central -->
+              <text x="225" y="148">CENTRAL</text>
+              <text x="225" y="158" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-magenta); font-weight:700; letter-spacing:1px;">ACTIVE</text>
+              
+              <!-- West -->
+              <text x="120" y="184">WEST</text>
+              <text x="120" y="194" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:#888; font-weight:700; letter-spacing:1px;">PLANNING</text>
+              
+              <!-- East -->
+              <text x="335" y="174">EAST</text>
+              <text x="335" y="184" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-green); font-weight:700; letter-spacing:1px;">ACTIVE</text>
+              
+              <!-- South -->
+              <text x="220" y="294">SOUTH</text>
+              <text x="220" y="304" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:#888; font-weight:700; letter-spacing:1px;">PLANNING</text>
             </g>
           </svg>
         </div>
 
         <!-- Right: Detail Display Card -->
-        <div class="card region-details" id="region-card" style="background: #fff; color: #000; padding: 32px; border: var(--border-thick); box-shadow: var(--shadow-hard); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; transition: transform 0.3s ease;">
+        <div class="card region-details" id="region-card" style="background: #fff; color: #000; padding: 32px; border: var(--border-thick); box-shadow: var(--shadow-hard); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; transition: transform 0.3s ease, border-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
           <div id="region-info-content">
             <!-- Initial State -->
             <div id="default-info-state" style="text-align: center; margin-top: 80px;">
