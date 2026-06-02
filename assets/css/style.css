@@ -2459,5 +2459,19 @@ details.neo-accordion[open] .accordion-content {
   }
 }
 
+/* Regional Map Mobile responsive overrides */
+@media (max-width: 768px) {
+  .map-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  #india-svg {
+    max-height: 320px !important;
+  }
+  .region-details {
+    min-height: auto !important;
+  }
+}
+
 
 

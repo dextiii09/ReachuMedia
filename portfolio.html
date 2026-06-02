@@ -1495,17 +1495,18 @@
       })();
     </script>
 
-    <!-- Campaign Impact Stats (Mirrored Gallery) -->
+    <!-- Regional Impact Map Section -->
     <section
-      class="dig-gallery"
+      class="regional-map-sec"
       id="dashboard-gallery"
       style="
         background: #000;
         border-top: var(--border-thick);
-        padding-top: 100px;
+        padding: 80px 24px 60px;
+        color: #fff;
       "
     >
-      <div class="dig-header">
+      <div class="dig-header" style="padding: 0 0 40px 0; margin-bottom: 40px; border-bottom: 2px dashed #333;">
         <div class="dig-header-left">
           <span
             class="badge"
@@ -1515,202 +1516,277 @@
               box-shadow: 4px 4px 0 #fff;
               margin-bottom: 20px;
             "
-            >RAW DATA</span
+            >REGIONAL DOMINANCE</span
           >
           <h2 class="dig-title">
-            Campaign Impact<br /><span class="dig-title-accent"
-              >Stats</span
-            >
+            Regional Impact<br /><span class="dig-title-accent">Map</span>
           </h2>
         </div>
         <div class="dig-header-right">
-          <p class="dig-subtitle">
-            Real-world impact verified through raw data dashboards. Every view,
-            every reach, every save accounted for.
+          <p class="dig-subtitle" style="color: #ccc;">
+            India is not one market. Hover or click on the regions below to see our local creator counts, native language reach, and case studies.
           </p>
-          <p class="dig-hint">← Drag or use arrows to explore dashboards →</p>
+          <p class="dig-hint" style="color: var(--accent-yellow);">Interactive Map: Click regions to lock stats display</p>
         </div>
       </div>
 
-      <div class="dig-scroll-zone">
-        <div class="dig-fade-left"></div>
-        <div class="dig-scroll-track" id="dash-track">
-          <div class="dig-reel-card">
-            <div
-              class="dig-reel-inner"
-              style="border-color: var(--accent-magenta); background: #111"
-            >
-              <img
-                src="./assets/dashboard/WhatsApp Image 2026-04-01 at 15.06.16.jpeg"
-                style="width: 100%; height: 100%; object-fit: contain"
-                alt="Dashboard Data"
-              />
+      <!-- Map Grid Container -->
+      <div class="map-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- Left: SVG Map -->
+        <div class="map-wrapper" style="background: #111; border: var(--border-thick); border-color: #333; padding: 24px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 6px 6px 0 #222;">
+          <svg viewBox="0 0 450 500" style="width: 100%; height: auto; max-height: 420px;" id="india-svg">
+            <style>
+              .map-region {
+                stroke: #000;
+                stroke-width: 3.5;
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                fill: #222;
+              }
+              .map-region:hover {
+                transform: translateY(-5px);
+                filter: drop-shadow(0px 8px 0px #000);
+              }
+              .map-region.active {
+                stroke-width: 4;
+              }
+              /* Specific neon fills per region */
+              #reg-north { fill: #333; }
+              #reg-north:hover, #reg-north.active { fill: var(--accent-cyan) !important; }
+              
+              #reg-central { fill: #2a2a2a; }
+              #reg-central:hover, #reg-central.active { fill: var(--accent-magenta) !important; }
+              
+              #reg-west { fill: #3a3a3a; }
+              #reg-west:hover, #reg-west.active { fill: var(--accent-yellow) !important; }
+              
+              #reg-east { fill: #222; }
+              #reg-east:hover, #reg-east.active { fill: var(--accent-green) !important; }
+              
+              #reg-south { fill: #2c2c2c; }
+              #reg-south:hover, #reg-south.active { fill: var(--accent-purple) !important; }
+            </style>
+            
+            <!-- North Region -->
+            <path id="reg-north" class="map-region" data-region="north"
+              d="M 180,20 L 230,20 L 250,55 L 230,110 L 170,110 L 150,75 L 150,45 Z" />
+            
+            <!-- Central Region -->
+            <path id="reg-central" class="map-region" data-region="central"
+              d="M 170,110 L 230,110 L 270,150 L 285,210 L 180,210 L 160,170 Z" />
+            
+            <!-- West Region -->
+            <path id="reg-west" class="map-region" data-region="west"
+              d="M 150,75 L 170,110 L 160,170 L 180,210 L 155,270 L 95,270 L 65,225 L 65,185 L 100,120 Z" />
+            
+            <!-- East Region -->
+            <path id="reg-east" class="map-region" data-region="east"
+              d="M 270,150 L 320,170 L 345,150 L 390,150 L 415,180 L 395,210 L 350,210 L 320,230 L 285,210 Z" />
+            
+            <!-- South Region -->
+            <path id="reg-south" class="map-region" data-region="south"
+              d="M 180,210 L 285,210 L 320,230 L 290,300 L 250,380 L 220,460 L 180,380 L 150,300 Z" />
+              
+            <!-- Text Labels on Map -->
+            <g style="font-family:'Lexend Zetta', sans-serif; font-weight:900; font-size:12px; fill:#fff; pointer-events:none; text-shadow:2px 2px 0 #000;">
+              <text x="180" y="65">NORTH</text>
+              <text x="200" y="165">CENTRAL</text>
+              <text x="100" y="195">WEST</text>
+              <text x="325" y="185">EAST</text>
+              <text x="210" y="310">SOUTH</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Right: Detail Display Card -->
+        <div class="card region-details" id="region-card" style="background: #fff; color: #000; padding: 32px; border: var(--border-thick); box-shadow: var(--shadow-hard); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; transition: transform 0.3s ease;">
+          <div id="region-info-content">
+            <!-- Initial State -->
+            <div id="default-info-state" style="text-align: center; margin-top: 80px;">
+              <span style="font-size: 3rem;">🗺️</span>
+              <h3 style="font-size: 1.5rem; margin-top: 16px; text-transform: uppercase;">Select a Region</h3>
+              <p style="color: #666; font-weight: 500; margin-top: 8px;">Hover over or click the map regions to explore ReachUp Media's local metrics.</p>
             </div>
-          </div>
-          <div class="dig-reel-card">
-            <div
-              class="dig-reel-inner"
-              style="border-color: var(--accent-cyan); background: #111"
-            >
-              <img
-                src="./assets/dashboard/WhatsApp Image 2026-04-01 at 15.06.15 (1).jpeg"
-                style="width: 100%; height: 100%; object-fit: contain"
-                alt="Dashboard Data"
-              />
-            </div>
-          </div>
-          <div class="dig-reel-card">
-            <div
-              class="dig-reel-inner"
-              style="border-color: var(--accent-yellow); background: #111"
-            >
-              <img
-                src="./assets/dashboard/WhatsApp Image 2026-04-01 at 15.06.15 (2).jpeg"
-                style="width: 100%; height: 100%; object-fit: contain"
-                alt="Dashboard Data"
-              />
-            </div>
-          </div>
-          <div class="dig-reel-card">
-            <div
-              class="dig-reel-inner"
-              style="border-color: #00ff66; background: #111"
-            >
-              <img
-                src="./assets/dashboard/WhatsApp Image 2026-04-01 at 15.06.15.jpeg"
-                style="width: 100%; height: 100%; object-fit: contain"
-                alt="Dashboard Data"
-              />
-            </div>
-          </div>
-          <div class="dig-reel-card">
-            <div
-              class="dig-reel-inner"
-              style="border-color: var(--accent-magenta); background: #111"
-            >
-              <img
-                src="./assets/dashboard/WhatsApp Image 2026-04-01 at 15.06.14 (1).jpeg"
-                style="width: 100%; height: 100%; object-fit: contain"
-                alt="Dashboard Data"
-              />
+            
+            <!-- Dynamic State (Initially Hidden) -->
+            <div id="dynamic-info-state" style="display: none;">
+              <span id="region-badge" class="badge" style="background: #000; color: #fff; margin-bottom: 16px;">REGION</span>
+              <h3 id="region-name" style="font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1;">East India</h3>
+              
+              <!-- Metrics list -->
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                <div style="background: #f4f4f0; padding: 12px 16px; border: var(--border-thin); display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-weight: 800; font-size: 0.85rem; color: #555; text-transform: uppercase;">Organic Reach</span>
+                  <span id="region-reach" style="font-family: 'Lexend Zetta', sans-serif; font-size: 1.25rem; font-weight: 900; color: var(--accent-magenta);">8.4M+</span>
+                </div>
+                <div style="background: #f4f4f0; padding: 12px 16px; border: var(--border-thin); display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-weight: 800; font-size: 0.85rem; color: #555; text-transform: uppercase;">Active Creators</span>
+                  <span id="region-creators" style="font-family: 'Lexend Zetta', sans-serif; font-size: 1.25rem; font-weight: 900; color: #000;">12+ Creators</span>
+                </div>
+                <div style="background: #f4f4f0; padding: 12px 16px; border: var(--border-thin); display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-weight: 800; font-size: 0.85rem; color: #555; text-transform: uppercase;">Vernacular Languages</span>
+                  <span id="region-langs" style="font-weight: 700; font-size: 0.95rem; color: #000; text-align: right;">Assamese / Bengali</span>
+                </div>
+              </div>
+              
+              <!-- Case Study link -->
+              <div style="background: #000; color: #fff; padding: 16px; border: var(--border-thin); margin-bottom: 16px;">
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-yellow); margin-bottom: 4px; font-weight: 900;">Featured Case Study</div>
+                <span id="region-featured-title" style="font-weight: 800; font-size: 1.1rem; line-height: 1.2; display: block; margin-bottom: 6px;">Minimalist Skincare Regional Pilot</span>
+                <p id="region-featured-desc" style="font-size: 0.85rem; color: #ccc; margin: 0; line-height: 1.4;">Targeted Tier 2 & 3 markets using native language reels to build immediate local trust.</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="dig-fade-right"></div>
-      </div>
-
-      <div class="dig-controls">
-        <button class="dig-btn" id="dash-prev" aria-label="Scroll left">
-          &#8592;
-        </button>
-        <div class="dig-dots" id="dash-dots"></div>
-        <button class="dig-btn" id="dash-next" aria-label="Scroll right">
-          &#8594;
-        </button>
       </div>
     </section>
 
+    <!-- Map Script -->
     <script>
-      (function () {
-        var track = document.getElementById("dash-track");
-        var dots = document.getElementById("dash-dots");
-        var prev = document.getElementById("dash-prev");
-        var next = document.getElementById("dash-next");
-        if (!track) return;
-        var cards = track.querySelectorAll(".dig-reel-card");
+      (function() {
+        const regionData = {
+          north: {
+            name: "North India",
+            badgeColor: "var(--accent-cyan)",
+            badgeText: "NCR & PUNJAB DOMINANCE",
+            reach: "2.1M+ Views",
+            creators: "18+ Activations",
+            langs: "Punjabi / Haryanvi / Hindi",
+            featuredTitle: "CabBazar NCR Launch & Space Seven",
+            featuredDesc: "Drove local app installs and footprint conversions using highly localized comedic sketches and nano travel vlogs."
+          },
+          central: {
+            name: "Central India",
+            badgeColor: "var(--accent-magenta)",
+            badgeText: "HEARTLAND ENGAGEMENT",
+            reach: "7.6M+ Views",
+            creators: "12+ Activations",
+            langs: "Hindi / Bhojpuri",
+            featuredTitle: "Monginis hyper-local campaigns",
+            featuredDesc: "Shifted traditional brand perception to a modern 'daily wins celebration' partner in Lucknow and Patna."
+          },
+          west: {
+            name: "West India",
+            badgeColor: "var(--accent-yellow)",
+            badgeText: "URBAN & REGIONAL SPREAD",
+            reach: "1.5M+ Views",
+            creators: "12+ Activations",
+            langs: "Marathi / Gujarati / Hindi",
+            featuredTitle: "FMCG Regional Penetration",
+            featuredDesc: "Activated regional food and lifestyle micro-influencers to secure store-level queries and offline traffic."
+          },
+          east: {
+            name: "East India",
+            badgeColor: "var(--accent-green)",
+            badgeText: "HIGH CONVERSION PILOT",
+            reach: "8.4M+ Views",
+            creators: "12+ Activations",
+            langs: "Assamese / Bengali / Regional",
+            featuredTitle: "Minimalist Skincare Tier 2 & 3",
+            featuredDesc: "Overcame language barrier and built trust through 'Myth-vs-Science' vernacular reels."
+          },
+          south: {
+            name: "South India",
+            badgeColor: "var(--accent-purple)",
+            badgeText: "TECH & MOBILE SCALING",
+            reach: "2.5M+ Views",
+            creators: "8+ Activations",
+            langs: "Kannada / Tamil / Telugu",
+            featuredTitle: "App Onboarding Campaigns",
+            featuredDesc: "Targeted localized user acquisitions for service and travel platforms using regional tech and travel creators."
+          }
+        };
 
-        var timer = null;
-        var speed = 1.0;
-        var isInteracting = false;
-        var resumeTimeout = null;
+        const defaultState = document.getElementById("default-info-state");
+        const dynamicState = document.getElementById("dynamic-info-state");
+        const rName = document.getElementById("region-name");
+        const rBadge = document.getElementById("region-badge");
+        const rReach = document.getElementById("region-reach");
+        const rCreators = document.getElementById("region-creators");
+        const rLangs = document.getElementById("region-langs");
+        const rFTitle = document.getElementById("region-featured-title");
+        const rFDesc = document.getElementById("region-featured-desc");
+        const rCard = document.getElementById("region-card");
+        
+        const regions = document.querySelectorAll(".map-region");
+        let activeRegionKey = null;
+        let isLocked = false;
 
-        cards.forEach(function (_, i) {
-          var dot = document.createElement("div");
-          dot.className = "dig-dot" + (i === 0 ? " active" : "");
-          dot.onclick = function () {
-            pauseScroll();
-            track.scrollLeft =
-              i * (track.querySelector(".dig-reel-card").offsetWidth + 28);
-            resumeScroll();
-          };
-          dots.appendChild(dot);
-        });
+        function updateRegionCard(key) {
+          const data = regionData[key];
+          if (!data) return;
 
-        track.onscroll = function () {
-          var cw = cards[0] ? cards[0].offsetWidth + 28 : 348;
-          var idx = Math.round(track.scrollLeft / cw);
-          dots.querySelectorAll(".dig-dot").forEach(function (d, i) {
-            d.classList.toggle("active", i === idx);
+          defaultState.style.display = "none";
+          dynamicState.style.display = "block";
+
+          rName.textContent = data.name;
+          rBadge.textContent = data.badgeText;
+          rBadge.style.background = "#000";
+          rBadge.style.color = data.badgeColor;
+          rBadge.style.borderColor = data.badgeColor;
+          rReach.textContent = data.reach;
+          rReach.style.color = data.badgeColor;
+          rCreators.textContent = data.creators;
+          rLangs.textContent = data.langs;
+          rFTitle.textContent = data.featuredTitle;
+          rFDesc.textContent = data.featuredDesc;
+          
+          rCard.style.borderColor = data.badgeColor;
+          rCard.style.boxShadow = `8px 8px 0px ${data.badgeColor}`;
+        }
+
+        function clearRegionCard() {
+          if (isLocked) return;
+          defaultState.style.display = "block";
+          dynamicState.style.display = "none";
+          rCard.style.borderColor = "var(--border-thick)";
+          rCard.style.boxShadow = "var(--shadow-hard)";
+        }
+
+        regions.forEach(region => {
+          const key = region.getAttribute("data-region");
+          
+          region.addEventListener("mouseenter", () => {
+            if (isLocked) return;
+            regions.forEach(r => r.classList.remove("active"));
+            region.classList.add("active");
+            updateRegionCard(key);
           });
-        };
 
-        function startAuto() {
-          if (timer) clearInterval(timer);
-          timer = setInterval(function () {
-            if (isInteracting) return;
-            var max = track.scrollWidth - track.clientWidth;
-            if (max <= 0) return;
-            if (track.scrollLeft >= max - 2) track.scrollLeft = 0;
-            else track.scrollLeft += speed;
-          }, 16);
-        }
+          region.addEventListener("mouseleave", () => {
+            if (isLocked) return;
+            region.classList.remove("active");
+            clearRegionCard();
+          });
 
-        function pauseScroll() {
-          isInteracting = true;
-          if (resumeTimeout) clearTimeout(resumeTimeout);
-        }
-
-        function resumeScroll() {
-          if (resumeTimeout) clearTimeout(resumeTimeout);
-          resumeTimeout = setTimeout(function () {
-            isInteracting = false;
-          }, 3000);
-        }
-
-        // Add mouse drag scrolling
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        track.addEventListener("mousedown", function(e) {
-          isDown = true;
-          pauseScroll();
-          startX = e.pageX - track.offsetLeft;
-          scrollLeft = track.scrollLeft;
-        });
-        track.addEventListener("mouseleave", function() {
-          if(isDown) resumeScroll();
-          isDown = false;
-        });
-        track.addEventListener("mouseup", function() {
-          if(isDown) resumeScroll();
-          isDown = false;
-        });
-        track.addEventListener("mousemove", function(e) {
-          if (!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - track.offsetLeft;
-          const walk = (x - startX) * 2;
-          track.scrollLeft = scrollLeft - walk;
+          region.addEventListener("click", (e) => {
+            e.stopPropagation();
+            regions.forEach(r => r.classList.remove("active"));
+            
+            if (activeRegionKey === key && isLocked) {
+              isLocked = false;
+              activeRegionKey = null;
+              clearRegionCard();
+            } else {
+              isLocked = true;
+              activeRegionKey = key;
+              region.classList.add("active");
+              updateRegionCard(key);
+            }
+          });
         });
 
-        track.addEventListener("touchstart", pauseScroll);
-        track.addEventListener("wheel", pauseScroll);
-
-        track.addEventListener("touchend", resumeScroll);
-
-        prev.onclick = function () {
-          pauseScroll();
-          track.scrollLeft -= 328;
-          resumeScroll();
-        };
-        next.onclick = function () {
-          pauseScroll();
-          track.scrollLeft += 328;
-          resumeScroll();
-        };
-
-        startAuto();
+        document.addEventListener("click", () => {
+          isLocked = false;
+          activeRegionKey = null;
+          regions.forEach(r => r.classList.remove("active"));
+          clearRegionCard();
+        });
+        
+        rCard.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
       })();
     </script>
             </div>
