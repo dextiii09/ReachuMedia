@@ -1531,7 +1531,32 @@
       </div>
 
       <!-- Map Grid Container -->
-      <div class="map-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto;">
+      <style>
+        .map-grid {
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 40px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        @media (max-width: 900px) {
+          .map-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .map-wrapper {
+            padding: 16px !important;
+          }
+          #india-svg {
+            max-height: 380px !important;
+          }
+          .region-details {
+            min-height: auto !important;
+            padding: 24px !important;
+          }
+        }
+      </style>
+      <div class="map-grid">
         
         <!-- Left: SVG Map -->
         <div class="map-wrapper" style="background: #111; border: var(--border-thick); border-color: #333; padding: 24px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 6px 6px 0 #222; overflow: hidden;">
