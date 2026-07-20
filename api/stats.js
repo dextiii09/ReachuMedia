@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     } else {
       // Fallback: Fetch from the live production site if the file isn't bundled in the serverless function
       htmlContent = await new Promise((resolve, reject) => {
-        https.get('https://reachupmedia.in/portfolio', (resp) => {
+        https.get('https://Reachupmedia.in/portfolio', (resp) => {
           let data = '';
           resp.on('data', (chunk) => { data += chunk; });
           resp.on('end', () => { resolve(data); });

@@ -1,4 +1,4 @@
-// Add or modify Instagram reel embed URLs here.
+﻿// Add or modify Instagram reel embed URLs here.
 // The gallery will dynamically generate and color code them.
 
 const instagramReels = [
