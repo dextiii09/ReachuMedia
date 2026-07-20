@@ -6,7 +6,7 @@ A modern, minimal, and professional multi-page website for ReachUp Media (influe
 - `index.html` — Home (hero, about blurb, services summary, artist highlight, case study, CTA)
 - `about.html` — Vision, story, team placeholders
 - `services.html` — Detailed services and how we work
-- `portfolio.html` — Case studies with Minimalist Skincare and Dheer Official sections
+- `portfolio.html` — Case studies with CabBazar and Dheer Official sections
 - `contact.html` — Contact form (mailto fallback), WhatsApp link, contact info
 
 ## Design

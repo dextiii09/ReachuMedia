@@ -6,10 +6,6 @@ const instagramReels = [
   { label: "Campaign", url: "https://www.instagram.com/p/DT4kycFDKOj/embed/" },
 
   { label: "Influencer", url: "https://www.instagram.com/p/DMPUWggPnhL/embed/" },
-  { label: "Minimalist", url: "https://www.instagram.com/p/C_qJdEpvcUv/embed/" },
-  { label: "Minimalist", url: "https://www.instagram.com/p/DR6tupODRgD/embed/" },
-  { label: "Minimalist", url: "https://www.instagram.com/p/DVv5cfwD7mW/embed/" },
-  { label: "Minimalist", url: "https://www.instagram.com/p/DT7K3ERCOjM/embed/" },
 
   { label: "Dheer Official", url: "https://www.instagram.com/p/DR2Rhqrk3g9/embed/" },
   { label: "Dheer Official", url: "https://www.instagram.com/p/DQ6pxxtkwIS/embed/" },
