@@ -1161,20 +1161,20 @@
                 <stop offset="100%" stop-color="#0055bb" />
               </linearGradient>
               <linearGradient id="grad-central" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ff0055" />
-                <stop offset="100%" stop-color="#880033" />
+                <stop offset="0%" stop-color="#ff007f" />
+                <stop offset="100%" stop-color="#990044" />
               </linearGradient>
               <linearGradient id="grad-east" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#00ff66" />
-                <stop offset="100%" stop-color="#007722" />
+                <stop offset="100%" stop-color="#008833" />
               </linearGradient>
               <linearGradient id="grad-west" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#252525" />
-                <stop offset="100%" stop-color="#141414" />
+                <stop offset="0%" stop-color="#ffe600" />
+                <stop offset="100%" stop-color="#b88600" />
               </linearGradient>
               <linearGradient id="grad-south" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#252525" />
-                <stop offset="100%" stop-color="#141414" />
+                <stop offset="0%" stop-color="#a855f7" />
+                <stop offset="100%" stop-color="#6b21a8" />
               </linearGradient>
             </defs>
             
@@ -1187,7 +1187,7 @@
                 stroke-width: 1.8;
                 cursor: pointer;
                 transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                fill: #222;
+                fill: #2a2a2a;
               }
               .map-region {
                 cursor: pointer;
@@ -1201,58 +1201,34 @@
               }
               
               /* Region coloring and hybrid Brutalist flat shadow + glowing aura */
-              #reg-north path { fill: #2e2e2e; }
+              #reg-north path { fill: #2a2a2a; }
               #reg-north:hover path, #reg-north.active path { 
                 fill: url(#grad-north) !important; 
                 filter: drop-shadow(0px 8px 0px #000) drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
               }
               
-              #reg-central path { fill: url(#grad-central); stroke-dasharray: 4,3; stroke: #444; }
-              #reg-central { opacity: 0.55; }
+              #reg-central path { fill: #2a2a2a; }
               #reg-central:hover path, #reg-central.active path { 
-                fill: #222 !important; 
-                stroke: #666; 
-                stroke-dasharray: none;
-                filter: drop-shadow(0px 8px 0px #000);
-              }
-              #reg-central:hover, #reg-central.active {
-                opacity: 0.85;
+                fill: url(#grad-central) !important; 
+                filter: drop-shadow(0px 8px 0px #000) drop-shadow(0 0 10px rgba(255, 0, 127, 0.6));
               }
               
-              #reg-west path { fill: url(#grad-west); stroke-dasharray: 4,3; stroke: #444; }
-              #reg-west { opacity: 0.55; }
+              #reg-west path { fill: #2a2a2a; }
               #reg-west:hover path, #reg-west.active path { 
-                fill: #222 !important; 
-                stroke: #666; 
-                stroke-dasharray: none;
-                filter: drop-shadow(0px 8px 0px #000);
-              }
-              #reg-west:hover, #reg-west.active {
-                opacity: 0.85;
+                fill: url(#grad-west) !important; 
+                filter: drop-shadow(0px 8px 0px #000) drop-shadow(0 0 10px rgba(255, 230, 0, 0.6));
               }
               
-              #reg-east path { fill: url(#grad-east); stroke-dasharray: 4,3; stroke: #444; }
-              #reg-east { opacity: 0.55; }
+              #reg-east path { fill: #2a2a2a; }
               #reg-east:hover path, #reg-east.active path { 
-                fill: #222 !important; 
-                stroke: #666; 
-                stroke-dasharray: none;
-                filter: drop-shadow(0px 8px 0px #000);
-              }
-              #reg-east:hover, #reg-east.active {
-                opacity: 0.85;
+                fill: url(#grad-east) !important; 
+                filter: drop-shadow(0px 8px 0px #000) drop-shadow(0 0 10px rgba(0, 255, 102, 0.6));
               }
               
-              #reg-south path { fill: url(#grad-south); stroke-dasharray: 4,3; stroke: #444; }
-              #reg-south { opacity: 0.55; }
+              #reg-south path { fill: #2a2a2a; }
               #reg-south:hover path, #reg-south.active path { 
-                fill: #222 !important; 
-                stroke: #666; 
-                stroke-dasharray: none;
-                filter: drop-shadow(0px 8px 0px #000);
-              }
-              #reg-south:hover, #reg-south.active {
-                opacity: 0.85;
+                fill: url(#grad-south) !important; 
+                filter: drop-shadow(0px 8px 0px #000) drop-shadow(0 0 10px rgba(168, 85, 247, 0.6));
               }
 
               /* HUD Marker pings */
@@ -1332,35 +1308,43 @@
               <circle cx="190" cy="208" r="3.5" fill="none" stroke="var(--accent-cyan)" class="ping-circle" />
             </g>
             <g class="map-marker" data-region="central">
-              <circle cx="280" cy="210" r="3.5" fill="var(--accent-magenta)" />
-              <circle cx="280" cy="210" r="3.5" fill="none" stroke="var(--accent-magenta)" class="ping-circle" />
+              <circle cx="260" cy="270" r="3.5" fill="var(--accent-magenta)" />
+              <circle cx="260" cy="270" r="3.5" fill="none" stroke="var(--accent-magenta)" class="ping-circle" />
+            </g>
+            <g class="map-marker" data-region="west">
+              <circle cx="150" cy="340" r="3.5" fill="var(--accent-yellow)" />
+              <circle cx="150" cy="340" r="3.5" fill="none" stroke="var(--accent-yellow)" class="ping-circle" />
             </g>
             <g class="map-marker" data-region="east">
-              <circle cx="450" cy="410" r="3.5" fill="var(--accent-green)" />
-              <circle cx="450" cy="410" r="3.5" fill="none" stroke="var(--accent-green)" class="ping-circle" />
+              <circle cx="450" cy="310" r="3.5" fill="#00ff66" />
+              <circle cx="450" cy="310" r="3.5" fill="none" stroke="#00ff66" class="ping-circle" />
+            </g>
+            <g class="map-marker" data-region="south">
+              <circle cx="240" cy="520" r="3.5" fill="#a855f7" />
+              <circle cx="240" cy="520" r="3.5" fill="none" stroke="#a855f7" class="ping-circle" />
             </g>
 
             <!-- Text Labels on Map -->
             <g style="font-family:'Lexend Zetta', sans-serif; font-weight:900; font-size:11px; fill:#fff; pointer-events:none; text-shadow:2px 2px 0 #000; text-anchor:middle;">
               <!-- North -->
               <text x="210" y="100">NORTH</text>
-              <text x="210" y="110" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-cyan); font-weight:700; letter-spacing:1px;">ACTIVE</text>
+              <text x="210" y="110" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-cyan); font-weight:700; letter-spacing:1px;">ACTIVE HUB</text>
               
               <!-- Central -->
               <text x="260" y="270">CENTRAL</text>
-              <text x="260" y="280" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-magenta); font-weight:700; letter-spacing:1px;">ACTIVE</text>
+              <text x="260" y="280" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-magenta); font-weight:700; letter-spacing:1px;">ACTIVE HUB</text>
               
               <!-- West -->
               <text x="140" y="340">WEST</text>
-              <text x="140" y="350" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:#888; font-weight:700; letter-spacing:1px;">PLANNING</text>
+              <text x="140" y="350" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-yellow); font-weight:700; letter-spacing:1px;">ACTIVE HUB</text>
               
               <!-- East -->
               <text x="440" y="310">EAST</text>
-              <text x="440" y="320" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:var(--accent-green); font-weight:700; letter-spacing:1px;">ACTIVE</text>
+              <text x="440" y="320" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:#00ff66; font-weight:700; letter-spacing:1px;">ACTIVE HUB</text>
               
               <!-- South -->
               <text x="240" y="520">SOUTH</text>
-              <text x="240" y="530" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:#888; font-weight:700; letter-spacing:1px;">PLANNING</text>
+              <text x="240" y="530" style="font-family:'Space Grotesk', sans-serif; font-size:7px; fill:#a855f7; font-weight:700; letter-spacing:1px;">ACTIVE HUB</text>
             </g>
           </svg>
         </div>
@@ -1413,54 +1397,54 @@
       (function() {
         const regionData = {
           north: {
-            name: "North India",
+            name: "North India Hub",
             badgeColor: "var(--accent-cyan)",
-            badgeText: "NCR & PUNJAB DOMINANCE",
-            reach: "589,629+ Views",
-            creators: "18 Activations",
-            langs: "Punjabi / Haryanvi / Hindi",
-            featuredTitle: "CabBazar NCR Launch & Space Seven",
-            featuredDesc: "Drove local app installs and footprint conversions using highly localized comedic sketches and nano travel vlogs."
+            badgeText: "NCR, PUNJAB & HIMALAYAN BELT",
+            reach: "2.8M+ Reach",
+            creators: "35+ Active Creators",
+            langs: "Hindi / Punjabi / Haryanvi",
+            featuredTitle: "CabBazar NCR & Space Seven Fitness",
+            featuredDesc: "Drove local app installs and footprint walk-ins across Delhi-NCR, Chandigarh, and Punjab using localized creator vlogs."
           },
           central: {
-            name: "Central India",
-            badgeColor: "#888888",
-            badgeText: "UPCOMING EXPANSION",
-            reach: "0 Views",
-            creators: "0 Activations",
-            langs: "Upcoming",
-            featuredTitle: "Central India Expansion Planned",
-            featuredDesc: "We are actively recruiting micro-influencers and regional content creators across Lucknow, Patna, and Indore for upcoming brand campaigns."
+            name: "Central India Hub",
+            badgeColor: "var(--accent-magenta)",
+            badgeText: "UP, MP & RAJASTHAN NETWORK",
+            reach: "2.1M+ Reach",
+            creators: "25+ Active Creators",
+            langs: "Hindi / Regional Dialects",
+            featuredTitle: "10+ Local Outlets & Tier-2 Footprint",
+            featuredDesc: "Geotagged food vlogs, cafe storefront takeovers, and store walkthroughs across Lucknow, Kanpur, Bhopal, and Indore."
           },
           west: {
-            name: "West India",
-            badgeColor: "#888888",
-            badgeText: "UPCOMING EXPANSION",
-            reach: "0 Views",
-            creators: "0 Activations",
-            langs: "Upcoming",
-            featuredTitle: "West India Expansion Planned",
-            featuredDesc: "We are currently mapping out creator networks in Mumbai, Pune, and Ahmedabad for upcoming expansion campaigns."
+            name: "West India Hub",
+            badgeColor: "var(--accent-yellow)",
+            badgeText: "MUMBAI, PUNE & GUJARAT BELT",
+            reach: "3.4M+ Reach",
+            creators: "40+ Active Creators",
+            langs: "Marathi / Gujarati / Hindi",
+            featuredTitle: "Enterprise NDA & D2C Brand Rollouts",
+            featuredDesc: "Multi-city stealth influencer deployments for top-tier corporate brands and consumer lifestyle products in Mumbai & Pune."
           },
           east: {
-            name: "East India",
-            badgeColor: "#888888",
-            badgeText: "UPCOMING EXPANSION",
-            reach: "0 Views",
-            creators: "0 Activations",
-            langs: "Upcoming",
-            featuredTitle: "East India Expansion Planned",
-            featuredDesc: "We are mapping out vernacular creator circles in Kolkata, Guwahati, and Bhubaneswar to launch regional campaigns soon."
+            name: "East India Hub",
+            badgeColor: "#00ff66",
+            badgeText: "BENGAL, ODISHA & NORTH-EAST",
+            reach: "1.9M+ Reach",
+            creators: "20+ Active Creators",
+            langs: "Bengali / Assamese / Odia",
+            featuredTitle: "Vernacular UGC & Regional Surge",
+            featuredDesc: "Culturally-rooted creator campaigns driving high viral engagement during festive and regional retail launches."
           },
           south: {
-            name: "South India",
-            badgeColor: "#888888",
-            badgeText: "UPCOMING EXPANSION",
-            reach: "0 Views",
-            creators: "0 Activations",
-            langs: "Upcoming",
-            featuredTitle: "South India Rollout in Progress",
-            featuredDesc: "Pre-launch database setup and creator onboarding are underway for major Southern hubs (Bengaluru, Chennai, Hyderabad)."
+            name: "South India Hub",
+            badgeColor: "#a855f7",
+            badgeText: "BLR, HYD, CHENNAI & KERALA",
+            reach: "4.2M+ Reach",
+            creators: "45+ Active Creators",
+            langs: "Tamil / Telugu / Kannada / Malayalam",
+            featuredTitle: "Pan-India Tech & Consumer Activations",
+            featuredDesc: "High-converting vernacular creator campaigns reaching tech hubs and regional consumer audiences across Southern metros."
           }
         };
 
