@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://Reachupmedia.in/sitemap.xml
+Sitemap: https://reachupmedia.in/sitemap.xml

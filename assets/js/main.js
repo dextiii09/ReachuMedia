@@ -1,4 +1,4 @@
-﻿// --- PDF Viewer Modal Logic ---
+// --- PDF Viewer Modal Logic ---
 function setupPDFViewer() {
   const pdfSection = document.getElementById('pdf-viewer-section');
   const pdfIframe = document.getElementById('pdf-iframe');
@@ -62,13 +62,13 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         backdrop.classList.add('show');
         document.body.classList.add('no-scroll');
         toggle.setAttribute('aria-expanded', 'true');
-        toggle.innerHTML = 'âœ•';
+        toggle.innerHTML = '✕';
       } else {
         nav.classList.remove('show');
         backdrop.classList.remove('show');
         document.body.classList.remove('no-scroll');
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.innerHTML = 'â‹®';
+        toggle.innerHTML = '⋮';
       }
     };
 
@@ -226,7 +226,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         const message = qs('[name="message"]', form)?.value ?? '';
         const subject = encodeURIComponent(`New enquiry from ${name}`);
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-        const recipients = 'suraj@Reachupmedia.in,letstalk@Reachupmedia.in';
+        const recipients = 'suraj@reachupmedia.in,letstalk@reachupmedia.in';
         const mail = `mailto:${recipients}?subject=${subject}&body=${body}`;
         window.location.href = mail;
       }
@@ -415,7 +415,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       const budget = parseInt(budgetInput.value);
       
       // Update budget label
-      budgetVal.textContent = `â‚¹${budget.toLocaleString('en-IN')}`;
+      budgetVal.textContent = `₹${budget.toLocaleString('en-IN')}`;
       
       // CPM baseline values for Indian regional markets (increased to reduce estimated views slightly)
       const cpms = {
@@ -478,7 +478,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       const mixLabel = mixInput.options[mixInput.selectedIndex].text;
       const pitchMsg = encodeURIComponent(
         `Hi Reachup Media, let's collaborate! I want to pitch a campaign:\n\n` +
-        `- Budget: â‚¹${budget.toLocaleString('en-IN')}\n` +
+        `- Budget: ₹${budget.toLocaleString('en-IN')}\n` +
         `- Focus/Niche: ${nicheLabel}\n` +
         `- Creator Mix: ${mixLabel}\n` +
         `- Target Views: ${formattedViews}\n` +
@@ -619,7 +619,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       opacity: 0;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     `;
-    toast.innerHTML = `<span>ðŸ“‹</span> <span>${message}</span>`;
+    toast.innerHTML = `<span>📋</span> <span>${message}</span>`;
     document.body.appendChild(toast);
     
     // Force reflow

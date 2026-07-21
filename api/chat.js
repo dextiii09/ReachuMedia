@@ -1,4 +1,4 @@
-﻿export default async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -24,7 +24,7 @@ CRITICAL INSTRUCTIONS:
 CORE KNOWLEDGE BASE:
 - About Us: Reachup Media is a highly legitimate, fast-growing agency. We pride ourselves on breaking the algorithm with culturally relevant, unapologetic campaigns. We have local roots but Pan-India reach.
 - Services: We specialize in Influencer Marketing, Artist & Band Management, Content & UGC, and Social Media Marketing.
-- Contact: Our founder is Suraj. Email: suraj@Reachupmedia.in, letstalk@Reachupmedia.in. Phone/WhatsApp: +91 7973043372.
+- Contact: Our founder is Suraj. Email: suraj@reachupmedia.in, letstalk@reachupmedia.in. Phone/WhatsApp: +91 7973043372.
 - Portfolio/Case Studies: We have run massive creator-led campaigns for big brands. For CabBazar, we achieved 1.6M+ reach, and for Space Seven Fitness we drove significant regional walk-ins. Link them to <a href='./portfolio.html' style='font-weight:bold; color:#000; text-decoration:underline;'>Our Portfolio</a>.
 - Pricing/Hiring: We tailor pricing to each brand's specific needs and scale. Direct all serious inquiries to Suraj via email or WhatsApp.`;
 

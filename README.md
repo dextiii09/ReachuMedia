@@ -1,13 +1,13 @@
-﻿# Reachup Media â€” Static Website
+# Reachup Media — Static Website
 
 A modern, minimal, and professional multi-page website for Reachup Media (influencer marketing and artist management agency in India).
 
 ## Pages
-- `index.html` â€” Home (hero, about blurb, services summary, artist highlight, case study, CTA)
-- `about.html` â€” Vision, story, team placeholders
-- `services.html` â€” Detailed services and how we work
-- `portfolio.html` â€” Case studies with CabBazar and Dheer Official sections
-- `contact.html` â€” Contact form (mailto fallback), WhatsApp link, contact info
+- `index.html` — Home (hero, about blurb, services summary, artist highlight, case study, CTA)
+- `about.html` — Vision, story, team placeholders
+- `services.html` — Detailed services and how we work
+- `portfolio.html` — Case studies with CabBazar and Dheer Official sections
+- `contact.html` — Contact form (mailto fallback), WhatsApp link, contact info
 
 ## Design
 - Fonts: Poppins (headings) and Inter (body)
@@ -21,7 +21,7 @@ A modern, minimal, and professional multi-page website for Reachup Media (influe
 - To wire a real contact form, use Formspree/Netlify Forms or connect a backend and set the `action` on `#contact-form`.
 
 ### Logo
-- Place your logo file at `assets/img/logo.png` (PNG recommended, ~512Ã—512). This image is used in:
+- Place your logo file at `assets/img/logo.png` (PNG recommended, ~512×512). This image is used in:
 	- The top-left brand mark in the header on every page
 	- The footer brand mark on pages with footers
 	- The browser favicon and the Open Graph `og:image`
@@ -43,7 +43,7 @@ Or use VS Code's Live Server extension (recommended on Windows).
 - Netlify/Vercel: drag-and-drop or connect the repo; build command not required (static).
 
 ## Contact
-- Email: suraj@Reachupmedia.in / letstalk@Reachupmedia.in
+- Email: suraj@reachupmedia.in / letstalk@reachupmedia.in
 - Phone: +91 7973043372
-- Instagram: @Reachup__media
+- Instagram: @reachup__media
 - Location: India (Pan-India operations)

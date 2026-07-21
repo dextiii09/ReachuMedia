@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Reachup Media Custom Neo-Brutalist Chatbot
  */
 
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatbotHTML = `
     <!-- Chatbot Toggle Button -->
     <button id="reachbot-toggle" class="reachbot-toggle" aria-label="Toggle Chat">
-      <span class="reachbot-icon">ðŸ’¬</span>
+      <span class="reachbot-icon">💬</span>
     </button>
 
     <!-- Chatbot Window -->
@@ -17,19 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="pulse-dot"></span>
           <strong>REACHBOT</strong>
         </div>
-        <button id="reachbot-close" class="reachbot-close" aria-label="Close Chat">âœ–</button>
+        <button id="reachbot-close" class="reachbot-close" aria-label="Close Chat">✖</button>
       </div>
       
       <div id="reachbot-messages" class="reachbot-messages">
         <!-- Initial Greeting -->
         <div class="bot-msg">
-          <div class="msg-bubble">Hey there! ðŸ‘‹ I'm ReachBot. I can help you learn about our <strong>services</strong>, past <strong>campaigns</strong>, or how to <strong>contact</strong> us. What's up?</div>
+          <div class="msg-bubble">Hey there! 👋 I'm ReachBot. I can help you learn about our <strong>services</strong>, past <strong>campaigns</strong>, or how to <strong>contact</strong> us. What's up?</div>
         </div>
       </div>
 
       <form id="reachbot-form" class="reachbot-form">
         <input type="text" id="reachbot-input" placeholder="Type your question..." autocomplete="off" required />
-        <button type="submit" class="reachbot-send">âž”</button>
+        <button type="submit" class="reachbot-send">➔</button>
       </form>
     </div>
   `;
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typingEl) typingEl.remove();
 
       if (!response.ok) {
-        addMessage("Oops, my brain is taking a break. ðŸ˜… Try emailing suraj@Reachupmedia.in instead!", 'bot');
+        addMessage("Oops, my brain is taking a break. 😅 Try emailing suraj@reachupmedia.in instead!", 'bot');
         console.error("Chat Error:", data);
       } else {
         addMessage(data.reply, 'bot');
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const typingEl = document.getElementById(typingId);
       if (typingEl) typingEl.remove();
       
-      addMessage("Connection error! ðŸ˜± Please contact us on WhatsApp instead.", 'bot');
+      addMessage("Connection error! 😱 Please contact us on WhatsApp instead.", 'bot');
       console.error(err);
     }
   });
