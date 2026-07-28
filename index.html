@@ -274,16 +274,16 @@
                       color: #fff;
                     ">
                       <div style="display: flex; align-items: center; gap: 8px;">
-                        <img src="./assets/img/brand/Reachup%20Media.png" alt="Reachup Media" style="width: 24px; height: 24px; border-radius: 50%; background: var(--accent-cyan); padding: 2px;" />
+                        <img id="phone-avatar" src="./assets/img/clients/cabbazar-logo.png" alt="Influencer Avatar" style="width: 26px; height: 26px; border-radius: 50%; background: #fff; object-fit: contain; padding: 2px; border: 1.5px solid var(--accent-yellow);" />
                         <div>
                           <div style="font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; gap: 4px;">
-                            <span>reachupmedia</span>
+                            <span id="phone-handle">cabbazar_official</span>
                             <span style="color: #0095f6; font-size: 0.7rem;">✓</span>
                           </div>
-                          <div id="phone-brand-subtitle" style="font-size: 0.65rem; color: #ccc;">CabBazar • Regional Push</div>
+                          <div id="phone-brand-subtitle" style="font-size: 0.65rem; color: #ccc;">CabBazar • Regional Travel</div>
                         </div>
                       </div>
-                      <span style="font-size: 0.7rem; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 3px 8px; border-radius: 12px; font-weight: 700;">VIRAL</span>
+                      <span style="font-size: 0.7rem; background: var(--accent-magenta); color: #fff; padding: 3px 8px; border-radius: 12px; font-weight: 800; border: 1px solid #000;">VIRAL</span>
                     </div>
 
                     <!-- Right Side Reels Floating Actions (Likes, Comments, Shares) -->
@@ -305,11 +305,11 @@
                       </div>
                       <div style="text-align: center;">
                         <span style="font-size: 1.2rem;">💬</span>
-                        <div style="font-size: 0.65rem; font-weight: 800; margin-top: 2px;">4.2K</div>
+                        <div id="phone-comments" style="font-size: 0.65rem; font-weight: 800; margin-top: 2px;">4.8K</div>
                       </div>
                       <div style="text-align: center;">
                         <span style="font-size: 1.2rem;">✈️</span>
-                        <div style="font-size: 0.65rem; font-weight: 800; margin-top: 2px;">18.5K</div>
+                        <div id="phone-shares" style="font-size: 0.65rem; font-weight: 800; margin-top: 2px;">19.2K</div>
                       </div>
                     </div>
 
@@ -336,10 +336,10 @@
                         🚕 CabBazar Outstation
                       </div>
                       <p id="phone-caption-text" style="font-size: 0.72rem; line-height: 1.35; margin: 0 0 6px 0; font-weight: 600; color: #eee;">
-                        Scaled outstation ride bookings & brand awareness across Tier-2/3 NCR.
+                        Scaled Tier-2/3 outstation ride bookings with 350,000+ targeted influencer views.
                       </p>
                       <div style="font-size: 0.65rem; color: var(--accent-cyan); font-weight: 700;">
-                        🎵 Original Audio - Reachup Media
+                        🎵 Original Audio - Reachup Media Creator Cult
                       </div>
                     </div>
 
@@ -365,12 +365,12 @@
 
             <!-- Interactive Campaign Selector Deck Below Phone -->
             <div style="
-              margin-top: 20px;
+              margin-top: 16px;
               width: 100%;
-              max-width: 310px;
+              max-width: 320px;
               display: flex;
               justify-content: center;
-              gap: 8px;
+              gap: 6px;
               flex-wrap: wrap;
             ">
               <button onclick="switchNativeCampaign(0)" id="pill-0" class="campaign-pill active">
@@ -380,7 +380,13 @@
                 🏋️ Space Seven
               </button>
               <button onclick="switchNativeCampaign(2)" id="pill-2" class="campaign-pill">
-                🎤 Dheer Official
+                🎤 Dheer
+              </button>
+              <button onclick="switchNativeCampaign(3)" id="pill-3" class="campaign-pill">
+                ✨ Minimalist
+              </button>
+              <button onclick="switchNativeCampaign(4)" id="pill-4" class="campaign-pill">
+                🍰 Monginis
               </button>
             </div>
 
@@ -389,25 +395,59 @@
               (function() {
                 const nativeCampaigns = [
                   {
-                    brand: "CabBazar • Regional Push",
+                    handle: "cabbazar_official",
+                    brand: "CabBazar • Regional Travel",
                     img: "./assets/img/clients/cabbazar-map.png",
+                    avatar: "./assets/img/clients/cabbazar-logo.png",
                     tag: "🚕 CabBazar Outstation",
-                    caption: "Scaled outstation ride bookings & brand awareness across Tier-2/3 NCR with 350,000+ targeted views.",
-                    likes: "350K+"
+                    caption: "🚀 Scaled Tier-2/3 outstation ride bookings with 350,000+ targeted influencer views across North India!",
+                    likes: "350K+",
+                    comments: "4.8K",
+                    shares: "19.2K"
                   },
                   {
-                    brand: "Space Seven Fitness • UGC Launch",
+                    handle: "spacesevenfitness",
+                    brand: "Space Seven • Gym UGC Push",
                     img: "./assets/img/clients/spacesevenfitness.jpg",
+                    avatar: "./assets/img/clients/spacesevenfitness.jpg",
                     tag: "🏋️ Space Seven Fitness",
-                    caption: "Hyper-local gym UGC push driving membership inquiries & 3.2% engagement rate over regional avg.",
-                    likes: "450K+"
+                    caption: "🔥 Hyper-local gym UGC influencer campaign driving membership sign-ups & 3.2% higher ER!",
+                    likes: "450K+",
+                    comments: "6.1K",
+                    shares: "24.5K"
                   },
                   {
-                    brand: "Dheer Official • College Fest",
-                    img: "./assets/img/artists/dheer-official-logo.png",
+                    handle: "dheer_official",
+                    brand: "Dheer Official • Live Concert",
+                    img: "./assets/img/artists/dheer-official-2.png",
+                    avatar: "./assets/img/artists/dheer-official-logo.png",
                     tag: "🎤 Dheer Live Act",
-                    caption: "Packed live crowd performance & viral reel push seeding high-converting artist bookings.",
-                    likes: "1.2M+"
+                    caption: "⚡ Packed live crowd concert performance & viral reel push seeding high-converting artist bookings!",
+                    likes: "1.2M+",
+                    comments: "14.3K",
+                    shares: "88.1K"
+                  },
+                  {
+                    handle: "minimalist_influencers",
+                    brand: "Minimalist • Skincare Cult",
+                    img: "./assets/img/artists/dheer-official-1.png",
+                    avatar: "./assets/img/brand/Reachup%20Media.png",
+                    tag: "✨ Minimalist Skincare",
+                    caption: "✨ Regional micro-creator unboxing & skin routine reels driving organic viral narrative & trial.",
+                    likes: "890K+",
+                    comments: "9.4K",
+                    shares: "32.0K"
+                  },
+                  {
+                    handle: "monginis_regional",
+                    brand: "Monginis • Vernacular Bakery",
+                    img: "./assets/img/artists/dheer-official-3.png",
+                    avatar: "./assets/img/brand/Reachup%20Media.png",
+                    tag: "🍰 Monginis Bakery",
+                    caption: "🍰 Vernacular food influencer video reels driving footfalls & festive cake orders across regional hubs.",
+                    likes: "670K+",
+                    comments: "7.8K",
+                    shares: "21.4K"
                   }
                 ];
 
@@ -415,24 +455,32 @@
                   const data = nativeCampaigns[index];
                   const screen = document.getElementById('phone-screen-content');
                   const bgImg = document.getElementById('phone-bg-img');
+                  const avatar = document.getElementById('phone-avatar');
+                  const handle = document.getElementById('phone-handle');
                   const subtitle = document.getElementById('phone-brand-subtitle');
                   const tag = document.getElementById('phone-campaign-tag');
                   const caption = document.getElementById('phone-caption-text');
                   const likes = document.getElementById('phone-likes');
+                  const comments = document.getElementById('phone-comments');
+                  const shares = document.getElementById('phone-shares');
 
                   if (screen) {
                     screen.style.opacity = '0.3';
                     setTimeout(() => {
                       if (bgImg) bgImg.src = data.img;
+                      if (avatar) avatar.src = data.avatar;
+                      if (handle) handle.textContent = data.handle;
                       if (subtitle) subtitle.textContent = data.brand;
                       if (tag) tag.textContent = data.tag;
                       if (caption) caption.textContent = data.caption;
                       if (likes) likes.textContent = data.likes;
+                      if (comments) comments.textContent = data.comments;
+                      if (shares) shares.textContent = data.shares;
                       screen.style.opacity = '1';
                     }, 150);
                   }
 
-                  for (let i = 0; i < 3; i++) {
+                  for (let i = 0; i < 5; i++) {
                     const btn = document.getElementById('pill-' + i);
                     if (btn) {
                       if (i === index) btn.classList.add('active');
