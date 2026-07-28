@@ -106,12 +106,12 @@
           </div>
         </div>
         <div class="reveal">
-          <div style="position: relative; display: flex; justify-content: center; align-items: center; padding: 30px 15px;">
+          <div style="position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px 10px 10px;">
             
             <style>
               @keyframes hero-phone-float {
                 0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-12px); }
+                50% { transform: translateY(-10px); }
               }
               @keyframes badge-bob-1 {
                 0%, 100% { transform: translateY(0px) rotate(-4deg); }
@@ -155,7 +155,7 @@
             <!-- Floating Top Right Live Badge -->
             <div style="
               position: absolute;
-              top: 20px;
+              top: 15px;
               right: -15px;
               z-index: 20;
               background: var(--accent-yellow);
@@ -179,7 +179,7 @@
             <div class="phone-mockup-wrap" style="
               width: 100%;
               max-width: 310px;
-              background: #1c1c1e;
+              background: linear-gradient(160deg, #3a3a3c 0%, #1c1c1e 40%, #111 100%);
               border: 3px solid #000;
               border-radius: 46px;
               box-shadow: 14px 14px 0 var(--accent-cyan), 14px 14px 0 4px #000;
@@ -187,7 +187,8 @@
               position: relative;
               box-sizing: border-box;
             ">
-              <!-- Left Side Hardware Buttons (Volume Up/Down) -->
+              <!-- Left Side Hardware Buttons (Action Button + Volume Up/Down) -->
+              <div style="position: absolute; left: -7px; top: 75px; width: 4px; height: 20px; background: #000; border-radius: 3px 0 0 3px;"></div>
               <div style="position: absolute; left: -7px; top: 110px; width: 4px; height: 35px; background: #000; border-radius: 3px 0 0 3px;"></div>
               <div style="position: absolute; left: -7px; top: 155px; width: 4px; height: 35px; background: #000; border-radius: 3px 0 0 3px;"></div>
               <!-- Right Side Power Button -->
@@ -201,12 +202,13 @@
                 overflow: hidden;
                 position: relative;
                 border: 2px solid #000;
+                box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
               ">
                 <!-- Glossy Glass Sheen Glare Reflection Overlay -->
                 <div style="
                   position: absolute;
                   inset: 0;
-                  background: linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 35%, transparent 60%);
+                  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.04) 35%, transparent 65%);
                   pointer-events: none;
                   z-index: 15;
                 "></div>
@@ -232,17 +234,17 @@
                   <span>9:41</span>
                   <!-- Dynamic Island Pill -->
                   <div style="
-                    width: 82px;
-                    height: 20px;
+                    width: 86px;
+                    height: 22px;
                     background: #000;
                     border-radius: 20px;
                     display: flex;
                     align-items: center;
                     justify-content: flex-end;
                     padding-right: 8px;
-                    box-shadow: 0 0 2px rgba(255,255,255,0.2);
+                    box-shadow: 0 0 3px rgba(255,255,255,0.2);
                   ">
-                    <span style="width: 8px; height: 8px; background: #0c0d12; border-radius: 50%; border: 1px solid #1a1a24; display: block;"></span>
+                    <span style="width: 9px; height: 9px; background: #0b0c10; border-radius: 50%; border: 1px solid #1a1a24; display: block;"></span>
                   </div>
                   <div style="display: flex; align-items: center; gap: 4px; font-size: 10px;">
                     <span>5G</span>
@@ -263,8 +265,9 @@
                   box-sizing: border-box;
                 ">
                   <iframe
+                    id="hero-reel-iframe"
                     src="https://www.instagram.com/reel/DR2Rhqrk3g9/embed"
-                    style="width: 100%; height: 100%; min-height: 440px; border: none; overflow: hidden;"
+                    style="width: 100%; height: 100%; min-height: 440px; border: none; overflow: hidden; transition: opacity 0.3s ease;"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
@@ -293,7 +296,7 @@
             <!-- Floating Bottom Right Badge -->
             <div style="
               position: absolute;
-              bottom: -5px;
+              bottom: 45px;
               right: -10px;
               z-index: 20;
               background: #00ff66;
@@ -314,7 +317,7 @@
             <!-- Floating Bottom Left Brand Badge -->
             <div style="
               position: absolute;
-              bottom: 35px;
+              bottom: 75px;
               left: -20px;
               z-index: 20;
               background: #fff;
@@ -333,6 +336,105 @@
               <img src="./assets/img/brand/Reachup%20Media.png" alt="Reachup Media" style="width: 20px; height: 20px; object-fit: contain;">
               <span>REACHUP MEDIA</span>
             </div>
+
+            <!-- Interactive Campaign Video Switcher Control Bar -->
+            <div style="
+              margin-top: 16px;
+              width: 100%;
+              max-width: 320px;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              z-index: 25;
+            ">
+              <!-- Prev / Active Badge / Next Switcher -->
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                <button onclick="prevHeroReel()" style="background: #000; color: #fff; border: 2px solid #000; padding: 6px 12px; font-weight: 800; font-size: 0.8rem; cursor: pointer; box-shadow: 3px 3px 0 var(--accent-yellow); text-transform: uppercase; transition: transform 0.1s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  ◀ Prev
+                </button>
+
+                <div id="hero-campaign-badge" style="
+                  background: var(--accent-yellow);
+                  color: #000;
+                  border: 2px solid #000;
+                  padding: 6px 12px;
+                  font-weight: 900;
+                  font-size: 0.75rem;
+                  text-transform: uppercase;
+                  text-align: center;
+                  box-shadow: 3px 3px 0 #000;
+                  flex-grow: 1;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                ">
+                  🎤 Dheer Official • Fest
+                </div>
+
+                <button onclick="nextHeroReel()" style="background: #000; color: #fff; border: 2px solid #000; padding: 6px 12px; font-weight: 800; font-size: 0.8rem; cursor: pointer; box-shadow: 3px 3px 0 var(--accent-yellow); text-transform: uppercase; transition: transform 0.1s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  Next ▶
+                </button>
+              </div>
+
+              <!-- Quick Selector Campaign Pills -->
+              <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+                <button onclick="setHeroReel(0)" class="hero-reel-tab" style="background: var(--accent-yellow); color: #000; border: 2px solid #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 800; cursor: pointer; box-shadow: 2px 2px 0 #000;">
+                  🎤 Dheer Official
+                </button>
+                <button onclick="setHeroReel(1)" class="hero-reel-tab" style="background: #fff; color: #000; border: 2px solid #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 800; cursor: pointer; box-shadow: 2px 2px 0 #000;">
+                  🚕 CabBazar NCR
+                </button>
+                <button onclick="setHeroReel(2)" class="hero-reel-tab" style="background: #fff; color: #000; border: 2px solid #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 800; cursor: pointer; box-shadow: 2px 2px 0 #000;">
+                  🏋️ Space Seven
+                </button>
+              </div>
+            </div>
+
+            <!-- Campaign Switcher Script -->
+            <script>
+              (function() {
+                const reels = [
+                  { label: "🎤 Dheer Official • Live Fest", url: "https://www.instagram.com/reel/DR2Rhqrk3g9/embed" },
+                  { label: "🚕 CabBazar • NCR Campaign", url: "https://www.instagram.com/reel/DXJ310-SmiX/embed" },
+                  { label: "🏋️ Space Seven • Gym Campaign", url: "https://www.instagram.com/reel/DXhcClRyA3G/embed" }
+                ];
+                let currentIdx = 0;
+
+                window.setHeroReel = function(idx) {
+                  currentIdx = idx;
+                  const iframe = document.getElementById('hero-reel-iframe');
+                  const badge = document.getElementById('hero-campaign-badge');
+                  const tabs = document.querySelectorAll('.hero-reel-tab');
+
+                  if (iframe) {
+                    iframe.style.opacity = '0.3';
+                    setTimeout(() => {
+                      iframe.src = reels[currentIdx].url;
+                      iframe.style.opacity = '1';
+                    }, 150);
+                  }
+                  if (badge) badge.textContent = reels[currentIdx].label;
+
+                  tabs.forEach((tab, i) => {
+                    if (i === currentIdx) {
+                      tab.style.background = 'var(--accent-yellow)';
+                    } else {
+                      tab.style.background = '#fff';
+                    }
+                  });
+                };
+
+                window.nextHeroReel = function() {
+                  let nextIdx = (currentIdx + 1) % reels.length;
+                  window.setHeroReel(nextIdx);
+                };
+
+                window.prevHeroReel = function() {
+                  let prevIdx = (currentIdx - 1 + reels.length) % reels.length;
+                  window.setHeroReel(prevIdx);
+                };
+              })();
+            </script>
 
           </div>
         </div>
