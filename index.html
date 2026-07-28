@@ -107,17 +107,96 @@
         </div>
         <div class="reveal">
           <div
-            class="media-thumb"
-            aria-label="Reachup Media Brand"
+            style="
+              background: var(--accent-cyan);
+              border: var(--border-thick);
+              box-shadow: 10px 10px 0 #000;
+              padding: clamp(20px, 3.5vw, 32px);
+              position: relative;
+            "
           >
-            <img
-              src="./assets/img/brand/Reachup%20Media.png"
-              alt="Reachup Media Logo"
-              style="object-fit: contain; padding: 20%;"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
+            <!-- Header Badges -->
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+              <span class="badge" style="background: #000; color: var(--accent-yellow); font-size: 0.8rem; border: 2px solid #000; padding: 4px 10px;">
+                👋 WELCOME, BRAND BUILDER
+              </span>
+              <div style="display: flex; align-items: center; gap: 6px; background: #fff; padding: 4px 10px; border: 2px solid #000; font-size: 0.75rem; font-weight: 800;">
+                <span style="width: 8px; height: 8px; background: #00ff66; border-radius: 50%; display: inline-block; animation: live-pulse 1.4s infinite;"></span>
+                <span>TEAM ONLINE</span>
+              </div>
+            </div>
+
+            <!-- Welcome Title -->
+            <h2 style="font-size: clamp(1.4rem, 3vw, 2rem); text-transform: uppercase; line-height: 1.15; margin-bottom: 12px; color: #000;">
+              What Are You Looking To Achieve?
+            </h2>
+            <p style="font-size: 0.95rem; color: #111; line-height: 1.5; margin-bottom: 20px; font-weight: 600;">
+              Select your campaign goal below to get a tailored regional strategy:
+            </p>
+
+            <!-- 3 Client Goal Options -->
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+              <a href="#estimator-sec" style="text-decoration: none; color: #000;">
+                <div style="background: #fff; padding: 12px 14px; border: 2px solid #000; box-shadow: 3px 3px 0 #000; display: flex; align-items: center; justify-content: space-between; gap: 10px; transition: transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--accent-yellow)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#fff'">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 1.3rem;">🎯</span>
+                    <div style="text-align: left;">
+                      <div style="font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Scale Regional Reach</div>
+                      <div style="font-size: 0.75rem; color: #444;">Vernacular vlogs & nano creator viral pushes</div>
+                    </div>
+                  </div>
+                  <span style="font-weight: 900; font-size: 1.1rem;">→</span>
+                </div>
+              </a>
+
+              <a href="./portfolio.html#case-localbusiness" style="text-decoration: none; color: #000;">
+                <div style="background: #fff; padding: 12px 14px; border: 2px solid #000; box-shadow: 3px 3px 0 #000; display: flex; align-items: center; justify-content: space-between; gap: 10px; transition: transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--accent-yellow)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#fff'">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 1.3rem;">🏪</span>
+                    <div style="text-align: left;">
+                      <div style="font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Drive Store Walk-Ins</div>
+                      <div style="font-size: 0.75rem; color: #444;">Hyper-local cafe, dining & retail footfall</div>
+                    </div>
+                  </div>
+                  <span style="font-weight: 900; font-size: 1.1rem;">→</span>
+                </div>
+              </a>
+
+              <a href="./portfolio.html#artist-dheer" style="text-decoration: none; color: #000;">
+                <div style="background: #fff; padding: 12px 14px; border: 2px solid #000; box-shadow: 3px 3px 0 #000; display: flex; align-items: center; justify-content: space-between; gap: 10px; transition: transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--accent-yellow)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#fff'">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 1.3rem;">🎤</span>
+                    <div style="text-align: left;">
+                      <div style="font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Book Exclusive Artists</div>
+                      <div style="font-size: 0.75rem; color: #444;">Live acts, college fests & corporate bookings</div>
+                    </div>
+                  </div>
+                  <span style="font-weight: 900; font-size: 1.1rem;">→</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Instant WhatsApp Strategy Consultation Button -->
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/917973043372?text=Hi%20Reachup%20Media%2C%20I%27m%20a%20brand%20looking%20to%20collaborate!"
+              target="_blank"
+              rel="noopener"
+              style="
+                display: block;
+                text-align: center;
+                background: var(--accent-magenta);
+                color: #fff;
+                font-size: 0.95rem;
+                padding: 14px 16px;
+                border: 3px solid #000;
+                box-shadow: 4px 4px 0 #000;
+                text-transform: uppercase;
+                font-weight: 900;
+              "
+            >
+              💬 Get Free Strategy Consultation
+            </a>
           </div>
         </div>
       </div>
