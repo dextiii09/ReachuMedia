@@ -126,153 +126,59 @@
           </div>
         </div>
         <div class="reveal">
-          <div style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 0;">
-            
-            <style>
-              @keyframes phone-float {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-8px); }
-              }
-              @keyframes badge-float-1 {
-                0%, 100% { transform: translateY(0px) rotate(-3deg); }
-                50% { transform: translateY(-5px) rotate(-1deg); }
-              }
-              @keyframes badge-float-2 {
-                0%, 100% { transform: translateY(0px) rotate(3deg); }
-                50% { transform: translateY(-6px) rotate(1deg); }
-              }
-              .phone-container {
-                animation: phone-float 4.5s ease-in-out infinite;
-                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-              }
-              .phone-container:hover {
-                animation-play-state: paused;
-                transform: perspective(1000px) rotateY(-5deg) rotateX(3deg) scale(1.02);
-              }
-            </style>
-
-            <!-- Outer Wrapper for Phone & Floating Badges -->
-            <div style="position: relative; width: 100%; max-width: 310px; display: flex; justify-content: center;">
-
-              <!-- Top Left Floating Badge -->
-              <div style="
-                position: absolute;
-                top: -15px;
-                left: -15px;
-                z-index: 25;
-                background: var(--accent-magenta);
-                color: #fff;
-                border: 3px solid #000;
-                box-shadow: 4px 4px 0 #000;
-                padding: 6px 14px;
-                font-family: 'Space Grotesk', sans-serif;
-                font-weight: 800;
-                font-size: 0.8rem;
-                text-transform: uppercase;
-                animation: badge-float-1 3.8s ease-in-out infinite;
-                white-space: nowrap;
-              ">
-                🔥 12M+ Reach
-              </div>
-
-              <!-- Top Right Floating Badge -->
-              <div style="
-                position: absolute;
-                top: 10px;
-                right: -15px;
-                z-index: 25;
-                background: #00ff66;
-                color: #000;
-                border: 3px solid #000;
-                box-shadow: 4px 4px 0 #000;
-                padding: 6px 12px;
-                font-family: 'Space Grotesk', sans-serif;
-                font-weight: 800;
-                font-size: 0.78rem;
-                text-transform: uppercase;
-                animation: badge-float-2 4.2s ease-in-out infinite;
-                white-space: nowrap;
-              ">
-                ⚡ 4.8% ER
-              </div>
-
-              <!-- Reachup Media Brand Cyan Smartphone Frame -->
-              <div class="phone-container" style="
-                width: 100%;
-                background: linear-gradient(160deg, var(--accent-cyan) 0%, #00c8e6 60%, #0099bb 100%);
-                border: 4px solid #000;
-                border-radius: 46px;
-                box-shadow: 14px 14px 0 var(--accent-yellow), 14px 14px 0 4px #000;
-                padding: 10px;
-                position: relative;
-                box-sizing: border-box;
-              ">
-                <!-- Left Buttons -->
-                <div style="position: absolute; left: -7px; top: 75px; width: 4px; height: 18px; background: #000; border-radius: 3px 0 0 3px;"></div>
-                <div style="position: absolute; left: -7px; top: 105px; width: 4px; height: 32px; background: #000; border-radius: 3px 0 0 3px;"></div>
-                <div style="position: absolute; left: -7px; top: 145px; width: 4px; height: 32px; background: #000; border-radius: 3px 0 0 3px;"></div>
-                <!-- Right Power Button -->
-                <div style="position: absolute; right: -7px; top: 125px; width: 4px; height: 45px; background: #000; border-radius: 0 3px 3px 0;"></div>
-
-                <!-- Hardware Top Notch -->
-                <div style="
-                  width: 84px;
-                  height: 14px;
-                  background: #000;
-                  border-radius: 10px;
-                  margin: 2px auto 8px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  gap: 6px;
-                ">
-                  <span style="width: 6px; height: 6px; background: #1a1a24; border-radius: 50%;"></span>
-                  <span style="width: 28px; height: 3px; background: #1a1a24; border-radius: 3px;"></span>
-                </div>
-
-                <!-- OLED Screen Container -->
-                <div style="
-                  width: 100%;
-                  height: 440px;
-                  background: #000;
-                  border-radius: 34px;
-                  overflow: hidden;
-                  position: relative;
-                  border: 2px solid #000;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                ">
-                  <!-- Glossy Glass Sheen Glare Reflection Overlay -->
-                  <div style="
-                    position: absolute;
-                    inset: 0;
-                    background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.03) 40%, transparent 65%);
-                    pointer-events: none;
-                    z-index: 15;
-                  "></div>
-
-                  <!-- Pure High-Res Reachup Media Brand Graphic -->
-                  <img src="./assets/img/Reachup%20Media.png" alt="Reachup Media Brand" style="width: 85%; height: auto; object-fit: contain; padding: 20px; z-index: 5;" />
-
-                  <!-- Bottom Home Swipe Bar -->
-                  <div style="
-                    position: absolute;
-                    bottom: 6px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 90px;
-                    height: 4px;
-                    background: rgba(255,255,255,0.8);
-                    border-radius: 10px;
-                    z-index: 14;
-                  "></div>
-
-                </div>
-              </div>
-
+          <div style="position: relative; width: 100%; max-width: 420px; margin: 0 auto;">
+            <!-- Top Left Floating Stat Badge -->
+            <div style="
+              position: absolute;
+              top: -15px;
+              left: -15px;
+              z-index: 25;
+              background: var(--accent-magenta);
+              color: #fff;
+              border: 3px solid #000;
+              box-shadow: 4px 4px 0 #000;
+              padding: 8px 16px;
+              font-family: 'Space Grotesk', sans-serif;
+              font-weight: 800;
+              font-size: 0.85rem;
+              text-transform: uppercase;
+              transform: rotate(-3deg);
+            ">
+              🔥 12M+ Views
             </div>
 
+            <!-- Top Right Floating ER Badge -->
+            <div style="
+              position: absolute;
+              bottom: -15px;
+              right: -15px;
+              z-index: 25;
+              background: #00ff66;
+              color: #000;
+              border: 3px solid #000;
+              box-shadow: 4px 4px 0 #000;
+              padding: 8px 16px;
+              font-family: 'Space Grotesk', sans-serif;
+              font-weight: 800;
+              font-size: 0.85rem;
+              text-transform: uppercase;
+              transform: rotate(2deg);
+            ">
+              ⚡ 4.8% ER
+            </div>
+
+            <!-- Neo-Brutalist Brand Graphic Showcase Card -->
+            <div style="
+              background: linear-gradient(135deg, var(--accent-cyan) 0%, #00c8e6 100%);
+              border: 4px solid #000;
+              border-radius: 20px;
+              box-shadow: 14px 14px 0 var(--accent-yellow), 14px 14px 0 4px #000;
+              padding: 24px;
+              text-align: center;
+              transition: transform 0.3s ease;
+            ">
+              <img src="./assets/img/Reachup%20Media.png" alt="Reachup Media Showcase" style="width: 100%; height: auto; max-height: 360px; object-fit: contain;" />
+            </div>
           </div>
         </div>
       </div>
