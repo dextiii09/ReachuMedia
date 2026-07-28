@@ -236,6 +236,18 @@
                     background: #000;
                     position: relative;
                   ">
+                    <!-- Interactive Screen Overlay: Tapping screen switches to next reel natively -->
+                    <div 
+                      onclick="nextHeroReel()"
+                      title="Tap screen to view next campaign video"
+                      style="
+                        position: absolute;
+                        inset: 0;
+                        z-index: 18;
+                        cursor: pointer;
+                      "
+                    ></div>
+
                     <iframe
                       id="hero-reel-iframe"
                       src="https://www.instagram.com/p/DR2Rhqrk3g9/embed/"
@@ -336,7 +348,7 @@
                 const reels = [
                   { label: "🎤 Dheer Official • Live Fest", url: "https://www.instagram.com/p/DR2Rhqrk3g9/embed/" },
                   { label: "🚕 CabBazar • NCR Campaign", url: "https://www.instagram.com/p/DXJ310-SmiX/embed/" },
-                  { label: "🏋️ Space Seven • Gym Campaign", url: "https://www.instagram.com/p/DXWxD2Qj3R1/embed/" }
+                  { label: "🏋️ Space Seven • Gym Campaign", url: "https://www.instagram.com/p/DXekEYekjtw/embed/" }
                 ];
                 let currentIdx = 0;
 
