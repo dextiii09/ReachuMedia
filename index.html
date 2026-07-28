@@ -259,8 +259,17 @@
                     box-sizing: border-box;
                     transition: opacity 0.3s ease;
                   ">
-                    <!-- Background Showcase Card Image -->
-                    <img id="phone-bg-img" src="./assets/img/clients/cabbazar-map.png" alt="Campaign Preview" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);" />
+                    <!-- Live Autopolaying Video Reel Stream -->
+                    <video 
+                      id="phone-bg-video" 
+                      src="https://assets.mixkit.co/videos/preview/mixkit-young-woman-filming-herself-with-a-smartphone-43253-large.mp4" 
+                      poster="./assets/img/clients/cabbazar-map.png"
+                      autoplay 
+                      loop 
+                      muted 
+                      playsinline 
+                      style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);"
+                    ></video>
 
                     <!-- Top Instagram Status & Profile Header -->
                     <div style="
@@ -283,7 +292,7 @@
                           <div id="phone-brand-subtitle" style="font-size: 0.65rem; color: #ccc;">Creator Cult • Regional Travel</div>
                         </div>
                       </div>
-                      <span style="font-size: 0.7rem; background: var(--accent-magenta); color: #fff; padding: 3px 8px; border-radius: 12px; font-weight: 800; border: 1px solid #000;">VIRAL</span>
+                      <span style="font-size: 0.7rem; background: var(--accent-magenta); color: #fff; padding: 3px 8px; border-radius: 12px; font-weight: 800; border: 1px solid #000; animation: live-pulse 1.4s infinite;">LIVE REEL</span>
                     </div>
 
                     <!-- Right Side Reels Floating Actions (Likes, Comments, Shares) -->
@@ -391,7 +400,8 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Regional Travel",
-                    img: "./assets/img/clients/cabbazar-map.png",
+                    video: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-filming-herself-with-a-smartphone-43253-large.mp4",
+                    poster: "./assets/img/clients/cabbazar-map.png",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🚕 Regional Travel",
                     caption: "🚀 Scaled Tier-2/3 regional mobility & outstation bookings with 350,000+ targeted influencer views across North India!",
@@ -402,7 +412,8 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Gym UGC Push",
-                    img: "./assets/img/clients/spacesevenfitness.jpg",
+                    video: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-doing-stretching-exercises-in-a-gym-43093-large.mp4",
+                    poster: "./assets/img/clients/spacesevenfitness.jpg",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🏋️ Fitness UGC",
                     caption: "🔥 Hyper-local gym UGC influencer campaign driving membership sign-ups & 3.2% higher engagement rate!",
@@ -413,7 +424,8 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Live Concert",
-                    img: "./assets/img/artists/dheer-official-2.png",
+                    video: "https://assets.mixkit.co/videos/preview/mixkit-crowd-of-people-dancing-at-a-concert-44670-large.mp4",
+                    poster: "./assets/img/artists/dheer-official-2.png",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🎤 Live Performance",
                     caption: "⚡ Packed live crowd concert performance & viral reel push seeding high-converting booking inquiries!",
@@ -426,7 +438,7 @@
                 window.switchNativeCampaign = function(index) {
                   const data = nativeCampaigns[index];
                   const screen = document.getElementById('phone-screen-content');
-                  const bgImg = document.getElementById('phone-bg-img');
+                  const bgVideo = document.getElementById('phone-bg-video');
                   const avatar = document.getElementById('phone-avatar');
                   const handle = document.getElementById('phone-handle');
                   const subtitle = document.getElementById('phone-brand-subtitle');
@@ -439,7 +451,11 @@
                   if (screen) {
                     screen.style.opacity = '0.3';
                     setTimeout(() => {
-                      if (bgImg) bgImg.src = data.img;
+                      if (bgVideo) {
+                        bgVideo.src = data.video;
+                        bgVideo.poster = data.poster;
+                        bgVideo.play().catch(e => console.log(e));
+                      }
                       if (avatar) avatar.src = data.avatar;
                       if (handle) handle.textContent = data.handle;
                       if (subtitle) subtitle.textContent = data.brand;
