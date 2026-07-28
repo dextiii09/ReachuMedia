@@ -106,285 +106,225 @@
           </div>
         </div>
         <div class="reveal">
-          <div style="position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px 10px 10px;">
+          <div style="position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px 10px;">
             
             <style>
               @keyframes hero-phone-float {
                 0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-10px); }
+                50% { transform: translateY(-8px); }
               }
-              @keyframes badge-bob-1 {
-                0%, 100% { transform: translateY(0px) rotate(-4deg); }
-                50% { transform: translateY(-6px) rotate(-2deg); }
+              @keyframes badge-float-1 {
+                0%, 100% { transform: translateY(0px) rotate(-3deg); }
+                50% { transform: translateY(-5px) rotate(-1deg); }
               }
-              @keyframes badge-bob-2 {
-                0%, 100% { transform: translateY(0px) rotate(-2deg); }
-                50% { transform: translateY(-7px) rotate(0deg); }
+              @keyframes badge-float-2 {
+                0%, 100% { transform: translateY(0px) rotate(3deg); }
+                50% { transform: translateY(-6px) rotate(1deg); }
               }
               .phone-mockup-wrap {
                 animation: hero-phone-float 4.5s ease-in-out infinite;
-                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
               }
               .phone-mockup-wrap:hover {
                 animation-play-state: paused;
-                transform: perspective(1000px) rotateY(-6deg) rotateX(4deg) scale(1.02);
+                transform: perspective(1000px) rotateY(-5deg) rotateX(3deg) scale(1.02);
               }
             </style>
 
-            <!-- Floating Top Left Badge -->
-            <div style="
-              position: absolute;
-              top: -12px;
-              left: -15px;
-              z-index: 20;
-              background: var(--accent-magenta);
-              color: #fff;
-              border: 3px solid #000;
-              box-shadow: 4px 4px 0 #000;
-              padding: 8px 16px;
-              font-family: 'Space Grotesk', sans-serif;
-              font-weight: 800;
-              font-size: 0.85rem;
-              text-transform: uppercase;
-              animation: badge-bob-1 3.8s ease-in-out infinite;
-              white-space: nowrap;
-            ">
-              🔥 12M+ Reach Delivered
-            </div>
+            <!-- Outer Relative Container for Phone & Badges -->
+            <div style="position: relative; width: 100%; max-width: 310px; display: flex; justify-content: center;">
 
-            <!-- Floating Top Right Live Badge -->
-            <div style="
-              position: absolute;
-              top: 15px;
-              right: -15px;
-              z-index: 20;
-              background: var(--accent-yellow);
-              color: #000;
-              border: 3px solid #000;
-              box-shadow: 4px 4px 0 #000;
-              padding: 6px 14px;
-              font-weight: 800;
-              font-size: 0.8rem;
-              text-transform: uppercase;
-              transform: rotate(3deg);
-              display: flex;
-              align-items: center;
-              gap: 6px;
-            ">
-              <span style="width: 8px; height: 8px; background: #ff0055; border-radius: 50%; display: inline-block; animation: live-pulse 1.4s infinite;"></span>
-              <span>VIRAL CONTENT</span>
-            </div>
-
-            <!-- Authentic iPhone 16 Pro Mockup Container -->
-            <div class="phone-mockup-wrap" style="
-              width: 100%;
-              max-width: 310px;
-              background: linear-gradient(160deg, #3a3a3c 0%, #1c1c1e 40%, #111 100%);
-              border: 3px solid #000;
-              border-radius: 46px;
-              box-shadow: 14px 14px 0 var(--accent-cyan), 14px 14px 0 4px #000;
-              padding: 10px;
-              position: relative;
-              box-sizing: border-box;
-            ">
-              <!-- Left Side Hardware Buttons (Action Button + Volume Up/Down) -->
-              <div style="position: absolute; left: -7px; top: 75px; width: 4px; height: 20px; background: #000; border-radius: 3px 0 0 3px;"></div>
-              <div style="position: absolute; left: -7px; top: 110px; width: 4px; height: 35px; background: #000; border-radius: 3px 0 0 3px;"></div>
-              <div style="position: absolute; left: -7px; top: 155px; width: 4px; height: 35px; background: #000; border-radius: 3px 0 0 3px;"></div>
-              <!-- Right Side Power Button -->
-              <div style="position: absolute; right: -7px; top: 130px; width: 4px; height: 50px; background: #000; border-radius: 0 3px 3px 0;"></div>
-
-              <!-- Inner Phone Screen Area -->
+              <!-- Floating Badge 1: Top Left -->
               <div style="
-                width: 100%;
-                background: #000;
-                border-radius: 38px;
-                overflow: hidden;
-                position: relative;
-                border: 2px solid #000;
-                box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+                position: absolute;
+                top: -15px;
+                left: -18px;
+                z-index: 20;
+                background: var(--accent-magenta);
+                color: #fff;
+                border: 3px solid #000;
+                box-shadow: 4px 4px 0 #000;
+                padding: 6px 14px;
+                font-family: 'Space Grotesk', sans-serif;
+                font-weight: 800;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                animation: badge-float-1 3.8s ease-in-out infinite;
+                white-space: nowrap;
               ">
-                <!-- Glossy Glass Sheen Glare Reflection Overlay -->
-                <div style="
-                  position: absolute;
-                  inset: 0;
-                  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.04) 35%, transparent 65%);
-                  pointer-events: none;
-                  z-index: 15;
-                "></div>
+                🔥 12M+ Reach
+              </div>
 
-                <!-- Top Status Bar + Dynamic Island -->
+              <!-- Floating Badge 2: Top Right -->
+              <div style="
+                position: absolute;
+                top: 10px;
+                right: -18px;
+                z-index: 20;
+                background: #00ff66;
+                color: #000;
+                border: 3px solid #000;
+                box-shadow: 4px 4px 0 #000;
+                padding: 6px 12px;
+                font-family: 'Space Grotesk', sans-serif;
+                font-weight: 800;
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                animation: badge-float-2 4.2s ease-in-out infinite;
+                white-space: nowrap;
+              ">
+                ⚡ 4.8% ER
+              </div>
+
+              <!-- Ultra-Clean iPhone 16 Pro Mockup Container -->
+              <div class="phone-mockup-wrap" style="
+                width: 100%;
+                background: linear-gradient(160deg, #2c2c2e 0%, #1c1c1e 50%, #0f0f11 100%);
+                border: 4px solid #000;
+                border-radius: 44px;
+                box-shadow: 12px 12px 0 var(--accent-cyan), 12px 12px 0 4px #000;
+                padding: 10px;
+                position: relative;
+                box-sizing: border-box;
+              ">
+                <!-- Left Side Hardware Buttons -->
+                <div style="position: absolute; left: -7px; top: 75px; width: 4px; height: 18px; background: #000; border-radius: 3px 0 0 3px;"></div>
+                <div style="position: absolute; left: -7px; top: 105px; width: 4px; height: 32px; background: #000; border-radius: 3px 0 0 3px;"></div>
+                <div style="position: absolute; left: -7px; top: 145px; width: 4px; height: 32px; background: #000; border-radius: 3px 0 0 3px;"></div>
+                <!-- Right Side Power Button -->
+                <div style="position: absolute; right: -7px; top: 125px; width: 4px; height: 45px; background: #000; border-radius: 0 3px 3px 0;"></div>
+
+                <!-- Hardware Speaker / Notch Top Bar -->
                 <div style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  height: 38px;
-                  z-index: 14;
+                  width: 80px;
+                  height: 14px;
+                  background: #000;
+                  border-radius: 10px;
+                  margin: 2px auto 8px;
                   display: flex;
-                  justify-content: space-between;
                   align-items: center;
-                  padding: 0 20px;
-                  color: #fff;
-                  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-                  font-size: 11px;
-                  font-weight: 600;
-                  pointer-events: none;
+                  justify-content: center;
+                  gap: 6px;
                 ">
-                  <span>9:41</span>
-                  <!-- Dynamic Island Pill -->
-                  <div style="
-                    width: 86px;
-                    height: 22px;
-                    background: #000;
-                    border-radius: 20px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                    padding-right: 8px;
-                    box-shadow: 0 0 3px rgba(255,255,255,0.2);
-                  ">
-                    <span style="width: 9px; height: 9px; background: #0b0c10; border-radius: 50%; border: 1px solid #1a1a24; display: block;"></span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 4px; font-size: 10px;">
-                    <span>5G</span>
-                    <span style="display: inline-block; width: 14px; height: 9px; border: 1px solid #fff; border-radius: 2px; padding: 1px; position: relative;">
-                      <span style="display: block; width: 100%; height: 100%; background: #fff;"></span>
-                    </span>
-                  </div>
+                  <span style="width: 6px; height: 6px; background: #1a1a24; border-radius: 50%;"></span>
+                  <span style="width: 28px; height: 3px; background: #1a1a24; border-radius: 3px;"></span>
                 </div>
 
-                <!-- Reel Screen Content (Instagram Embed) -->
+                <!-- Inner Phone OLED Display Screen -->
                 <div style="
                   width: 100%;
-                  aspect-ratio: 9/17;
-                  max-height: 490px;
                   background: #000;
+                  border-radius: 32px;
+                  overflow: hidden;
                   position: relative;
-                  padding-top: 30px;
-                  box-sizing: border-box;
+                  border: 2px solid #000;
                 ">
-                  <iframe
-                    id="hero-reel-iframe"
-                    src="https://www.instagram.com/reel/DR2Rhqrk3g9/embed"
-                    style="width: 100%; height: 100%; min-height: 440px; border: none; overflow: hidden; transition: opacity 0.3s ease;"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allowfullscreen
-                    loading="eager"
-                  ></iframe>
+                  <!-- Glossy Glass Sheen Glare Reflection Overlay -->
+                  <div style="
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.03) 40%, transparent 65%);
+                    pointer-events: none;
+                    z-index: 15;
+                  "></div>
+
+                  <!-- Instagram Video Reel Display -->
+                  <div style="
+                    width: 100%;
+                    aspect-ratio: 9/16;
+                    height: 440px;
+                    background: #000;
+                    position: relative;
+                  ">
+                    <iframe
+                      id="hero-reel-iframe"
+                      src="https://www.instagram.com/reel/DR2Rhqrk3g9/embed"
+                      style="width: 100%; height: 100%; border: none; overflow: hidden; transition: opacity 0.25s ease;"
+                      frameborder="0"
+                      scrolling="no"
+                      allowtransparency="true"
+                      allowfullscreen
+                      loading="eager"
+                    ></iframe>
+                  </div>
+
+                  <!-- Bottom Home Swipe Bar -->
+                  <div style="
+                    position: absolute;
+                    bottom: 6px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 4px;
+                    background: rgba(255,255,255,0.85);
+                    border-radius: 10px;
+                    z-index: 14;
+                    pointer-events: none;
+                  "></div>
+
                 </div>
-
-                <!-- Bottom Home Indicator Bar -->
-                <div style="
-                  position: absolute;
-                  bottom: 6px;
-                  left: 50%;
-                  transform: translateX(-50%);
-                  width: 110px;
-                  height: 4px;
-                  background: rgba(255,255,255,0.85);
-                  border-radius: 10px;
-                  z-index: 14;
-                  pointer-events: none;
-                "></div>
-
               </div>
+
             </div>
 
-            <!-- Floating Bottom Right Badge -->
+            <!-- Structured Video Campaign Switcher Deck Below Phone -->
             <div style="
-              position: absolute;
-              bottom: 45px;
-              right: -10px;
-              z-index: 20;
-              background: #00ff66;
-              color: #000;
-              border: 3px solid #000;
-              box-shadow: 4px 4px 0 #000;
-              padding: 8px 16px;
-              font-family: 'Space Grotesk', sans-serif;
-              font-weight: 800;
-              font-size: 0.85rem;
-              text-transform: uppercase;
-              animation: badge-bob-2 4.2s ease-in-out infinite;
-              white-space: nowrap;
-            ">
-              ⚡ 4.8% Engagement Rate
-            </div>
-
-            <!-- Floating Bottom Left Brand Badge -->
-            <div style="
-              position: absolute;
-              bottom: 75px;
-              left: -20px;
-              z-index: 20;
-              background: #fff;
-              color: #000;
-              border: 3px solid #000;
-              box-shadow: 4px 4px 0 #000;
-              padding: 6px 12px;
-              font-weight: 800;
-              font-size: 0.75rem;
-              text-transform: uppercase;
-              transform: rotate(4deg);
-              display: flex;
-              align-items: center;
-              gap: 8px;
-            ">
-              <img src="./assets/img/brand/Reachup%20Media.png" alt="Reachup Media" style="width: 20px; height: 20px; object-fit: contain;">
-              <span>REACHUP MEDIA</span>
-            </div>
-
-            <!-- Interactive Campaign Video Switcher Control Bar -->
-            <div style="
-              margin-top: 16px;
+              margin-top: 24px;
               width: 100%;
-              max-width: 320px;
+              max-width: 310px;
+              background: #fff;
+              border: 3px solid #000;
+              box-shadow: 6px 6px 0 #000;
+              padding: 12px;
+              box-sizing: border-box;
               display: flex;
               flex-direction: column;
               gap: 10px;
               z-index: 25;
             ">
-              <!-- Prev / Active Badge / Next Switcher -->
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                <button onclick="prevHeroReel()" style="background: #000; color: #fff; border: 2px solid #000; padding: 6px 12px; font-weight: 800; font-size: 0.8rem; cursor: pointer; box-shadow: 3px 3px 0 var(--accent-yellow); text-transform: uppercase; transition: transform 0.1s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                  ◀ Prev
+              <div style="font-size: 0.72rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; color: #555; text-align: center; font-family: 'Space Grotesk', sans-serif;">
+                🎬 Explore Campaign Showcase
+              </div>
+
+              <!-- Prev / Active Badge / Next Row -->
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
+                <button onclick="prevHeroReel()" style="background: #000; color: #fff; border: 2px solid #000; padding: 7px 12px; font-weight: 900; font-size: 0.8rem; cursor: pointer; box-shadow: 2px 2px 0 var(--accent-cyan); text-transform: uppercase; transition: transform 0.1s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  ◀
                 </button>
 
                 <div id="hero-campaign-badge" style="
                   background: var(--accent-yellow);
                   color: #000;
                   border: 2px solid #000;
-                  padding: 6px 12px;
+                  padding: 7px 8px;
                   font-weight: 900;
                   font-size: 0.75rem;
                   text-transform: uppercase;
                   text-align: center;
-                  box-shadow: 3px 3px 0 #000;
+                  box-shadow: 2px 2px 0 #000;
                   flex-grow: 1;
                   white-space: nowrap;
                   overflow: hidden;
                   text-overflow: ellipsis;
+                  font-family: 'Space Grotesk', sans-serif;
                 ">
                   🎤 Dheer Official • Fest
                 </div>
 
-                <button onclick="nextHeroReel()" style="background: #000; color: #fff; border: 2px solid #000; padding: 6px 12px; font-weight: 800; font-size: 0.8rem; cursor: pointer; box-shadow: 3px 3px 0 var(--accent-yellow); text-transform: uppercase; transition: transform 0.1s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                  Next ▶
+                <button onclick="nextHeroReel()" style="background: #000; color: #fff; border: 2px solid #000; padding: 7px 12px; font-weight: 900; font-size: 0.8rem; cursor: pointer; box-shadow: 2px 2px 0 var(--accent-cyan); text-transform: uppercase; transition: transform 0.1s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  ▶
                 </button>
               </div>
 
-              <!-- Quick Selector Campaign Pills -->
+              <!-- Quick Selector Category Pills -->
               <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-                <button onclick="setHeroReel(0)" class="hero-reel-tab" style="background: var(--accent-yellow); color: #000; border: 2px solid #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 800; cursor: pointer; box-shadow: 2px 2px 0 #000;">
-                  🎤 Dheer Official
+                <button onclick="setHeroReel(0)" class="hero-reel-tab" style="background: var(--accent-yellow); color: #000; border: 2px solid #000; padding: 5px 10px; font-size: 0.72rem; font-weight: 900; cursor: pointer; box-shadow: 2px 2px 0 #000;">
+                  🎤 Dheer
                 </button>
-                <button onclick="setHeroReel(1)" class="hero-reel-tab" style="background: #fff; color: #000; border: 2px solid #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 800; cursor: pointer; box-shadow: 2px 2px 0 #000;">
-                  🚕 CabBazar NCR
+                <button onclick="setHeroReel(1)" class="hero-reel-tab" style="background: #f4f4f4; color: #000; border: 2px solid #000; padding: 5px 10px; font-size: 0.72rem; font-weight: 900; cursor: pointer; box-shadow: 2px 2px 0 #000;">
+                  🚕 CabBazar
                 </button>
-                <button onclick="setHeroReel(2)" class="hero-reel-tab" style="background: #fff; color: #000; border: 2px solid #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 800; cursor: pointer; box-shadow: 2px 2px 0 #000;">
+                <button onclick="setHeroReel(2)" class="hero-reel-tab" style="background: #f4f4f4; color: #000; border: 2px solid #000; padding: 5px 10px; font-size: 0.72rem; font-weight: 900; cursor: pointer; box-shadow: 2px 2px 0 #000;">
                   🏋️ Space Seven
                 </button>
               </div>
@@ -407,7 +347,7 @@
                   const tabs = document.querySelectorAll('.hero-reel-tab');
 
                   if (iframe) {
-                    iframe.style.opacity = '0.3';
+                    iframe.style.opacity = '0.2';
                     setTimeout(() => {
                       iframe.src = reels[currentIdx].url;
                       iframe.style.opacity = '1';
@@ -419,7 +359,7 @@
                     if (i === currentIdx) {
                       tab.style.background = 'var(--accent-yellow)';
                     } else {
-                      tab.style.background = '#fff';
+                      tab.style.background = '#f4f4f4';
                     }
                   });
                 };
