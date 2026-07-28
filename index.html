@@ -382,12 +382,6 @@
               <button onclick="switchNativeCampaign(2)" id="pill-2" class="campaign-pill">
                 🎤 Live Act
               </button>
-              <button onclick="switchNativeCampaign(3)" id="pill-3" class="campaign-pill">
-                ✨ Skincare
-              </button>
-              <button onclick="switchNativeCampaign(4)" id="pill-4" class="campaign-pill">
-                🍰 Bakery
-              </button>
             </div>
 
             <!-- Native Campaign Switcher Script -->
@@ -426,28 +420,6 @@
                     likes: "1.2M+",
                     comments: "14.3K",
                     shares: "88.1K"
-                  },
-                  {
-                    handle: "reachupmedia",
-                    brand: "Creator Cult • Skincare Cult",
-                    img: "./assets/img/artists/dheer-official-1.png",
-                    avatar: "./assets/img/brand/Reachup%20Media.png",
-                    tag: "✨ Skincare UGC",
-                    caption: "✨ Regional micro-creator unboxing & skin routine reels driving organic viral narrative & product trial!",
-                    likes: "890K+",
-                    comments: "9.4K",
-                    shares: "32.0K"
-                  },
-                  {
-                    handle: "reachupmedia",
-                    brand: "Creator Cult • Vernacular Bakery",
-                    img: "./assets/img/artists/dheer-official-3.png",
-                    avatar: "./assets/img/brand/Reachup%20Media.png",
-                    tag: "🍰 Vernacular Food",
-                    caption: "🍰 Vernacular food influencer video reels driving footfalls & festive orders across regional hubs!",
-                    likes: "670K+",
-                    comments: "7.8K",
-                    shares: "21.4K"
                   }
                 ];
 
@@ -480,7 +452,7 @@
                     }, 150);
                   }
 
-                  for (let i = 0; i < 5; i++) {
+                  for (let i = 0; i < 3; i++) {
                     const btn = document.getElementById('pill-' + i);
                     if (btn) {
                       if (i === index) btn.classList.add('active');
