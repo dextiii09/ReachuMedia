@@ -282,13 +282,15 @@
                     <!-- Live Autopolaying Video Reel Stream -->
                     <video 
                       id="phone-bg-video" 
-                      src="https://assets.mixkit.co/videos/preview/mixkit-young-woman-filming-herself-with-a-smartphone-43253-large.mp4" 
+                      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" 
                       poster="./assets/img/clients/cabbazar-map.png"
                       autoplay 
                       loop 
                       muted 
                       playsinline 
-                      style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);"
+                      preload="auto"
+                      onclick="togglePhoneVideo(this)"
+                      style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); cursor: pointer;"
                     ></video>
 
                     <!-- Top Instagram Status & Profile Header -->
@@ -420,7 +422,7 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Regional Travel",
-                    video: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-filming-herself-with-a-smartphone-43253-large.mp4",
+                    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
                     poster: "./assets/img/clients/cabbazar-map.png",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🚕 Regional Travel",
@@ -432,7 +434,7 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Gym UGC Push",
-                    video: "https://assets.mixkit.co/videos/preview/mixkit-young-woman-doing-stretching-exercises-in-a-gym-43093-large.mp4",
+                    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
                     poster: "./assets/img/clients/spacesevenfitness.jpg",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🏋️ Fitness UGC",
@@ -444,7 +446,7 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Live Concert",
-                    video: "https://assets.mixkit.co/videos/preview/mixkit-crowd-of-people-dancing-at-a-concert-44670-large.mp4",
+                    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
                     poster: "./assets/img/artists/dheer-official-2.png",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🎤 Live Performance",
@@ -454,6 +456,14 @@
                     shares: "88.1K"
                   }
                 ];
+
+                window.togglePhoneVideo = function(videoEl) {
+                  if (videoEl.paused) {
+                    videoEl.play();
+                  } else {
+                    videoEl.pause();
+                  }
+                };
 
                 window.switchNativeCampaign = function(index) {
                   const data = nativeCampaigns[index];
@@ -474,7 +484,8 @@
                       if (bgVideo) {
                         bgVideo.src = data.video;
                         bgVideo.poster = data.poster;
-                        bgVideo.play().catch(e => console.log(e));
+                        bgVideo.muted = true;
+                        bgVideo.play().catch(e => console.log('Video play:', e));
                       }
                       if (avatar) avatar.src = data.avatar;
                       if (handle) handle.textContent = data.handle;
@@ -496,6 +507,15 @@
                     }
                   }
                 };
+
+                // Auto-play enforcer on window load
+                window.addEventListener('load', function() {
+                  const vid = document.getElementById('phone-bg-video');
+                  if (vid) {
+                    vid.muted = true;
+                    vid.play().catch(e => console.log('Autoplay:', e));
+                  }
+                });
               })();
             </script>
 
