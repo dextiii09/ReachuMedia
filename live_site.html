@@ -299,24 +299,10 @@
                     box-sizing: border-box;
                     transition: opacity 0.3s ease;
                   ">
-                    <!-- Background Showcase Card Image -->
-                    <img id="phone-bg-img-live" src="./assets/img/clients/cabbazar-map.png" alt="Campaign Preview" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);" />
+                    <!-- High-Res Showcase Graphic Image -->
+                    <img id="phone-bg-img-live" src="./assets/img/clients/cabbazar-map.png" alt="Campaign Showcase" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.88);" />
 
-                    <!-- Live Autopolaying Video Reel Stream -->
-                    <video 
-                      id="phone-bg-video-live" 
-                      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" 
-                      poster="./assets/img/clients/cabbazar-map.png"
-                      autoplay 
-                      loop 
-                      muted 
-                      playsinline 
-                      preload="auto"
-                      onclick="togglePhoneVideoLive(this)"
-                      style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); cursor: pointer;"
-                    ></video>
-
-                    <!-- Top Instagram Status & Profile Header -->
+                    <!-- Top Instagram Profile Header -->
                     <div style="
                       position: relative;
                       z-index: 10;
@@ -337,10 +323,10 @@
                           <div id="phone-brand-subtitle-live" style="font-size: 0.65rem; color: #ccc;">Creator Cult • Regional Travel</div>
                         </div>
                       </div>
-                      <span style="font-size: 0.7rem; background: var(--accent-magenta); color: #fff; padding: 3px 8px; border-radius: 12px; font-weight: 800; border: 1px solid #000; animation: live-pulse 1.4s infinite;">LIVE REEL</span>
+                      <span style="font-size: 0.7rem; background: var(--accent-magenta); color: #fff; padding: 3px 8px; border-radius: 12px; font-weight: 800; border: 1px solid #000;">VIRAL</span>
                     </div>
 
-                    <!-- Right Side Reels Floating Actions (Likes, Comments, Shares) -->
+                    <!-- Right Side Action Bar -->
                     <div style="
                       position: absolute;
                       right: 12px;
@@ -390,7 +376,7 @@
                         🚕 Regional Travel
                       </div>
                       <p id="phone-caption-text-live" style="font-size: 0.72rem; line-height: 1.35; margin: 0 0 6px 0; font-weight: 600; color: #eee;">
-                        🚀 Scaled Tier-2/3 regional mobility & outstation bookings with 350,000+ targeted influencer views!
+                        🚀 Scaled Tier-2/3 regional mobility & outstation bookings with 350,000+ targeted influencer views across North India!
                       </p>
                       <div style="font-size: 0.65rem; color: var(--accent-cyan); font-weight: 700;">
                         🎵 Original Audio - Reachup Media Creator Cult
@@ -445,8 +431,7 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Regional Travel",
-                    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    poster: "./assets/img/clients/cabbazar-map.png",
+                    img: "./assets/img/clients/cabbazar-map.png",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🚕 Regional Travel",
                     caption: "🚀 Scaled Tier-2/3 regional mobility & outstation bookings with 350,000+ targeted influencer views across North India!",
@@ -457,8 +442,7 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Gym UGC Push",
-                    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-                    poster: "./assets/img/clients/spacesevenfitness.jpg",
+                    img: "./assets/img/clients/spacesevenfitness.jpg",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🏋️ Fitness UGC",
                     caption: "🔥 Hyper-local gym UGC influencer campaign driving membership sign-ups & 3.2% higher engagement rate!",
@@ -469,8 +453,7 @@
                   {
                     handle: "reachupmedia",
                     brand: "Creator Cult • Live Concert",
-                    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-                    poster: "./assets/img/artists/dheer-official-2.png",
+                    img: "./assets/img/artists/dheer-official-2.png",
                     avatar: "./assets/img/brand/Reachup%20Media.png",
                     tag: "🎤 Live Performance",
                     caption: "⚡ Packed live crowd concert performance & viral reel push seeding high-converting booking inquiries!",
@@ -480,18 +463,10 @@
                   }
                 ];
 
-                window.togglePhoneVideoLive = function(videoEl) {
-                  if (videoEl.paused) {
-                    videoEl.play();
-                  } else {
-                    videoEl.pause();
-                  }
-                };
-
                 window.switchNativeCampaignLive = function(index) {
                   const data = nativeCampaigns[index];
                   const screen = document.getElementById('phone-screen-content-live');
-                  const bgVideo = document.getElementById('phone-bg-video-live');
+                  const bgImg = document.getElementById('phone-bg-img-live');
                   const avatar = document.getElementById('phone-avatar-live');
                   const handle = document.getElementById('phone-handle-live');
                   const subtitle = document.getElementById('phone-brand-subtitle-live');
@@ -504,12 +479,7 @@
                   if (screen) {
                     screen.style.opacity = '0.3';
                     setTimeout(() => {
-                      if (bgVideo) {
-                        bgVideo.src = data.video;
-                        bgVideo.poster = data.poster;
-                        bgVideo.muted = true;
-                        bgVideo.play().catch(e => console.log('Video play:', e));
-                      }
+                      if (bgImg) bgImg.src = data.img;
                       if (avatar) avatar.src = data.avatar;
                       if (handle) handle.textContent = data.handle;
                       if (subtitle) subtitle.textContent = data.brand;
@@ -530,15 +500,6 @@
                     }
                   }
                 };
-
-                // Auto-play enforcer on window load
-                window.addEventListener('load', function() {
-                  const vid = document.getElementById('phone-bg-video-live');
-                  if (vid) {
-                    vid.muted = true;
-                    vid.play().catch(e => console.log('Autoplay:', e));
-                  }
-                });
               })();
             </script>
 
