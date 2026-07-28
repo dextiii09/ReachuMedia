@@ -106,18 +106,343 @@
           </div>
         </div>
         <div class="reveal">
-          <div
-            class="media-thumb"
-            aria-label="ReachUp Media Brand"
-          >
-            <img
-              src="./assets/img/Reachup%20Media.png"
-              alt="ReachUp Media Logo"
-              style="object-fit: contain; padding: 20%;"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
+          <div style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 0;">
+            
+            <style>
+              @keyframes phone-float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+              }
+              @keyframes badge-float-1 {
+                0%, 100% { transform: translateY(0px) rotate(-3deg); }
+                50% { transform: translateY(-5px) rotate(-1deg); }
+              }
+              @keyframes badge-float-2 {
+                0%, 100% { transform: translateY(0px) rotate(3deg); }
+                50% { transform: translateY(-6px) rotate(1deg); }
+              }
+              .phone-container {
+                animation: phone-float 4.5s ease-in-out infinite;
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+              }
+              .phone-container:hover {
+                animation-play-state: paused;
+                transform: perspective(1000px) rotateY(-5deg) rotateX(3deg) scale(1.02);
+              }
+              .campaign-pill {
+                background: #fff;
+                color: #000;
+                border: 2px solid #000;
+                padding: 6px 12px;
+                font-weight: 900;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                cursor: pointer;
+                box-shadow: 3px 3px 0 #000;
+                transition: all 0.2s ease;
+                font-family: 'Space Grotesk', sans-serif;
+              }
+              .campaign-pill.active {
+                background: var(--accent-yellow);
+                transform: translateY(-2px);
+                box-shadow: 4px 4px 0 #000;
+              }
+            </style>
+
+            <!-- Outer Wrapper for Phone & Floating Badges -->
+            <div style="position: relative; width: 100%; max-width: 310px; display: flex; justify-content: center;">
+
+              <!-- Top Left Floating Badge -->
+              <div style="
+                position: absolute;
+                top: -15px;
+                left: -15px;
+                z-index: 25;
+                background: var(--accent-magenta);
+                color: #fff;
+                border: 3px solid #000;
+                box-shadow: 4px 4px 0 #000;
+                padding: 6px 14px;
+                font-family: 'Space Grotesk', sans-serif;
+                font-weight: 800;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                animation: badge-float-1 3.8s ease-in-out infinite;
+                white-space: nowrap;
+              ">
+                🔥 12M+ Reach
+              </div>
+
+              <!-- Top Right Floating Badge -->
+              <div style="
+                position: absolute;
+                top: 10px;
+                right: -15px;
+                z-index: 25;
+                background: #00ff66;
+                color: #000;
+                border: 3px solid #000;
+                box-shadow: 4px 4px 0 #000;
+                padding: 6px 12px;
+                font-family: 'Space Grotesk', sans-serif;
+                font-weight: 800;
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                animation: badge-float-2 4.2s ease-in-out infinite;
+                white-space: nowrap;
+              ">
+                ⚡ 4.8% ER
+              </div>
+
+              <!-- Photorealistic iPhone 16 Pro Frame -->
+              <div class="phone-container" style="
+                width: 100%;
+                background: linear-gradient(160deg, #2c2c2e 0%, #1c1c1e 50%, #0f0f11 100%);
+                border: 4px solid #000;
+                border-radius: 46px;
+                box-shadow: 14px 14px 0 var(--accent-cyan), 14px 14px 0 4px #000;
+                padding: 10px;
+                position: relative;
+                box-sizing: border-box;
+              ">
+                <!-- Left Buttons -->
+                <div style="position: absolute; left: -7px; top: 75px; width: 4px; height: 18px; background: #000; border-radius: 3px 0 0 3px;"></div>
+                <div style="position: absolute; left: -7px; top: 105px; width: 4px; height: 32px; background: #000; border-radius: 3px 0 0 3px;"></div>
+                <div style="position: absolute; left: -7px; top: 145px; width: 4px; height: 32px; background: #000; border-radius: 3px 0 0 3px;"></div>
+                <!-- Right Power Button -->
+                <div style="position: absolute; right: -7px; top: 125px; width: 4px; height: 45px; background: #000; border-radius: 0 3px 3px 0;"></div>
+
+                <!-- Hardware Top Notch -->
+                <div style="
+                  width: 84px;
+                  height: 14px;
+                  background: #000;
+                  border-radius: 10px;
+                  margin: 2px auto 8px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 6px;
+                ">
+                  <span style="width: 6px; height: 6px; background: #1a1a24; border-radius: 50%;"></span>
+                  <span style="width: 28px; height: 3px; background: #1a1a24; border-radius: 3px;"></span>
+                </div>
+
+                <!-- OLED Screen Container -->
+                <div style="
+                  width: 100%;
+                  height: 440px;
+                  background: #000;
+                  border-radius: 34px;
+                  overflow: hidden;
+                  position: relative;
+                  border: 2px solid #000;
+                ">
+                  <!-- Glossy Glass Sheen Glare Reflection Overlay -->
+                  <div style="
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.03) 40%, transparent 65%);
+                    pointer-events: none;
+                    z-index: 15;
+                  "></div>
+
+                  <!-- Native Reel UI Showcase Screen (Swappable via JS) -->
+                  <div id="phone-screen-content" style="
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    background: #111;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    box-sizing: border-box;
+                    transition: opacity 0.3s ease;
+                  ">
+                    <!-- Background Showcase Card Image -->
+                    <img id="phone-bg-img" src="./assets/img/clients/cabbazar-map.png" alt="Campaign Preview" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);" />
+
+                    <!-- Top Instagram Status & Profile Header -->
+                    <div style="
+                      position: relative;
+                      z-index: 10;
+                      padding: 12px 14px;
+                      background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      color: #fff;
+                    ">
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <img src="./assets/img/brand/Reachup%20Media.png" alt="Reachup Media" style="width: 24px; height: 24px; border-radius: 50%; background: var(--accent-cyan); padding: 2px;" />
+                        <div>
+                          <div style="font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; gap: 4px;">
+                            <span>reachupmedia</span>
+                            <span style="color: #0095f6; font-size: 0.7rem;">✓</span>
+                          </div>
+                          <div id="phone-brand-subtitle" style="font-size: 0.65rem; color: #ccc;">CabBazar • Regional Push</div>
+                        </div>
+                      </div>
+                      <span style="font-size: 0.7rem; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 3px 8px; border-radius: 12px; font-weight: 700;">VIRAL</span>
+                    </div>
+
+                    <!-- Right Side Reels Floating Actions (Likes, Comments, Shares) -->
+                    <div style="
+                      position: absolute;
+                      right: 12px;
+                      bottom: 80px;
+                      z-index: 10;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      gap: 14px;
+                      color: #fff;
+                      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+                    ">
+                      <div style="text-align: center;">
+                        <span style="font-size: 1.2rem;">❤️</span>
+                        <div id="phone-likes" style="font-size: 0.65rem; font-weight: 800; margin-top: 2px;">350K+</div>
+                      </div>
+                      <div style="text-align: center;">
+                        <span style="font-size: 1.2rem;">💬</span>
+                        <div style="font-size: 0.65rem; font-weight: 800; margin-top: 2px;">4.2K</div>
+                      </div>
+                      <div style="text-align: center;">
+                        <span style="font-size: 1.2rem;">✈️</span>
+                        <div style="font-size: 0.65rem; font-weight: 800; margin-top: 2px;">18.5K</div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Reel Caption Overlay -->
+                    <div style="
+                      position: relative;
+                      z-index: 10;
+                      padding: 14px;
+                      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 70%, transparent 100%);
+                      color: #fff;
+                      text-align: left;
+                    ">
+                      <div id="phone-campaign-tag" style="
+                        display: inline-block;
+                        background: var(--accent-yellow);
+                        color: #000;
+                        font-weight: 900;
+                        font-size: 0.65rem;
+                        padding: 2px 6px;
+                        border-radius: 4px;
+                        text-transform: uppercase;
+                        margin-bottom: 6px;
+                      ">
+                        🚕 CabBazar Outstation
+                      </div>
+                      <p id="phone-caption-text" style="font-size: 0.72rem; line-height: 1.35; margin: 0 0 6px 0; font-weight: 600; color: #eee;">
+                        Scaled outstation ride bookings & brand awareness across Tier-2/3 NCR.
+                      </p>
+                      <div style="font-size: 0.65rem; color: var(--accent-cyan); font-weight: 700;">
+                        🎵 Original Audio - Reachup Media
+                      </div>
+                    </div>
+
+                    <!-- Bottom Home Swipe Bar -->
+                    <div style="
+                      position: absolute;
+                      bottom: 4px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      width: 90px;
+                      height: 4px;
+                      background: rgba(255,255,255,0.8);
+                      border-radius: 10px;
+                      z-index: 14;
+                    "></div>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Interactive Campaign Selector Deck Below Phone -->
+            <div style="
+              margin-top: 20px;
+              width: 100%;
+              max-width: 310px;
+              display: flex;
+              justify-content: center;
+              gap: 8px;
+              flex-wrap: wrap;
+            ">
+              <button onclick="switchNativeCampaign(0)" id="pill-0" class="campaign-pill active">
+                🚕 CabBazar
+              </button>
+              <button onclick="switchNativeCampaign(1)" id="pill-1" class="campaign-pill">
+                🏋️ Space Seven
+              </button>
+              <button onclick="switchNativeCampaign(2)" id="pill-2" class="campaign-pill">
+                🎤 Dheer Official
+              </button>
+            </div>
+
+            <!-- Native Campaign Switcher Script -->
+            <script>
+              (function() {
+                const nativeCampaigns = [
+                  {
+                    brand: "CabBazar • Regional Push",
+                    img: "./assets/img/clients/cabbazar-map.png",
+                    tag: "🚕 CabBazar Outstation",
+                    caption: "Scaled outstation ride bookings & brand awareness across Tier-2/3 NCR with 350,000+ targeted views.",
+                    likes: "350K+"
+                  },
+                  {
+                    brand: "Space Seven Fitness • UGC Launch",
+                    img: "./assets/img/clients/spacesevenfitness.jpg",
+                    tag: "🏋️ Space Seven Fitness",
+                    caption: "Hyper-local gym UGC push driving membership inquiries & 3.2% engagement rate over regional avg.",
+                    likes: "450K+"
+                  },
+                  {
+                    brand: "Dheer Official • College Fest",
+                    img: "./assets/img/artists/dheer-official-logo.png",
+                    tag: "🎤 Dheer Live Act",
+                    caption: "Packed live crowd performance & viral reel push seeding high-converting artist bookings.",
+                    likes: "1.2M+"
+                  }
+                ];
+
+                window.switchNativeCampaign = function(index) {
+                  const data = nativeCampaigns[index];
+                  const screen = document.getElementById('phone-screen-content');
+                  const bgImg = document.getElementById('phone-bg-img');
+                  const subtitle = document.getElementById('phone-brand-subtitle');
+                  const tag = document.getElementById('phone-campaign-tag');
+                  const caption = document.getElementById('phone-caption-text');
+                  const likes = document.getElementById('phone-likes');
+
+                  if (screen) {
+                    screen.style.opacity = '0.3';
+                    setTimeout(() => {
+                      if (bgImg) bgImg.src = data.img;
+                      if (subtitle) subtitle.textContent = data.brand;
+                      if (tag) tag.textContent = data.tag;
+                      if (caption) caption.textContent = data.caption;
+                      if (likes) likes.textContent = data.likes;
+                      screen.style.opacity = '1';
+                    }, 150);
+                  }
+
+                  for (let i = 0; i < 3; i++) {
+                    const btn = document.getElementById('pill-' + i);
+                    if (btn) {
+                      if (i === index) btn.classList.add('active');
+                      else btn.classList.remove('active');
+                    }
+                  }
+                };
+              })();
+            </script>
+
           </div>
         </div>
       </div>
