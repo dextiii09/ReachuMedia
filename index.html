@@ -79,22 +79,23 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="container" style="max-width: 840px; text-align: center; margin: 0 auto;">
-        <div class="reveal">
-          <span class="badge badge-accent" style="margin: 0 auto 16px auto;"
+    <section class="hero hero-section">
+      <div class="container hero-grid">
+        <!-- Left Hero Content -->
+        <div class="hero-text-col reveal">
+          <span class="badge badge-accent hero-badge"
             >Influencer Marketing • Artist Management</span
           >
-          <h1 style="font-size: clamp(2.8rem, 6vw, 4.5rem); line-height: 1.1;">
+          <h1 class="hero-title">
             Elevate Your Reach. <br /><span class="highlight"
               >Amplify Impact.</span
             >
           </h1>
-          <p style="max-width: 640px; margin: 20px auto 32px auto; font-size: 1.15rem; line-height: 1.6;">
+          <p class="hero-desc">
             Attention is the new currency. We mint it using India's rawest regional micro-creators and viral artistry. 
             We build brands that break the internet.
           </p>
-          <div class="actions" style="justify-content: center;">
+          <div class="hero-actions">
             <a
               class="btn btn-accent"
               href="https://wa.me/917973043372?text=Hi%20Reachup%20Media%2C%20let%27s%20collaborate"
@@ -103,6 +104,107 @@
               >Let’s Collaborate</a
             >
             <a class="btn btn-ghost" href="#services">Explore Services</a>
+          </div>
+        </div>
+
+        <!-- Right Hero Mockup -->
+        <div class="hero-mockup-col reveal">
+          <div class="phone-mockup-wrapper">
+            <!-- Phone Frame -->
+            <div class="phone-frame" id="heroPhoneFrame">
+              <!-- Physical Hardware Side Buttons -->
+              <div class="phone-btn phone-btn-action"></div>
+              <div class="phone-btn phone-btn-vol-up"></div>
+              <div class="phone-btn phone-btn-vol-down"></div>
+              <div class="phone-btn phone-btn-power"></div>
+
+              <!-- Outer Metallic Rim Sheen -->
+              <div class="phone-chassis">
+                <!-- Top Notch / Dynamic Island -->
+                <div class="phone-notch">
+                  <div class="phone-camera-lens"></div>
+                  <div class="phone-sensor"></div>
+                </div>
+
+                <!-- Glass Glare Specular Reflection Overlay -->
+                <div class="phone-glass-glare"></div>
+
+                <!-- Top Status Bar -->
+                <div class="phone-status-bar">
+                  <span class="status-time">9:41</span>
+                  <div class="status-icons">
+                    <svg width="14" height="10" viewBox="0 0 16 12" fill="currentColor"><path d="M1 9.5a1.5 1.5 0 011.5-1.5h1a1.5 1.5 0 011.5 1.5v1A1.5 1.5 0 013.5 12h-1A1.5 1.5 0 011 10.5v-1zm4-3A1.5 1.5 0 016.5 5h1A1.5 1.5 0 019 6.5v5A1.5 1.5 0 017.5 13h-1A1.5 1.5 0 015 11.5v-5zm4-3A1.5 1.5 0 0110.5 2h1A1.5 1.5 0 0113 3.5v8a1.5 1.5 0 01-1.5 1.5h-1A1.5 1.5 0 019 11.5v-8zm4-2A1.5 1.5 0 0114.5 0h1A1.5 1.5 0 0117 1.5v10a1.5 1.5 0 01-1.5 1.5h-1A1.5 1.5 0 0113 11.5v-10z"/></svg>
+                    <svg width="14" height="10" viewBox="0 0 16 12" fill="currentColor"><path d="M14 4h-1V3a2 2 0 00-2-2H3a2 2 0 00-2 2v6a2 2 0 002 2h8a2 2 0 002-2V8h1a1 1 0 001-1V5a1 1 0 00-1-1z"/></svg>
+                  </div>
+                </div>
+
+                <!-- Reel Header UI -->
+                <div class="reel-header">
+                  <span class="reel-title">Reels</span>
+                  <button class="reel-sound-toggle" id="reelMuteBtn" aria-label="Toggle Sound" onclick="toggleReelAudio()">
+                    <span id="soundIcon">🔇</span>
+                  </button>
+                </div>
+
+                <!-- Screen Content: Looping Video -->
+                <div class="phone-screen">
+                  <video
+                    id="heroReelVideo"
+                    class="reel-video"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    poster="./assets/img/brand/Reachup%20Media.png"
+                  >
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-posing-in-a-neon-lit-room-41563-large.mp4" type="video/mp4" />
+                    <source src="https://cdn.pixabay.com/video/2021/04/12/70882-536968078_tiny.mp4" type="video/mp4" />
+                  </video>
+
+                  <!-- Reel UI Overlay -->
+                  <div class="reel-overlay">
+                    <!-- Right Action Sidebar -->
+                    <div class="reel-actions-sidebar">
+                      <button class="reel-action-btn" aria-label="Like count">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ff0055"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span>124K</span>
+                      </button>
+                      <button class="reel-action-btn" aria-label="Comment count">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+                        <span>2.4K</span>
+                      </button>
+                      <button class="reel-action-btn" aria-label="Share">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        <span>Share</span>
+                      </button>
+                      <div class="music-disc-spin">
+                        <img src="./assets/img/brand/Reachup%20Media.png" alt="Audio Disc" />
+                      </div>
+                    </div>
+
+                    <!-- Bottom Reel Info -->
+                    <div class="reel-info">
+                      <div class="reel-creator">
+                        <img src="./assets/img/brand/Reachup%20Media.png" class="creator-avatar" alt="Reachup Media" />
+                        <span class="creator-name">reachupmedia</span>
+                        <span class="verified-badge">✓</span>
+                        <button class="follow-btn">Follow</button>
+                      </div>
+                      <p class="reel-caption">
+                        Breaking the internet with India’s rawest regional creators 🔥 #InfluencerMarketing #ReachupMedia
+                      </p>
+                      <div class="reel-audio-track">
+                        <span class="music-note-icon">🎵</span>
+                        <marquee scrollamount="3" class="audio-marquee">Reachup Media Original Audio • Viral Campaign</marquee>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- iOS Bottom Home Indicator Bar -->
+                  <div class="phone-home-indicator"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

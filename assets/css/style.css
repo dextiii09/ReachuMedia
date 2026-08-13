@@ -2473,5 +2473,513 @@ details.neo-accordion[open] .accordion-content {
   }
 }
 
+/* ─────────────────────────────────────────────────────────────
+   HERO SECTION 2-COLUMN GRID & MOBILE PHONE REEL MOCKUP
+   ───────────────────────────────────────────────────────────── */
+.hero-section {
+  padding: 120px 0 80px 0;
+  position: relative;
+  background-color: var(--bg-main);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-text-col {
+  text-align: left;
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 20px !important;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.hero-desc {
+  max-width: 580px;
+  margin: 0 0 36px 0;
+  font-size: 1.15rem;
+  line-height: 1.63;
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Phone Mockup Section */
+.hero-mockup-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+}
+
+.phone-mockup-wrapper {
+  position: relative;
+}
+
+/* Floating Neo-Brutalist Badges */
+.floating-badge {
+  position: absolute;
+  z-index: 30;
+  background: var(--bg-alt);
+  color: var(--text-main);
+  border: var(--border-thick);
+  box-shadow: 5px 5px 0 #000;
+  padding: 8px 16px;
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  animation: float-badge 4s ease-in-out infinite alternate;
+}
+
+.badge-top-left {
+  top: 30px;
+  left: -40px;
+  background: var(--accent-yellow);
+}
+
+.badge-bottom-right {
+  bottom: 50px;
+  right: -35px;
+  background: var(--accent-cyan);
+  animation-delay: -2s;
+}
+
+@keyframes float-badge {
+  0% { transform: translateY(0px) rotate(-2deg); }
+  100% { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* Phone Body Frame - Realistic Titanium/Aluminum Casing */
+.phone-frame {
+  width: 308px;
+  height: 615px;
+  position: relative;
+  border-radius: 48px;
+  background: linear-gradient(145deg, #3a3a3c 0%, #1c1c1e 40%, #0d0d0e 100%);
+  padding: 4px;
+  box-shadow: 
+    0 0 0 1px rgba(255,255,255,0.12),
+    0 24px 48px -12px rgba(0, 0, 0, 0.5),
+    12px 12px 0px #000;
+  transform: rotate(-1.5deg);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+  perspective: 1000px;
+}
+
+.phone-frame:hover {
+  transform: rotate(0deg) scale(1.025) translateY(-6px);
+  box-shadow: 
+    0 0 0 1px rgba(255,255,255,0.25),
+    0 32px 64px -16px rgba(0, 0, 0, 0.6),
+    16px 16px 0px #000;
+}
+
+/* Physical Hardware Side Buttons */
+.phone-btn {
+  position: absolute;
+  background: linear-gradient(to right, #2c2c2e, #1c1c1e);
+  border-radius: 2px 0 0 2px;
+  box-shadow: -1px 0 2px rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.phone-btn-action {
+  left: -6px;
+  top: 100px;
+  width: 5px;
+  height: 26px;
+}
+
+.phone-btn-vol-up {
+  left: -6px;
+  top: 145px;
+  width: 5px;
+  height: 48px;
+}
+
+.phone-btn-vol-down {
+  left: -6px;
+  top: 205px;
+  width: 5px;
+  height: 48px;
+}
+
+.phone-btn-power {
+  right: -6px;
+  top: 160px;
+  width: 5px;
+  height: 68px;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 1px 0 2px rgba(0,0,0,0.5);
+}
+
+/* Outer Metallic Rim & Inner Screen Bezel */
+.phone-chassis {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border-radius: 44px;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #111113;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dynamic Island & Sensor Assembly */
+.phone-notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 24px;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.phone-camera-lens {
+  width: 11px;
+  height: 11px;
+  background: radial-gradient(circle at 35% 35%, #1f2347 0%, #080914 70%, #000 100%);
+  border-radius: 50%;
+  border: 1.5px solid #1c1d2e;
+  margin-right: 6px;
+  box-shadow: inset 0 0 3px rgba(0,240,255,0.4);
+}
+
+.phone-sensor {
+  width: 7px;
+  height: 7px;
+  background: #0d0d15;
+  border-radius: 50%;
+}
+
+/* Glass Specular Glare Overlay */
+.phone-glass-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.05) 28%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* iOS Bottom Home Indicator Bar */
+.phone-home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 4px;
+  z-index: 25;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Status Bar */
+.phone-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 42px;
+  padding: 10px 22px 0 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Reel Top Header */
+.reel-header {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  padding: 8px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  color: #fff;
+}
+
+.reel-title {
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.reel-sound-toggle {
+  background: rgba(0,0,0,0.55);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.reel-sound-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(0,0,0,0.8);
+}
+
+/* Phone Screen & Reel Video */
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Reel UI Overlay */
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.45) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.reel-actions-sidebar {
+  position: absolute;
+  right: 12px;
+  bottom: 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  pointer-events: auto;
+}
+
+.reel-action-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+  transition: transform 0.2s ease;
+}
+
+.reel-action-btn:hover {
+  transform: scale(1.15);
+}
+
+.music-disc-spin {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  overflow: hidden;
+  animation: spin-disc 4s linear infinite;
+  margin-top: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.music-disc-spin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes spin-disc {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Bottom Creator Info */
+.reel-info {
+  margin-right: 48px;
+  color: #fff;
+  pointer-events: auto;
+  text-align: left;
+}
+
+.reel-creator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.creator-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-yellow);
+  object-fit: cover;
+}
+
+.creator-name {
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.verified-badge {
+  background: #00f0ff;
+  color: #000;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.follow-btn {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-left: 2px;
+}
+
+.reel-caption {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #eee;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+}
+
+.reel-audio-track {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: #ccc;
+  overflow: hidden;
+}
+
+.audio-marquee {
+  width: 150px;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-text-col {
+    text-align: center;
+  }
+
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .floating-badge.badge-top-left {
+    left: -10px;
+    top: 15px;
+  }
+
+  .floating-badge.badge-bottom-right {
+    right: -10px;
+    bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .phone-frame {
+    width: 260px;
+    height: 520px;
+  }
+  .floating-badge {
+    font-size: 0.65rem;
+    padding: 6px 12px;
+  }
+}
+
+
 
 
