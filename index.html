@@ -68,10 +68,8 @@
           <a href="./contact.html">Contact</a>
           <a
             class="btn btn-primary"
-            href="https://wa.me/917973043372?text=Hi%20Reachup%20Media%2C%20let%27s%20collaborate"
-            target="_blank"
-            rel="noopener"
-            >Work With Us</a
+            href="./contact.html"
+            >Book Strategy Call</a
           >
         </nav>
         <button class="menu-toggle" aria-label="Toggle menu">⋮</button>
@@ -95,15 +93,19 @@
             Attention is the new currency. We mint it using India's rawest regional micro-creators and viral artistry. 
             We build brands that break the internet.
           </p>
-          <div class="hero-actions">
+          <div class="hero-actions" style="display: flex; gap: 16px; flex-wrap: wrap;">
             <a
               class="btn btn-accent"
+              href="./contact.html"
+              >Book Strategy Call</a
+            >
+            <a
+              class="btn btn-ghost"
               href="https://wa.me/917973043372?text=Hi%20Reachup%20Media%2C%20let%27s%20collaborate"
               target="_blank"
               rel="noopener"
-              >Let’s Collaborate</a
+              >WhatsApp Direct</a
             >
-            <a class="btn btn-ghost" href="#services">Explore Services</a>
           </div>
         </div>
 
@@ -140,44 +142,36 @@
 
                 <!-- Reel Header UI -->
                 <div class="reel-header">
-                  <span class="reel-title">Reels</span>
-                  <button class="reel-sound-toggle" id="reelMuteBtn" aria-label="Toggle Sound" onclick="toggleReelAudio()">
-                    <span id="soundIcon">🔇</span>
-                  </button>
+                  <span class="reel-title" style="font-size: 0.85rem; letter-spacing: 0.05em;">Client Creative • Space Seven</span>
+                  <div class="badge" style="background: var(--accent-yellow); color: #000; padding: 2px 8px; font-size: 0.65rem; border: 1px solid #000;">350K+ Reach</div>
                 </div>
 
-                <!-- Screen Content: Looping Video -->
-                <div class="phone-screen">
-                  <video
-                    id="heroReelVideo"
-                    class="reel-video"
-                    autoplay
-                    loop
-                    muted
-                    playsinline
-                    poster="./assets/img/brand/Reachup%20Media.png"
-                  >
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-posing-in-a-neon-lit-room-41563-large.mp4" type="video/mp4" />
-                    <source src="https://cdn.pixabay.com/video/2021/04/12/70882-536968078_tiny.mp4" type="video/mp4" />
-                  </video>
+                <!-- Screen Content: Verified Client Campaign Visual -->
+                <div class="phone-screen" style="background: #111; display: flex; flex-direction: column; justify-content: flex-end; position: relative;">
+                  <img
+                    src="./assets/img/clients/spacesevenfitness.jpg"
+                    alt="Space Seven Fitness Campaign Creative"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);"
+                  />
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.85) 100%);"></div>
 
                   <!-- Reel UI Overlay -->
-                  <div class="reel-overlay">
+                  <div class="reel-overlay" style="position: relative; z-index: 2;">
                     <!-- Right Action Sidebar -->
                     <div class="reel-actions-sidebar">
-                      <button class="reel-action-btn" aria-label="Like count">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ff0055"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                        <span>124K</span>
-                      </button>
-                      <button class="reel-action-btn" aria-label="Comment count">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
-                        <span>2.4K</span>
-                      </button>
-                      <button class="reel-action-btn" aria-label="Share">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                        <span>Share</span>
-                      </button>
-                      <div class="music-disc-spin">
+                      <div class="reel-action-btn" title="Total Campaign Reach">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#ff0055"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span style="font-size: 0.75rem; font-weight: 800;">350K</span>
+                      </div>
+                      <div class="reel-action-btn" title="Engagement Rate">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#00f0ff"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+                        <span style="font-size: 0.75rem; font-weight: 800;">4.8%</span>
+                      </div>
+                      <div class="reel-action-btn" title="Creators Activated">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffea00"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        <span style="font-size: 0.75rem; font-weight: 800;">8 Creators</span>
+                      </div>
+                      <div class="music-disc-spin" style="width: 28px; height: 28px;">
                         <img src="./assets/img/brand/Reachup%20Media.png" alt="Audio Disc" />
                       </div>
                     </div>
@@ -185,17 +179,16 @@
                     <!-- Bottom Reel Info -->
                     <div class="reel-info">
                       <div class="reel-creator">
-                        <img src="./assets/img/brand/Reachup%20Media.png" class="creator-avatar" alt="Reachup Media" />
-                        <span class="creator-name">reachupmedia</span>
-                        <span class="verified-badge">✓</span>
-                        <button class="follow-btn">Follow</button>
+                        <img src="./assets/img/clients/spacesevenfitness.jpg" class="creator-avatar" alt="Space Seven Fitness" />
+                        <span class="creator-name" style="font-weight: 800;">spacesevenfitness</span>
+                        <span style="font-size: 0.7rem; background: var(--accent-cyan); color: #000; padding: 2px 6px; font-weight: 700;">Client Case</span>
                       </div>
-                      <p class="reel-caption">
-                        Breaking the internet with India’s rawest regional creators 🔥 #InfluencerMarketing #ReachupMedia
+                      <p class="reel-caption" style="font-size: 0.82rem; line-height: 1.3;">
+                        Turning vernacular fitness UGC into real membership walk-ins across Mohali. 🚀 #SpaceSeven #ReachupMedia
                       </p>
                       <div class="reel-audio-track">
                         <span class="music-note-icon">🎵</span>
-                        <marquee scrollamount="3" class="audio-marquee">Reachup Media Original Audio • Viral Campaign</marquee>
+                        <marquee scrollamount="3" class="audio-marquee">Space Seven Fitness x Reachup Media Campaign Audio</marquee>
                       </div>
                     </div>
                   </div>
@@ -288,82 +281,116 @@
         </div>
         <div class="grid grid-3">
           <!-- Creator Cults -->
-          <div class="card reveal" style="background: var(--accent-cyan)">
-            <div class="icon-box" style="background: #fff">📱</div>
-            <h3 style="color: #000; margin-bottom: 4px;">Creator Cults</h3>
-            <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; font-weight: 700; display: block; margin-bottom: 16px; color: #000;">Influencer Marketing</span>
-            <p style="color: #000;">
-              Micro, Macro & Regional creators weaponized to seed viral narratives and drive aggressive campaign strategy.
-            </p>
+          <div class="card reveal" style="background: var(--accent-cyan); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="icon-box" style="background: #fff">📱</div>
+              <h3 style="color: #000; margin-bottom: 4px;">Creator Cults</h3>
+              <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; font-weight: 700; display: block; margin-bottom: 16px; color: #000;">Influencer Marketing</span>
+              <p style="color: #000;">
+                Micro, Macro & Regional creators weaponized to seed viral narratives and drive aggressive campaign strategy.
+              </p>
+            </div>
+            <a href="./portfolio.html#case-cabbazar" class="btn btn-dark" style="font-size: 0.85rem; padding: 10px 18px; margin-top: 16px; align-self: flex-start;">View CabBazar Case Study →</a>
           </div>
           <!-- Viral Content & UGC -->
-          <div class="card reveal" style="background: var(--accent-green)">
-            <div class="icon-box" style="background: #fff">🎬</div>
-            <h3 style="color: #000; margin-bottom: 4px;">Viral Content & UGC</h3>
-            <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; font-weight: 700; display: block; margin-bottom: 16px; color: #000;">UGC & Content Production</span>
-            <p style="color: #000;">
-              Raw on-location shoots, UGC at scale, and internet-breaking asset direction.
-            </p>
+          <div class="card reveal" style="background: var(--accent-green); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="icon-box" style="background: #fff">🎬</div>
+              <h3 style="color: #000; margin-bottom: 4px;">Viral Content & UGC</h3>
+              <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; font-weight: 700; display: block; margin-bottom: 16px; color: #000;">UGC & Content Production</span>
+              <p style="color: #000;">
+                Raw on-location shoots, UGC at scale, and internet-breaking asset direction.
+              </p>
+            </div>
+            <a href="./portfolio.html#case-spaceseven" class="btn btn-dark" style="font-size: 0.85rem; padding: 10px 18px; margin-top: 16px; align-self: flex-start;">View Space Seven Case Study →</a>
           </div>
           <!-- Social & Collabs -->
-          <div class="card reveal" style="background: var(--accent-purple); color: #fff">
-            <div class="icon-box" style="background: var(--accent-cyan)">📣</div>
-            <h3 style="color: #fff; margin-bottom: 4px;">Social & Collabs</h3>
-            <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; font-weight: 700; display: block; margin-bottom: 16px; color: rgba(255,255,255,0.8);">Social Media Management</span>
-            <p style="color: #fff;">
-              Always-on social calendars, community management, and paid amplification.
-            </p>
+          <div class="card reveal" style="background: var(--accent-purple); color: #fff; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="icon-box" style="background: var(--accent-cyan)">📣</div>
+              <h3 style="color: #fff; margin-bottom: 4px;">Social & Collabs</h3>
+              <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; font-weight: 700; display: block; margin-bottom: 16px; color: rgba(255,255,255,0.8);">Social Media Management</span>
+              <p style="color: #fff;">
+                Always-on social calendars, community management, and paid amplification.
+              </p>
+            </div>
+            <a href="./portfolio.html#case-enterprise" class="btn btn-ghost" style="font-size: 0.85rem; padding: 10px 18px; margin-top: 16px; align-self: flex-start;">Explore Enterprise Scope →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Artist Section -->
-    <section class="section alt-bg">
-      <div class="container text-center">
-        <span class="badge" style="background: var(--accent-cyan); color: #000; box-shadow: 4px 4px 0 #000;">Artist Spotlight</span>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 32px;">
-          <div style="width: 120px; height: 120px; border-radius: 50%; background: #fff; border: var(--border-thick); overflow: hidden; box-shadow: 6px 6px 0 #000; display: flex; align-items: center; justify-content: center;">
-            <img src="./assets/img/artists/dheer-official-logo.png" alt="Dheer Official Logo" style="width: 85%; height: 85%; object-fit: contain;" />
+    <!-- 4-Stage Campaign Execution Roadmap -->
+    <section class="section alt-bg" style="border-top: var(--border-thick);">
+      <div class="container text-center reveal">
+        <span class="badge" style="background: var(--accent-yellow); color: #000; box-shadow: 4px 4px 0 #000;">HOW WE WORK</span>
+        <h2 style="margin-top: 16px; margin-bottom: 16px;">Campaign Execution & SLA Framework</h2>
+        <p class="subtitle" style="margin: 0 auto 50px auto; background: #000; color: #fff; max-width: 700px;">
+          Predictable milestones, rigorous QA, and continuous performance reporting.
+        </p>
+
+        <div class="grid grid-4 text-left" style="gap: 20px;">
+          <div class="card reveal" style="background: #fff; padding: 24px;">
+            <span style="font-size: 0.75rem; font-weight: 900; background: var(--accent-cyan); color: #000; padding: 3px 8px; border: 2px solid #000;">DAYS 1–4</span>
+            <h4 style="color: var(--accent-magenta); font-size: 1.2rem; margin: 12px 0 8px 0;">1. Discovery & Matchmaking</h4>
+            <p style="font-size: 0.9rem; color: #444; margin-bottom: 0;">Audience demographic screening, creator vetting, fake-follower purging, and contract alignment.</p>
           </div>
-          <h2 style="margin: 0;">Dheer Official</h2>
+          <div class="card reveal" style="background: var(--accent-cyan); padding: 24px;">
+            <span style="font-size: 0.75rem; font-weight: 900; background: #fff; color: #000; padding: 3px 8px; border: 2px solid #000;">DAYS 5–9</span>
+            <h4 style="color: #000; font-size: 1.2rem; margin: 12px 0 8px 0;">2. Scripting & Hooks</h4>
+            <p style="font-size: 0.9rem; color: #000; margin-bottom: 0;">Vernacular angle development, technical briefs, hook scripting, and brand storyboard approval.</p>
+          </div>
+          <div class="card reveal" style="background: var(--accent-green); padding: 24px;">
+            <span style="font-size: 0.75rem; font-weight: 900; background: #fff; color: #000; padding: 3px 8px; border: 2px solid #000;">DAYS 10–18</span>
+            <h4 style="color: #000; font-size: 1.2rem; margin: 12px 0 8px 0;">3. Production & QA</h4>
+            <p style="font-size: 0.9rem; color: #000; margin-bottom: 0;">On-location shoot coordination, draft asset review, trackable promo link setup, and quality check.</p>
+          </div>
+          <div class="card reveal" style="background: var(--accent-yellow); padding: 24px;">
+            <span style="font-size: 0.75rem; font-weight: 900; background: #000; color: #fff; padding: 3px 8px; border: 2px solid #000;">DAYS 19–28</span>
+            <h4 style="color: #000; font-size: 1.2rem; margin: 12px 0 8px 0;">4. Wave Launch & ROI</h4>
+            <p style="font-size: 0.9rem; color: #000; margin-bottom: 0;">Synchronized multi-creator rollout, comment sentiment moderation, and comprehensive attribution report.</p>
+          </div>
         </div>
       </div>
     </section>
+
     <!-- Animated Reach Counter Section -->
     <section class="section" style="background: #000; color: #fff; border-top: var(--border-thick); border-bottom: var(--border-thick);">
       <div class="container text-center">
         <span class="badge" style="background: var(--accent-magenta); color: #fff; box-shadow: 4px 4px 0 var(--accent-yellow);">Our Impact So Far</span>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; margin-top: 48px;">
-          <!-- Total Reach — Combined across CabBazar (607K+), Space Seven (350K+), Local Business Network (450K+), and Enterprise NDA Rollouts (10.5M+) = 12M+ total -->
+          <!-- Total Reach — 12M+ total -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-cyan);">
-              <span class="reach-counter" data-target="12" data-suffix="M+">0</span>
+              <span class="reach-counter" data-target="12" data-suffix="M+">12M+</span>
             </div>
             <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Total Reach Delivered</div>
           </div>
-          <!-- Creators Activated — 150+ creators across Tier-1, Tier-2, and regional networks -->
+          <!-- Creators Activated — 150+ creators -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-yellow);">
-              <span class="reach-counter" data-target="150" data-suffix="+">0</span>
+              <span class="reach-counter" data-target="150" data-suffix="+">150+</span>
             </div>
             <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Creators Activated</div>
           </div>
           <!-- Campaigns Run — 15+ Brand & Local Outlets -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-magenta);">
-              <span class="reach-counter" data-target="15" data-suffix="+">0</span>
+              <span class="reach-counter" data-target="15" data-suffix="+">15+</span>
             </div>
             <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Brand Campaigns</div>
           </div>
           <!-- Avg ER — 4.2% avg across campaigns -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: #00ff66;">
-              <span class="reach-counter" data-target="42" data-suffix="%" data-divisor="10">0</span>
+              <span class="reach-counter" data-target="42" data-suffix="%" data-divisor="10">4.2%</span>
             </div>
             <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Avg. Engagement Rate</div>
           </div>
         </div>
+        <p style="font-size: 0.9rem; color: #888; margin-top: 32px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+          *Aggregated across CabBazar (607K+), Space Seven Fitness (350K+), Local Outlets Network (450K+), and Enterprise NDA Rollouts (10.5M+).
+        </p>
       </div>
     </section>
     <script>
@@ -377,7 +404,7 @@
             var target = parseInt(el.getAttribute('data-target'));
             var suffix = el.getAttribute('data-suffix') || '';
             var divisor = parseFloat(el.getAttribute('data-divisor')) || 1;
-            var duration = 2000;
+            var duration = 1600;
             var startTime = null;
             function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
             function step(timestamp) {
@@ -396,13 +423,41 @@
         if (section && 'IntersectionObserver' in window) {
           var obs = new IntersectionObserver(function(entries) {
             if (entries[0].isIntersecting) { animateCounters(); obs.disconnect(); }
-          }, { threshold: 0.3 });
+          }, { threshold: 0.1 });
           obs.observe(section.closest('section') || section.parentElement);
         } else {
           animateCounters();
         }
       })();
     </script>
+
+    <!-- Enterprise Trust Ribbon -->
+    <section class="section" style="background: #111; color: #fff; padding: 40px 0; border-bottom: var(--border-thick);">
+      <div class="container">
+        <div class="grid grid-4 text-left" style="gap: 20px;">
+          <div style="background: #1c1c1c; border: 2px solid #333; padding: 18px; box-shadow: 3px 3px 0 var(--accent-cyan);">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🛡️</div>
+            <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 4px;">100% Brand Safety</strong>
+            <p style="color: #999; font-size: 0.8rem; margin-bottom: 0;">Rigorous creator screening for zero brand risk or bot inflation.</p>
+          </div>
+          <div style="background: #1c1c1c; border: 2px solid #333; padding: 18px; box-shadow: 3px 3px 0 var(--accent-magenta);">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">📑</div>
+            <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 4px;">Usage & Whitelisting</strong>
+            <p style="color: #999; font-size: 0.8rem; margin-bottom: 0;">Full commercial licensing & ad boosting rights under master contract.</p>
+          </div>
+          <div style="background: #1c1c1c; border: 2px solid #333; padding: 18px; box-shadow: 3px 3px 0 var(--accent-green);">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">💳</div>
+            <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 4px;">Escrow Protection</strong>
+            <p style="color: #999; font-size: 0.8rem; margin-bottom: 0;">Milestone-gated creator payouts verified upon delivery.</p>
+          </div>
+          <div style="background: #1c1c1c; border: 2px solid #333; padding: 18px; box-shadow: 3px 3px 0 var(--accent-yellow);">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🇮🇳</div>
+            <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 4px;">Govt. Verified MSME</strong>
+            <p style="color: #999; font-size: 0.8rem; margin-bottom: 0;">UDYAM-BR-12-0076835 with formal corporate tax invoicing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Campaign Estimator Section -->
     <section id="estimator" class="section alt-bg" style="border-top: var(--border-thick); padding-top: 60px; padding-bottom: 60px;">
@@ -489,6 +544,11 @@
               </a>
             </div>
           </div>
+        </div>
+
+        <!-- Methodology & Data Source Disclaimer -->
+        <div style="margin-top: 24px; padding: 16px 20px; background: #fff; border: var(--border-thick); box-shadow: 4px 4px 0 #000; font-size: 0.85rem; line-height: 1.5; color: #333;">
+          <strong>⚡ Methodology & Sourcing:</strong> Projections are calculated from Reachup Media's historical campaign baselines across regional niches (CPM benchmarks: ₹320–₹580; creator fee tiers: ₹8K–₹45K). Actual performance will vary depending on creative hooks, audience vernacular affinity, and ad boosting.
         </div>
       </div>
     </section>
