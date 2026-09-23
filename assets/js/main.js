@@ -92,16 +92,21 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     });
   }
 
-  // Highlight active nav link based on current path
+  // Highlight active nav link based on current path.
+  // Normalises both clean URLs ("/about") and legacy ones ("./about.html") to
+  // the same key, so inbound links in either form still match.
   try {
-    const current = (location.pathname.split('/').pop() || 'index.html').replace(/\/?$/, '');
+    const pageKey = (path) => {
+      let s = String(path).split('#')[0].split('?')[0];
+      s = s.replace(/^\.\//, '').replace(/^\//, '').replace(/\/$/, '');
+      s = s.replace(/\.html$/, '');
+      return s === '' ? 'index' : s;
+    };
+    const current = pageKey(location.pathname);
     qsa('.nav a').forEach(a => {
       const href = a.getAttribute('href') || '';
-      const isInternal = href.endsWith('.html') || href === './' || href === '/';
-      if (!isInternal) return;
-      const normalized = href.replace(/^\.\//, '');
-      const matchIndex = current === '' ? (normalized === '' || normalized === 'index.html') : (normalized === current);
-      if (matchIndex) a.classList.add('active');
+      if (/^(https?:|mailto:|tel:|#)/i.test(href)) return;
+      if (pageKey(href) === current) a.classList.add('active');
     });
   } catch (e) { /* noop */ }
 
