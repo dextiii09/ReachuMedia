@@ -1103,26 +1103,9 @@ body.no-scroll {
   color: #fff;
 }
 
-/* Specificity must beat `.hero p`, which gives hero paragraphs the white
-   boxed treatment; a footnote inside the dark card must opt out of it. */
-.hero .hero-stats__note {
-  background: none;
-  border: none;
-  box-shadow: none;
-  max-width: none;
-  padding: 18px 0 0;
-  margin: 28px 0 0;
-  border-top: 2px solid rgba(255, 255, 255, 0.18);
-  font-size: 0.74rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #999;
-}
-
 @media (max-width: 900px) {
   /* `.hero p` forces 1rem !important on small screens; keep the footnote small. */
-  .hero .hero-stats__note { font-size: 0.74rem !important; }
-}
+  }
 
 @media (max-width: 900px) {
   .hero-stats { transform: none; box-shadow: 8px 8px 0 var(--accent-magenta); }

@@ -23,7 +23,7 @@
     <meta name="twitter:description" content="Influencer marketing, Artist & Band Management, Content & UGC.">
     <meta name="twitter:image" content="https://reachupmedia.in/assets/img/brand/Reachup%20Media.png">
     <link rel="icon" type="image/png" href="./assets/img/brand/Reachup%20Media.png" />
-    <link rel="stylesheet" href="./assets/css/style.css?v=7" />
+    <link rel="stylesheet" href="./assets/css/style.css?v=8" />
     <style>
       /* Live Pulse */
       @keyframes live-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
@@ -139,10 +139,6 @@
                 <div class="hero-stat__label">Avg. engagement rate</div>
               </div>
             </div>
-            <p class="hero-stats__note">
-              Aggregated across CabBazar (607K+), Space Seven Fitness (350K+),
-              Local Outlets Network (450K+) and Enterprise NDA rollouts (10.5M+).
-            </p>
           </div>
         </div>
       </div>
@@ -325,12 +321,35 @@
             requestAnimationFrame(step);
           });
         }
-        var section = document.querySelector('.reach-counter');
-        if (section && 'IntersectionObserver' in window) {
+        // The counters sit inside a .reveal block that starts hidden and fades
+        // in. Starting the count-up before that finishes would burn the whole
+        // animation while nothing is on screen, so wait for the reveal first.
+        var first = document.querySelector('.reach-counter');
+        var revealBlock = first && first.closest('.reveal');
+        var watchTarget = revealBlock || first;
+
+        // Only count up once the block has actually faded in, otherwise the
+        // whole animation plays against a hidden element and the numbers are
+        // already final by the time anyone sees them.
+        function startWhenRevealed() {
+          if (!revealBlock || revealBlock.classList.contains('show')) {
+            animateCounters();
+            return;
+          }
+          var mo = new MutationObserver(function () {
+            if (revealBlock.classList.contains('show')) {
+              mo.disconnect();
+              animateCounters();
+            }
+          });
+          mo.observe(revealBlock, { attributes: true, attributeFilter: ['class'] });
+        }
+
+        if (watchTarget && 'IntersectionObserver' in window) {
           var obs = new IntersectionObserver(function(entries) {
-            if (entries[0].isIntersecting) { animateCounters(); obs.disconnect(); }
-          }, { threshold: 0.1 });
-          obs.observe(section.closest('section') || section.parentElement);
+            if (entries[0].isIntersecting) { obs.disconnect(); startWhenRevealed(); }
+          }, { threshold: 0.12 });
+          obs.observe(watchTarget);
         } else {
           animateCounters();
         }
