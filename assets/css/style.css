@@ -151,6 +151,10 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Reveal animations offset elements horizontally (.fx-right translates 60px)
+     before they animate in, which otherwise creates a real horizontal
+     scrollbar. body alone does not clip this because html stays visible. */
+  overflow-x: hidden;
 }
 
 body {
