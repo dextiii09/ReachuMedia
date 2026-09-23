@@ -65,6 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const ALLOWED_TAGS = new Set(['STRONG', 'B', 'EM', 'I', 'A', 'BR']);
   const ALLOWED_LINK_SCHEMES = /^(https?:|mailto:|tel:)/i;
 
+  // Elements whose contents are code or metadata rather than readable text.
+  // These are removed outright; unwrapping them would print their source.
+  const DROP_WITH_CONTENT = new Set([
+    'SCRIPT', 'STYLE', 'TEMPLATE', 'NOSCRIPT', 'IFRAME', 'OBJECT', 'EMBED',
+    'SVG', 'MATH', 'CANVAS', 'AUDIO', 'VIDEO', 'SOURCE', 'TRACK',
+    'LINK', 'META', 'BASE', 'TITLE', 'HEAD', 'FRAME', 'FRAMESET', 'APPLET'
+  ]);
+
   // Strip everything except the small allowlist above (drops <script>, event handlers,
   // javascript: links, etc.) so neither user input nor an AI reply can inject markup.
   const sanitizeToFragment = (html) => {
@@ -73,14 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const walk = (node) => {
       [...node.childNodes].forEach((child) => {
         if (child.nodeType === Node.ELEMENT_NODE) {
-          if (!ALLOWED_TAGS.has(child.tagName)) {
-            // Unwrap disallowed elements, keeping their text content.
+          // SVG/MathML are foreign content and report a lowercase tagName,
+          // so normalise before comparing against the sets above.
+          const tag = String(child.tagName).toUpperCase();
+          if (DROP_WITH_CONTENT.has(tag)) {
+            child.remove();
+            return;
+          }
+          if (!ALLOWED_TAGS.has(tag)) {
+            // Unwrap ordinary disallowed elements, keeping their text so a
+            // legitimate reply wrapped in <div>/<p> still reads correctly.
             const text = document.createTextNode(child.textContent);
             child.replaceWith(text);
             return;
           }
           [...child.attributes].forEach((attr) => {
-            if (attr.name === 'href' && child.tagName === 'A') {
+            if (attr.name === 'href' && tag === 'A') {
               if (!ALLOWED_LINK_SCHEMES.test(child.getAttribute('href') || '')) {
                 child.removeAttribute('href');
               }
@@ -88,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             child.removeAttribute(attr.name);
           });
-          if (child.tagName === 'A') {
+          if (tag === 'A') {
             child.setAttribute('target', '_blank');
             child.setAttribute('rel', 'noopener noreferrer');
           }
