@@ -1046,6 +1046,84 @@ body.no-scroll {
   font-weight: 700;
 }
 
+/* ─── Hero impact stats (replaces the old phone mockup) ─── */
+.hero-stats {
+  background: #000;
+  color: #fff;
+  border: var(--border-thick);
+  box-shadow: 12px 12px 0 var(--accent-magenta);
+  padding: clamp(24px, 3vw, 36px);
+  transform: rotate(-1deg);
+}
+
+.hero-stats__badge {
+  display: inline-block;
+  background: var(--accent-magenta);
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 4px 4px 0 var(--accent-yellow);
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  margin-bottom: 28px;
+}
+
+.hero-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.hero-stat__value {
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: clamp(1.7rem, 3.6vw, 2.9rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 10px;
+}
+.hero-stat__value--cyan    { color: var(--accent-cyan); }
+.hero-stat__value--yellow  { color: var(--accent-yellow); }
+.hero-stat__value--magenta { color: var(--accent-magenta); }
+.hero-stat__value--green   { color: #00ff66; }
+
+.hero-stat__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Specificity must beat `.hero p`, which gives hero paragraphs the white
+   boxed treatment; a footnote inside the dark card must opt out of it. */
+.hero .hero-stats__note {
+  background: none;
+  border: none;
+  box-shadow: none;
+  max-width: none;
+  padding: 18px 0 0;
+  margin: 28px 0 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #999;
+}
+
+@media (max-width: 900px) {
+  /* `.hero p` forces 1rem !important on small screens; keep the footnote small. */
+  .hero .hero-stats__note { font-size: 0.74rem !important; }
+}
+
+@media (max-width: 900px) {
+  .hero-stats { transform: none; box-shadow: 8px 8px 0 var(--accent-magenta); }
+}
+
 /* ─── Component patterns (extracted from repeated inline styles) ─── */
 
 /* Dark metric row used in the case-study impact panels */
@@ -2090,7 +2168,6 @@ body.enhanced-anim .reveal.show {
 }
 
 
-
 /* 3D perspective base */
 .section, .container {
   perspective: 1500px;
@@ -2780,10 +2857,6 @@ details.neo-accordion[open] .accordion-content {
   padding: 20px 0;
 }
 
-.phone-mockup-wrapper {
-  position: relative;
-}
-
 /* Floating Neo-Brutalist Badges */
 .floating-badge {
   position: absolute;
@@ -2823,322 +2896,6 @@ details.neo-accordion[open] .accordion-content {
   100% { transform: translateY(-12px) rotate(2deg); }
 }
 
-/* Phone Body Frame - Realistic Titanium/Aluminum Casing */
-.phone-frame {
-  width: 308px;
-  height: 615px;
-  position: relative;
-  border-radius: 48px;
-  background: linear-gradient(145deg, #3a3a3c 0%, #1c1c1e 40%, #0d0d0e 100%);
-  padding: 4px;
-  box-shadow: 
-    0 0 0 1px rgba(255,255,255,0.12),
-    0 24px 48px -12px rgba(0, 0, 0, 0.5),
-    12px 12px 0px #000;
-  transform: rotate(-1.5deg);
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-  perspective: 1000px;
-}
-
-.phone-frame:hover {
-  transform: rotate(0deg) scale(1.025) translateY(-6px);
-  box-shadow: 
-    0 0 0 1px rgba(255,255,255,0.25),
-    0 32px 64px -16px rgba(0, 0, 0, 0.6),
-    16px 16px 0px #000;
-}
-
-/* Physical Hardware Side Buttons */
-.phone-btn {
-  position: absolute;
-  background: linear-gradient(to right, #2c2c2e, #1c1c1e);
-  border-radius: 2px 0 0 2px;
-  box-shadow: -1px 0 2px rgba(0,0,0,0.5);
-  z-index: 1;
-}
-
-.phone-btn-action {
-  left: -6px;
-  top: 100px;
-  width: 5px;
-  height: 26px;
-}
-
-.phone-btn-vol-up {
-  left: -6px;
-  top: 145px;
-  width: 5px;
-  height: 48px;
-}
-
-.phone-btn-vol-down {
-  left: -6px;
-  top: 205px;
-  width: 5px;
-  height: 48px;
-}
-
-.phone-btn-power {
-  right: -6px;
-  top: 160px;
-  width: 5px;
-  height: 68px;
-  border-radius: 0 2px 2px 0;
-  box-shadow: 1px 0 2px rgba(0,0,0,0.5);
-}
-
-/* Outer Metallic Rim & Inner Screen Bezel */
-.phone-chassis {
-  width: 100%;
-  height: 100%;
-  background: #000000;
-  border-radius: 44px;
-  position: relative;
-  overflow: hidden;
-  border: 3px solid #111113;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Dynamic Island & Sensor Assembly */
-.phone-notch {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 24px;
-  background: #000000;
-  border-radius: 20px;
-  z-index: 35;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 10px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.8);
-}
-
-.phone-camera-lens {
-  width: 11px;
-  height: 11px;
-  background: radial-gradient(circle at 35% 35%, #1f2347 0%, #080914 70%, #000 100%);
-  border-radius: 50%;
-  border: 1.5px solid #1c1d2e;
-  margin-right: 6px;
-  box-shadow: inset 0 0 3px rgba(0,240,255,0.4);
-}
-
-.phone-sensor {
-  width: 7px;
-  height: 7px;
-  background: #0d0d15;
-  border-radius: 50%;
-}
-
-/* Glass Specular Glare Overlay */
-.phone-glass-glare {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    130deg,
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.05) 28%,
-    transparent 50%
-  );
-  pointer-events: none;
-  z-index: 30;
-}
-
-/* iOS Bottom Home Indicator Bar */
-.phone-home-indicator {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 4px;
-  z-index: 25;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
-}
-
-/* Status Bar */
-.phone-status-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 42px;
-  padding: 10px 22px 0 22px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 20;
-  color: #ffffff;
-  font-size: 0.72rem;
-  font-weight: 700;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
-}
-
-.status-icons {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Reel Top Header */
-.reel-header {
-  position: absolute;
-  top: 38px;
-  left: 0;
-  right: 0;
-  padding: 8px 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 20;
-  color: #fff;
-}
-
-.reel-title {
-  font-family: 'Lexend Zetta', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-}
-
-.reel-sound-toggle {
-  background: rgba(0,0,0,0.55);
-  border: 1.5px solid rgba(255,255,255,0.4);
-  color: #fff;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.reel-sound-toggle:hover {
-  transform: scale(1.1);
-  background: rgba(0,0,0,0.8);
-}
-
-/* Phone Screen & Reel Video */
-.phone-screen {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: #000;
-  overflow: hidden;
-  border-radius: 40px;
-}
-
-.reel-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Reel UI Overlay */
-.reel-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.45) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 16px;
-  pointer-events: none;
-  z-index: 15;
-}
-
-.reel-actions-sidebar {
-  position: absolute;
-  right: 12px;
-  bottom: 85px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  pointer-events: auto;
-}
-
-.reel-action-btn {
-  background: transparent;
-  border: none;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  cursor: pointer;
-  font-size: 0.7rem;
-  font-weight: 700;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
-  transition: transform 0.2s ease;
-}
-
-.reel-action-btn:hover {
-  transform: scale(1.15);
-}
-
-.music-disc-spin {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  overflow: hidden;
-  animation: spin-disc 4s linear infinite;
-  margin-top: 6px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
-}
-
-.music-disc-spin img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes spin-disc {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Bottom Creator Info */
-.reel-info {
-  margin-right: 48px;
-  color: #fff;
-  pointer-events: auto;
-  text-align: left;
-}
-
-.reel-creator {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.creator-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid var(--accent-yellow);
-  object-fit: cover;
-}
-
-.creator-name {
-  font-weight: 700;
-  font-size: 0.82rem;
-}
-
 .verified-badge {
   background: #00f0ff;
   color: #000;
@@ -3162,49 +2919,6 @@ details.neo-accordion[open] .accordion-content {
   border-radius: 12px;
   cursor: pointer;
   margin-left: 2px;
-}
-
-.reel-caption {
-  font-size: 0.78rem;
-  line-height: 1.35;
-  color: #eee;
-  margin-bottom: 6px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-align: left;
-}
-
-.reel-audio-track {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.7rem;
-  color: #ccc;
-  overflow: hidden;
-}
-
-.audio-marquee {
-  width: 150px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.audio-marquee-track {
-  display: inline-flex;
-  gap: 24px;
-  animation: audio-marquee-scroll 9s linear infinite;
-  will-change: transform;
-}
-
-@keyframes audio-marquee-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(calc(-50% - 12px)); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .audio-marquee-track { animation: none; }
 }
 
 /* Mobile Responsive Adjustments */
@@ -3239,10 +2953,6 @@ details.neo-accordion[open] .accordion-content {
 }
 
 @media (max-width: 480px) {
-  .phone-frame {
-    width: 260px;
-    height: 520px;
-  }
   .floating-badge {
     font-size: 0.65rem;
     padding: 6px 12px;
@@ -3303,7 +3013,5 @@ details.neo-accordion[open] .accordion-content {
   flex-direction: column;
   justify-content: space-between;
 }
-
-
 
 

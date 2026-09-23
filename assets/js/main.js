@@ -669,49 +669,12 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     });
   }
 
-  // --- Photorealistic 3D Phone Tilt Effect ---
-  function initHeroPhoneTilt() {
-    const wrapper = document.querySelector('.hero-mockup-col');
-    const phone = document.getElementById('heroPhoneFrame');
-    if (!wrapper || !phone) return;
-
-    wrapper.addEventListener('mousemove', (e) => {
-      const rect = wrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -12;
-      const rotateY = ((x - centerX) / centerX) * 12;
-
-      phone.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-    });
-
-    wrapper.addEventListener('mouseleave', () => {
-      phone.style.transform = 'rotate(-1.5deg) scale(1)';
-    });
-  }
-
-  // Global Audio Toggle function for Hero Reel Mockup
-  window.toggleReelAudio = function() {
-    const vid = document.getElementById('heroReelVideo');
-    const icon = document.getElementById('soundIcon');
-    if (vid) {
-      vid.muted = !vid.muted;
-      if (icon) {
-        icon.textContent = vid.muted ? '🔇' : '🔊';
-      }
-    }
-  };
-
   // Initialize all features on load
   window.addEventListener('DOMContentLoaded', () => {
     initCampaignEstimator();
     initPortfolioFilters();
     initCreatorIntakeForm();
     setupClipboardCopy();
-    initHeroPhoneTilt();
   });
 })();
 
