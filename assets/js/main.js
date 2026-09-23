@@ -298,6 +298,14 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
   `;
   document.head.appendChild(style);
 
+  // Transition timing. The first layer starts at 0ms, so the screen is fully
+  // covered once IN_MS has elapsed; NAV_DELAY adds a small buffer on top of
+  // that before unloading, otherwise the outgoing page flashes through.
+  const STAGGER = 35;             // ms between each coloured layer
+  const OUT_MS  = 280;            // slide-away on arrival
+  const IN_MS   = 220;            // slide-in on link click
+  const NAV_DELAY = IN_MS + 45;   // 265ms
+
   // Create 3 layered sweeps with HEX colors (safest for JS inline styles)
   // Cyan -> Magenta -> Dark
   const colors = ['#00f0ff', '#ff0055', '#0b0b0b'];
@@ -319,14 +327,14 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
     // Reverse order on the way out: Top layer (Dark) slides away first to reveal Magenta, then Cyan!
     [...sweeps].reverse().forEach((el, i) => {
       setTimeout(() => {
-        el.style.transition = 'transform 0.4s cubic-bezier(0.77, 0, 0.175, 1)';
+        el.style.transition = 'transform ' + OUT_MS + 'ms cubic-bezier(0.77, 0, 0.175, 1)';
         el.style.transform = 'translateX(200%) skewX(-15deg)';
-        
+
         // Hide after animation finishes
         setTimeout(() => {
           el.style.display = 'none';
-        }, 450);
-      }, i * 75);
+        }, OUT_MS + 40);
+      }, i * STAGGER);
     });
   });
 
@@ -363,15 +371,15 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         void el.offsetHeight;
 
         setTimeout(() => {
-          el.style.transition = 'transform 0.35s cubic-bezier(0.77, 0, 0.175, 1)';
+          el.style.transition = 'transform ' + IN_MS + 'ms cubic-bezier(0.77, 0, 0.175, 1)';
           el.style.transform = 'translateX(0) skewX(-15deg)';
-        }, i * 75);
+        }, i * STAGGER);
       });
 
       // Redirect after animations complete
       setTimeout(() => {
         window.location.href = a.href;
-      }, (sweeps.length * 75) + 300);
+      }, NAV_DELAY);
     }
   });
 })();
