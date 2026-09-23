@@ -188,7 +188,12 @@
                       </p>
                       <div class="reel-audio-track">
                         <span class="music-note-icon">🎵</span>
-                        <marquee scrollamount="3" class="audio-marquee">Space Seven Fitness x Reachup Media Campaign Audio</marquee>
+                        <div class="audio-marquee">
+                          <span class="audio-marquee-track">
+                            <span>Space Seven Fitness x Reachup Media Campaign Audio</span>
+                            <span aria-hidden="true">Space Seven Fitness x Reachup Media Campaign Audio</span>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -364,28 +369,28 @@
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-cyan);">
               <span class="reach-counter" data-target="12" data-suffix="M+">12M+</span>
             </div>
-            <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Total Reach Delivered</div>
+            <div class="stat-label">Total Reach Delivered</div>
           </div>
           <!-- Creators Activated — 150+ creators -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-yellow);">
               <span class="reach-counter" data-target="150" data-suffix="+">150+</span>
             </div>
-            <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Creators Activated</div>
+            <div class="stat-label">Creators Activated</div>
           </div>
           <!-- Campaigns Run — 15+ Brand & Local Outlets -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: var(--accent-magenta);">
               <span class="reach-counter" data-target="15" data-suffix="+">15+</span>
             </div>
-            <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Brand Campaigns</div>
+            <div class="stat-label">Brand Campaigns</div>
           </div>
           <!-- Avg ER — 4.2% avg across campaigns -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             <div style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1; color: #00ff66;">
               <span class="reach-counter" data-target="42" data-suffix="%" data-divisor="10">4.2%</span>
             </div>
-            <div style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff;">Avg. Engagement Rate</div>
+            <div class="stat-label">Avg. Engagement Rate</div>
           </div>
         </div>
         <p style="font-size: 0.9rem; color: #888; margin-top: 32px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5;">
@@ -437,23 +442,23 @@
         <div class="grid grid-4 text-left" style="gap: 20px;">
           <div style="background: #1c1c1c; border: 2px solid #333; padding: 18px; box-shadow: 3px 3px 0 var(--accent-cyan);">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">🛡️</div>
-            <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 4px;">100% Brand Safety</strong>
-            <p style="color: #999; font-size: 0.8rem; margin-bottom: 0;">Rigorous creator screening for zero brand risk or bot inflation.</p>
+            <strong class="trust-label">100% Brand Safety</strong>
+            <p class="trust-note">Rigorous creator screening for zero brand risk or bot inflation.</p>
           </div>
           <div style="background: #1c1c1c; border: 2px solid #333; padding: 18px; box-shadow: 3px 3px 0 var(--accent-magenta);">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">📑</div>
-            <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 4px;">Usage & Whitelisting</strong>
-            <p style="color: #999; font-size: 0.8rem; margin-bottom: 0;">Full commercial licensing & ad boosting rights under master contract.</p>
+            <strong class="trust-label">Usage & Whitelisting</strong>
+            <p class="trust-note">Full commercial licensing & ad boosting rights under master contract.</p>
           </div>
           <div style="background: #1c1c1c; border: 2px solid #333; padding: 18px; box-shadow: 3px 3px 0 var(--accent-green);">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">💳</div>
-            <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 4px;">Escrow Protection</strong>
-            <p style="color: #999; font-size: 0.8rem; margin-bottom: 0;">Milestone-gated creator payouts verified upon delivery.</p>
+            <strong class="trust-label">Escrow Protection</strong>
+            <p class="trust-note">Milestone-gated creator payouts verified upon delivery.</p>
           </div>
           <div style="background: #1c1c1c; border: 2px solid #333; padding: 18px; box-shadow: 3px 3px 0 var(--accent-yellow);">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">🇮🇳</div>
-            <strong style="color: #fff; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 4px;">Govt. Verified MSME</strong>
-            <p style="color: #999; font-size: 0.8rem; margin-bottom: 0;">UDYAM-BR-12-0076835 with formal corporate tax invoicing.</p>
+            <strong class="trust-label">Govt. Verified MSME</strong>
+            <p class="trust-note">UDYAM-BR-12-0076835 with formal corporate tax invoicing.</p>
           </div>
         </div>
       </div>
@@ -561,18 +566,18 @@
           <!-- Space Seven Fitness -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; width: 180px;">
             <div style="width: 140px; height: 140px; border-radius: 50%; border: var(--border-thick); overflow: hidden; box-shadow: 6px 6px 0 #000; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <img src="./assets/img/clients/spacesevenfitness.jpg" alt="Space Seven Fitness" style="width: 100%; height: 100%; object-fit: cover;" />
+              <img class="media-cover" loading="lazy" decoding="async" src="./assets/img/clients/spacesevenfitness.jpg" alt="Space Seven Fitness" />
             </div>
             <span style="font-weight: 900; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2; flex-grow: 1; display: flex; align-items: center; justify-content: center;">Space Seven Fitness</span>
-            <a href="./portfolio.html#case-spaceseven" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study →</a>
+            <a href="./portfolio.html#case-spaceseven" class="btn btn-primary btn-block-sm">View Case Study →</a>
           </div>
           <!-- CabBazar -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; width: 180px;">
             <div style="width: 140px; height: 140px; border-radius: 50%; border: var(--border-thick); overflow: hidden; box-shadow: 6px 6px 0 #000; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <img src="./assets/img/clients/cabbazar-logo.png" alt="CabBazar" style="width: 100%; height: 100%; object-fit: cover;" />
+              <img class="media-cover" loading="lazy" decoding="async" src="./assets/img/clients/cabbazar-logo.png" alt="CabBazar" />
             </div>
             <span style="font-weight: 900; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2; flex-grow: 1; display: flex; align-items: center; justify-content: center;">CabBazar</span>
-            <a href="./portfolio.html#case-cabbazar" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View Case Study →</a>
+            <a href="./portfolio.html#case-cabbazar" class="btn btn-primary btn-block-sm">View Case Study →</a>
           </div>
           <!-- Local Businesses -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; width: 180px;">
@@ -580,7 +585,7 @@
               🏪
             </div>
             <span style="font-weight: 900; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2; flex-grow: 1; display: flex; align-items: center; justify-content: center;">10+ Local Outlets</span>
-            <a href="./portfolio.html#case-localbusiness" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">Explore Network →</a>
+            <a href="./portfolio.html#case-localbusiness" class="btn btn-primary btn-block-sm">Explore Network →</a>
           </div>
           <!-- Enterprise NDA -->
           <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; width: 180px;">
@@ -588,7 +593,7 @@
               🔒
             </div>
             <span style="font-weight: 900; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2; flex-grow: 1; display: flex; align-items: center; justify-content: center;">100+ Influencer NDA</span>
-            <a href="./portfolio.html#case-enterprise" class="btn btn-primary" style="font-size: 0.8rem; padding: 10px 20px; width: 100%; text-align: center;">View NDA Scope →</a>
+            <a href="./portfolio.html#case-enterprise" class="btn btn-primary btn-block-sm">View NDA Scope →</a>
           </div>
         </div>
       </div>
@@ -605,7 +610,7 @@
           </p>
         </div>
         
-        <div style="max-width: 650px; margin: 0 auto;">
+        <div class="grid grid-2" style="max-width: 1100px; margin: 0 auto; gap: 32px; align-items: stretch;">
           <!-- Testimonial 1: Space Seven Fitness -->
           <div class="card reveal" style="background: #fff; padding: 40px; border: var(--border-thick); box-shadow: var(--shadow-hard); display: flex; flex-direction: column; justify-content: space-between;">
             <div>
@@ -616,11 +621,29 @@
             </div>
             <div style="display: flex; align-items: center; gap: 16px; border-top: 2px dashed #000; padding-top: 20px;">
               <div style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #000; overflow: hidden; background: #fff; flex-shrink: 0;">
-                <img src="./assets/img/clients/spacesevenfitness.jpg" alt="Space Seven Fitness Manager" style="width: 100%; height: 100%; object-fit: cover;" />
+                <img class="media-cover" loading="lazy" decoding="async" src="./assets/img/clients/spacesevenfitness.jpg" alt="Space Seven Fitness Manager" />
               </div>
               <div>
                 <h4 style="font-size: 1.1rem; text-transform: uppercase; font-weight: 900; margin-bottom: 4px;">Space Seven Fitness</h4>
                 <p style="font-size: 0.9rem; font-weight: 700; color: #555; margin-bottom: 0;">Premium Training Facility, Mohali</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2: CabBazar -->
+          <div class="card reveal" style="background: #fff; padding: 40px; border: var(--border-thick); box-shadow: var(--shadow-hard); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 3rem; color: var(--accent-magenta); margin-bottom: 20px; line-height: 1;">“</div>
+              <p style="font-size: 1.25rem; font-weight: 700; line-height: 1.6; color: #000; margin-bottom: 24px; font-style: italic;">
+                "The best part of working with Reachup wasn't just the results, but how easy they were to talk to."
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px; border-top: 2px dashed #000; padding-top: 20px;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #000; overflow: hidden; background: #fff; flex-shrink: 0;">
+                <img class="media-cover" loading="lazy" decoding="async" src="./assets/img/clients/cabbazar-logo.png" alt="CabBazar" />
+              </div>
+              <div>
+                <h4 style="font-size: 1.1rem; text-transform: uppercase; font-weight: 900; margin-bottom: 4px;">CabBazar</h4>
+                <p style="font-size: 0.9rem; font-weight: 700; color: #555; margin-bottom: 0;">Campaign Lead</p>
               </div>
             </div>
           </div>
@@ -672,9 +695,9 @@
       <div class="container footer-grid">
         <!-- Col 1: Brand -->
         <div class="footer-brand">
-          <div class="brand" style="margin-bottom: 20px">
-            <div class="logo" style="background: var(--accent-cyan)">
-              <img src="./assets/img/brand/Reachup%20Media.png" alt="Reachup Media logo" onerror="this.style.display='none'" />
+          <div class="brand footer-brand-row">
+            <div class="logo footer-logo">
+              <img loading="lazy" decoding="async" src="./assets/img/brand/Reachup%20Media.png" alt="Reachup Media logo" onerror="this.style.display='none'" />
             </div>
             <div class="name">Reachup Media</div>
           </div>
@@ -686,23 +709,23 @@
         <!-- Col 2: Contact -->
         <div class="footer-links">
           <strong>Contact</strong>
-          <div style="display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin-top:4px;">
-            <div style="text-align: left;">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:4px;">Email</div>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <div class="footer-label">Email</div>
               <a href="mailto:letstalk@reachupmedia.in">letstalk@reachupmedia.in</a>
             </div>
-            <div style="text-align: left;">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:4px;">Phone</div>
+            <div class="footer-contact-item">
+              <div class="footer-label">Phone</div>
               <a href="tel:+917973043372">+91 7973043372</a>
             </div>
-            <div style="text-align: left;">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:4px;">Social</div>
+            <div class="footer-contact-item">
+              <div class="footer-label">Social</div>
               <a href="https://instagram.com/reachup__media" target="_blank" rel="noopener">Instagram</a>
-              <span style="color:rgba(255,255,255,0.3); margin:0 6px;">&bull;</span>
+              <span class="footer-sep">&bull;</span>
               <a href="https://www.linkedin.com/company/reachupmedia01/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
-            <div style="text-align: left; margin-top: 12px;">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:4px;">Community</div>
+            <div class="footer-contact-item footer-contact-item--gap">
+              <div class="footer-label">Community</div>
               <a href="https://chat.whatsapp.com/I1wTv7YPitE5eLZ5JGQoKU" target="_blank" rel="noopener">Creators WhatsApp</a>
             </div>
           </div>
@@ -712,15 +735,15 @@
         <div class="footer-cta">
           <div class="footer-cta-box">
             <h3>Ready to feel local across every region?</h3>
-            <p style="text-align: left; margin-bottom: 24px;">Let's craft campaigns that reach hearts, not just screens.</p>
+            <p class="footer-cta-text">Let's craft campaigns that reach hearts, not just screens.</p>
             <a class="btn btn-primary btn-footer" href="https://wa.me/917973043372?text=Hi%20Reachup%20Media%2C%20we%27d%20like%20to%20work%20with%20you" target="_blank" rel="noopener">Hit Us Up on WhatsApp</a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div class="footer-bottom">
         <span>&copy; 2026 Reachup Media. Built for real connection.</span>
-        <div style="display: flex; gap: 20px;">
-          <a href="./privacy.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; font-weight: 700;">Privacy Policy</a>
+        <div class="footer-legal">
+          <a href="./privacy.html">Privacy Policy</a>
         </div>
       </div>
     </footer>
@@ -745,7 +768,6 @@
     </a>
 
     <script src="./assets/js/particles.js"></script>
-    <script src="./assets/js/premium-cursor.js" defer></script>
     <script src="./assets/js/main.js?v=4" defer></script>
     <script src="./assets/js/chatbot.js" defer></script>
     <script defer src="/_vercel/insights/script.js"></script>

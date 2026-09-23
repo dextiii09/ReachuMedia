@@ -21,12 +21,7 @@ export default async function handler(req, res) {
       });
     }
 
-    // Parse the HTML content to find the number of "Live" and "Case Study" badges
-    // Assuming the Live badge is: <span class="badge badge-live">Live</span>
-    const liveMatches = htmlContent.match(/class="[^"]*badge-live[^"]*"\s*>Live<\/span>/gi) || [];
-    const liveCount = liveMatches.length;
-
-    // Assuming Case Study badge is: >Case Study</span> or >Brand Case Study</span>
+    // Count real, published case studies (badge text: "Case Study" or "Brand Case Study")
     const caseStudyMatches = htmlContent.match(/>(?:Brand\s+)?Case\s+Study<\/span>/gi) || [];
     const completedCount = caseStudyMatches.length;
 
@@ -34,9 +29,8 @@ export default async function handler(req, res) {
     res.status(200).json({
       success: true,
       data: {
-        liveCount,
         completedCount,
-        totalCampaigns: liveCount + completedCount
+        totalCampaigns: completedCount
       }
     });
   } catch (error) {

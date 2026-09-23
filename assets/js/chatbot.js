@@ -61,15 +61,54 @@ document.addEventListener('DOMContentLoaded', () => {
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   };
 
+  // Only these tags/attributes are allowed through from either the user or the bot.
+  const ALLOWED_TAGS = new Set(['STRONG', 'B', 'EM', 'I', 'A', 'BR']);
+  const ALLOWED_LINK_SCHEMES = /^(https?:|mailto:|tel:)/i;
+
+  // Strip everything except the small allowlist above (drops <script>, event handlers,
+  // javascript: links, etc.) so neither user input nor an AI reply can inject markup.
+  const sanitizeToFragment = (html) => {
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    const walk = (node) => {
+      [...node.childNodes].forEach((child) => {
+        if (child.nodeType === Node.ELEMENT_NODE) {
+          if (!ALLOWED_TAGS.has(child.tagName)) {
+            // Unwrap disallowed elements, keeping their text content.
+            const text = document.createTextNode(child.textContent);
+            child.replaceWith(text);
+            return;
+          }
+          [...child.attributes].forEach((attr) => {
+            if (attr.name === 'href' && child.tagName === 'A') {
+              if (!ALLOWED_LINK_SCHEMES.test(child.getAttribute('href') || '')) {
+                child.removeAttribute('href');
+              }
+              return;
+            }
+            child.removeAttribute(attr.name);
+          });
+          if (child.tagName === 'A') {
+            child.setAttribute('target', '_blank');
+            child.setAttribute('rel', 'noopener noreferrer');
+          }
+          walk(child);
+        }
+      });
+    };
+    walk(template.content);
+    return template.content;
+  };
+
   // Add Message to UI
   const addMessage = (text, sender) => {
     const msgDiv = document.createElement('div');
     msgDiv.className = sender === 'user' ? 'user-msg' : 'bot-msg';
-    
+
     const bubble = document.createElement('div');
     bubble.className = 'msg-bubble';
-    bubble.innerHTML = text; // allow safe HTML like bolding and links
-    
+    bubble.appendChild(sanitizeToFragment(text));
+
     msgDiv.appendChild(bubble);
     messagesContainer.appendChild(msgDiv);
     scrollToBottom();
@@ -109,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typingEl) typingEl.remove();
 
       if (!response.ok) {
-        addMessage("Oops, my brain is taking a break. 😅 Try emailing suraj@reachupmedia.in instead!", 'bot');
+        addMessage("Oops, my brain is taking a break. 😅 Try emailing letstalk@reachupmedia.in instead!", 'bot');
         console.error("Chat Error:", data);
       } else {
         addMessage(data.reply, 'bot');

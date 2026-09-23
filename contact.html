@@ -449,22 +449,23 @@
           <input type="hidden" name="_subject" value="New Creator Application [Reachup Media]">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="true">
-          
+          <input type="hidden" name="_next" value="https://reachupmedia.in/thanks.html">
+
           <div class="grid grid-2" style="gap: 24px;">
             <div>
-              <label for="c-name" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Your Name *</label>
-              <input type="text" id="c-name" name="name" required placeholder="E.g. Suraj Rajput" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+              <label class="form-label" for="c-name">Your Name *</label>
+              <input class="form-input" type="text" id="c-name" name="name" required placeholder="E.g. Suraj Rajput">
             </div>
             <div>
-              <label for="c-handle" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Instagram/YT Link or Handle *</label>
-              <input type="text" id="c-handle" name="handle" required placeholder="E.g. @suraj_rajput0610" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+              <label class="form-label" for="c-handle">Instagram/YT Link or Handle *</label>
+              <input class="form-input" type="text" id="c-handle" name="handle" required placeholder="E.g. @suraj_rajput0610">
             </div>
           </div>
 
           <div class="grid grid-2" style="gap: 24px;">
             <div>
-              <label for="c-niche" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Primary Niche *</label>
-              <select id="c-niche" name="niche" required style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; background: #fff; color: #000; border-radius: 0;">
+              <label class="form-label" for="c-niche">Primary Niche *</label>
+              <select class="form-input" id="c-niche" name="niche" required>
                 <option value="" disabled selected>Select Niche...</option>
                 <option value="fashion">Fashion & Lifestyle</option>
                 <option value="travel">Travel & Vlogging</option>
@@ -477,15 +478,15 @@
               </select>
             </div>
             <div>
-              <label for="c-lang" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Primary Content Language *</label>
-              <input type="text" id="c-lang" name="language" required placeholder="E.g. Punjabi / Hindi" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+              <label class="form-label" for="c-lang">Primary Content Language *</label>
+              <input class="form-input" type="text" id="c-lang" name="language" required placeholder="E.g. Punjabi / Hindi">
             </div>
           </div>
 
           <div class="grid grid-2" style="gap: 24px;">
             <div>
-              <label for="c-followers" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">Followers/Subscribers *</label>
-              <select id="c-followers" name="followers" required style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; background: #fff; color: #000; border-radius: 0;">
+              <label class="form-label" for="c-followers">Followers/Subscribers *</label>
+              <select class="form-input" id="c-followers" name="followers" required>
                 <option value="" disabled selected>Select Range...</option>
                 <option value="under_10k">Under 10K</option>
                 <option value="10k_50k">10K - 50K</option>
@@ -494,14 +495,14 @@
               </select>
             </div>
             <div>
-              <label for="c-city" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">City / Base State *</label>
-              <input type="text" id="c-city" name="city" required placeholder="E.g. Chandigarh, Punjab" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+              <label class="form-label" for="c-city">City / Base State *</label>
+              <input class="form-input" type="text" id="c-city" name="city" required placeholder="E.g. Chandigarh, Punjab">
             </div>
           </div>
 
           <div>
-            <label for="c-contact" style="font-weight: 800; display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">WhatsApp / Contact Number *</label>
-            <input type="tel" id="c-contact" name="contact" required placeholder="E.g. +91 7973043372" style="width: 100%; padding: 12px; border: var(--border-thick); font-family: inherit; font-weight: 700; border-radius: 0; background: #fff; color: #000;">
+            <label class="form-label" for="c-contact">WhatsApp / Contact Number *</label>
+            <input class="form-input" type="tel" id="c-contact" name="contact" required placeholder="E.g. +91 7973043372">
           </div>
 
           <div style="margin-top: 16px;">
@@ -531,9 +532,9 @@
       <div class="container footer-grid">
         <!-- Col 1: Brand -->
         <div class="footer-brand">
-          <div class="brand" style="margin-bottom: 20px">
-            <div class="logo" style="background: var(--accent-cyan)">
-              <img src="./assets/img/brand/Reachup%20Media.png" alt="Reachup Media logo" onerror="this.style.display='none'" />
+          <div class="brand footer-brand-row">
+            <div class="logo footer-logo">
+              <img loading="lazy" decoding="async" src="./assets/img/brand/Reachup%20Media.png" alt="Reachup Media logo" onerror="this.style.display='none'" />
             </div>
             <div class="name">Reachup Media</div>
           </div>
@@ -545,23 +546,23 @@
         <!-- Col 2: Contact -->
         <div class="footer-links">
           <strong>Contact</strong>
-          <div style="display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin-top:4px;">
-            <div style="text-align: left;">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:4px;">Email</div>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <div class="footer-label">Email</div>
               <a href="mailto:letstalk@reachupmedia.in">letstalk@reachupmedia.in</a>
             </div>
-            <div style="text-align: left;">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:4px;">Phone</div>
+            <div class="footer-contact-item">
+              <div class="footer-label">Phone</div>
               <a href="tel:+917973043372">+91 7973043372</a>
             </div>
-            <div style="text-align: left;">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:4px;">Social</div>
+            <div class="footer-contact-item">
+              <div class="footer-label">Social</div>
               <a href="https://instagram.com/reachup__media" target="_blank" rel="noopener">Instagram</a>
-              <span style="color:rgba(255,255,255,0.3); margin:0 6px;">&bull;</span>
+              <span class="footer-sep">&bull;</span>
               <a href="https://www.linkedin.com/company/reachupmedia01/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
-            <div style="text-align: left; margin-top: 12px;">
-              <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:4px;">Community</div>
+            <div class="footer-contact-item footer-contact-item--gap">
+              <div class="footer-label">Community</div>
               <a href="https://chat.whatsapp.com/I1wTv7YPitE5eLZ5JGQoKU" target="_blank" rel="noopener">Creators WhatsApp</a>
             </div>
           </div>
@@ -571,21 +572,20 @@
         <div class="footer-cta">
           <div class="footer-cta-box">
             <h3>Ready to feel local across every region?</h3>
-            <p style="text-align: left; margin-bottom: 24px;">Let's craft campaigns that reach hearts, not just screens.</p>
+            <p class="footer-cta-text">Let's craft campaigns that reach hearts, not just screens.</p>
             <a class="btn btn-primary btn-footer" href="https://wa.me/917973043372?text=Hi%20Reachup%20Media%2C%20we%27d%20like%20to%20work%20with%20you" target="_blank" rel="noopener">Hit Us Up on WhatsApp</a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div class="footer-bottom">
         <span>&copy; 2026 Reachup Media. Built for real connection.</span>
-        <div style="display: flex; gap: 20px;">
-          <a href="./privacy.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; font-weight: 700;">Privacy Policy</a>
+        <div class="footer-legal">
+          <a href="./privacy.html">Privacy Policy</a>
         </div>
       </div>
     </footer>
 
   <script src="./assets/js/particles.js"></script>
-  <script src="./assets/js/premium-cursor.js" defer></script>
   <script src="./assets/js/main.js?v=4" defer></script>
   <script src="./assets/js/chatbot.js" defer></script><script defer src="/_vercel/insights/script.js"></script></body>
 

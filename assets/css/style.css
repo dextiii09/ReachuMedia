@@ -979,15 +979,205 @@ body.no-scroll {
   padding: 20px 0 0;
   border-top: 2px solid rgba(255, 255, 255, 0.12);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
   color: rgba(255, 255, 255, 0.55);
   font-size: 0.85rem;
   text-align: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* ─── Footer content ─── */
+.footer-brand-row {
+  margin-bottom: 20px;
+}
+
+/* Specificity must beat `.brand .logo`, which sets the magenta header colour. */
+.brand .logo.footer-logo {
+  background: var(--accent-cyan);
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.footer-contact-item {
+  text-align: left;
+}
+
+.footer-contact-item--gap {
+  margin-top: 12px;
+}
+
+.footer-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 4px;
+}
+
+.footer-sep {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 6px;
+}
+
+.footer-cta-text {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ─── Component patterns (extracted from repeated inline styles) ─── */
+
+/* Dark metric row used in the case-study impact panels */
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #222;
+  border: 1px solid #333;
+  padding: 16px;
+}
+
+.stat-caption {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+/* Forms */
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: var(--border-thick);
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+/* Case studies */
+.case-head-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+/* Specificity must beat `.section h2`, which sets the large section heading size. */
+.section h2.case-title {
+  font-size: clamp(1.25rem, 5vw, 3.5rem);
+  margin-bottom: 0;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Specificity must beat `.card p`, which sets font-weight 600. */
+.card p.case-kicker {
+  color: var(--accent-magenta);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.case-cta-title {
+  color: #000;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  line-height: 1.2;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+/* Impact counters + trust ribbon */
+.stat-label {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.trust-label {
+  display: block;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.trust-note {
+  color: #999;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+/* Services */
+.svc-title {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.svc-note {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.step-ghost-num {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  z-index: 0;
+  opacity: 0.08;
+  color: #000;
+  font-family: 'Lexend Zetta', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+}
+
+/* Utilities */
+.media-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-block-sm {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 /* Lists and KPIs */
@@ -2997,6 +3187,24 @@ details.neo-accordion[open] .accordion-content {
 
 .audio-marquee {
   width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.audio-marquee-track {
+  display: inline-flex;
+  gap: 24px;
+  animation: audio-marquee-scroll 9s linear infinite;
+  will-change: transform;
+}
+
+@keyframes audio-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - 12px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audio-marquee-track { animation: none; }
 }
 
 /* Mobile Responsive Adjustments */

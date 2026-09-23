@@ -226,7 +226,7 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
         const message = qs('[name="message"]', form)?.value ?? '';
         const subject = encodeURIComponent(`New enquiry from ${name}`);
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-        const recipients = 'suraj@reachupmedia.in,letstalk@reachupmedia.in';
+        const recipients = 'letstalk@reachupmedia.in';
         const mail = `mailto:${recipients}?subject=${subject}&body=${body}`;
         window.location.href = mail;
       }
@@ -381,12 +381,12 @@ window.addEventListener('DOMContentLoaded', setupPDFViewer);
       if (!res.ok) return;
       const json = await res.json();
       if (json.success && json.data) {
-        const liveCount = json.data.liveCount;
-        
+        const campaignCount = json.data.totalCampaigns;
+
         // Update floating button
         const liveBtnText = document.querySelector('#live-campaign-btn .hover-text');
-        if (liveBtnText) {
-          liveBtnText.textContent = `${liveCount} Brand Campaign${liveCount === 1 ? '' : 's'}`;
+        if (liveBtnText && campaignCount) {
+          liveBtnText.textContent = `${campaignCount} Brand Campaign${campaignCount === 1 ? '' : 's'}`;
         }
       }
     } catch (err) {
