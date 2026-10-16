@@ -4,7 +4,11 @@ The redesign uses a same-origin `/api/enquiry` Vercel Node function and Zoho SMT
 
 ## Deployment
 
-Keep this redesign separate from the existing website. Deploy this directory as a Vercel project root, or copy its reviewed contents into a separate GitHub branch before switching the production deployment. `vercel.json` builds the static pages into `dist/`; the root `api/enquiry.mjs` is deployed as a Node function. Do not use `dist/` as the Vercel project root, because that excludes the backend.
+This branch keeps the redesign in its separate folder and keeps the existing Vercel Root Directory at `./`. The repository-root `vercel.json` builds `reachup-audience-first/dist`, while the repository-root `api/enquiry.mjs` exposes the Zoho function. The existing top-level HTML files remain in Git. Deploy this branch as a Preview before merging it: merging the root deployment configuration into the production branch will switch the live site to the redesign.
+
+For a standalone Vercel project rooted directly at `reachup-audience-first`, the nested `vercel.json` and package manifest provide the equivalent configuration. Do not set the project root to `dist/`, because that excludes the backend.
+
+For preview testing, scope the `CONTACT_SMTP_*` variables to Preview for `codex/direct-zoho-enquiries` in addition to the Production values already entered. A Preview build does not inherit Production-only variables. Never expose the password in Git or chat. Redeploy that preview after changing its environment variables.
 
 The existing ChatGPT Sites publication is static and cannot execute this Node/SMTP function. The UI deliberately shows the email/WhatsApp alternatives when its own `/api/enquiry` service is unavailable. A successful UI preview is not confirmation of live email delivery.
 

@@ -1,0 +1,9 @@
+{
+  "name": "reachup-media-website",
+  "private": true,
+  "scripts": {
+    "build": "node reachup-audience-first/src/render.mjs",
+    "test": "node --test reachup-audience-first/tests/enquiry.test.mjs"
+  },
+  "dependencies": { "nodemailer": "10.1.1" }
+}
