@@ -133,7 +133,7 @@
     const intro = document.querySelector('.page-intro');
     if (intro) [...intro.children].forEach((element, index) => reveal(element, index * 60, 16));
     if (!('IntersectionObserver' in window)) return;
-    const targets = document.querySelectorAll('.section-heading, .process-step, .project-card, .comparison-copy, .comparison-lab, .service-row, .concept-card, .about-preview-inner, .cta-inner, .principle-grid > article, .service-detail, .faq-list > details, .about-image, .about-story-copy, .case-title-row, .case-cover, .case-overview > *, .case-details > article, .content-links > a, .reel-card, .related-work, .contact-layout > aside, #campaign-form, .prose > h2, .prose > p');
+    const targets = document.querySelectorAll('.team-card, .testimonial-card, .section-heading, .process-step, .project-card, .comparison-copy, .comparison-lab, .service-row, .concept-card, .about-preview-inner, .cta-inner, .principle-grid > article, .service-detail, .faq-list > details, .about-image, .about-story-copy, .case-title-row, .case-cover, .case-overview > *, .case-details > article, .content-links > a, .reel-card, .related-work, .contact-layout > aside, #campaign-form, .prose > h2, .prose > p');
     observer = new IntersectionObserver(entries => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;

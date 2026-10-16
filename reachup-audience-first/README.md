@@ -11,7 +11,9 @@ Static page previews require no package installation. The Vercel email function 
 ## Content and claims
 
 - CabBazar and Space Seven Fitness are the only real clients shown, as confirmed in the supplied brief.
-- Their dedicated pages intentionally leave campaign objective, role/strategy and verified results for completion. No metrics or testimonials have been invented.
+- Both campaigns are completed. CabBazar: 607,000+ total video views and 30 creators; Space Seven Fitness: 350,000+ total video views and 8 creators. Counts, regions, campaign roles and selection strategy were supplied by Reachup Media in this chat; views are explicitly distinguished from unique reach.
+- Client feedback is quoted from the original website. Attribution was confirmed as Nandani, Marketing Head at CabBazar, and Manik, Manager at Space Seven Fitness. The Space Seven card uses the first sentence of the original quote.
+- The About page uses the original team photos and Instagram links with the confirmed titles: Suraj, Founder; Dhruv, Co-founder; Rishi, Chief Financial Officer. Reachup Media is based in Mohali and handles campaigns across India.
 - CabBazar includes the six supplied creator-content cards with Instagram embeds loaded only after a visitor clicks “Load Reel preview”. The direct Instagram link always remains available. No Instagram iframe or embed script is loaded before that choice.
 - Selected Instagram links are sourced from the original website's `assets/js/gallery-links.js`. Link availability belongs to Instagram and the content owner.
 - Independent concepts are labelled separately throughout the site. They are proposed ideas, not completed client campaigns.
@@ -21,7 +23,7 @@ Static page previews require no package installation. The Vercel email function 
 
 ## Enquiry functionality
 
-The campaign form submits on the same page to a Vercel Node function using Zoho SMTP, with email and WhatsApp alternatives. Direct delivery requires Vercel environment configuration; see `VERCEL-EMAIL-SETUP.md`. Local tests use a fake mail transport. The form displays success only after SMTP accepts the business inbox recipient. No website database stores submissions.
+The campaign form submits on the same page to a Vercel Node function using Zoho SMTP, with email and WhatsApp alternatives. Configuration is described in `VERCEL-EMAIL-SETUP.md`. The user confirmed that a test enquiry from the Vercel preview arrived in the Zoho inbox on 16 October 2026. Local tests use a fake mail transport. The form displays success only after SMTP accepts the business inbox recipient. No website database stores submissions.
 
 ## Hosting
 

@@ -68,5 +68,19 @@
       "license": "LICENSE-Manrope.txt",
       "source": "Existing local asset from reachpmedia websie by suraj/public/assets/fonts/"
     }
+  ],
+  "team_assets": [
+    {
+      "file": "people/suraj.jpg",
+      "source": "Original website assets/img/team/suraj.jpg; reused with owner authorization"
+    },
+    {
+      "file": "people/dhruv.jpg",
+      "source": "Original website assets/img/team/dhruv.jpg; reused with owner authorization"
+    },
+    {
+      "file": "people/rishi.jpg",
+      "source": "Original website assets/img/team/rishi.jpg; reused with owner authorization"
+    }
   ]
 }
