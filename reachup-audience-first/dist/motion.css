@@ -1,5 +1,20 @@
 /* Motion supports the existing layout; no content depends on it to be visible. */
 :root{--motion-ease:cubic-bezier(.22,1,.36,1)}
+/* Individual translate leaves the photo rotations and intro reveal intact. */
+.hero-art{--art-pointer-x:0px;--art-pointer-y:0px;--art-drift:1}
+.hero-art .creator-main{--art-depth:.65;--art-float-x:3px;--art-float-y:-10px;--art-duration:8s}
+.hero-art .creator-secondary{--art-depth:-.45;--art-float-x:-4px;--art-float-y:8px;--art-duration:9.5s}
+.hero-art .fit-badge{--art-depth:1;--art-float-x:2px;--art-float-y:-6px;--art-duration:7s}
+.hero-art .art-stamp{--art-depth:1.15;--art-float-x:-2px;--art-float-y:6px;--art-duration:8.5s}
+html[data-motion=on] .hero-art :is(.creator-photo,.fit-badge,.art-stamp){animation:collage-float var(--art-duration) ease-in-out infinite;animation-play-state:paused}
+html[data-motion=on] .hero-art.art-motion-active :is(.creator-photo,.fit-badge,.art-stamp){animation-play-state:running}
+@keyframes collage-float{
+  0%,100%{translate:calc(var(--art-pointer-x) * var(--art-depth)) calc(var(--art-pointer-y) * var(--art-depth))}
+  50%{translate:calc(var(--art-pointer-x) * var(--art-depth) + var(--art-float-x) * var(--art-drift)) calc(var(--art-pointer-y) * var(--art-depth) + var(--art-float-y) * var(--art-drift))}
+}
+@media(max-width:800px){.hero-art{--art-drift:.5}}
+html[data-motion=off] .hero-art :is(.creator-photo,.fit-badge,.art-stamp){translate:none!important}
+@media(prefers-reduced-motion:reduce){.hero-art :is(.creator-photo,.fit-badge,.art-stamp){animation:none!important;translate:none!important}}
 html{scrollbar-gutter:stable}
 html.has-modal{overflow:hidden}
 .site-header{position:sticky;top:0;transition:background .3s ease,box-shadow .3s ease;border-bottom-color:#dbded5b3}

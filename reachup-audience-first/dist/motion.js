@@ -188,12 +188,64 @@
     });
   }
 
+  // Move collage layers without replacing their original tilted transforms.
+  const art = document.querySelector('.hero-art');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  let artVisible = !('IntersectionObserver' in window);
+  let artFrame = 0;
+  let artX = 0, artY = 0, targetX = 0, targetY = 0;
+  function resetArtPointer() {
+    cancelAnimationFrame(artFrame);
+    artFrame = 0;
+    artX = artY = targetX = targetY = 0;
+    art?.style.removeProperty('--art-pointer-x');
+    art?.style.removeProperty('--art-pointer-y');
+  }
+  function syncArtMotion() {
+    if (!art) return;
+    const active = artVisible && !document.hidden && !isReduced();
+    art.classList.toggle('art-motion-active', active);
+    if (!active || !finePointer.matches) resetArtPointer();
+  }
+  function moveArtPointer() {
+    if (!art || isReduced() || !artVisible || document.hidden) { resetArtPointer(); return; }
+    artX += (targetX - artX) * .1;
+    artY += (targetY - artY) * .1;
+    art.style.setProperty('--art-pointer-x', `${artX.toFixed(2)}px`);
+    art.style.setProperty('--art-pointer-y', `${artY.toFixed(2)}px`);
+    if (Math.abs(targetX - artX) + Math.abs(targetY - artY) > .05) artFrame = requestAnimationFrame(moveArtPointer);
+    else artFrame = 0;
+  }
+  if (art) {
+    if ('IntersectionObserver' in window) {
+      const artObserver = new IntersectionObserver(entries => {
+        artVisible = entries[0].isIntersecting;
+        syncArtMotion();
+      }, { threshold: .05 });
+      artObserver.observe(art);
+    }
+    art.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse' || !finePointer.matches || isReduced() || !artVisible) return;
+      const bounds = art.getBoundingClientRect();
+      targetX = Math.max(-1, Math.min(1, (event.clientX - bounds.left) / bounds.width * 2 - 1)) * 7;
+      targetY = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1)) * 7;
+      if (!artFrame) artFrame = requestAnimationFrame(moveArtPointer);
+    }, { passive: true });
+    art.addEventListener('pointerleave', () => {
+      targetX = targetY = 0;
+      if (!artFrame && !isReduced()) artFrame = requestAnimationFrame(moveArtPointer);
+    });
+    document.addEventListener('visibilitychange', syncArtMotion);
+    finePointer.addEventListener('change', syncArtMotion);
+  }
+
   const header = document.querySelector('.site-header');
   function updatePreference() {
     const reduced = isReduced();
     document.documentElement.dataset.motion = reduced ? 'off' : 'on';
     if (reduced) stopMotion();
     else { startReveals(); if (location.hash) settleHash(); }
+    syncArtMotion();
   }
   preference.addEventListener('change', updatePreference);
   updatePreference();
