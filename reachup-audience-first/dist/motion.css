@@ -1,0 +1,75 @@
+/* Motion supports the existing layout; no content depends on it to be visible. */
+:root{--motion-ease:cubic-bezier(.22,1,.36,1)}
+html{scrollbar-gutter:stable}
+html.has-modal{overflow:hidden}
+.site-header{position:sticky;top:0;transition:background .3s ease,box-shadow .3s ease;border-bottom-color:#dbded5b3}
+.site-header.is-scrolled{background:#f7f7eff2;backdrop-filter:blur(14px);box-shadow:0 5px 24px #14272f08}
+.reading-progress{position:absolute;bottom:-1px;left:0;right:0;height:2px;background:#9db75d;transform:scaleX(0);transform-origin:left;pointer-events:none}
+.button{transition:background .25s ease,color .25s ease,transform .3s var(--motion-ease),box-shadow .3s ease;border-radius:5px}
+.button .icon,.text-link .icon,.service-row>.icon,.project-info>.icon,.concept-info h3>.icon,.footer-email>.icon,.contact-method>.icon:last-child{transition:transform .35s var(--motion-ease)}
+.button:active{transform:translateY(0) scale(.98);box-shadow:none}
+.text-link:hover{gap:17px}
+.service-row{transition:background .3s ease}
+.service-row:hover{padding-inline:6px}
+.project-visual>img:first-child,.concept-visual>img{transition:transform .8s var(--motion-ease),filter .5s ease}
+.project-open{transition:background .25s ease,transform .4s var(--motion-ease)}
+.project-open>.icon{transition:transform .35s var(--motion-ease)}
+.process-step .step-icon{transition:background .3s ease,transform .4s var(--motion-ease)}
+.process-step .step-icon>.icon{transition:transform .4s var(--motion-ease)}
+.lab-tabs>button,.work-filters>button{transition:background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .25s var(--motion-ease)}
+.lab-tabs>button:active,.work-filters>button:active{transform:scale(.96)}
+.fit-track>i{transition:width .65s var(--motion-ease)}
+.site-header nav>a:not(.button){position:relative}
+.site-header nav>a:not(.button)::after{content:"";position:absolute;bottom:-7px;left:0;right:0;height:1px;background:#799543;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--motion-ease)}
+.site-header nav>a[aria-current]::after{transform:scaleX(1)}
+.menu-toggle>span{transition:transform .25s var(--motion-ease),opacity .2s ease}
+.menu-toggle[aria-expanded=true]>span:first-child{transform:translateY(3.75px) rotate(45deg)}
+.menu-toggle[aria-expanded=true]>span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+.form-grid input,.form-grid select,.form-grid textarea{transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{border-color:#879f5f;background:#fff;box-shadow:0 0 0 3px #d4f47835}
+.form-grid label{transition:color .2s ease}.form-grid label:focus-within{color:#577338}
+.dialog-close{transition:background .2s ease,transform .25s var(--motion-ease)}
+.dialog-close:active{transform:scale(.9)}
+dialog.is-opening::backdrop{animation:backdrop-enter .3s ease both}
+dialog.is-closing::backdrop{animation:backdrop-exit .17s ease both}
+@keyframes backdrop-enter{from{background:#10212600;backdrop-filter:blur(0)}to{background:#102126bf;backdrop-filter:blur(5px)}}
+@keyframes backdrop-exit{from{background:#102126bf;backdrop-filter:blur(5px)}to{background:#10212600;backdrop-filter:blur(0)}}
+.project-card:focus-visible .project-open{background:var(--lime)}
+.button:focus-visible .icon,.text-link:focus-visible .icon,.service-row:focus-visible>.icon,.concept-card:focus-visible h3>.icon{transform:translate(2px,-2px)}
+@media(hover:hover) and (pointer:fine){
+  .button:hover{transform:translateY(-3px);box-shadow:0 8px 20px #14272f12}
+  .button:hover .icon,.text-link:hover .icon,.service-row:hover>.icon,.concept-card:hover h3>.icon,.footer-email:hover>.icon,.contact-method:hover>.icon:last-child{transform:translate(2px,-2px)}
+  .project-card:hover .project-open{background:var(--lime);transform:rotate(-4deg)}
+  .project-card:hover .project-open>.icon{transform:translate(1px,-1px)}
+  .project-card:hover .project-info>.icon{transform:translateX(4px)}
+  .project-card:hover .project-visual>img:first-child,.concept-card:hover .concept-visual>img{transform:scale(1.055)}
+  .process-step:hover .step-icon{background:#dcebbd;transform:translateY(-3px)}
+  .process-step:hover .step-icon>.icon{transform:rotate(-6deg)}
+  .site-header nav>a:not(.button):hover::after{transform:scaleX(1)}
+  .lab-tabs>button:not(.active):hover,.work-filters>button:not(.active):hover{box-shadow:0 0 0 1px #9eb67b55}
+}
+@media(max-width:800px){
+  .js #main-nav{display:flex;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-9px);transition:opacity .22s ease,transform .3s var(--motion-ease),visibility 0s .3s}
+  .js #main-nav.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition-delay:0s}
+  .site-header nav>a:not(.button)::after{bottom:7px;right:auto;width:24px}
+}
+@media(hover:none){
+  .button:hover{transform:none;box-shadow:none}
+  .button:active{transform:scale(.98)}
+  .project-card:hover .project-visual>img:first-child,.concept-card:hover .concept-visual>img{transform:none}
+}
+.site-header nav{margin-left:auto}
+html[data-motion=on]{scroll-behavior:smooth}
+html[data-motion=off]{scroll-behavior:auto}
+html[data-motion=off] *,html[data-motion=off] *::before,html[data-motion=off] *::after{animation:none!important;transition:none!important}
+html[data-motion=off] :is(.button:hover,.button:active,.button .icon,.text-link .icon,.project-open,.project-open>.icon,.project-info>.icon,.concept-info h3>.icon,.service-row>.icon,.process-step .step-icon,.process-step .step-icon>.icon,.project-visual>img:first-child,.concept-visual>img){transform:none!important}
+html.js[data-motion=off] #main-nav{transform:none}
+html[data-motion=off] .reading-progress{display:none}
+@media(max-width:800px){.site-header nav{margin-left:0}}
+@media(prefers-reduced-motion:reduce){
+  html:not([data-motion=on]){scroll-behavior:auto}
+  html:not([data-motion=on]) *,html:not([data-motion=on]) *::before,html:not([data-motion=on]) *::after{animation:none!important;transition:none!important}
+  html:not([data-motion=on]) :is(.button:hover,.button:active,.button .icon,.text-link .icon,.project-open,.project-open>.icon,.project-info>.icon,.concept-info h3>.icon,.service-row>.icon,.process-step .step-icon,.process-step .step-icon>.icon,.project-visual>img:first-child,.concept-visual>img){transform:none!important}
+  html.js:not([data-motion=on]) #main-nav{transform:none}
+  html:not([data-motion=on]) .reading-progress{display:none}
+}

@@ -1,0 +1,11 @@
+.sites-runtime/
+.sites-checkout/
+.sites-checkout-*/
+node_modules/
+*.tar.gz
+*.tgz
+qa/
+.env
+.env.*
+!.env.example
+.vercel/
