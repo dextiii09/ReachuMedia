@@ -27,4 +27,8 @@ The campaign form submits on the same page to a Vercel Node function using Zoho 
 
 ## Hosting
 
-Sites hosts `dist/`, as configured in `.openai/hosting.json`. The new Sites project is separate from reachupmedia.in and starts private. Source repository credentials must never be saved into this folder.
+The main website runs on Vercel. Keep the repository Root Directory at `./`; the root configuration builds this folder and serves `reachup-audience-first/dist`. The earlier Sites prototype remains separate.
+
+The build generates eight public pages, a branded `404.html`, `robots.txt` and an eight-page sitemap. Canonical URLs use `https://www.reachupmedia.in`, matching the production domain redirect. Legacy portfolio URLs redirect to `/work`; legacy thank-you URLs redirect to `/contact`, where enquiries now confirm delivery inline.
+
+The old chatbot endpoint returns HTTP 410 and does not call Gemini. Its original source is retained at the repository's `legacy-api/chat.js`. The campaign enquiry endpoint remains active. Enquiry rate limits are per instance; configure Vercel firewall limits as described in `VERCEL-EMAIL-SETUP.md` for broader abuse protection.

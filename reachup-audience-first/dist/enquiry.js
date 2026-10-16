@@ -8,6 +8,7 @@
   const whatsapp = document.querySelector('#campaign-whatsapp');
   let sending = false;
   let available = false;
+  let checking = false;
   fields.disabled = false;
   const originalLabel = button.innerHTML;
   function details() { return Object.fromEntries(new FormData(form)); }
@@ -19,14 +20,35 @@
   form.addEventListener('input', updateWhatsapp);
   form.addEventListener('change', updateWhatsapp);
   updateWhatsapp();
-  fetch('/api/enquiry', { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(10000) })
-    .then(response => response.ok ? response.json() : null)
-    .then(result => {
+  async function checkAvailability() {
+    if (checking || sending) return;
+    checking = true;
+    button.type = 'button';
+    button.disabled = true;
+    button.textContent = 'Checking connection…';
+    status.textContent = 'Checking enquiry connection…';
+    try {
+      const response = await fetch('/api/enquiry', { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(10000) });
+      const result = response.ok ? await response.json() : null;
       available = result?.available === true;
-      button.disabled = !available;
+    } catch {
+      available = false;
+    } finally {
+      checking = false;
+      button.type = available ? 'submit' : 'button';
+      button.disabled = false;
+      if (available) button.innerHTML = originalLabel;
+      else button.textContent = 'Retry connection';
       status.textContent = available ? '' : 'Online enquiries are unavailable right now. Please email or WhatsApp us.';
-    })
-    .catch(() => { status.textContent = 'Online enquiries are unavailable right now. Please email or WhatsApp us.'; });
+    }
+  }
+  button.addEventListener('click', event => {
+    if (!available) {
+      event.preventDefault();
+      checkAvailability();
+    }
+  });
+  checkAvailability();
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (sending || !available || !form.reportValidity()) return;
