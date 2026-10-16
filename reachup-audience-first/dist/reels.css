@@ -1,0 +1,184 @@
+/* CabBazar creator content: previews connect to Instagram only on request. */
+.reel-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.reel-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line, #dbded5);
+  border-radius: 10px;
+  background: var(--paper, #f7f7ef);
+  box-shadow: 0 4px 20px #14272f05;
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.reel-preview {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 12%, #d4f47810, transparent 55%),
+    linear-gradient(#edf0e607 1px, transparent 1px),
+    linear-gradient(90deg, #edf0e607 1px, transparent 1px),
+    var(--navy, #14272f);
+  background-size: auto, 34px 34px, 34px 34px, auto;
+  color: var(--paper, #f7f7ef);
+}
+
+.reel-preview::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 68%;
+  aspect-ratio: 1;
+  border: 1px solid #d4f47817;
+  border-radius: 50%;
+  box-shadow: 0 0 0 30px #d4f47803, 0 0 0 60px #d4f47802;
+  pointer-events: none;
+}
+
+.reel-number,
+.reel-source-label {
+  position: absolute;
+  left: 22px;
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.5;
+  letter-spacing: .13em;
+  color: #c6d1c5;
+  pointer-events: none;
+}
+
+.reel-number { top: 21px; }
+.reel-source-label { bottom: 21px; font-size: 9px; }
+
+.reel-load {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 180px;
+  min-height: 130px;
+  max-width: calc(100% - 44px);
+  padding: 20px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #e6ecd8;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.reel-play {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #9eb584;
+  border-radius: 50%;
+  background: #d4f47808;
+  color: var(--lime, #d4f478);
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.reel-play svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 3px;
+}
+
+.reel-load:focus-visible {
+  outline: 2px solid var(--lime, #d4f478);
+  outline-offset: 5px;
+}
+
+.reel-load:active .reel-play { transform: scale(.96); }
+.reel-load:disabled { cursor: progress; opacity: .75; }
+
+.reel-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.reel-card-info { padding: 22px 22px 18px; }
+
+.reel-card-info h3 {
+  margin: 0 0 11px;
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  letter-spacing: -.025em;
+}
+
+.reel-card-info .text-link {
+  min-height: 44px;
+  font-size: 12px;
+  color: #506a36;
+  border-color: #bdc5af;
+  padding-bottom: 3px;
+}
+
+.reel-card-info .text-link svg { width: 17px; height: 17px; }
+
+.reel-feedback {
+  padding: 12px 22px;
+  border-bottom: 1px solid var(--line, #dbded5);
+  color: var(--muted, #67736f);
+  background: #edf0e6;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.reel-feedback:empty { display: none; }
+.reel-feedback a { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .reel-card:hover {
+    border-color: #b7c5a8;
+    box-shadow: 0 10px 30px #14272f0a;
+  }
+  .reel-load:hover .reel-play {
+    background: var(--lime, #d4f478);
+    color: var(--navy, #14272f);
+    transform: scale(1.06);
+  }
+}
+
+@media (max-width: 900px) {
+  .reel-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .reel-card-info { padding: 20px 18px 16px; }
+  .reel-card-info h3 { font-size: 16px; }
+}
+
+@media (max-width: 560px) {
+  .reel-gallery { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .reel-card-info { padding: 20px 21px 16px; }
+  .reel-card-info h3 { font-size: 18px; }
+  .reel-card-info .text-link { font-size: 13px; }
+  .reel-load { font-size: 13px; }
+}
+
+html[data-motion="off"] .reel-card,
+html[data-motion="off"] .reel-play { transition: none; }
+html[data-motion="off"] .reel-play { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="on"]) .reel-card,
+  html:not([data-motion="on"]) .reel-play { transition: none; }
+  html:not([data-motion="on"]) .reel-play { transform: none; }
+}

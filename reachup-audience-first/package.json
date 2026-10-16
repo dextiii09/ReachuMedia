@@ -1,0 +1,12 @@
+{
+  "name": "reachup-audience-first",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node src/render.mjs",
+    "test": "node --test tests/enquiry.test.mjs"
+  },
+  "dependencies": {
+    "nodemailer": "10.1.1"
+  }
+}

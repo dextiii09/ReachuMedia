@@ -1,0 +1,38 @@
+[
+  {
+    "id": "journey",
+    "number": "01",
+    "title": "The 75-Day Journey",
+    "type": "SKINCARE · STORYTELLING",
+    "image": "skincare.jpg",
+    "text": "A skincare story told over time, with honest routines and a creator’s lived experience at the centre.",
+    "audience": "People interested in consistent skincare routines and thoughtful product discovery.",
+    "strategy": "Match creators by skincare interests, audience demographics and the quality of their product conversations. Build a phased diary of routine, texture, application and reflections.",
+    "creative": "A three-part storytelling arc: the starting routine, the everyday ritual and a considered retrospective. Avoid promised transformations or unsupported product claims.",
+    "measure": "Proposed measures: watch time, saves, relevant questions and audience response. No campaign has been executed and no results are claimed."
+  },
+  {
+    "id": "climates",
+    "number": "02",
+    "title": "Across Indian Climates",
+    "type": "SUNSCREEN · LOCAL RELEVANCE",
+    "image": "travel.jpg",
+    "text": "One daily habit. Different cities, climates and routines. Sunscreen storytelling shaped by real-life context.",
+    "audience": "Skincare-aware consumers in the specific regions a brand wants to serve.",
+    "strategy": "Shortlist creators whose audience is concentrated in the target locations. Explore everyday routines in humid, dry and urban environments without making unverified efficacy claims.",
+    "creative": "A city-by-city series connecting sunscreen use with commutes, outdoor plans and everyday routines. Creators explain product use with brand-approved information.",
+    "measure": "Proposed measures: geographic audience relevance, completion rate, saves and product questions. An independent creative proposal; not commissioned client work."
+  },
+  {
+    "id": "audience",
+    "number": "03",
+    "title": "Audience Over Followers",
+    "type": "CREATOR STRATEGY · AUDIENCE FIT",
+    "image": "creator.jpg",
+    "text": "A creator selection framework that puts potential customers ahead of headline follower counts.",
+    "audience": "A brand’s defined customer segment, rather than a broad follower demographic.",
+    "strategy": "Compare audience age, gender, location and interests alongside average views, engagement quality, authenticity and brand compatibility.",
+    "creative": "Build a creator shortlist around distinct customer needs. Give each creator a relevant angle and a clear role in the campaign.",
+    "measure": "Proposed measures: verified audience alignment, meaningful engagement and objective-specific campaign data. This is an independent strategy concept, with no completed campaign results."
+  }
+]

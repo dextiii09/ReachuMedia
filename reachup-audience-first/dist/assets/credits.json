@@ -1,0 +1,72 @@
+{
+  "photos": [
+    {
+      "file": "team.jpg",
+      "description": "Collaborative creative team",
+      "source_url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=84",
+      "provider": "Unsplash",
+      "usage": "Illustrative editorial stock photography; not actual client campaign output",
+      "width": 1200,
+      "height": 800,
+      "bytes": 158906
+    },
+    {
+      "file": "creator.jpg",
+      "description": "Illustrative creator portrait",
+      "source_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=84",
+      "provider": "Unsplash",
+      "usage": "Illustrative editorial stock photography; not actual client campaign output",
+      "width": 800,
+      "height": 1200,
+      "bytes": 68033
+    },
+    {
+      "file": "travel.jpg",
+      "description": "Road travel scenery",
+      "source_url": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=84",
+      "provider": "Unsplash",
+      "usage": "Illustrative editorial stock photography; not actual client campaign output",
+      "width": 1200,
+      "height": 848,
+      "bytes": 292444
+    },
+    {
+      "file": "fitness.jpg",
+      "description": "Gym training",
+      "source_url": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1000&q=84",
+      "provider": "Unsplash",
+      "usage": "Illustrative editorial stock photography; not actual client campaign output",
+      "width": 1000,
+      "height": 667,
+      "bytes": 174245
+    },
+    {
+      "file": "skincare.jpg",
+      "description": "Illustrative skincare moisturizer product",
+      "source_url": "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=1200&q=84",
+      "provider": "Unsplash",
+      "usage": "Illustrative editorial stock photography; not actual client campaign output",
+      "width": 800,
+      "height": 1200,
+      "bytes": 45985
+    }
+  ],
+  "client_assets": [
+    {
+      "file": "cabbazar-logo.png",
+      "source": "Existing verified local client logo: assets/img/clients/cabbazar-logo.png"
+    },
+    {
+      "file": "spacesevenfitness.jpg",
+      "source": "Existing verified local client logo: assets/img/clients/spacesevenfitness.jpg"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Manrope",
+      "file": "manrope-latin.woff2",
+      "license": "LICENSE-Manrope.txt",
+      "source": "Existing local asset from reachpmedia websie by suraj/public/assets/fonts/"
+    }
+  ]
+}

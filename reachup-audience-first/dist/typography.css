@@ -1,0 +1,433 @@
+/* Readable type and responsive brand treatment. Load after the base styles. */
+:root {
+  --muted: #44545b;
+  --type-body: 17px;
+  --type-intro: 18px;
+  --type-section: 44px;
+  --type-card: 22px;
+  --type-action: 15px;
+  --type-caption: 12px;
+}
+
+body {
+  font-family: Manrope, Arial, sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  line-height: 1.15;
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+
+em { font-family: Instrument, Georgia, serif; }
+
+p { line-height: 1.6; }
+
+.hero h1 {
+  font-size: 72px;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  max-width: 630px;
+}
+
+.hero h1 > span { max-width: none; }
+
+.page-intro > h1,
+.case-title-row h1 {
+  font-size: 60px;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+
+h2,
+.section-heading.compact h2,
+.comparison-copy h2,
+.about-story-copy > h2,
+.faq-layout h2,
+.case-overview h2,
+.related-work h2,
+.cta-inner h2 {
+  font-size: var(--type-section);
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+
+.about-preview h2 {
+  font-size: 36px;
+  line-height: 1.3;
+  letter-spacing: -.03em;
+}
+
+.process-step h3,
+.project-info h3,
+.concept-info h3,
+.principle-grid h3,
+.service-row h3,
+.service-row > h3,
+.case-details h3,
+.content-links h3,
+.reel-card-info h3,
+.creator-card h3,
+.creator-card > h3,
+.concept-modal-body h3 {
+  font-size: var(--type-card);
+  line-height: 1.3;
+  letter-spacing: -.025em;
+}
+
+.hero-copy > p,
+.page-intro > p,
+.case-title-row p {
+  font-size: var(--type-intro);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.hero-copy > p { max-width: 490px; }
+.page-intro > p { max-width: 680px; }
+.page-intro > h1 { max-width: 20ch; }
+
+.section-heading > p,
+.section-heading > div > p,
+.process-step p,
+.project-info p,
+.concept-info p,
+.principle-grid p,
+.about-story-copy p,
+.about-story-copy > p,
+.service-row > p,
+.service-detail p,
+.faq-list details > p,
+.case-overview p,
+.case-overview > p,
+.case-details p,
+.contact-layout aside > p,
+.contact-aside-note p,
+.contact-aside-note > p,
+.concept-page-note,
+.concept-modal-description,
+.concept-modal-body p,
+.enquiry-help,
+.prose p {
+  font-size: var(--type-body);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.comparison-copy > p,
+.cta-inner p {
+  font-size: var(--type-body);
+  line-height: 1.6;
+  color: #c6d1cc;
+}
+
+.comparison-copy > p { max-width: 420px; }
+
+.button,
+.button.small,
+.hero-buttons .button,
+.cta-inner > .button,
+.contact-layout form > .button,
+.form-fields > .button,
+.concept-dialog .button,
+.enquiry-actions > .button,
+.text-link,
+.comparison-copy > .text-link,
+.about-preview .text-link,
+.enquiry-actions > .text-link,
+.reel-card-info .text-link,
+.footer-email,
+.contact-method,
+.back-link,
+.reel-load {
+  font-size: var(--type-action);
+  line-height: 1.5;
+}
+
+.button,
+.button.small { min-height: 48px; }
+
+.hero-buttons {
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.hero-buttons .button {
+  padding: 14px 20px;
+  gap: 14px;
+}
+
+.site-header nav,
+.site-header nav > a:not(.button) {
+  font-size: var(--type-action);
+  line-height: 1.5;
+}
+
+.site-header nav { gap: 25px; }
+.site-header nav .button { white-space: nowrap; }
+
+/* The original square logo is shown in full, including its background. */
+.brand { flex-shrink: 0; }
+.brand .brand-logo {
+  display: block;
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+}
+.site-footer .brand .brand-logo { width: 100px; height: 100px; }
+
+.eyebrow,
+.hero .eyebrow,
+.about-preview .eyebrow,
+.cta-inner .eyebrow,
+.case-title-row .eyebrow,
+.step-top > span:last-child,
+.client-strip-inner > span:first-child,
+.client-wordmark small,
+.seven-wordmark small,
+.project-status,
+.image-caption,
+.concept-visual > span,
+.concept-info > small,
+.principle-grid article > span,
+.service-row > span,
+.service-number,
+.case-details article > span,
+.case-details small,
+.case-cover > span,
+.content-index,
+.content-links small,
+.content-links div > span,
+.contact-method small,
+.work-filters > button > span,
+.reel-number,
+.reel-source-label,
+.about-image > span,
+.about-image > small,
+.related-work > span {
+  font-size: var(--type-caption);
+  line-height: 1.5;
+  letter-spacing: .065em;
+}
+
+.hero-note,
+.strip-link,
+.content-note,
+.concept-disclosure,
+.concept-modal-disclosure,
+.form-note,
+.form-heading > p,
+.reel-feedback {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.step-top > span:last-child,
+.client-strip-inner > span:first-child,
+.concept-info > small,
+.principle-grid article > span,
+.service-row > span,
+.case-details article > span,
+.case-details small,
+.content-index,
+.content-links small,
+.contact-method small,
+.concept-disclosure,
+.form-note {
+  color: var(--muted);
+}
+
+.hero-note { align-items: flex-start; }
+.mini-target { flex-shrink: 0; }
+.strip-link { min-height: 44px; }
+
+.art-caption,
+.art-footnote,
+.creator-photo > span,
+.fit-badge,
+.fit-badge strong,
+.art-stamp > span {
+  font-size: var(--type-caption);
+  line-height: 1.4;
+  letter-spacing: .025em;
+}
+
+.creator-photo > span { gap: 6px; padding: 8px; }
+.art-footnote { color: var(--muted); max-width: 85%; }
+.art-stamp { min-width: 120px; min-height: 120px; }
+
+.comparison-lab { min-width: 0; }
+.lab-heading { flex-wrap: wrap; gap: 10px; }
+.lab-heading > span { font-size: 16px; line-height: 1.5; }
+.lab-heading > small { font-size: var(--type-caption); line-height: 1.5; }
+.lab-tabs { flex-wrap: wrap; margin-bottom: 30px; }
+.lab-tabs > button,
+.work-filters > button {
+  min-height: 44px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.creator-comparison { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.creator-card { min-width: 0; padding: 25px 18px 20px; }
+.creator-card > small { font-size: var(--type-caption); line-height: 1.5; }
+.creator-card.matched > small { color: #53664c; }
+.creator-card > p,
+.creator-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #c6d1cc;
+}
+.creator-card.matched > p { color: #445b3b; }
+.follower-number { font-size: 36px; letter-spacing: -.035em; }
+.follower-number > span,
+.follower-number span { font-size: var(--type-caption); line-height: 1.5; }
+.matched .follower-number > span { color: #53664c; }
+.fit-label { gap: 8px; font-size: var(--type-caption); line-height: 1.5; }
+.fit-label > strong { font-size: 18px; }
+.match-chip {
+  font-size: var(--type-caption);
+  line-height: 1.4;
+  letter-spacing: .015em;
+  white-space: normal;
+  text-align: center;
+  padding: 5px 7px;
+  left: 10px;
+  right: 10px;
+  top: -13px;
+}
+.lab-disclaimer { font-size: 13px; line-height: 1.6; color: #bdcbc4; }
+
+.service-detail h2 { font-size: 32px; line-height: 1.2; }
+.service-detail .service-strap { font-size: var(--type-body); line-height: 1.6; }
+.service-detail li { font-size: 16px; line-height: 1.6; }
+.faq-list summary { font-size: var(--type-body); line-height: 1.5; }
+.faq-list summary > .icon { flex-shrink: 0; }
+.form-heading h2,
+.form-heading > h2,
+.contact-layout aside > h2,
+.prose h2 { font-size: 28px; line-height: 1.25; }
+.form-grid > label { font-size: 14px; line-height: 1.5; }
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 48px;
+}
+.form-grid input::placeholder,
+.form-grid textarea::placeholder { color: #657368; }
+.concept-dialog h2,
+.enquiry-dialog h2 { font-size: 36px; line-height: 1.2; }
+.enquiry-dialog pre { font: 15px/1.6 Manrope, Arial, sans-serif; }
+
+.footer-top > p { font-size: 16px; line-height: 1.6; max-width: 320px; }
+.form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.campaign-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 22px; }
+.campaign-status { min-height: 24px; }
+.campaign-status[data-state="success"] { color: #435f2e; font-weight: 650; }
+.campaign-status[data-state="error"] { color: #8b352a; }
+.campaign-actions button:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+.footer-bottom,
+.footer-bottom > div,
+.footer-bottom > span { font-size: var(--type-caption); line-height: 1.6; color: var(--muted); }
+.footer-bottom > div { flex-wrap: wrap; gap: 12px 20px; }
+.footer-bottom a { display: inline-flex; align-items: center; min-height: 32px; }
+.case-cover { height: 320px; }
+
+@media (max-width: 1100px) {
+  .hero h1 { font-size: 64px; }
+  .site-header nav { gap: 16px; }
+  .site-header nav .button { margin-left: 0; padding-inline: 16px; gap: 12px; }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --type-body: 16px;
+    --type-intro: 17px;
+    --type-section: 32px;
+    --type-card: 20px;
+    --type-action: 14px;
+  }
+  .hero h1 { font-size: clamp(48px, 8vw, 64px); }
+  .page-intro > h1,
+  .case-title-row h1 { font-size: 40px; }
+  .brand .brand-logo { width: 64px; height: 64px; }
+  .site-footer .brand .brand-logo { width: 100px; height: 100px; }
+  .site-header nav { gap: 0; }
+  .site-header nav > a:not(.button) { font-size: 14px; }
+  .menu-toggle { margin-left: auto; }
+  .about-preview-inner {
+    display: block;
+  }
+  .about-preview-inner > div { width: 100%; min-width: 0; }
+  .about-preview .asterisk { display: none; }
+  .about-preview h2 { font-size: 32px; line-height: 1.3; margin-top: 18px; }
+  .about-preview h2 br { display: none; }
+  .about-preview .text-link { margin-top: 22px; }
+  .service-detail h2 { font-size: 28px; }
+  .case-cover { height: 260px; }
+  .case-title-row > div { min-width: 0; }
+  .case-client-logo { margin-top: 25px; }
+  .concept-dialog h2,
+  .enquiry-dialog h2 { font-size: 32px; }
+  .form-heading h2,
+  .form-heading > h2 { font-size: 26px; }
+  .section-heading > p,
+  .section-heading > div > p { max-width: 560px; }
+}
+
+@media (max-width: 520px) {
+  .hero h1 { font-size: clamp(44px, 12vw, 48px); line-height: 1.15; }
+  .hero h1 > span { max-width: none; }
+  .hero-buttons { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero-buttons .button { min-height: 52px; padding: 14px 20px; gap: 18px; }
+  .hero-buttons .icon { width: 20px; height: 20px; }
+  .hero-note { gap: 9px; }
+  .art-caption { left: 5%; letter-spacing: .015em; }
+  .art-footnote { left: 5%; }
+  .art-stamp { width: 120px; height: 120px; }
+  .art-stamp > .icon { width: 30px; height: 30px; }
+  .creator-photo > span { padding: 7px; }
+  .fit-badge { padding: 11px 10px; }
+  .client-strip-inner { gap: 22px; }
+  .client-strip-inner > span:first-child { letter-spacing: .055em; }
+  .client-wordmark small { letter-spacing: .06em; }
+  .seven-wordmark { font-size: 12px; letter-spacing: .035em; }
+  .seven-wordmark small { font-size: 12px; letter-spacing: .035em; }
+  .process-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .process-step h3 { max-width: none; }
+  .step-top { margin-bottom: 18px; }
+  .comparison-lab { padding: 22px 18px; }
+  .lab-heading { align-items: flex-start; gap: 10px; }
+  .creator-comparison { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .creator-card { padding: 25px 22px 22px; }
+  .creator-card > h3 { margin-top: 8px; }
+  .follower-number { margin-top: 16px; }
+  .fit-label { margin-top: 18px; }
+  .creator-avatar { width: 38px; height: 38px; font-size: 16px; }
+  .match-chip { width: fit-content; max-width: calc(100% - 28px); right: auto; left: 14px; padding: 5px 10px; }
+  .lab-tabs { gap: 8px; margin-bottom: 28px; }
+  .lab-tabs > button { font-size: 14px; padding: 9px 10px; }
+  .work-filters > button { font-size: 14px; padding: 9px 12px; }
+  .work-filters > button > span { margin-left: 5px; }
+  .footer-top > p { margin-left: 0; flex: 1 1 160px; }
+  .footer-bottom > div { justify-content: flex-start; gap: 8px 20px; }
+  .footer-email { overflow-wrap: anywhere; }
+  .case-cover { height: 220px; }
+  .case-client-logo { width: 54px; height: 54px; }
+  .case-title-row { gap: 14px; }
+  .case-title-row p { margin-top: 16px; }
+  .service-detail h2 { font-size: 26px; }
+  .service-detail { grid-template-columns: 25px minmax(0, 1fr); }
+  .form-grid > label { font-size: 14px; }
+  .concept-dialog h2,
+  .enquiry-dialog h2 { font-size: 28px; }
+  .enquiry-dialog pre { font-size: 14px; }
+  .reel-card-info h3 { font-size: 20px; }
+  .reel-card-info .text-link,
+  .reel-load { font-size: 14px; }
+  .reel-feedback { font-size: 13px; }
+}
