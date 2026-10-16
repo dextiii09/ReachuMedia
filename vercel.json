@@ -4,6 +4,12 @@
   "functions": { "api/enquiry.mjs": { "maxDuration": 30 } },
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/portfolio", "destination": "/work", "permanent": true },
+    { "source": "/portfolio.html", "destination": "/work", "permanent": true },
+    { "source": "/thanks", "destination": "/contact", "permanent": true },
+    { "source": "/thanks.html", "destination": "/contact", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
